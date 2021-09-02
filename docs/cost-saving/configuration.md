@@ -1,6 +1,6 @@
 # Simloud cost saving configuration
 
-Supported cloud resources:
+Supported cloud resources3:
 
 Stand alone EC2 instances.
 Auto scaling for EC2 instances
