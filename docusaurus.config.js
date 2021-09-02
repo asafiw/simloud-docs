@@ -13,6 +13,9 @@ module.exports = {
   organizationName: "dospolov", // Usually your GitHub org/user name.
   projectName: "simloud-docs", // Usually your repo name.
   themeConfig: {
+    colorMode: {
+      defaultMode: "dark",
+    },
     navbar: {
       title: "docs",
       logo: {
@@ -54,9 +57,6 @@ module.exports = {
     [
       "@docusaurus/preset-classic",
       {
-        colorMode: {
-          defaultMode: "dark",
-        },
         docs: {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
