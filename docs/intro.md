@@ -6,32 +6,11 @@ routeBasePath: "/"
 
 # Onboarding Intro
 
-Let's discover **Docusaurus in less than 5 minutes**.
-
-## Getting Started
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**:
-
-```shell
-npx @docusaurus/init@latest init my-website classic
-```
-
-## Start your site
-
-Run the development server:
-
-```shell
-cd my-website
-
-npx docusaurus start
-```
-
-Your site starts at `http://localhost:3000`.
-
-Open `docs/intro.md` and edit some lines: the site **reloads automatically** and display your changes.
+1. Browse to simloud portal: https://portal.simloud.com/
+2. Login using your credentials.
+3. Go to the Account tab.
+   - Press "Add Account" button.
+   - Follow the instructions in the pop up message.
+     ![](/img/onboarding/intro/image1.png)
+   - Download the CloudFormation script to your local computer.
+   - Open your AWS account console CloudFormation service and press the Create stack button.

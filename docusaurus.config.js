@@ -14,10 +14,10 @@ module.exports = {
   projectName: "simloud-docs", // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: "Simloud documentation",
+      title: "docs",
       logo: {
         alt: "Simloud documentation",
-        src: "img/favicon.svg",
+        src: "img/logo.svg",
       },
       items: [
         {
