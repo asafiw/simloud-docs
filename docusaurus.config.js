@@ -9,7 +9,7 @@ module.exports = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.svg",
   organizationName: "dospolov", // Usually your GitHub org/user name.
   projectName: "simloud-docs", // Usually your repo name.
   themeConfig: {
@@ -17,7 +17,7 @@ module.exports = {
       title: "Simloud documentation",
       logo: {
         alt: "Simloud documentation",
-        src: "img/logo.svg",
+        src: "img/favicon.svg",
       },
       items: [
         {
@@ -63,13 +63,12 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/facebook/docusaurus/edit/main/website/",
+          editUrl: "https://github.com/dospolov/simloud-docs",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/main/website/blog/",
+          editUrl: "https://github.com/dospolov/simloud-docs",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
