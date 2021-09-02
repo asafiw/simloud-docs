@@ -22,7 +22,7 @@ module.exports = {
       items: [
         {
           type: "doc",
-          docId: "intro",
+          docId: "getting-started",
           position: "left",
           label: "Onboarding",
         },
@@ -60,13 +60,12 @@ module.exports = {
     [
       "@docusaurus/preset-classic",
       {
-        docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          editUrl: "https://github.com/dospolov/simloud-docs/tree/main/",
+        colorMode: {
+          defaultMode: "dark",
         },
-        blog: {
-          showReadingTime: true,
+        docs: {
+          routeBasePath: "/",
+          sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/dospolov/simloud-docs/tree/main/",
         },

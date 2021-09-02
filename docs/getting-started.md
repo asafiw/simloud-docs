@@ -1,8 +1,9 @@
 ---
 sidebar_position: 1
+slug: "/"
 ---
 
-# Onboarding Intro
+# Getting started
 
 1. Browse to simloud portal: https://portal.simloud.com/
 2. Login using your credentials.
