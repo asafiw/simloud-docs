@@ -21,12 +21,6 @@ module.exports = {
       },
       items: [
         {
-          type: "doc",
-          docId: "getting-started",
-          position: "left",
-          label: "Onboarding",
-        },
-        {
           href: "https://github.com/dospolov/simloud-docs",
           label: "GitHub",
           position: "right",
