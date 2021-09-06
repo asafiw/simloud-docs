@@ -1,7 +1,7 @@
 # Simloud connect to K8s and AWS services
 
-1. Install and enable docker in your local computer - https://docs.docker.com/get-docker/
-2. Install and configure AWS cli in your local computer - https://aws.amazon.com/cli/
+1. Install and enable [Docker](https://docs.docker.com/get-docker/) in your local computer.
+2. Install and configure [AWS CLI](https://aws.amazon.com/cli/) in your local computer.
 3. Configure aws cli user in your local directory.
 4. Create a new cloud user in your Simloud account:
 
@@ -15,7 +15,43 @@
 
 ![](/img/onboarding/connect-k8s-aws/image3.png)
 ![](/img/onboarding/connect-k8s-aws/image4.png)
-![](/img/onboarding/connect-k8s-aws/image5.png)
+
+### How to connect K8s
+
+1. Make sure that your [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) credentials are intalled on your local computer.
+2. Enable [Docker](https://docs.docker.com/engine/install/) in your local computer.
+3. Copy the following docker commands and run it locally:
+
+   **Windows**
+
+   ```
+   docker run --rm -ti -v %HOMEDRIVE%%HOMEPATH%/.kube:/root/.kube -v %HOMEDRIVE%%HOMEPATH%/.ssh:/root/.ssh -v %HOMEDRIVE%%HOMEPATH%/.aws:/root/.aws -v %CD%:/code simloud/aws-tools:1.1.28 /bin/bash
+   ```
+
+   **Mac/Linux**
+
+   ```
+   docker run --rm -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $(pwd):/code simloud/aws-tools:1.1.28 /bin/bash
+   ```
+
+4. Copy assume role and run it inside your docker.
+   :::note
+   Connect string will be generated after deployment creation.
+   :::
+
+5. Copy file from/to docker _(Optional)_
+
+   **From**
+
+   ```
+   docker cp simloud:tmp/yourfile /tmp/yourfile
+   ```
+
+   **To**
+
+   ```
+   docker cp /tmp/yourfile simloud:tmp/yourfile
+   ```
 
 ### How to access jenkins/grafana/k8s-dashboarf
 
@@ -23,17 +59,31 @@ Open deployment menu and choose the service:
 
 ![](/img/onboarding/connect-k8s-aws/image6.png)
 
-1. Jenkins - admin/LA#$4zUFl%Xk9!WM
-2. monitoring (grafana) - admin/password
-   password = kubectl get secret --namespace kube-system grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
+1. Jenkins - `admin` / `LA#$4zUFl%Xk9!WM`
+2. monitoring (grafana) - `admin` / `password`
+
+   **Password:**
+
+   ```
+   kubectl get secret --namespace kube-system grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
+   ```
+
 3. vault (Hashicorp vault) - token
-   Token = kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.root_token}" | base64 -d ; echo
-4. k8s dashboard - click on the CPU/Memory graph
+
+   **Token:**
+
+   ```
+   kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.root_token}" | base64 -d ; echo
+   ```
+
+4. K8s dashboard - click on the CPU/Memory graph
 
 Use token.
 
-```jsx
-Token = kubectl get secret -n kube-system $(kubectl get secret -n kube-system | grep dashboard-token | awk '{ print $1 }') -o jsonpath="{.data.token}" | base64 -d ; echo
+**Token**
+
+```
+kubectl get secret -n kube-system $(kubectl get secret -n kube-system | grep dashboard-token | awk '{ print $1 }') -o jsonpath="{.data.token}" | base64 -d ; echo
 ```
 
 ### How to access AWS services - Cloudwatch logs/System manager
@@ -61,21 +111,29 @@ Token = kubectl get secret -n kube-system $(kubectl get secret -n kube-system | 
 5. SSH to pod
 
    - Get list of pods:
-     - kubectl get pod
+     ```
+     kubectl get pod
+     ```
    - Connect to pods:
-     - kubectl exec --stdin --tty pod-xx -- /bin/sh
-     - kubectl exec --stdin --tty pod-xx -- /bin/bash
+     ```
+     kubectl exec --stdin --tty pod-xx -- /bin/sh
+     ```
+     ```
+     kubectl exec --stdin --tty pod-xx -- /bin/bash
+     ```
    - Mount a folder to the local docker linux/mac:
 
-     ```jsx
+     ```
      docker run --rm -ti -v $HOME/Downloads:/tmp -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $(pwd):/code hub.simloudcorp.customers.simloud.com/simloud/simloud-tools:1.1.28 /bin/bash
      ```
 
    - Mount a folder to the local docker windows:
 
-     ```jsx
+     ```
      docker run --rm -ti -v %HOMEDRIVE%%HOMEPATH%/.kube:root/.kube -v %HOMEDRIVE%%HOMEPATH%/.ssh:/root/.ssh -v %HOMEDRIVE%%HOMEPATH%/.aws:/root/.aws -v %CD%:/code simloud/aws-tools:1.1.26 /bin/bash
      ```
 
    - Copy to pod from local docker
-     - kubectl cp file pod-xx:/service/srv/tmp
+     ```
+     kubectl cp file pod-xx:/service/srv/tmp
+     ```
