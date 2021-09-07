@@ -1,26 +1,28 @@
 # Kubectl port forwarding
 
-Enable AWS credential configuration.
+1. Enable [AWS credential](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) configuration.
 
-Enable docker on your computer
+2. Enable docker on your computer.
 
-Run simloud docker image
+3. Run simloud docker image.
 
-On your local computer run following command:
+   On your local computer run following command:
 
-```
-docker run --rm --network host -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws simloud/aws-tools:1.1.22 /bin/bash
-```
+   ```
+   docker run --rm --network host -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws simloud/aws-tools:1.1.22 /bin/bash
+   ```
 
-Add your aws user to trusted relationships role
+4. Add your aws user to trusted relationships role.
 
-Assume kubernetes role
+5. Assume kubernetes role.
 
-Copy assumeRole script from UI by pressing the Copy AssumeRole button. That will copy a command line to your clipboard. Paste it into the docker and run it inside the docker
+Copy assumeRole script from UI by pressing the Copy AssumeRole button. That will copy a command line to your clipboard. Paste it into the docker and run it inside the docker.
 
-And paste
+![](/img/kubernetes/kubectl-port-forwarding/image1.png)
 
-Check kubectl access to kubernetes API
+And paste.
+
+6. Check kubectl access to kubernetes API.
 
 ```
 root@docker-desktop:/code# kubectl get nodes
@@ -29,7 +31,7 @@ ip-10-0-104-33.eu-central-1.compute.internal Ready <none> 8h v1.18.9-eks-d1db3c
 ip-10-0-12-245.eu-central-1.compute.internal Ready <none> 8h v1.18.9-eks-d1db3c
 ```
 
-Get chart notes of the relevant chart
+7. Get chart notes of the relevant chart.
 
 For couchbase chart use the following command:
 
@@ -85,11 +87,10 @@ Installing, downloading or otherwise using this software is subject to the Couch
    helm status couchbase
 ```
 
-5. Set port-forwarding
+8. Set port-forwarding.
 
 That action should be performed outside the docker in your local computer for Windows and MacOS
-
-(in Linux like OS you can run inside docker container)
+(in Linux like OS you can run inside docker container).
 
 Use the commands from the helm note output:
 
@@ -107,26 +108,26 @@ Rabitmq:
 
 Jenkins:
 
-`#kubectl port-forward service/jenkins 7000:80`
+```
+#kubectl port-forward service/jenkins 7000:80
+```
 
-Note
+**Note**
 
-The service port can be detected from: kubectl get service | grep service name
+The service port can be detected from: `kubectl get service | grep service name`
 
-E.g. kubectl get service | grep couchbase
+E.g. `kubectl get service | grep couchbase`
 
-6. Access web url according to port
+9. Access web url according to port.
 
-Couchbase -
+- Couchbase - http://127.0.0.1:8091
 
-Credentials - use helm note output
+  Credentials - use helm note output:
+  `#helm get notes couchbase`
 
-`#helm get notes couchbase`
+- Rabitmq - http://127.0.0.1:15672/
 
-Rabitmq - http://127.0.0.1:15672/
+  Find credentials in:
+  `#helm get notes rabbitmq`
 
-            Find credentials in
-
-            ```#helm get notes rabbitmq```
-
-Jenkins http://127.0.0.1:15672/
+- Jenkins http://127.0.0.1:15672/
