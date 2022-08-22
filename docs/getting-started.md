@@ -7,8 +7,8 @@ slug: "/"
 
 1. Browse to simloud portal: https://portal.simloud.com/
 2. Login using your credentials.
-3. Go to the Account tab.
-   - press "Add Account" button.
+3. Go to the Accounts tab.
+   - press "+ Add Account" button.
    - Follow the instructions in the pop up message.
      ![](/img/onboarding/intro/image1.png)
    - Download the CloudFormation script to your local computer.
