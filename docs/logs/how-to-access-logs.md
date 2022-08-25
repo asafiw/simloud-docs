@@ -5,7 +5,7 @@ Simloud configure logs in AWS CloudWatch Insight, for both application and infra
 1. In Simloud UI, on the main dashboard page choose deployment whose logs should be displayed.
 2. Open context menu (three dots on the right side) and press **CloudWatch logs**.
 
-![](/img/logs/how-to-access-logs/image1.jpg)
+![](/img/logs/how-to-access-logs/image1.png)
 
 Now you can see CloudWatch Insight page with pre-defined log groups (no need to remove and add something), datetime picker (you can customize period of logs) and query form (you can customize query using powerful query language, see [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) for more details). Once you select datetime and query is ready, press **Run query**.
 
@@ -79,4 +79,4 @@ Don't forget to change the namespace to the one in which the POD is located.
 
 Example output from searching logs of ingress POD:
 
-![](/img/logs/how-to-access-logs/image9.png)
+![](/img/logs/how-to-access-logs/image3.png)

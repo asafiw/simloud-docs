@@ -18,6 +18,9 @@
 - Chose the following options, upload the script and click on the **Next** button.
 
 ![](/img/cost-saving/configuration/image2.png)
+
+- Give stack a name and click on the **Next** button.
+
 ![](/img/cost-saving/configuration/image3.png)
 
 - Scroll down and click again on the **Next** button.

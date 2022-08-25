@@ -17,7 +17,7 @@ kubectl get secret vault-root-token --namespace kube-system -- template={{.data.
 
 5. Open context menu (three dots on the right side) and press “Vault”.
 
-   ![](/img/onboarding/how-to-use-vault/image2.jpg)
+   ![](/img/onboarding/how-to-use-vault/image2.png)
 
 6. In Vault UI paste output from previous command in “Token” field.
 

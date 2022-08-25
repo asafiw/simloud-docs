@@ -14,7 +14,6 @@
 6. Go to the deployment which is configured with this cloud account and press the button "Connect K8s" and follow the instructions:
 
 ![](/img/onboarding/connect-k8s-aws/image3.png)
-![](/img/onboarding/connect-k8s-aws/image4.png)
 
 ### How to connect K8s
 
@@ -57,7 +56,7 @@
 
 Open deployment menu and choose the service:
 
-![](/img/onboarding/connect-k8s-aws/image6.png)
+![](/img/onboarding/connect-k8s-aws/image4.png)
 
 1. Jenkins - `admin` / `LA#$4zUFl%Xk9!WM`
 2. monitoring (grafana) - `admin` / `password`
@@ -91,7 +90,7 @@ kubectl get secret -n kube-system $(kubectl get secret -n kube-system | grep das
 1. Login to your aws console.
 2. Click the relevant button on Simloud UI
 
-![](/img/onboarding/connect-k8s-aws/image7.png)
+![](/img/onboarding/connect-k8s-aws/image5.png)
 
 3. System manager:
 
