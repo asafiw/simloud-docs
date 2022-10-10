@@ -1,0 +1,17 @@
+NAME                  	NAMESPACE     	REVISION	UPDATED                                	STATUS  	CHART                      	APP VERSION
+autoscaler            	kube-system   	1       	2022-09-05 10:27:24.770981889 +0000 UTC	deployed	autoscaler-1.4.8           	2.0.0      
+consul                	default       	1       	2022-09-05 10:30:23.234301051 +0000 UTC	deployed	consul-7.1.12              	1.10.1     
+cw-logs               	default       	1       	2022-09-05 10:27:24.859377712 +0000 UTC	deployed	cw-logs-2.0.4              	2.21.5     
+dashboard             	default       	1       	2022-09-05 10:35:14.399388974 +0000 UTC	deployed	dashboard-2.4.13           	2.0.4      
+external-dns          	simloud-common	1       	2022-09-05 10:27:42.595447432 +0000 UTC	deployed	external-dns-2.20.9        	0.10.2     
+fe-canaveral          	default       	2       	2022-09-05 17:08:17.840308725 +0000 UTC	deployed	generic-microservice-2.0.25	lts        
+grafana               	default       	1       	2022-09-05 10:35:14.501658292 +0000 UTC	deployed	grafana-5.5.23             	7.2.0      
+ingress-nginx         	default       	13      	2022-09-05 17:22:28.821090813 +0000 UTC	deployed	ingress-nginx-2.3.10       	0.31.1     
+ingress-nginx-internal	default       	13      	2022-09-05 17:22:44.775441142 +0000 UTC	deployed	ingress-nginx-2.3.10       	0.31.1     
+jenkins               	default       	1       	2022-09-05 10:35:14.496036497 +0000 UTC	deployed	jenkins-5.1.107            	2.350-2396 
+kubed                 	kube-system   	1       	2022-09-05 10:27:52.61260044 +0000 UTC 	deployed	kubed-1.0.1                	v0.12.0    
+lambda-service-1      	default       	2       	2022-09-05 17:04:37.001126531 +0000 UTC	deployed	generic-microservice-2.0.25	lts        
+lambda-service-2      	default       	2       	2022-09-05 17:04:37.311453165 +0000 UTC	deployed	generic-microservice-2.0.25	lts        
+metrics-server        	default       	1       	2022-09-05 10:27:52.631268064 +0000 UTC	deployed	metrics-server-2.11.3      	0.3.6      
+simloud-base          	default       	1       	2022-09-05 10:27:17.016990981 +0000 UTC	deployed	simloud-base-1.0.1         	1.16.0     
+vault                 	default       	1       	2022-09-05 10:30:51.514420914 +0000 UTC	deployed	vault-0.19.3               	1.9.2      

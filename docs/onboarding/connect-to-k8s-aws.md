@@ -5,15 +5,15 @@
 3. Configure aws cli user in your local directory.
 4. Create a new cloud user in your Simloud account:
 
-![](/img/onboarding/connect-k8s-aws/image1.png)
+![](../../../img/onboarding/connect-k8s-aws/image1.png)
 
 5. Add this user to your cloud account and press the save button:
 
-![](/img/onboarding/connect-k8s-aws/image2.png)
+![](../../../img/onboarding/connect-k8s-aws/image2.png)
 
 6. Go to the deployment which is configured with this cloud account and press the button "Connect K8s" and follow the instructions:
 
-![](/img/onboarding/connect-k8s-aws/image3.png)
+![](/../../img/onboarding/connect-k8s-aws/image3.png)
 ![](/img/onboarding/connect-k8s-aws/image4.png)
 
 ### How to connect K8s
@@ -25,16 +25,16 @@
    **Windows**
 
    ```
-   docker run --rm -ti -v %HOMEDRIVE%%HOMEPATH%/.kube:/root/.kube -v %HOMEDRIVE%%HOMEPATH%/.ssh:/root/.ssh -v %HOMEDRIVE%%HOMEPATH%/.aws:/root/.aws -v %CD%:/code simloud/aws-tools:1.1.28 /bin/bash
+   docker run --rm -ti -v %HOMEDRIVE%%HOMEPATH%/.kube:/root/.kube -v %HOMEDRIVE%%HOMEPATH%/.ssh:/root/.ssh -v %HOMEDRIVE%%HOMEPATH%/.aws:/root/.aws -v %CD%:/code simloud/aws-tools:1.1.34 /bin/bash
    ```
 
    **Mac/Linux**
 
    ```
-   docker run --rm -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $(pwd):/code simloud/aws-tools:1.1.28 /bin/bash
+   docker run --rm -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $(pwd):/code simloud/aws-tools:1.1.34 /bin/bash
    ```
 
-4. Copy assume role and run it inside your docker.
+4. Copy assume role and run it inside your docker container.
    :::note
    Connect string will be generated after deployment creation.
    :::
@@ -59,13 +59,13 @@ Open deployment menu and choose the service:
 
 ![](/img/onboarding/connect-k8s-aws/image6.png)
 
-1. Jenkins - `admin` / `LA#$4zUFl%Xk9!WM`
+1. Jenkins - `admin` / `LA#$4zUFl%Xk9!WM`  ????? should I left it or change to command?
 2. monitoring (grafana) - `admin` / `password`
 
    **Password:**
 
    ```
-   kubectl get secret --namespace kube-system grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
+   kubectl get secret --namespace kube-system  grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
    ```
 
 3. vault (Hashicorp vault) - token
@@ -83,7 +83,7 @@ Use token.
 **Token**
 
 ```
-kubectl get secret -n kube-system $(kubectl get secret -n kube-system | grep dashboard-token | awk '{ print $1 }') -o jsonpath="{.data.token}" | base64 -d ; echo
+kubectl get secret -n kube-system  $(kubectl get secret -n kube-system | grep dashboard-token | awk '{ print $1 }') -o jsonpath="{.data.token}" | base64 -d ; echo
 ```
 
 ### How to access AWS services - Cloudwatch logs/System manager

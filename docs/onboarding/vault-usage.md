@@ -5,13 +5,13 @@
 2. Run this command in terminal:
 
 ```
-kubectl get secret vault-root-token --namespace kube-system -- template={{.data.root_token}} | base64 -d && echo
+kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.root_token}" | base64 -d ; echo
 ```
 
 3. Copy the output
 
    _Example output_
-   ![](/img/onboarding/how-to-use-vault/image1.jpg)
+   ![](../../../img/onboarding/how-to-use-vault/image1.jpg)
 
 4. In Simloud UI, on the main dashboard page choose deployment in which you want to use Vault.
 
@@ -25,7 +25,7 @@ kubectl get secret vault-root-token --namespace kube-system -- template={{.data.
 
 7. Here you can manage all your secrets.
 
-   ![](/img/onboarding/how-to-use-vault/image4.jpg)
+   ![](../../../img/onboarding/how-to-use-vault/image4.jpg)
 
 ## Examples of using Vault:
 

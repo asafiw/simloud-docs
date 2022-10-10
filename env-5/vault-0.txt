@@ -1,0 +1,167 @@
+==> Vault server configuration:
+
+              HA Storage: consul
+             Api Address: http://10.0.128.85:8200
+                     Cgo: disabled
+         Cluster Address: https://vault-0.vault-internal:8201
+              Go Version: go1.17.5
+              Listener 1: tcp (addr: "[::]:8200", cluster address: "[::]:8201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
+               Log Level: info
+                   Mlock: supported: true, enabled: false
+           Recovery Mode: false
+                 Storage: s3
+                 Version: Vault v1.9.2
+             Version Sha: f4c6d873e2767c0d6853b5d9ffc77b0d297bfbdf
+
+==> Vault server started! Log data will stream in below:
+
+2022-09-05T17:23:41.561Z [INFO]  proxy environment: http_proxy="\"\"" https_proxy="\"\"" no_proxy="\"\""
+2022-09-05T17:23:42.797Z [WARN]  ha.consul: appending trailing forward slash to path
+2022-09-05T17:23:42.836Z [INFO]  core: Initializing VersionTimestamps for core
+2022-09-05T17:23:42.838Z [INFO]  core: stored unseal keys supported, attempting fetch
+2022-09-05T17:23:42.911Z [INFO]  core.cluster-listener.tcp: starting listener: listener_address=[::]:8201
+2022-09-05T17:23:42.912Z [INFO]  core.cluster-listener: serving cluster requests: cluster_listen_address=[::]:8201
+2022-09-05T17:23:42.912Z [INFO]  core: vault is unsealed
+2022-09-05T17:23:42.912Z [INFO]  core: entering standby mode
+2022-09-05T17:23:42.989Z [INFO]  core: unsealed with stored key
+2022-09-05T17:24:09.280Z [INFO]  core: acquired lock, enabling active operation
+2022-09-05T17:24:09.506Z [INFO]  core: post-unseal setup starting
+2022-09-05T17:24:09.583Z [INFO]  core: loaded wrapping token key
+2022-09-05T17:24:09.629Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
+2022-09-05T17:24:09.695Z [INFO]  core: successfully mounted backend: type=system path=sys/
+2022-09-05T17:24:09.695Z [INFO]  core: successfully mounted backend: type=identity path=identity/
+2022-09-05T17:24:09.711Z [INFO]  core: successfully mounted backend: type=kv path=jenkins/
+2022-09-05T17:24:09.724Z [INFO]  core: successfully mounted backend: type=kv path=default-app/
+2022-09-05T17:24:09.735Z [INFO]  core: successfully mounted backend: type=kv path=secrets/
+2022-09-05T17:24:09.748Z [INFO]  core: successfully mounted backend: type=kv path=ssh/
+2022-09-05T17:24:09.749Z [INFO]  core: successfully mounted backend: type=pki path=pki/
+2022-09-05T17:24:09.749Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
+2022-09-05T17:24:09.909Z [INFO]  core: successfully enabled credential backend: type=token path=token/
+2022-09-05T17:24:09.909Z [INFO]  core: successfully enabled credential backend: type=kubernetes path=kubernetes/
+2022-09-05T17:24:09.909Z [INFO]  core: successfully enabled credential backend: type=jwt path=jwt/
+2022-09-05T17:24:09.945Z [INFO]  core: restoring leases
+2022-09-05T17:24:09.945Z [INFO]  rollback: starting rollback manager
+2022-09-05T17:24:10.048Z [INFO]  identity: entities restored
+2022-09-05T17:24:10.117Z [INFO]  identity: groups restored
+2022-09-05T17:24:10.283Z [INFO]  expiration: lease restore complete
+2022-09-05T17:24:10.397Z [INFO]  core: usage gauge collection is disabled
+2022-09-05T17:24:10.427Z [INFO]  core: post-unseal setup complete
+2022-09-05T17:32:16.295Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h618a7466b7e06c65c20fea107ca9eca004e2293a56aaf67b744301bcfd0b62f4
+2022-09-05T17:32:16.297Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h274591ac493671769739438bb1fa378c82cc05653400b4bb348257bedba3ecd1
+2022-09-05T17:32:16.297Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h642a829505eb4ad27586a28b1dee899d744aae7af5f51565e5837b3c232796ef
+2022-09-05T17:32:16.308Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h2f356ba141e53730265a9e93514ad14422ddcf5c56da1c18356cb4d657b50475
+2022-09-05T17:32:16.313Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/he6721fce171ec91cb24435ee833b61c7bdbf4bf12655464e50a350514fae8bc5
+2022-09-05T17:32:17.781Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hc71ca02a5abbbfb0daaa2716223af9e8c8402d0ff859ab9fc78cd3728a56a73c
+2022-09-05T17:32:17.832Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h612c200ccf31172151e352f4f5235e310d0a822359ea49591a83a9be8cec0be9
+2022-09-05T17:32:17.904Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h5a122df0a3d0f5fa40973bc0dbb2594fe73f1c14d03f6ef48cb5ab155b25cc70
+2022-09-05T17:32:17.928Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h223918435944484e3b1c2da6edd7d163439af2bb3b40d0a2b34300469b5feddd
+2022-09-05T17:32:17.954Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h684ded6a5a3cd0ae140f8d698da72b63ef5149a077b5ff97da0fcb1cd0426101
+2022-09-05T17:32:29.447Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h3e6f9df491130be6b73f3c6b4012a232aa7a7a63b92ba9d911c5031173713cb9
+2022-09-05T17:32:29.483Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hb0a62973027f0471dfa2479da67db59e1627a1bfef07fa30fcbc36d537f06c1b
+2022-09-05T17:32:29.560Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h0182375c27a30a154d81b567025f76bf3255f715a9ef5cde437eb964df4c7d43
+2022-09-05T17:32:29.605Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hb91fc45c659b97ae0596ab96c210ba2da5ab2b1f712d9d3b201228a2bae2fe4b
+2022-09-05T17:32:29.656Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/ha7adac61d406f597a5dc8bcf2ef17a15f8f4d1ca68a622651ec5b0f82c32804c
+2022-09-05T17:32:40.249Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h9d936acd60bf6453b7bcc6570af54e33ac477d215a7da6a1a74844d716077232
+2022-09-05T17:32:40.272Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hf2b2a187e5a3ae3d2270e640ee6a4d44dbed043eae8f4c3c9efc14f3d06c9320
+2022-09-05T17:32:40.305Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h2d2eb45f69f2eeef3b2c3478d8c7cb3cba034ea75b4f72da02523dbcfddb6327
+2022-09-05T17:32:40.343Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h3fd8231ffc74a4334472aebf462491edf26cff263b293d8e12df062ad8cf9670
+2022-09-05T17:32:40.353Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h47bcf3ce5b08fc7ec7ce98861d2c6debc40a1f55174ecfa703b4a76cb0c63873
+2022-09-05T17:32:50.990Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h04ce01252b90df2c82c571cbe6b99d5a9e6be007e2a932185cbafc1990cb80c1
+2022-09-05T17:32:51.020Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h6e4383b420db66fa1257f92057648cb4b5da2825c0ef547d0ba3a42b4d809f63
+2022-09-05T17:32:51.034Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h13066831b2ea1f362a3042b2dc8ab59755cca68a070d3db7e0f2cd2b1a1832d4
+2022-09-05T17:32:51.090Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hc2cda8cb7beb8d3c00e4917f9e65f894e988eab45245de73c98af8e79e5c6244
+2022-09-05T17:32:51.119Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hb0cd48e71dc6aae6e4650b61d6f17b09632e2b375579942c22fd4d03113be208
+2022-09-05T17:33:01.744Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h0612ffe5b92efbf6a3047fbdcf5194454b9746e5a1a4796c648b32165aac0877
+2022-09-05T17:33:01.757Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h2b635d4fb8bcd9e4b74e70f381b0870f2f94ad01b699e45720f220fdaf61a14b
+2022-09-05T17:33:01.816Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h16cf99911d3011d6c0e7f14dc2b132c1235a1d2552f69bb45ba1ad008341b256
+2022-09-05T17:33:01.851Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hfa3bccb3627ce6ed3969485ae64ac861cf39bc4d5d614c511a2def31bc761b88
+2022-09-05T17:33:01.885Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h820eb47da91468da14ff1935bbc7375cf48fd6979622684fc951c2b6ee8843df
+2022-09-05T17:33:12.508Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h3da1e0a802db3e0b68d3e23fa4199a2ce71c9fd25a2ad2c02ed12fdd89d5e330
+2022-09-05T17:33:12.651Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hd85e237c0dcfe263ffca77e501866444444c9769440be84f6c48c942ebc04cec
+2022-09-05T17:33:12.669Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h569dd5ccfeff6b9309ed48b40b9e9a58260f98c0d5458141fc44275dc55f818b
+2022-09-05T17:33:12.688Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hba34965a04b9f51dd57b22942284cb85030b6756af34494e75f2d96a1e30b055
+2022-09-05T17:33:12.834Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h9be335f9b8380e1e9664e5463044398d908ad2e2aeaf23c1629dece625c08094
+2022-09-05T17:33:23.157Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hfd6e2ef740af79330211f592dbb1f7b5d4f42a8c68e5e2e4ac9acd4c51acf3f9
+2022-09-05T17:33:23.298Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hb3d787b74465323250f2603a8da742c0cabe54eb3e48864ef90109d968ef2e08
+2022-09-05T17:33:23.324Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hf6c4d47c771ee89df6372637f3631ef41951959f6c2e1903a09a93a18592b2d7
+2022-09-05T17:33:23.461Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/he2d0446fd3fa4bd367b82dab878804ceaee855b633066a9425266c083db801fc
+2022-09-05T17:33:23.468Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h4067baa68899025541fdf901b97f1a46cf0905481aacaf57d5e3b06d31ccf4f0
+2022-09-05T17:33:33.830Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/ha57ae679d03efa6d9c9830147043c86bc2ca0cf2b671f7ac658d1f92904a30e6
+2022-09-05T17:33:33.943Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h91f8b79266de015a4a4bf135c8759ef6f2560730a0a90e1bf83b95251f735389
+2022-09-05T17:33:34.116Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hfe6f34941a1ecb1867940608e60d8f4dd4e8caf44a2d6a46c4921e859f371bff
+2022-09-05T17:33:34.167Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h8bd44e3245ed3518e6dabef84fdf89e3b918ff6b05fbd6d1b61e36ea89beea06
+2022-09-05T17:33:34.230Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/haff75d67f44d9cc13fc5a6013aa5e3468906ad9a595cdacee02f429f9df3dc76
+2022-09-05T17:33:44.496Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h200baaa196c73b4a207be17e04d7b63a14f62d66d373361b7ee49c666f34b71a
+2022-09-05T17:33:44.545Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h457a32c7c9dff43c4e672552d6bf4e5ff021dec985579b7a49ddf5c3088e6ba0
+2022-09-05T17:33:44.782Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h70738ae683f2a3f4aa9ba868599c5d9e333220029694a48b3a472d5489d9cce9
+2022-09-05T17:33:44.874Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h63643e79ad28728fa55c2bd7d79587184f508f080bd461b599ee3b970b33baa7
+2022-09-05T17:33:44.879Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h6fae4f6d1aa975300973d65c494df0604847c4e24a50880c6383d94dcc89e605
+2022-09-05T17:33:55.202Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h7491553f6f6ea089d62e4bd1fee6b26dfa3eb7466a8cc27d3e489754e1c3d481
+2022-09-05T17:33:55.311Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hc89d6570e8ec7e879d38d2060f04d77ab26e968404f3264f2a35e5f54017d38d
+2022-09-05T17:33:55.421Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h0dd8738a69f4c8262ccadf7adae5027e06d4741966fb1df85227cbe62575ca9b
+2022-09-05T17:33:55.475Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h534195b8aa14b60d1755f9245a8adc6bb7ee91ffc010e037866d4ae7b6eb994c
+2022-09-05T17:33:55.485Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h8a58b020267ef9006c7d176bd1a4a966ff3680ba20b9bebe9af205670f2088be
+2022-09-05T17:34:05.920Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h9579a2cd1cbc3465242b4e064e3bf2f901e80dfdcdf27b9d31c6a5fbe995190a
+2022-09-05T17:34:06.158Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h8bbc3cbf129add020e455546df5dbac5346d69f75f148766de4e60788565c178
+2022-09-05T17:34:06.173Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h3ac51377fe92249ca2b766d4c6825f3ddaded9a96285e6cf66d47d10ddf2eee4
+2022-09-05T17:34:06.254Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h5d2748c680fb4d38eb148d2111734d399922c836fda5652fb10e36ff61319634
+2022-09-05T17:34:06.298Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/ha57f684ccbb9fd144748391c6bd6538523268da013d804470ee7dd406183d7ea
+2022-09-05T17:34:16.771Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hd96e1413e90aa6bb3dcb992b215ae6819eb3e03d1deaf24e5317b57e30aa3268
+2022-09-05T17:34:16.809Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h868e1ccc49d0e5be43fda8b8e5de97e4f13f270118b833ac2f0dc584e905fcfb
+2022-09-05T17:34:16.863Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h0c477044c25b401c7491271b2bf1c54e500cc62b119d2fd018151f1ef014d39e
+2022-09-05T17:34:16.960Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hf0ddd52c7f3aa757abb2dd529a9222f1d5809a9b46a484aa1465e02b641a5984
+2022-09-05T17:34:16.999Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hd9e46bd1498f5c4a508157788e755f5a2b882252ee80219e8b3e662d0403996d
+2022-09-05T17:34:27.465Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h8d80d4d41d4c09cbf2ae5d5f7566b7179fdb2203b0d5207e53a93bcb91744ee5
+2022-09-05T17:34:27.485Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hc4bfe7c4955ce1531e70bb251850d3c353d9227c8883931fd96349b398a27a96
+2022-09-05T17:34:27.580Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hd92f28116ad0b9db361e6b8c5c905bc9dbbfa251ad95fb931b68fcd3efbaaa6e
+2022-09-05T17:34:27.634Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h63804ae6cb30aa35d151c05fa20a53c9e34cdcad5f5e6c8d66297d4b484c582c
+2022-09-05T17:34:27.783Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hce3531122f66fa65ae88bbd6658f509972d8081d324922f557c2d304204903f2
+2022-09-05T17:34:38.189Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h42420aef8c6de59aab28b605ab6577829202e74b836aaa40d9e6e02267133ba7
+2022-09-05T17:34:38.227Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h3095c3f1c72406e24dcd903493011dc7ca5e4e80d2a4b2ebafd00e1236359ced
+2022-09-05T17:34:38.240Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/he31310ccc3242f38751a12a0df596052d0ee54bcf3e1c198dc86cb718f879375
+2022-09-05T17:34:38.293Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h92ded2064acd88295df1aee09c58e1bf68ce68d16947d94b335dca1e242d8914
+2022-09-05T17:34:38.421Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h4d7a4792ad73054c461fde13f15c1c52a8266baef84ab1dc1308639b82facbd7
+2022-09-05T17:34:48.980Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/haadbd183471c391bfd944d9bc469995a400d3cfe7609b055959e51107ec3557c
+2022-09-05T17:34:49.022Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h981b0e17971c8faec24eb37e9043bdd09c511145c27da37d4a3893d4f1864725
+2022-09-05T17:34:49.051Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h9bfebda38c08af228968b29d118f4fedcaea171314dd010e8e3f296b7dedf684
+2022-09-05T17:34:49.054Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h13a092743bc7297c03ae4c2fd769cddcb36b9c4255b93c09f61e9ae9790d7b82
+2022-09-05T17:34:49.144Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h9f2ccb45db8d533735d892b52b5f3024921727f341bd6abdd851cd75bf61079b
+2022-09-05T17:34:59.680Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/heb049c08289952845bcef5475442af49e8904f2b52793b412e3ff0569170b584
+2022-09-05T17:34:59.917Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/haef97aac1f6b8ce72eabee2db01dfeba84423cb36ef406dd19e9d94e6807870f
+2022-09-05T17:34:59.929Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h8e50a1998a297a00f0c9d68b02f50acbab8864b2bfbfd8568242370d3b289fb1
+2022-09-05T17:35:00.025Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h836bf4a2cb33a0517969ecfdde4e2605073a0c4ef098c7e59055fad408ea5ee5
+2022-09-05T17:35:10.484Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h90f752efb93a566499fae5ef2946d152fe43e8a7ed8090c10f9fd03901d8c729
+2022-09-05T17:35:10.561Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/ha9e6a890626590c43fefb94775e531c140f824140b5a496ce47c092c9939ecfd
+2022-09-05T17:35:10.795Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h7aa34bdc45a2fe5c07c6adb9b15bbdd0d7736a17b4de83d049c00aa5f3f62f43
+2022-09-05T17:35:10.798Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h2e23214371967d2a0e34e7ec6f02c6e98886dafbfef08b958fa384fa62cf9d5c
+2022-09-05T17:35:13.478Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h8b7bb8aa96037efc20d25296a46870f3b3798002c7991effa78a57745143c78c
+2022-09-05T17:35:13.733Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/ha7a4c09de45c8a756fd9071ac2998b1c26c495dd48697d65c442e9143667cd77
+2022-09-05T17:35:21.465Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hd352d7ca4b7ae039f8c1c0de313a69c8253e041c9688a8d269db442902dea43b
+2022-09-05T17:35:21.718Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h4dbdf8a18e096aabc69c02dc944323ee7f1a15b7995e62bf68db22532f4a78c7
+2022-09-05T17:35:32.358Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h632262fe66710e4d13c795310ea4b68501b04782e654d5cf53257fb04e3e63a9
+2022-09-05T17:35:32.430Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h4ab2f04dcae23cae27a40fac93b384a801356917fda38baa2cd964050010d4c7
+2022-09-05T17:35:43.046Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h4860a9bb6cb6f659e8266dd363bdd6edce881ddf2020dbed2ea3cce3c0bb318e
+2022-09-05T17:35:43.097Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hb0b742822ce298f3d8f3d5ec2e3000e3699e832eeb0281749a69efc951290927
+2022-09-05T17:35:53.731Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h8e073d97432fdbcf031d3d918af74ec8f913461e393f5f450050f0208749ef37
+2022-09-05T17:35:53.778Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h66ce38890b7ef5d89bef430390526f1ce8ff1b6b9f911fa1c06e7703c803705c
+2022-09-05T17:36:04.426Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h718954d6b11d716d3ce45bf297dc5eea16067366ef2893d5cebf8a3723b59783
+2022-09-05T17:36:04.437Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hd9fabce26393502554b4250d36c198e26d605123c3c9492c95f6192fa6539ab2
+2022-09-05T17:36:15.074Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h693075c2f752abe400c1013ccf1a32f9b3a8fb7a78b1e91ebd901ba281051aa3
+2022-09-05T17:36:15.143Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hca7bffc8afbd0082c2d8e5dee95451e298567a4de886e16c2fa236a016e240ea
+2022-09-05T17:36:25.828Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hc7f0da3059b56e9eb8b3314cd37f4783badfa6017847a22f88a24d5d98545c6a
+2022-09-05T17:36:25.940Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h77e1805e9a9ac2ed0a7ab8a0f2d22f3abafee99704971c0330e6f6933b9ac1a4
+2022-09-05T17:36:28.806Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h1bd370a5d4d981d5c61a3500245393ffe3aa46ef1aa67a371760cbfea328fa0c
+2022-09-05T17:36:29.085Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hc77c794e83e4e1b7aa1e0c808a218feec54abb5c77086c07fa568d8340b8ba67
+2022-09-05T17:36:29.111Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hb379b28a425b838cdf020196bbf9f79c869748d94bab1948fa9065ecd55d1536
+2022-09-05T17:36:29.314Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/he22323efdfad760ae64d8c6f84c3eaa3c8e471cbb99461a2a830641bad161189
+2022-09-05T17:36:29.337Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h9e4902e38a55f270ff7e5dae422b718aca9f9406d439595e816b9cee0a2e3829
+2022-09-05T17:36:39.118Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hccc3db97d41a4e386272264312e7e9007619531e10af4aaf5c31dfd7f009d155
+2022-09-05T17:41:45.525Z [WARN]  core: leadership lost, stopping active operation
+2022-09-05T17:41:45.525Z [INFO]  core: pre-seal teardown starting
+2022-09-05T17:41:46.026Z [INFO]  rollback: stopping rollback manager
+2022-09-05T17:41:46.027Z [INFO]  core: pre-seal teardown complete
+2022-09-05T17:41:46.934Z [WARN]  core.cluster-listener: no TLS config found for ALPN: ALPN=["req_fw_sb-act_v1"]
+2022-09-05T17:41:51.931Z [WARN]  core.cluster-listener: no TLS config found for ALPN: ALPN=["req_fw_sb-act_v1"]
+2022-09-05T17:41:56.933Z [WARN]  core.cluster-listener: no TLS config found for ALPN: ALPN=["req_fw_sb-act_v1"]
+2022-09-05T17:44:55.028Z [ERROR] core: error during forwarded RPC request: error="rpc error: code = Canceled desc = context canceled"
+2022-09-05T17:44:55.028Z [ERROR] core: forward request error: error="error during forwarding RPC request"

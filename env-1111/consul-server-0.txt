@@ -1,0 +1,231 @@
+==> Starting Consul agent...
+           Version: '1.10.0'
+           Node ID: '716b5489-9a4b-bcb2-8d43-4275f8a16d65'
+         Node name: 'consul-server-0'
+        Datacenter: 'dc1' (Segment: '<all>')
+            Server: true (Bootstrap: false)
+       Client Addr: [0.0.0.0] (HTTP: 8500, HTTPS: -1, gRPC: -1, DNS: 8600)
+      Cluster Addr: 10.0.130.208 (LAN: 8301, WAN: 8302)
+           Encrypt: Gossip: false, TLS-Outgoing: false, TLS-Incoming: false, Auto-Encrypt-TLS: false
+
+==> Log data will now stream in as it occurs:
+
+2022-09-05T17:23:30.832Z [WARN]  agent: bootstrap_expect > 0: expecting 3 servers
+2022-09-05T17:23:30.844Z [WARN]  agent.auto_config: bootstrap_expect > 0: expecting 3 servers
+2022-09-05T17:23:31.985Z [INFO]  agent.server.raft: initial configuration: index=3056 servers="[{Suffrage:Voter ID:716b5489-9a4b-bcb2-8d43-4275f8a16d65 Address:10.0.135.226:8300} {Suffrage:Voter ID:df03522e-b091-64cb-e596-bdefc41fa460 Address:10.0.150.168:8300} {Suffrage:Voter ID:315d4dc1-e6a8-a734-f51d-f5441feffecc Address:10.0.130.216:8300}]"
+2022-09-05T17:23:31.985Z [INFO]  agent.server.raft: entering follower state: follower="Node at 10.0.130.208:8300 [Follower]" leader=
+2022-09-05T17:23:31.987Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-0.dc1 10.0.130.208
+2022-09-05T17:23:31.987Z [INFO]  agent.server.serf.wan: serf: Attempting re-join to previously known node: consul-server-2.dc1: 10.0.130.216:8302
+2022-09-05T17:23:31.989Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-0 10.0.130.208
+2022-09-05T17:23:31.989Z [INFO]  agent.router: Initializing LAN area manager
+2022-09-05T17:23:31.989Z [INFO]  agent: Started DNS server: address=0.0.0.0:8600 network=udp
+2022-09-05T17:23:31.989Z [INFO]  agent.server.serf.lan: serf: Attempting re-join to previously known node: consul-server-2: 10.0.130.216:8301
+2022-09-05T17:23:31.990Z [INFO]  agent.server: Adding LAN server: server="consul-server-0 (Addr: tcp/10.0.130.208:8300) (DC: dc1)"
+2022-09-05T17:23:31.990Z [INFO]  agent.server: Raft data found, disabling bootstrap mode
+2022-09-05T17:23:31.990Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-0.dc1 area=wan
+2022-09-05T17:23:31.990Z [INFO]  agent: Started DNS server: address=0.0.0.0:8600 network=tcp
+2022-09-05T17:23:32.028Z [INFO]  agent: Starting server: address=[::]:8500 network=tcp protocol=http
+2022-09-05T17:23:32.028Z [WARN]  agent: DEPRECATED Backwards compatibility with pre-1.9 metrics enabled. These metrics will be removed in a future version of Consul. Set `telemetry { disable_compat_1.9 = true }` to disable them.
+2022-09-05T17:23:32.028Z [WARN]  agent: grpc: addrConn.createTransport failed to connect to {10.0.130.208:8300 0 consul-server-0.dc1 <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp 10.0.130.208:8300: operation was canceled". Reconnecting...
+2022-09-05T17:23:32.028Z [INFO]  agent: started state syncer
+2022-09-05T17:23:32.028Z [INFO]  agent: Consul agent running!
+2022-09-05T17:23:32.028Z [INFO]  agent: Retry join is supported for the following discovery methods: cluster=LAN discovery_methods="aliyun aws azure digitalocean gce k8s linode mdns os packet scaleway softlayer tencentcloud triton vsphere"
+2022-09-05T17:23:32.028Z [INFO]  agent: Joining cluster...: cluster=LAN
+2022-09-05T17:23:32.028Z [INFO]  agent: (LAN) joining: lan_addresses=[consul-server-0.consul-server.kube-system.svc:8301, consul-server-1.consul-server.kube-system.svc:8301, consul-server-2.consul-server.kube-system.svc:8301]
+2022-09-05T17:23:32.050Z [WARN]  agent.server.memberlist.lan: memberlist: Failed to resolve consul-server-0.consul-server.kube-system.svc:8301: lookup consul-server-0.consul-server.kube-system.svc on 172.20.0.10:53: no such host
+2022-09-05T17:23:32.078Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-137-207.eu-west-3.compute.internal 10.0.142.163
+2022-09-05T17:23:32.078Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-149-119.eu-west-3.compute.internal 10.0.155.252
+2022-09-05T17:23:32.078Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-1 10.0.147.97
+2022-09-05T17:23:32.078Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-2 10.0.140.146
+2022-09-05T17:23:32.078Z [INFO]  agent.server: Adding LAN server: server="consul-server-1 (Addr: tcp/10.0.147.97:8300) (DC: dc1)"
+2022-09-05T17:23:32.079Z [INFO]  agent.server: Adding LAN server: server="consul-server-2 (Addr: tcp/10.0.140.146:8300) (DC: dc1)"
+2022-09-05T17:23:32.080Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-2.dc1 10.0.140.146
+2022-09-05T17:23:32.080Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-1.dc1 10.0.147.97
+2022-09-05T17:23:32.080Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-2.dc1 area=wan
+2022-09-05T17:23:32.080Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-1.dc1 area=wan
+2022-09-05T17:23:32.137Z [INFO]  agent: (LAN) joined: number_of_nodes=2
+2022-09-05T17:23:32.137Z [INFO]  agent: Join cluster completed. Synced with initial agents: cluster=LAN num_agents=2
+2022-09-05T17:23:32.344Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-147-29.eu-west-3.compute.internal 10.0.153.67
+2022-09-05T17:23:34.528Z [INFO]  agent.server: New leader elected: payload=consul-server-2
+2022-09-05T17:23:35.234Z [INFO]  agent.server.serf.lan: serf: Attempting re-join to previously known node: consul-server-1: 10.0.150.168:8301
+2022-09-05T17:23:35.234Z [INFO]  agent.server.serf.wan: serf: Attempting re-join to previously known node: consul-server-1.dc1: 10.0.150.168:8302
+2022-09-05T17:23:38.928Z [INFO]  agent: Newer Consul version available: new_version=1.13.1 current_version=1.10.0
+2022-09-05T17:23:39.128Z [INFO]  agent: Synced node info
+2022-09-05T17:23:45.234Z [WARN]  agent.server.serf.lan: serf: Failed to re-join any previously known node
+2022-09-05T17:23:52.649Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149
+2022-09-05T17:23:53.322Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-138-183.eu-west-3.compute.internal 10.0.141.129
+2022-09-05T17:24:05.234Z [WARN]  agent.server.serf.wan: serf: Failed to re-join any previously known node
+2022-09-05T17:29:03.992Z [INFO]  agent.server.serf.lan: serf: EventMemberLeave: ip-10-0-138-183.eu-west-3.compute.internal 10.0.141.129
+2022-09-05T17:29:05.990Z [INFO]  agent.server.memberlist.lan: memberlist: Suspect consul-server-2 has failed, no acks received
+2022-09-05T17:29:09.990Z [INFO]  agent.server.memberlist.lan: memberlist: Marking consul-server-2 as failed, suspect timeout reached (2 peer confirmations)
+2022-09-05T17:29:09.991Z [INFO]  agent.server.serf.lan: serf: EventMemberFailed: consul-server-2 10.0.140.146
+2022-09-05T17:29:09.991Z [INFO]  agent.server: Removing LAN server: server="consul-server-2 (Addr: tcp/10.0.140.146:8300) (DC: dc1)"
+2022-09-05T17:29:11.873Z [WARN]  agent.server: Raft has a leader but other tracking of the node would indicate that the node is unhealthy or does not exist. The network may be misconfigured.: leader=10.0.140.146:8300
+2022-09-05T17:29:12.162Z [WARN]  agent.server: Raft has a leader but other tracking of the node would indicate that the node is unhealthy or does not exist. The network may be misconfigured.: leader=10.0.140.146:8300
+2022-09-05T17:29:12.518Z [WARN]  agent.server: Raft has a leader but other tracking of the node would indicate that the node is unhealthy or does not exist. The network may be misconfigured.: leader=10.0.140.146:8300
+2022-09-05T17:29:12.847Z [WARN]  agent.server: Raft has a leader but other tracking of the node would indicate that the node is unhealthy or does not exist. The network may be misconfigured.: leader=10.0.140.146:8300
+2022-09-05T17:29:12.901Z [WARN]  agent.server: Raft has a leader but other tracking of the node would indicate that the node is unhealthy or does not exist. The network may be misconfigured.: leader=10.0.140.146:8300
+2022-09-05T17:29:13.085Z [WARN]  agent.server.raft: rejecting vote request since we have a leader: from=10.0.147.97:8300 leader=10.0.140.146:8300
+2022-09-05T17:29:13.118Z [WARN]  agent.server: Raft has a leader but other tracking of the node would indicate that the node is unhealthy or does not exist. The network may be misconfigured.: leader=10.0.140.146:8300
+2022-09-05T17:29:13.251Z [WARN]  agent.server.raft: heartbeat timeout reached, starting election: last-leader=10.0.140.146:8300
+2022-09-05T17:29:13.251Z [INFO]  agent.server.raft: entering candidate state: node="Node at 10.0.130.208:8300 [Candidate]" term=17
+2022-09-05T17:29:13.260Z [WARN]  agent.server.raft: unable to get address for server, using fallback address: id=315d4dc1-e6a8-a734-f51d-f5441feffecc fallback=10.0.140.146:8300 error="Could not find address for server id 315d4dc1-e6a8-a734-f51d-f5441feffecc"
+2022-09-05T17:29:14.313Z [ERROR] agent.http: Request error: method=GET url=/v1/kv/vault/core/lock?index=3596&wait=15000ms from=10.0.128.131:43770 error="rpc error getting client: failed to get conn: dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:16.987Z [INFO]  agent.server.memberlist.wan: memberlist: Suspect consul-server-2.dc1 has failed, no acks received
+2022-09-05T17:29:19.374Z [WARN]  agent.server.raft: Election timeout reached, restarting election
+2022-09-05T17:29:19.374Z [INFO]  agent.server.raft: entering candidate state: node="Node at 10.0.130.208:8300 [Candidate]" term=18
+2022-09-05T17:29:19.385Z [WARN]  agent.server.raft: unable to get address for server, using fallback address: id=315d4dc1-e6a8-a734-f51d-f5441feffecc fallback=10.0.140.146:8300 error="Could not find address for server id 315d4dc1-e6a8-a734-f51d-f5441feffecc"
+2022-09-05T17:29:19.390Z [INFO]  agent.server.raft: election won: tally=2
+2022-09-05T17:29:19.390Z [INFO]  agent.server.raft: entering leader state: leader="Node at 10.0.130.208:8300 [Leader]"
+2022-09-05T17:29:19.390Z [INFO]  agent.server.raft: added peer, starting replication: peer=df03522e-b091-64cb-e596-bdefc41fa460
+2022-09-05T17:29:19.390Z [INFO]  agent.server.raft: added peer, starting replication: peer=315d4dc1-e6a8-a734-f51d-f5441feffecc
+2022-09-05T17:29:19.390Z [INFO]  agent.server: cluster leadership acquired
+2022-09-05T17:29:19.393Z [INFO]  agent.server: New leader elected: payload=consul-server-0
+2022-09-05T17:29:19.394Z [WARN]  agent.server.raft: unable to get address for server, using fallback address: id=315d4dc1-e6a8-a734-f51d-f5441feffecc fallback=10.0.140.146:8300 error="Could not find address for server id 315d4dc1-e6a8-a734-f51d-f5441feffecc"
+2022-09-05T17:29:19.395Z [INFO]  agent.server.raft: pipelining replication: peer="{Voter df03522e-b091-64cb-e596-bdefc41fa460 10.0.147.97:8300}"
+2022-09-05T17:29:19.775Z [WARN]  agent.server.raft: unable to get address for server, using fallback address: id=315d4dc1-e6a8-a734-f51d-f5441feffecc fallback=10.0.140.146:8300 error="Could not find address for server id 315d4dc1-e6a8-a734-f51d-f5441feffecc"
+2022-09-05T17:29:20.405Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="context deadline exceeded"
+2022-09-05T17:29:20.405Z [ERROR] agent.server.autopilot: Error when computing next state: error="context deadline exceeded"
+2022-09-05T17:29:20.406Z [INFO]  agent.leader: started routine: routine="federation state anti-entropy"
+2022-09-05T17:29:20.406Z [INFO]  agent.leader: started routine: routine="federation state pruning"
+2022-09-05T17:29:20.407Z [INFO]  agent.leader: started routine: routine="intermediate cert renew watch"
+2022-09-05T17:29:20.407Z [INFO]  agent.leader: started routine: routine="CA root pruning"
+2022-09-05T17:29:20.408Z [INFO]  agent.server: deregistering member: member=ip-10-0-138-183.eu-west-3.compute.internal reason=left
+2022-09-05T17:29:20.415Z [INFO]  agent.server: member failed, marking health critical: member=consul-server-2
+2022-09-05T17:29:21.895Z [WARN]  agent.server.raft: failed to contact: server-id=315d4dc1-e6a8-a734-f51d-f5441feffecc time=2.505338346s
+2022-09-05T17:29:23.261Z [ERROR] agent.server.raft: failed to make requestVote RPC: target="{Voter 315d4dc1-e6a8-a734-f51d-f5441feffecc 10.0.140.146:8300}" error="dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:23.406Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="context deadline exceeded"
+2022-09-05T17:29:24.384Z [WARN]  agent.server.raft: failed to contact: server-id=315d4dc1-e6a8-a734-f51d-f5441feffecc time=4.994433344s
+2022-09-05T17:29:25.407Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="context deadline exceeded"
+2022-09-05T17:29:26.830Z [WARN]  agent.server.raft: failed to contact: server-id=315d4dc1-e6a8-a734-f51d-f5441feffecc time=7.439562396s
+2022-09-05T17:29:26.989Z [INFO]  agent.server.memberlist.wan: memberlist: Suspect consul-server-2.dc1 has failed, no acks received
+2022-09-05T17:29:27.405Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="context deadline exceeded"
+2022-09-05T17:29:29.387Z [ERROR] agent.server.raft: failed to make requestVote RPC: target="{Voter 315d4dc1-e6a8-a734-f51d-f5441feffecc 10.0.140.146:8300}" error="dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:29.395Z [ERROR] agent.server.raft: failed to appendEntries to: peer="{Voter 315d4dc1-e6a8-a734-f51d-f5441feffecc 10.0.140.146:8300}" error="dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:29.405Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="context deadline exceeded"
+2022-09-05T17:29:29.406Z [WARN]  agent.server.raft: unable to get address for server, using fallback address: id=315d4dc1-e6a8-a734-f51d-f5441feffecc fallback=10.0.140.146:8300 error="Could not find address for server id 315d4dc1-e6a8-a734-f51d-f5441feffecc"
+2022-09-05T17:29:29.406Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="rpc error getting client: failed to get conn: dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:29.406Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="rpc error getting client: failed to get conn: rpc error: lead thread didn't get connection"
+2022-09-05T17:29:29.406Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="rpc error getting client: failed to get conn: rpc error: lead thread didn't get connection"
+2022-09-05T17:29:29.406Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="rpc error getting client: failed to get conn: rpc error: lead thread didn't get connection"
+2022-09-05T17:29:29.406Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="rpc error getting client: failed to get conn: rpc error: lead thread didn't get connection"
+2022-09-05T17:29:29.776Z [ERROR] agent.server.raft: failed to heartbeat to: peer=10.0.140.146:8300 error="dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:29.787Z [WARN]  agent.server.raft: unable to get address for server, using fallback address: id=315d4dc1-e6a8-a734-f51d-f5441feffecc fallback=10.0.140.146:8300 error="Could not find address for server id 315d4dc1-e6a8-a734-f51d-f5441feffecc"
+2022-09-05T17:29:30.406Z [INFO]  agent.server.autopilot: Attempting removal of failed server node: id=315d4dc1-e6a8-a734-f51d-f5441feffecc name=consul-server-2 address=10.0.140.146:8300
+2022-09-05T17:29:30.406Z [INFO]  agent.server.serf.lan: serf: EventMemberLeave (forced): consul-server-2 10.0.140.146
+2022-09-05T17:29:30.406Z [INFO]  agent.server: Removing LAN server: server="consul-server-2 (Addr: tcp/10.0.140.146:8300) (DC: dc1)"
+2022-09-05T17:29:30.406Z [INFO]  agent.server.raft: updating configuration: command=RemoveServer server-id=315d4dc1-e6a8-a734-f51d-f5441feffecc server-addr= servers="[{Suffrage:Voter ID:716b5489-9a4b-bcb2-8d43-4275f8a16d65 Address:10.0.130.208:8300} {Suffrage:Voter ID:df03522e-b091-64cb-e596-bdefc41fa460 Address:10.0.147.97:8300}]"
+2022-09-05T17:29:30.412Z [INFO]  agent.server.raft: removed peer, stopping replication: peer=315d4dc1-e6a8-a734-f51d-f5441feffecc last-index=3660
+2022-09-05T17:29:30.417Z [INFO]  agent.server.autopilot: removed server: id=315d4dc1-e6a8-a734-f51d-f5441feffecc
+2022-09-05T17:29:30.417Z [INFO]  agent.server: deregistering member: member=consul-server-2 reason=left
+2022-09-05T17:29:31.406Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="context deadline exceeded"
+2022-09-05T17:29:34.731Z [ERROR] agent.server.memberlist.wan: memberlist: Conflicting address for consul-server-2.dc1. Mine: 10.0.140.146:8302 Theirs: 10.0.135.170:8302 Old state: 1
+2022-09-05T17:29:34.731Z [WARN]  agent.server.serf.wan: serf: Name conflict for 'consul-server-2.dc1' both 10.0.140.146:8302 and 10.0.135.170:8302 are claiming
+2022-09-05T17:29:34.842Z [ERROR] agent.server.memberlist.lan: memberlist: Conflicting address for consul-server-2. Mine: 10.0.140.146:8301 Theirs: 10.0.135.170:8301 Old state: 2
+2022-09-05T17:29:34.842Z [WARN]  agent.server.serf.lan: serf: Name conflict for 'consul-server-2' both 10.0.140.146:8301 and 10.0.135.170:8301 are claiming
+2022-09-05T17:29:34.933Z [ERROR] agent.server.memberlist.lan: memberlist: Conflicting address for consul-server-2. Mine: 10.0.140.146:8301 Theirs: 10.0.135.170:8301 Old state: 2
+2022-09-05T17:29:34.933Z [WARN]  agent.server.serf.lan: serf: Name conflict for 'consul-server-2' both 10.0.140.146:8301 and 10.0.135.170:8301 are claiming
+2022-09-05T17:29:35.231Z [ERROR] agent.server.memberlist.wan: memberlist: Conflicting address for consul-server-2.dc1. Mine: 10.0.140.146:8302 Theirs: 10.0.135.170:8302 Old state: 1
+2022-09-05T17:29:35.231Z [WARN]  agent.server.serf.wan: serf: Name conflict for 'consul-server-2.dc1' both 10.0.140.146:8302 and 10.0.135.170:8302 are claiming
+2022-09-05T17:29:35.231Z [ERROR] agent.server.memberlist.wan: memberlist: Conflicting address for consul-server-2.dc1. Mine: 10.0.140.146:8302 Theirs: 10.0.135.170:8302 Old state: 1
+2022-09-05T17:29:35.231Z [WARN]  agent.server.serf.wan: serf: Name conflict for 'consul-server-2.dc1' both 10.0.140.146:8302 and 10.0.135.170:8302 are claiming
+2022-09-05T17:29:35.733Z [ERROR] agent.server.memberlist.wan: memberlist: Conflicting address for consul-server-2.dc1. Mine: 10.0.140.146:8302 Theirs: 10.0.135.170:8302 Old state: 1
+2022-09-05T17:29:35.733Z [WARN]  agent.server.serf.wan: serf: Name conflict for 'consul-server-2.dc1' both 10.0.140.146:8302 and 10.0.135.170:8302 are claiming
+2022-09-05T17:29:35.734Z [ERROR] agent.server.memberlist.wan: memberlist: Conflicting address for consul-server-2.dc1. Mine: 10.0.140.146:8302 Theirs: 10.0.135.170:8302 Old state: 1
+2022-09-05T17:29:35.734Z [WARN]  agent.server.serf.wan: serf: Name conflict for 'consul-server-2.dc1' both 10.0.140.146:8302 and 10.0.135.170:8302 are claiming
+2022-09-05T17:29:36.988Z [INFO]  agent.server.memberlist.wan: memberlist: Suspect consul-server-2.dc1 has failed, no acks received
+2022-09-05T17:29:39.407Z [ERROR] agent.server.raft: failed to appendEntries to: peer="{Voter 315d4dc1-e6a8-a734-f51d-f5441feffecc 10.0.140.146:8300}" error="dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:39.418Z [WARN]  agent.server.raft: unable to get address for server, using fallback address: id=315d4dc1-e6a8-a734-f51d-f5441feffecc fallback=10.0.140.146:8300 error="Could not find address for server id 315d4dc1-e6a8-a734-f51d-f5441feffecc"
+2022-09-05T17:29:39.790Z [ERROR] agent.server.raft: failed to heartbeat to: peer=10.0.140.146:8300 error="dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:40.407Z [WARN]  agent: error getting server health from server: server=consul-server-2 error="rpc error getting client: failed to get conn: dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:40.441Z [WARN]  agent.server.raft: unable to get address for server, using fallback address: id=315d4dc1-e6a8-a734-f51d-f5441feffecc fallback=10.0.140.146:8300 error="Could not find address for server id 315d4dc1-e6a8-a734-f51d-f5441feffecc"
+2022-09-05T17:29:42.865Z [WARN]  agent.server.raft: rejecting vote request since we have a leader: from=10.0.135.170:8300 leader=10.0.130.208:8300
+2022-09-05T17:29:43.544Z [INFO]  agent.server.memberlist.wan: memberlist: Marking consul-server-2.dc1 as failed, suspect timeout reached (0 peer confirmations)
+2022-09-05T17:29:43.544Z [INFO]  agent.server.serf.wan: serf: EventMemberLeave: consul-server-2.dc1 10.0.140.146
+2022-09-05T17:29:43.544Z [INFO]  agent.server: Handled event for server in area: event=member-leave server=consul-server-2.dc1 area=wan
+2022-09-05T17:29:44.741Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-2 10.0.135.170
+2022-09-05T17:29:44.742Z [INFO]  agent.server: Adding LAN server: server="consul-server-2 (Addr: tcp/10.0.135.170:8300) (DC: dc1)"
+2022-09-05T17:29:44.743Z [INFO]  agent.server.raft: updating configuration: command=AddNonvoter server-id=315d4dc1-e6a8-a734-f51d-f5441feffecc server-addr=10.0.135.170:8300 servers="[{Suffrage:Voter ID:716b5489-9a4b-bcb2-8d43-4275f8a16d65 Address:10.0.130.208:8300} {Suffrage:Voter ID:df03522e-b091-64cb-e596-bdefc41fa460 Address:10.0.147.97:8300} {Suffrage:Nonvoter ID:315d4dc1-e6a8-a734-f51d-f5441feffecc Address:10.0.135.170:8300}]"
+2022-09-05T17:29:44.747Z [INFO]  agent.server.raft: added peer, starting replication: peer=315d4dc1-e6a8-a734-f51d-f5441feffecc
+2022-09-05T17:29:44.750Z [INFO]  agent.server: member joined, marking health alive: member=consul-server-2
+2022-09-05T17:29:44.752Z [WARN]  agent.server.raft: appendEntries rejected, sending older logs: peer="{Nonvoter 315d4dc1-e6a8-a734-f51d-f5441feffecc 10.0.135.170:8300}" next=3652
+2022-09-05T17:29:45.831Z [INFO]  agent.server.raft: pipelining replication: peer="{Nonvoter 315d4dc1-e6a8-a734-f51d-f5441feffecc 10.0.135.170:8300}"
+2022-09-05T17:29:49.416Z [WARN]  agent.server.kvs: Rejecting lock of key due to lock-delay: key=vault/core/lock expire_time="2022-09-05 17:30:04.414053471 +0000 UTC m=+394.872248668"
+2022-09-05T17:29:49.419Z [ERROR] agent.server.raft: failed to appendEntries to: peer="{Voter 315d4dc1-e6a8-a734-f51d-f5441feffecc 10.0.140.146:8300}" error="dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:50.441Z [ERROR] agent.server.raft: failed to heartbeat to: peer=10.0.140.146:8300 error="dial tcp <nil>->10.0.140.146:8300: i/o timeout"
+2022-09-05T17:29:51.115Z [WARN]  agent.server.kvs: Rejecting lock of key due to lock-delay: key=vault/core/lock expire_time="2022-09-05 17:30:04.414053471 +0000 UTC m=+394.872248668"
+2022-09-05T17:29:54.423Z [WARN]  agent.server.kvs: Rejecting lock of key due to lock-delay: key=vault/core/lock expire_time="2022-09-05 17:30:04.414053471 +0000 UTC m=+394.872248668"
+2022-09-05T17:29:56.122Z [WARN]  agent.server.kvs: Rejecting lock of key due to lock-delay: key=vault/core/lock expire_time="2022-09-05 17:30:04.414053471 +0000 UTC m=+394.872248668"
+2022-09-05T17:29:59.427Z [WARN]  agent.server.kvs: Rejecting lock of key due to lock-delay: key=vault/core/lock expire_time="2022-09-05 17:30:04.414053471 +0000 UTC m=+394.872248668"
+2022-09-05T17:30:00.405Z [INFO]  agent.server.autopilot: Promoting server: id=315d4dc1-e6a8-a734-f51d-f5441feffecc address=10.0.135.170:8300 name=consul-server-2
+2022-09-05T17:30:00.406Z [INFO]  agent.server.raft: updating configuration: command=AddStaging server-id=315d4dc1-e6a8-a734-f51d-f5441feffecc server-addr=10.0.135.170:8300 servers="[{Suffrage:Voter ID:716b5489-9a4b-bcb2-8d43-4275f8a16d65 Address:10.0.130.208:8300} {Suffrage:Voter ID:df03522e-b091-64cb-e596-bdefc41fa460 Address:10.0.147.97:8300} {Suffrage:Voter ID:315d4dc1-e6a8-a734-f51d-f5441feffecc Address:10.0.135.170:8300}]"
+2022-09-05T17:30:01.130Z [WARN]  agent.server.kvs: Rejecting lock of key due to lock-delay: key=vault/core/lock expire_time="2022-09-05 17:30:04.414053471 +0000 UTC m=+394.872248668"
+2022-09-05T17:30:13.407Z [WARN]  agent: error getting server health from server: server=consul-server-1 error="context deadline exceeded"
+2022-09-05T17:30:13.752Z [WARN]  agent.server.raft: failed to contact: server-id=df03522e-b091-64cb-e596-bdefc41fa460 time=2.500718149s
+2022-09-05T17:30:14.990Z [INFO]  agent.server.memberlist.lan: memberlist: Suspect consul-server-1 has failed, no acks received
+2022-09-05T17:30:15.406Z [WARN]  agent: error getting server health from server: server=consul-server-1 error="context deadline exceeded"
+2022-09-05T17:30:16.206Z [WARN]  agent.server.raft: failed to contact: server-id=df03522e-b091-64cb-e596-bdefc41fa460 time=4.954579782s
+2022-09-05T17:30:17.406Z [WARN]  agent: error getting server health from server: server=consul-server-1 error="context deadline exceeded"
+2022-09-05T17:30:18.688Z [WARN]  agent.server.raft: failed to contact: server-id=df03522e-b091-64cb-e596-bdefc41fa460 time=7.436540765s
+2022-09-05T17:30:18.990Z [INFO]  agent.server.memberlist.lan: memberlist: Suspect ip-10-0-153-159.eu-west-3.compute.internal has failed, no acks received
+2022-09-05T17:30:18.991Z [INFO]  agent.server.memberlist.lan: memberlist: Marking ip-10-0-153-159.eu-west-3.compute.internal as failed, suspect timeout reached (2 peer confirmations)
+2022-09-05T17:30:18.991Z [INFO]  agent.server.serf.lan: serf: EventMemberFailed: ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149
+2022-09-05T17:30:18.991Z [INFO]  agent.server: member failed, marking health critical: member=ip-10-0-153-159.eu-west-3.compute.internal
+2022-09-05T17:30:18.991Z [INFO]  agent.server.memberlist.lan: memberlist: Marking consul-server-1 as failed, suspect timeout reached (2 peer confirmations)
+2022-09-05T17:30:18.992Z [INFO]  agent.server.serf.lan: serf: EventMemberFailed: consul-server-1 10.0.147.97
+2022-09-05T17:30:18.992Z [INFO]  agent.server: Removing LAN server: server="consul-server-1 (Addr: tcp/10.0.147.97:8300) (DC: dc1)"
+2022-09-05T17:30:19.006Z [INFO]  agent.server: member failed, marking health critical: member=consul-server-1
+2022-09-05T17:30:19.406Z [WARN]  agent: error getting server health from server: server=consul-server-1 error="context deadline exceeded"
+2022-09-05T17:30:20.406Z [INFO]  agent.server.autopilot: Attempting removal of failed server node: id=df03522e-b091-64cb-e596-bdefc41fa460 name=consul-server-1 address=10.0.147.97:8300
+2022-09-05T17:30:20.406Z [INFO]  agent.server.serf.lan: serf: EventMemberLeave (forced): consul-server-1 10.0.147.97
+2022-09-05T17:30:20.406Z [INFO]  agent.server: Removing LAN server: server="consul-server-1 (Addr: tcp/10.0.147.97:8300) (DC: dc1)"
+2022-09-05T17:30:20.406Z [INFO]  agent.server.raft: updating configuration: command=RemoveServer server-id=df03522e-b091-64cb-e596-bdefc41fa460 server-addr= servers="[{Suffrage:Voter ID:716b5489-9a4b-bcb2-8d43-4275f8a16d65 Address:10.0.130.208:8300} {Suffrage:Voter ID:315d4dc1-e6a8-a734-f51d-f5441feffecc Address:10.0.135.170:8300}]"
+2022-09-05T17:30:20.410Z [INFO]  agent.server.raft: removed peer, stopping replication: peer=df03522e-b091-64cb-e596-bdefc41fa460 last-index=3680
+2022-09-05T17:30:20.410Z [INFO]  agent.server.raft: aborting pipeline replication: peer="{Voter df03522e-b091-64cb-e596-bdefc41fa460 10.0.147.97:8300}"
+2022-09-05T17:30:20.413Z [INFO]  agent.server.autopilot: removed server: id=df03522e-b091-64cb-e596-bdefc41fa460
+2022-09-05T17:30:20.414Z [INFO]  agent.server: deregistering member: member=consul-server-1 reason=left
+2022-09-05T17:30:21.406Z [WARN]  agent: error getting server health from server: server=consul-server-1 error="context deadline exceeded"
+2022-09-05T17:30:21.447Z [ERROR] agent.server.raft: failed to heartbeat to: peer=10.0.147.97:8300 error="read tcp 10.0.130.208:36858->10.0.147.97:8300: i/o timeout"
+2022-09-05T17:30:21.988Z [INFO]  agent.server.memberlist.wan: memberlist: Suspect consul-server-1.dc1 has failed, no acks received
+2022-09-05T17:30:25.643Z [ERROR] agent.server: yamux: keepalive failed: i/o deadline reached
+2022-09-05T17:30:25.643Z [ERROR] agent.server.rpc: multiplex conn accept failed: conn=from=10.0.147.97:42760 error="keepalive timeout"
+2022-09-05T17:30:29.410Z [ERROR] agent: yamux: keepalive failed: i/o deadline reached
+2022-09-05T17:30:29.411Z [WARN]  agent: error getting server health from server: server=consul-server-1 error="rpc error making call: EOF"
+2022-09-05T17:30:29.411Z [WARN]  agent: error getting server health from server: server=consul-server-1 error="rpc error making call: EOF"
+2022-09-05T17:30:29.411Z [WARN]  agent: error getting server health from server: server=consul-server-1 error="rpc error making call: EOF"
+2022-09-05T17:30:29.411Z [WARN]  agent: error getting server health from server: server=consul-server-1 error="rpc error making call: EOF"
+2022-09-05T17:30:29.411Z [WARN]  agent: error getting server health from server: server=consul-server-1 error="rpc error making call: EOF"
+2022-09-05T17:30:36.994Z [INFO]  agent.server.memberlist.wan: memberlist: Suspect consul-server-1.dc1 has failed, no acks received
+2022-09-05T17:30:46.087Z [WARN]  agent.server.kvs: Rejecting lock of key due to lock-delay: key=vault/core/lock expire_time="2022-09-05 17:30:54.455886726 +0000 UTC m=+444.914081943"
+2022-09-05T17:30:49.216Z [WARN]  agent: grpc: addrConn.createTransport failed to connect to {10.0.147.97:8300 0 consul-server-1.dc1 <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp 10.0.147.97:8300: operation was canceled". Reconnecting...
+2022-09-05T17:30:50.231Z [INFO]  agent.server.serf.wan: serf: EventMemberLeave: consul-server-1.dc1 10.0.147.97
+2022-09-05T17:30:50.231Z [INFO]  agent.server: Handled event for server in area: event=member-leave server=consul-server-1.dc1 area=wan
+2022-09-05T17:30:51.090Z [WARN]  agent.server.kvs: Rejecting lock of key due to lock-delay: key=vault/core/lock expire_time="2022-09-05 17:30:54.455886726 +0000 UTC m=+444.914081943"
+2022-09-05T17:30:56.988Z [INFO]  agent.server.memberlist.wan: memberlist: Suspect consul-server-1.dc1 has failed, no acks received
+2022-09-05T17:31:21.789Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-2.dc1 10.0.135.170
+2022-09-05T17:31:21.789Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-2.dc1 area=wan
+2022-09-05T17:31:32.031Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149:8301
+2022-09-05T17:31:35.616Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-140-164.eu-west-3.compute.internal 10.0.139.7
+2022-09-05T17:31:35.616Z [INFO]  agent.server: member joined, marking health alive: member=ip-10-0-140-164.eu-west-3.compute.internal
+2022-09-05T17:32:29.577Z [ERROR] agent.server.raft: failed to decode incoming command: error="read tcp 10.0.130.208:8300->10.0.147.97:46490: read: connection timed out"
+2022-09-05T17:32:42.034Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149:8301
+2022-09-05T17:33:00.265Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-1.dc1 10.0.150.237
+2022-09-05T17:33:00.266Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-1.dc1 area=wan
+2022-09-05T17:33:00.266Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-1 10.0.150.237
+2022-09-05T17:33:00.266Z [INFO]  agent.server: Adding LAN server: server="consul-server-1 (Addr: tcp/10.0.150.237:8300) (DC: dc1)"
+2022-09-05T17:33:00.267Z [INFO]  agent.server.raft: updating configuration: command=AddNonvoter server-id=df03522e-b091-64cb-e596-bdefc41fa460 server-addr=10.0.150.237:8300 servers="[{Suffrage:Voter ID:716b5489-9a4b-bcb2-8d43-4275f8a16d65 Address:10.0.130.208:8300} {Suffrage:Voter ID:315d4dc1-e6a8-a734-f51d-f5441feffecc Address:10.0.135.170:8300} {Suffrage:Nonvoter ID:df03522e-b091-64cb-e596-bdefc41fa460 Address:10.0.150.237:8300}]"
+2022-09-05T17:33:00.270Z [INFO]  agent.server.raft: added peer, starting replication: peer=df03522e-b091-64cb-e596-bdefc41fa460
+2022-09-05T17:33:00.274Z [INFO]  agent.server: member joined, marking health alive: member=consul-server-1
+2022-09-05T17:33:00.332Z [WARN]  agent.server.raft: appendEntries rejected, sending older logs: peer="{Nonvoter df03522e-b091-64cb-e596-bdefc41fa460 10.0.150.237:8300}" next=3677
+2022-09-05T17:33:01.841Z [INFO]  agent.server.raft: pipelining replication: peer="{Nonvoter df03522e-b091-64cb-e596-bdefc41fa460 10.0.150.237:8300}"
+2022-09-05T17:33:10.406Z [INFO]  agent.server.autopilot: Promoting server: id=df03522e-b091-64cb-e596-bdefc41fa460 address=10.0.150.237:8300 name=consul-server-1
+2022-09-05T17:33:10.406Z [INFO]  agent.server.raft: updating configuration: command=AddStaging server-id=df03522e-b091-64cb-e596-bdefc41fa460 server-addr=10.0.150.237:8300 servers="[{Suffrage:Voter ID:716b5489-9a4b-bcb2-8d43-4275f8a16d65 Address:10.0.130.208:8300} {Suffrage:Voter ID:315d4dc1-e6a8-a734-f51d-f5441feffecc Address:10.0.135.170:8300} {Suffrage:Voter ID:df03522e-b091-64cb-e596-bdefc41fa460 Address:10.0.150.237:8300}]"
+2022-09-05T17:36:22.041Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149:8301
+2022-09-05T17:42:32.051Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149:8301
+2022-09-05T17:43:42.054Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149:8301
+2022-09-05T17:48:22.061Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149:8301
+2022-09-05T17:54:02.075Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149:8301
+2022-09-05T17:54:52.087Z [WARN]  agent: grpc: addrConn.createTransport failed to connect to {10.0.130.208:8300 0 consul-server-0.dc1 <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp 10.0.130.208:8300: operation was canceled". Reconnecting...
+2022-09-05T17:55:42.088Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149:8301
+2022-09-05T17:56:22.089Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149:8301
+2022-09-05T17:58:02.092Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-153-159.eu-west-3.compute.internal 10.0.150.149:8301

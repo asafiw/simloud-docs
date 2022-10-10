@@ -1,0 +1,915 @@
+LAST SEEN   TYPE      REASON                         OBJECT                                                  MESSAGE
+53m         Normal    CREATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+47m         Normal    CREATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+37m         Normal    CREATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+34m         Normal    DELETE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+34m         Normal    DELETE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+34m         Normal    DELETE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+34m         Normal    DELETE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+5m40s       Normal    CREATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+5m40s       Normal    CREATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+5m40s       Normal    CREATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+5m40s       Normal    CREATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+5m25s       Normal    UPDATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+5m25s       Normal    UPDATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+5m25s       Normal    UPDATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+5m25s       Normal    UPDATE                         ingress/fe-canaveral                                    Ingress default/fe-canaveral
+48m         Warning   FailedScheduling               pod/generic-frontend-15-xm337-tg8pr-b558h               0/4 nodes are available: 4 Insufficient cpu.
+49m         Normal    TriggeredScaleUp               pod/generic-frontend-15-xm337-tg8pr-b558h               pod triggered scale-up: [{eksctl-Olga-olga-new-1259e40f2-c525-4acc-9849-3983bc91e9b6-nodegroup-61bb1b32-d5dd-4f04-83bb-256a7dd8615c-NodeGroup-1RLXJSW61L9SQ 4->5 (max: 6)}]
+47m         Warning   FailedScheduling               pod/generic-frontend-15-xm337-tg8pr-b558h               0/5 nodes are available: 1 node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate, 4 Insufficient cpu.
+47m         Normal    Scheduled                      pod/generic-frontend-15-xm337-tg8pr-b558h               Successfully assigned default/generic-frontend-15-xm337-tg8pr-b558h to ip-10-1-1-25.eu-west-3.compute.internal
+47m         Normal    Pulling                        pod/generic-frontend-15-xm337-tg8pr-b558h               Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+47m         Normal    Pulled                         pod/generic-frontend-15-xm337-tg8pr-b558h               Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 18.855392574s
+47m         Normal    Created                        pod/generic-frontend-15-xm337-tg8pr-b558h               Created container vault-agent-init
+47m         Normal    Started                        pod/generic-frontend-15-xm337-tg8pr-b558h               Started container vault-agent-init
+47m         Normal    Pulling                        pod/generic-frontend-15-xm337-tg8pr-b558h               Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+46m         Normal    Pulled                         pod/generic-frontend-15-xm337-tg8pr-b558h               Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 1m2.064939914s
+46m         Normal    Created                        pod/generic-frontend-15-xm337-tg8pr-b558h               Created container jnlp
+46m         Normal    Started                        pod/generic-frontend-15-xm337-tg8pr-b558h               Started container jnlp
+46m         Normal    Pulled                         pod/generic-frontend-15-xm337-tg8pr-b558h               Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+46m         Normal    Created                        pod/generic-frontend-15-xm337-tg8pr-b558h               Created container vault-agent
+46m         Normal    Started                        pod/generic-frontend-15-xm337-tg8pr-b558h               Started container vault-agent
+43m         Normal    Killing                        pod/generic-frontend-15-xm337-tg8pr-b558h               Stopping container jnlp
+43m         Normal    Killing                        pod/generic-frontend-15-xm337-tg8pr-b558h               Stopping container vault-agent
+35m         Normal    Scheduled                      pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Successfully assigned default/generic-frontend-16-j5xbf-bsnjl-vhm0n to ip-10-1-38-3.eu-west-3.compute.internal
+35m         Normal    Pulling                        pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+35m         Normal    Pulled                         pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 6.845832512s
+35m         Normal    Created                        pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Created container vault-agent-init
+35m         Normal    Started                        pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Started container vault-agent-init
+35m         Normal    Pulling                        pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+34m         Normal    Pulled                         pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 57.649206372s
+34m         Normal    Created                        pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Created container jnlp
+34m         Normal    Started                        pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Started container jnlp
+34m         Normal    Pulled                         pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+34m         Normal    Created                        pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Created container vault-agent
+34m         Normal    Started                        pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Started container vault-agent
+34m         Normal    Killing                        pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Stopping container jnlp
+34m         Normal    Killing                        pod/generic-frontend-16-j5xbf-bsnjl-vhm0n               Stopping container vault-agent
+7m34s       Normal    Scheduled                      pod/generic-frontend-17-r521t-krjxr-0rpd3               Successfully assigned default/generic-frontend-17-r521t-krjxr-0rpd3 to ip-10-1-51-246.eu-west-3.compute.internal
+7m33s       Normal    Pulled                         pod/generic-frontend-17-r521t-krjxr-0rpd3               Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+7m33s       Normal    Created                        pod/generic-frontend-17-r521t-krjxr-0rpd3               Created container vault-agent-init
+7m33s       Normal    Started                        pod/generic-frontend-17-r521t-krjxr-0rpd3               Started container vault-agent-init
+7m32s       Normal    Pulled                         pod/generic-frontend-17-r521t-krjxr-0rpd3               Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" already present on machine
+7m32s       Normal    Created                        pod/generic-frontend-17-r521t-krjxr-0rpd3               Created container jnlp
+7m32s       Normal    Started                        pod/generic-frontend-17-r521t-krjxr-0rpd3               Started container jnlp
+7m32s       Normal    Pulled                         pod/generic-frontend-17-r521t-krjxr-0rpd3               Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+7m32s       Normal    Created                        pod/generic-frontend-17-r521t-krjxr-0rpd3               Created container vault-agent
+7m32s       Normal    Started                        pod/generic-frontend-17-r521t-krjxr-0rpd3               Started container vault-agent
+5m39s       Normal    Killing                        pod/generic-frontend-17-r521t-krjxr-0rpd3               Stopping container jnlp
+5m39s       Normal    Killing                        pod/generic-frontend-17-r521t-krjxr-0rpd3               Stopping container vault-agent
+49m         Normal    Scheduled                      pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Successfully assigned default/generic-kubernetes-29-sbkw4-02fmq-ps6bq to ip-10-1-52-192.eu-west-3.compute.internal
+49m         Normal    Pulling                        pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+49m         Normal    Pulled                         pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 11.609394152s
+49m         Normal    Created                        pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Created container vault-agent-init
+49m         Normal    Started                        pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Started container vault-agent-init
+49m         Normal    Pulling                        pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+48m         Normal    Pulled                         pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 56.305561429s
+48m         Normal    Created                        pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Created container jnlp
+48m         Normal    Started                        pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Started container jnlp
+48m         Normal    Pulled                         pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+48m         Normal    Created                        pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Created container vault-agent
+48m         Normal    Started                        pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Started container vault-agent
+45m         Normal    Killing                        pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Stopping container jnlp
+45m         Normal    Killing                        pod/generic-kubernetes-29-sbkw4-02fmq-ps6bq             Stopping container vault-agent
+49m         Normal    Scheduled                      pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Successfully assigned default/generic-kubernetes-30-0cj6s-8x9ss-2bhb6 to ip-10-1-52-192.eu-west-3.compute.internal
+49m         Normal    Pulling                        pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+49m         Normal    Pulled                         pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 11.862260887s
+49m         Normal    Created                        pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Created container vault-agent-init
+49m         Normal    Started                        pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Started container vault-agent-init
+49m         Normal    Pulling                        pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+48m         Normal    Pulled                         pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 56.290207543s
+48m         Normal    Created                        pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Created container jnlp
+48m         Normal    Started                        pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Started container jnlp
+48m         Normal    Pulled                         pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+48m         Normal    Created                        pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Created container vault-agent
+48m         Normal    Started                        pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Started container vault-agent
+45m         Normal    Killing                        pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Stopping container jnlp
+45m         Normal    Killing                        pod/generic-kubernetes-30-0cj6s-8x9ss-2bhb6             Stopping container vault-agent
+35m         Normal    Scheduled                      pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Successfully assigned default/generic-kubernetes-31-05krt-hjwd3-hnt4m to ip-10-1-29-31.eu-west-3.compute.internal
+35m         Normal    Pulled                         pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+35m         Normal    Created                        pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Created container vault-agent-init
+35m         Normal    Started                        pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Started container vault-agent-init
+35m         Normal    Pulled                         pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" already present on machine
+35m         Normal    Created                        pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Created container jnlp
+35m         Normal    Started                        pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Started container jnlp
+35m         Normal    Pulled                         pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+35m         Normal    Created                        pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Created container vault-agent
+35m         Normal    Started                        pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Started container vault-agent
+33m         Normal    Killing                        pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Stopping container jnlp
+33m         Normal    Killing                        pod/generic-kubernetes-31-05krt-hjwd3-hnt4m             Stopping container vault-agent
+35m         Normal    Scheduled                      pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Successfully assigned default/generic-kubernetes-32-5w9j7-3jxx6-6phlh to ip-10-1-29-31.eu-west-3.compute.internal
+35m         Normal    Pulled                         pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+35m         Normal    Created                        pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Created container vault-agent-init
+35m         Normal    Started                        pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Started container vault-agent-init
+35m         Normal    Pulled                         pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" already present on machine
+35m         Normal    Created                        pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Created container jnlp
+35m         Normal    Started                        pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Started container jnlp
+35m         Normal    Pulled                         pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+35m         Normal    Created                        pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Created container vault-agent
+35m         Normal    Started                        pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Started container vault-agent
+33m         Normal    Killing                        pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Stopping container jnlp
+33m         Normal    Killing                        pod/generic-kubernetes-32-5w9j7-3jxx6-6phlh             Stopping container vault-agent
+7m27s       Normal    Scheduled                      pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Successfully assigned default/generic-kubernetes-33-qbqc2-cstng-57zf1 to ip-10-1-62-180.eu-west-3.compute.internal
+7m26s       Normal    Pulled                         pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+7m26s       Normal    Created                        pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Created container vault-agent-init
+7m26s       Normal    Started                        pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Started container vault-agent-init
+7m25s       Normal    Pulled                         pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" already present on machine
+7m25s       Normal    Created                        pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Created container jnlp
+7m25s       Normal    Started                        pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Started container jnlp
+7m25s       Normal    Pulled                         pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+7m25s       Normal    Created                        pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Created container vault-agent
+7m24s       Normal    Started                        pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Started container vault-agent
+4m41s       Normal    Killing                        pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Stopping container jnlp
+4m41s       Normal    Killing                        pod/generic-kubernetes-33-qbqc2-cstng-57zf1             Stopping container vault-agent
+7m27s       Normal    Scheduled                      pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Successfully assigned default/generic-kubernetes-34-3xlww-mm73l-gwnfz to ip-10-1-26-106.eu-west-3.compute.internal
+7m26s       Normal    Pulling                        pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+7m13s       Normal    Pulled                         pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 13.027679092s
+7m13s       Normal    Created                        pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Created container vault-agent-init
+7m13s       Normal    Started                        pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Started container vault-agent-init
+7m12s       Normal    Pulling                        pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+6m11s       Normal    Pulled                         pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 1m1.203701403s
+6m9s        Normal    Created                        pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Created container jnlp
+6m9s        Normal    Started                        pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Started container jnlp
+6m9s        Normal    Pulled                         pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+6m9s        Normal    Created                        pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Created container vault-agent
+6m9s        Normal    Started                        pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Started container vault-agent
+3m40s       Normal    Killing                        pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Stopping container jnlp
+3m40s       Normal    Killing                        pod/generic-kubernetes-34-3xlww-mm73l-gwnfz             Stopping container vault-agent
+46m         Normal    Scheduled                      pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Successfully assigned default/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq to ip-10-1-1-25.eu-west-3.compute.internal
+46m         Normal    Pulled                         pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+46m         Normal    Created                        pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Created container vault-agent-init
+46m         Normal    Started                        pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Started container vault-agent-init
+46m         Normal    Pulling                        pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+46m         Normal    Pulled                         pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 16.472640758s
+46m         Normal    Created                        pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Created container jnlp
+46m         Normal    Started                        pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Started container jnlp
+46m         Normal    Pulled                         pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+46m         Normal    Created                        pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Created container vault-agent
+46m         Normal    Started                        pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Started container vault-agent
+45m         Normal    Killing                        pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Stopping container jnlp
+45m         Normal    Killing                        pod/generic-kubernetes-deploy-29-h70hs-z08tj-nldgq      Stopping container vault-agent
+46m         Normal    Scheduled                      pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Successfully assigned default/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t to ip-10-1-29-31.eu-west-3.compute.internal
+46m         Normal    Pulled                         pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+46m         Normal    Created                        pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Created container vault-agent-init
+46m         Normal    Started                        pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Started container vault-agent-init
+46m         Normal    Pulled                         pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" already present on machine
+46m         Normal    Created                        pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Created container jnlp
+46m         Normal    Started                        pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Started container jnlp
+46m         Normal    Pulled                         pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+46m         Normal    Created                        pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Created container vault-agent
+46m         Normal    Started                        pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Started container vault-agent
+45m         Normal    Killing                        pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Stopping container jnlp
+45m         Normal    Killing                        pod/generic-kubernetes-deploy-30-k6skk-1dqml-tfp7t      Stopping container vault-agent
+34m         Normal    Scheduled                      pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Successfully assigned default/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x to ip-10-1-38-3.eu-west-3.compute.internal
+34m         Normal    Pulled                         pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+34m         Normal    Created                        pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Created container vault-agent-init
+34m         Normal    Started                        pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Started container vault-agent-init
+34m         Normal    Pulled                         pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" already present on machine
+34m         Normal    Created                        pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Created container jnlp
+34m         Normal    Started                        pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Started container jnlp
+34m         Normal    Pulled                         pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+34m         Normal    Created                        pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Created container vault-agent
+34m         Normal    Started                        pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Started container vault-agent
+33m         Normal    Killing                        pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Stopping container jnlp
+33m         Normal    Killing                        pod/generic-kubernetes-deploy-31-6vxdd-w8kl1-vhb5x      Stopping container vault-agent
+34m         Normal    Scheduled                      pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Successfully assigned default/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31 to ip-10-1-38-3.eu-west-3.compute.internal
+34m         Normal    Pulled                         pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+34m         Normal    Created                        pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Created container vault-agent-init
+34m         Normal    Started                        pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Started container vault-agent-init
+34m         Normal    Pulled                         pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" already present on machine
+34m         Normal    Created                        pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Created container jnlp
+34m         Normal    Started                        pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Started container jnlp
+34m         Normal    Pulled                         pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+34m         Normal    Created                        pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Created container vault-agent
+34m         Normal    Started                        pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Started container vault-agent
+33m         Normal    Killing                        pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Stopping container jnlp
+33m         Normal    Killing                        pod/generic-kubernetes-deploy-32-cnb5q-7fxz8-0cd31      Stopping container vault-agent
+5m47s       Normal    Scheduled                      pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Successfully assigned default/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x to ip-10-1-26-106.eu-west-3.compute.internal
+5m45s       Normal    Pulled                         pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+5m45s       Normal    Created                        pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Created container vault-agent-init
+5m45s       Normal    Started                        pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Started container vault-agent-init
+5m44s       Normal    Pulled                         pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" already present on machine
+5m44s       Normal    Created                        pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Created container jnlp
+5m44s       Normal    Started                        pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Started container jnlp
+5m44s       Normal    Pulled                         pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+5m44s       Normal    Created                        pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Created container vault-agent
+5m43s       Normal    Started                        pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Started container vault-agent
+4m41s       Normal    Killing                        pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Stopping container jnlp
+4m41s       Normal    Killing                        pod/generic-kubernetes-deploy-33-g28d3-gztsq-x5x5x      Stopping container vault-agent
+4m27s       Normal    Scheduled                      pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Successfully assigned default/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc to ip-10-1-51-246.eu-west-3.compute.internal
+4m26s       Normal    Pulled                         pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+4m26s       Normal    Created                        pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Created container vault-agent-init
+4m26s       Normal    Started                        pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Started container vault-agent-init
+4m25s       Normal    Pulled                         pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" already present on machine
+4m25s       Normal    Created                        pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Created container jnlp
+4m25s       Normal    Started                        pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Started container jnlp
+4m25s       Normal    Pulled                         pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+4m25s       Normal    Created                        pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Created container vault-agent
+4m25s       Normal    Started                        pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Started container vault-agent
+3m40s       Normal    Killing                        pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Stopping container jnlp
+3m40s       Normal    Killing                        pod/generic-kubernetes-deploy-34-q3801-pb7sj-qwgmc      Stopping container vault-agent
+49m         Normal    Scheduled                      pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Successfully assigned default/generic-lambda-29-n00n1-4w7pl-w3kmn to ip-10-1-9-246.eu-west-3.compute.internal
+49m         Normal    Pulled                         pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+49m         Normal    Created                        pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Created container vault-agent-init
+49m         Normal    Started                        pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Started container vault-agent-init
+49m         Normal    Pulling                        pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+48m         Normal    Pulled                         pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 1m7.602104583s
+48m         Normal    Created                        pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Created container jnlp
+48m         Normal    Started                        pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Started container jnlp
+48m         Normal    Pulled                         pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+48m         Normal    Created                        pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Created container vault-agent
+48m         Normal    Started                        pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Started container vault-agent
+47m         Normal    Killing                        pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Stopping container jnlp
+47m         Normal    Killing                        pod/generic-lambda-29-n00n1-4w7pl-w3kmn                 Stopping container vault-agent
+49m         Normal    Scheduled                      pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Successfully assigned default/generic-lambda-30-t7d2s-qzbc2-0v6wq to ip-10-1-29-31.eu-west-3.compute.internal
+49m         Normal    Pulling                        pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+49m         Normal    Pulled                         pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 13.562696499s
+49m         Normal    Created                        pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Created container vault-agent-init
+49m         Normal    Started                        pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Started container vault-agent-init
+49m         Normal    Pulling                        pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+48m         Normal    Pulled                         pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 1m1.390326299s
+48m         Normal    Created                        pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Created container jnlp
+48m         Normal    Started                        pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Started container jnlp
+48m         Normal    Pulled                         pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+48m         Normal    Created                        pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Created container vault-agent
+48m         Normal    Started                        pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Started container vault-agent
+47m         Normal    Killing                        pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Stopping container jnlp
+47m         Normal    Killing                        pod/generic-lambda-30-t7d2s-qzbc2-0v6wq                 Stopping container vault-agent
+36m         Normal    Scheduled                      pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Successfully assigned default/generic-lambda-31-tn2wd-5tx7d-nq1rz to ip-10-1-38-3.eu-west-3.compute.internal
+36m         Normal    Pulling                        pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+35m         Normal    Pulled                         pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 13.312764157s
+35m         Normal    Created                        pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Created container vault-agent-init
+35m         Normal    Started                        pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Started container vault-agent-init
+35m         Normal    Pulling                        pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+34m         Normal    Pulled                         pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 57.670435805s
+34m         Normal    Created                        pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Created container jnlp
+34m         Normal    Started                        pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Started container jnlp
+34m         Normal    Pulled                         pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+34m         Normal    Created                        pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Created container vault-agent
+34m         Normal    Started                        pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Started container vault-agent
+34m         Normal    Killing                        pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Stopping container jnlp
+34m         Normal    Killing                        pod/generic-lambda-31-tn2wd-5tx7d-nq1rz                 Stopping container vault-agent
+34m         Warning   FailedScheduling               pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 0/4 nodes are available: 4 Insufficient cpu.
+35m         Normal    TriggeredScaleUp               pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 pod triggered scale-up: [{eksctl-Olga-olga-new-1259e40f2-c525-4acc-9849-3983bc91e9b6-nodegroup-61bb1b32-d5dd-4f04-83bb-256a7dd8615c-NodeGroup-1RLXJSW61L9SQ 4->5 (max: 6)}]
+34m         Warning   FailedScheduling               pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 0/5 nodes are available: 1 node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate, 4 Insufficient cpu.
+34m         Normal    Scheduled                      pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Successfully assigned default/generic-lambda-32-x1gfv-w2ld5-kx0gt to ip-10-1-32-108.eu-west-3.compute.internal
+34m         Normal    Pulling                        pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+33m         Normal    Pulled                         pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 17.682647626s
+33m         Normal    Created                        pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Created container vault-agent-init
+33m         Normal    Started                        pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Started container vault-agent-init
+33m         Normal    Pulling                        pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+32m         Normal    Pulled                         pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 55.088773735s
+32m         Normal    Created                        pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Created container jnlp
+32m         Normal    Started                        pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Started container jnlp
+32m         Normal    Pulled                         pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+32m         Normal    Created                        pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Created container vault-agent
+32m         Normal    Started                        pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Started container vault-agent
+32m         Normal    Killing                        pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Stopping container jnlp
+32m         Normal    Killing                        pod/generic-lambda-32-x1gfv-w2ld5-kx0gt                 Stopping container vault-agent
+12m         Normal    Scheduled                      pod/generic-lambda-33-q3c70-85f70-gm4z8                 Successfully assigned default/generic-lambda-33-q3c70-85f70-gm4z8 to ip-10-1-51-246.eu-west-3.compute.internal
+12m         Normal    Pulled                         pod/generic-lambda-33-q3c70-85f70-gm4z8                 Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+12m         Normal    Created                        pod/generic-lambda-33-q3c70-85f70-gm4z8                 Created container vault-agent-init
+12m         Normal    Started                        pod/generic-lambda-33-q3c70-85f70-gm4z8                 Started container vault-agent-init
+12m         Normal    Pulling                        pod/generic-lambda-33-q3c70-85f70-gm4z8                 Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+11m         Normal    Pulled                         pod/generic-lambda-33-q3c70-85f70-gm4z8                 Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 1m0.371638794s
+11m         Normal    Created                        pod/generic-lambda-33-q3c70-85f70-gm4z8                 Created container jnlp
+11m         Normal    Started                        pod/generic-lambda-33-q3c70-85f70-gm4z8                 Started container jnlp
+11m         Normal    Pulled                         pod/generic-lambda-33-q3c70-85f70-gm4z8                 Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+11m         Normal    Created                        pod/generic-lambda-33-q3c70-85f70-gm4z8                 Created container vault-agent
+11m         Normal    Started                        pod/generic-lambda-33-q3c70-85f70-gm4z8                 Started container vault-agent
+10m         Normal    Killing                        pod/generic-lambda-33-q3c70-85f70-gm4z8                 Stopping container jnlp
+10m         Normal    Killing                        pod/generic-lambda-33-q3c70-85f70-gm4z8                 Stopping container vault-agent
+12m         Normal    Scheduled                      pod/generic-lambda-34-85r6b-0d0bs-v3492                 Successfully assigned default/generic-lambda-34-85r6b-0d0bs-v3492 to ip-10-1-62-180.eu-west-3.compute.internal
+12m         Normal    Pulled                         pod/generic-lambda-34-85r6b-0d0bs-v3492                 Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+12m         Normal    Created                        pod/generic-lambda-34-85r6b-0d0bs-v3492                 Created container vault-agent-init
+12m         Normal    Started                        pod/generic-lambda-34-85r6b-0d0bs-v3492                 Started container vault-agent-init
+12m         Normal    Pulling                        pod/generic-lambda-34-85r6b-0d0bs-v3492                 Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11"
+11m         Normal    Pulled                         pod/generic-lambda-34-85r6b-0d0bs-v3492                 Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins-slave/jenkins-slave:4.13.2-1-2342-jdk11" in 1m1.817118869s
+11m         Normal    Created                        pod/generic-lambda-34-85r6b-0d0bs-v3492                 Created container jnlp
+11m         Normal    Started                        pod/generic-lambda-34-85r6b-0d0bs-v3492                 Started container jnlp
+11m         Normal    Pulled                         pod/generic-lambda-34-85r6b-0d0bs-v3492                 Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+11m         Normal    Created                        pod/generic-lambda-34-85r6b-0d0bs-v3492                 Created container vault-agent
+11m         Normal    Started                        pod/generic-lambda-34-85r6b-0d0bs-v3492                 Started container vault-agent
+10m         Normal    Killing                        pod/generic-lambda-34-85r6b-0d0bs-v3492                 Stopping container jnlp
+10m         Normal    Killing                        pod/generic-lambda-34-85r6b-0d0bs-v3492                 Stopping container vault-agent
+29m         Normal    Scheduled                      pod/ingress-nginx-admission-create-bwtw4                Successfully assigned default/ingress-nginx-admission-create-bwtw4 to ip-10-1-32-108.eu-west-3.compute.internal
+29m         Normal    Pulling                        pod/ingress-nginx-admission-create-bwtw4                Pulling image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0"
+29m         Normal    Pulled                         pod/ingress-nginx-admission-create-bwtw4                Successfully pulled image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0" in 2.965486566s
+29m         Normal    Created                        pod/ingress-nginx-admission-create-bwtw4                Created container create
+29m         Normal    Started                        pod/ingress-nginx-admission-create-bwtw4                Started container create
+20m         Normal    Scheduled                      pod/ingress-nginx-admission-create-pjlgt                Successfully assigned default/ingress-nginx-admission-create-pjlgt to ip-10-1-0-97.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-admission-create-pjlgt                Pulling image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0"
+20m         Normal    Pulled                         pod/ingress-nginx-admission-create-pjlgt                Successfully pulled image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0" in 1.882638146s
+20m         Normal    Created                        pod/ingress-nginx-admission-create-pjlgt                Created container create
+20m         Normal    Started                        pod/ingress-nginx-admission-create-pjlgt                Started container create
+29m         Normal    SuccessfulCreate               job/ingress-nginx-admission-create                      Created pod: ingress-nginx-admission-create-bwtw4
+29m         Normal    Completed                      job/ingress-nginx-admission-create                      Job completed
+20m         Normal    SuccessfulCreate               job/ingress-nginx-admission-create                      Created pod: ingress-nginx-admission-create-pjlgt
+20m         Normal    Completed                      job/ingress-nginx-admission-create                      Job completed
+20m         Normal    Scheduled                      pod/ingress-nginx-admission-patch-pc4p6                 Successfully assigned default/ingress-nginx-admission-patch-pc4p6 to ip-10-1-62-180.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-admission-patch-pc4p6                 Pulling image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0"
+20m         Normal    Pulled                         pod/ingress-nginx-admission-patch-pc4p6                 Successfully pulled image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0" in 1.719278436s
+20m         Normal    Created                        pod/ingress-nginx-admission-patch-pc4p6                 Created container patch
+20m         Normal    Started                        pod/ingress-nginx-admission-patch-pc4p6                 Started container patch
+29m         Normal    Scheduled                      pod/ingress-nginx-admission-patch-q2m5m                 Successfully assigned default/ingress-nginx-admission-patch-q2m5m to ip-10-1-32-108.eu-west-3.compute.internal
+29m         Normal    Pulled                         pod/ingress-nginx-admission-patch-q2m5m                 Container image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0" already present on machine
+29m         Normal    Created                        pod/ingress-nginx-admission-patch-q2m5m                 Created container patch
+29m         Normal    Started                        pod/ingress-nginx-admission-patch-q2m5m                 Started container patch
+29m         Normal    SuccessfulCreate               job/ingress-nginx-admission-patch                       Created pod: ingress-nginx-admission-patch-q2m5m
+29m         Normal    Completed                      job/ingress-nginx-admission-patch                       Job completed
+20m         Normal    SuccessfulCreate               job/ingress-nginx-admission-patch                       Created pod: ingress-nginx-admission-patch-pc4p6
+20m         Normal    Completed                      job/ingress-nginx-admission-patch                       Job completed
+56m         Normal    ScaleDown                      pod/ingress-nginx-controller-4fzc5                      deleting pod for node scale down
+56m         Normal    Killing                        pod/ingress-nginx-controller-4fzc5                      Stopping container controller
+56m         Warning   Unhealthy                      pod/ingress-nginx-controller-4fzc5                      Liveness probe failed: HTTP probe failed with statuscode: 500
+56m         Warning   Unhealthy                      pod/ingress-nginx-controller-4fzc5                      Readiness probe failed: HTTP probe failed with statuscode: 500
+56m         Warning   FailedKillPod                  pod/ingress-nginx-controller-4fzc5                      error killing pod: failed to "KillPodSandbox" for "ff117bd8-70ec-45e1-b58f-cb2f55f010e9" with KillPodSandboxError: "rpc error: code = Unknown desc = networkPlugin cni failed to teardown pod \"ingress-nginx-controller-4fzc5_default\" network: del cmd: error received from DelNetwork gRPC call: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 127.0.0.1:50051: connect: connection refused\""
+47m         Normal    Scheduled                      pod/ingress-nginx-controller-4pj58                      Successfully assigned default/ingress-nginx-controller-4pj58 to ip-10-1-1-25.eu-west-3.compute.internal
+47m         Normal    Pulling                        pod/ingress-nginx-controller-4pj58                      Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+47m         Normal    Pulled                         pod/ingress-nginx-controller-4pj58                      Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 19.13141843s
+47m         Normal    Created                        pod/ingress-nginx-controller-4pj58                      Created container controller
+47m         Normal    Started                        pod/ingress-nginx-controller-4pj58                      Started container controller
+38m         Warning   NodeNotReady                   pod/ingress-nginx-controller-4pj58                      Node is not ready
+11m         Normal    Scheduled                      pod/ingress-nginx-controller-7jgd4                      Successfully assigned default/ingress-nginx-controller-7jgd4 to ip-10-1-26-106.eu-west-3.compute.internal
+11m         Normal    Pulling                        pod/ingress-nginx-controller-7jgd4                      Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+11m         Normal    Pulled                         pod/ingress-nginx-controller-7jgd4                      Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 15.440069783s
+11m         Normal    Created                        pod/ingress-nginx-controller-7jgd4                      Created container controller
+11m         Normal    Started                        pod/ingress-nginx-controller-7jgd4                      Started container controller
+54m         Warning   NodeNotReady                   pod/ingress-nginx-controller-9stkl                      Node is not ready
+11m         Warning   FailedToUpdateEndpoint         endpoints/ingress-nginx-controller-admission            Failed to update endpoint default/ingress-nginx-controller-admission: Operation cannot be fulfilled on endpoints "ingress-nginx-controller-admission": the object has been modified; please apply your changes to the latest version and try again
+53m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-controller-admission              Error updating Endpoint Slices for Service default/ingress-nginx-controller-admission: node "ip-10-1-30-25.eu-west-3.compute.internal" not found
+36m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-controller-admission              Error updating Endpoint Slices for Service default/ingress-nginx-controller-admission: node "ip-10-1-1-25.eu-west-3.compute.internal" not found
+11m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-controller-admission              Error updating Endpoint Slices for Service default/ingress-nginx-controller-admission: node "ip-10-1-37-225.eu-west-3.compute.internal" not found
+29m         Normal    Killing                        pod/ingress-nginx-controller-b56wf                      Stopping container controller
+29m         Warning   Unhealthy                      pod/ingress-nginx-controller-b56wf                      Liveness probe failed: HTTP probe failed with statuscode: 500
+29m         Warning   Unhealthy                      pod/ingress-nginx-controller-b56wf                      Readiness probe failed: HTTP probe failed with statuscode: 500
+20m         Normal    Scheduled                      pod/ingress-nginx-controller-b8jht                      Successfully assigned default/ingress-nginx-controller-b8jht to ip-10-1-12-138.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-controller-b8jht                      Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+19m         Normal    Pulled                         pod/ingress-nginx-controller-b8jht                      Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 17.063644934s
+19m         Normal    Created                        pod/ingress-nginx-controller-b8jht                      Created container controller
+19m         Normal    Started                        pod/ingress-nginx-controller-b8jht                      Started container controller
+14m         Normal    ScaleDown                      pod/ingress-nginx-controller-b8jht                      deleting pod for node scale down
+14m         Normal    Killing                        pod/ingress-nginx-controller-b8jht                      Stopping container controller
+14m         Warning   Unhealthy                      pod/ingress-nginx-controller-b8jht                      Readiness probe failed: HTTP probe failed with statuscode: 500
+14m         Warning   Unhealthy                      pod/ingress-nginx-controller-b8jht                      Liveness probe failed: HTTP probe failed with statuscode: 500
+13m         Warning   FailedKillPod                  pod/ingress-nginx-controller-b8jht                      error killing pod: failed to "KillPodSandbox" for "39b59afc-14b2-437b-a5f6-1d281fd83064" with KillPodSandboxError: "rpc error: code = Unknown desc = networkPlugin cni failed to teardown pod \"ingress-nginx-controller-b8jht_default\" network: del cmd: error received from DelNetwork gRPC call: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 127.0.0.1:50051: connect: connection refused\""
+34m         Normal    Scheduled                      pod/ingress-nginx-controller-bv52b                      Successfully assigned default/ingress-nginx-controller-bv52b to ip-10-1-32-108.eu-west-3.compute.internal
+34m         Normal    Pulling                        pod/ingress-nginx-controller-bv52b                      Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+33m         Normal    Pulled                         pod/ingress-nginx-controller-bv52b                      Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 17.508797126s
+33m         Normal    Created                        pod/ingress-nginx-controller-bv52b                      Created container controller
+33m         Normal    Started                        pod/ingress-nginx-controller-bv52b                      Started container controller
+29m         Normal    Killing                        pod/ingress-nginx-controller-bv52b                      Stopping container controller
+29m         Warning   Unhealthy                      pod/ingress-nginx-controller-bv52b                      Liveness probe failed: HTTP probe failed with statuscode: 500
+29m         Warning   Unhealthy                      pod/ingress-nginx-controller-bv52b                      Readiness probe failed: HTTP probe failed with statuscode: 500
+20m         Normal    Scheduled                      pod/ingress-nginx-controller-f7bwc                      Successfully assigned default/ingress-nginx-controller-f7bwc to ip-10-1-37-225.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-controller-f7bwc                      Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+19m         Normal    Pulled                         pod/ingress-nginx-controller-f7bwc                      Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 19.215670447s
+19m         Normal    Created                        pod/ingress-nginx-controller-f7bwc                      Created container controller
+19m         Normal    Started                        pod/ingress-nginx-controller-f7bwc                      Started container controller
+12m         Warning   NodeNotReady                   pod/ingress-nginx-controller-f7bwc                      Node is not ready
+54m         Normal    Scheduled                      pod/ingress-nginx-controller-jqbfc                      Successfully assigned default/ingress-nginx-controller-jqbfc to ip-10-1-52-192.eu-west-3.compute.internal
+54m         Normal    Pulling                        pod/ingress-nginx-controller-jqbfc                      Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+53m         Normal    Pulled                         pod/ingress-nginx-controller-jqbfc                      Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 14.507624219s
+53m         Normal    Created                        pod/ingress-nginx-controller-jqbfc                      Created container controller
+53m         Normal    Started                        pod/ingress-nginx-controller-jqbfc                      Started container controller
+39m         Normal    ScaleDown                      pod/ingress-nginx-controller-jqbfc                      deleting pod for node scale down
+39m         Normal    Killing                        pod/ingress-nginx-controller-jqbfc                      Stopping container controller
+39m         Warning   Unhealthy                      pod/ingress-nginx-controller-jqbfc                      Liveness probe failed: HTTP probe failed with statuscode: 500
+39m         Warning   Unhealthy                      pod/ingress-nginx-controller-jqbfc                      Readiness probe failed: HTTP probe failed with statuscode: 500
+39m         Warning   FailedKillPod                  pod/ingress-nginx-controller-jqbfc                      error killing pod: failed to "KillPodSandbox" for "a5150558-9821-48e6-bfda-da869b5ff073" with KillPodSandboxError: "rpc error: code = Unknown desc = networkPlugin cni failed to teardown pod \"ingress-nginx-controller-jqbfc_default\" network: del cmd: error received from DelNetwork gRPC call: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 127.0.0.1:50051: connect: connection refused\""
+20m         Normal    Scheduled                      pod/ingress-nginx-controller-l8n9f                      Successfully assigned default/ingress-nginx-controller-l8n9f to ip-10-1-0-97.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-controller-l8n9f                      Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+19m         Normal    Pulled                         pod/ingress-nginx-controller-l8n9f                      Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 27.093390787s
+19m         Normal    Created                        pod/ingress-nginx-controller-l8n9f                      Created container controller
+19m         Normal    Started                        pod/ingress-nginx-controller-l8n9f                      Started container controller
+37m         Normal    Scheduled                      pod/ingress-nginx-controller-lzgm2                      Successfully assigned default/ingress-nginx-controller-lzgm2 to ip-10-1-38-3.eu-west-3.compute.internal
+37m         Normal    Pulling                        pod/ingress-nginx-controller-lzgm2                      Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+37m         Normal    Pulled                         pod/ingress-nginx-controller-lzgm2                      Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 14.288182179s
+37m         Normal    Created                        pod/ingress-nginx-controller-lzgm2                      Created container controller
+37m         Normal    Started                        pod/ingress-nginx-controller-lzgm2                      Started container controller
+29m         Normal    Killing                        pod/ingress-nginx-controller-lzgm2                      Stopping container controller
+29m         Warning   Unhealthy                      pod/ingress-nginx-controller-lzgm2                      Liveness probe failed: HTTP probe failed with statuscode: 500
+29m         Warning   Unhealthy                      pod/ingress-nginx-controller-lzgm2                      Readiness probe failed: HTTP probe failed with statuscode: 500
+11m         Warning   FailedToUpdateEndpoint         endpoints/ingress-nginx-controller-metrics              Failed to update endpoint default/ingress-nginx-controller-metrics: Operation cannot be fulfilled on endpoints "ingress-nginx-controller-metrics": the object has been modified; please apply your changes to the latest version and try again
+53m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-controller-metrics                Error updating Endpoint Slices for Service default/ingress-nginx-controller-metrics: node "ip-10-1-30-25.eu-west-3.compute.internal" not found
+36m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-controller-metrics                Error updating Endpoint Slices for Service default/ingress-nginx-controller-metrics: node "ip-10-1-1-25.eu-west-3.compute.internal" not found
+11m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-controller-metrics                Error updating Endpoint Slices for Service default/ingress-nginx-controller-metrics: node "ip-10-1-37-225.eu-west-3.compute.internal" not found
+29m         Normal    Killing                        pod/ingress-nginx-controller-qjx2v                      Stopping container controller
+29m         Warning   Unhealthy                      pod/ingress-nginx-controller-qjx2v                      Liveness probe failed: HTTP probe failed with statuscode: 500
+29m         Warning   Unhealthy                      pod/ingress-nginx-controller-qjx2v                      Readiness probe failed: HTTP probe failed with statuscode: 500
+20m         Normal    Scheduled                      pod/ingress-nginx-controller-s2fjp                      Successfully assigned default/ingress-nginx-controller-s2fjp to ip-10-1-62-180.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-controller-s2fjp                      Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+19m         Normal    Pulled                         pod/ingress-nginx-controller-s2fjp                      Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 24.834244208s
+19m         Normal    Created                        pod/ingress-nginx-controller-s2fjp                      Created container controller
+19m         Normal    Started                        pod/ingress-nginx-controller-s2fjp                      Started container controller
+29m         Normal    Killing                        pod/ingress-nginx-controller-tfr2h                      Stopping container controller
+29m         Warning   Unhealthy                      pod/ingress-nginx-controller-tfr2h                      Readiness probe failed: HTTP probe failed with statuscode: 500
+29m         Warning   Unhealthy                      pod/ingress-nginx-controller-tfr2h                      Liveness probe failed: HTTP probe failed with statuscode: 500
+20m         Normal    Scheduled                      pod/ingress-nginx-controller-v7hws                      Successfully assigned default/ingress-nginx-controller-v7hws to ip-10-1-51-246.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-controller-v7hws                      Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+19m         Normal    Pulled                         pod/ingress-nginx-controller-v7hws                      Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 25.879571845s
+19m         Normal    Created                        pod/ingress-nginx-controller-v7hws                      Created container controller
+19m         Normal    Started                        pod/ingress-nginx-controller-v7hws                      Started container controller
+34m         Normal    UpdatedLoadBalancer            service/ingress-nginx-controller                        Updated load balancer with new hosts
+54m         Normal    SuccessfulCreate               daemonset/ingress-nginx-controller                      Created pod: ingress-nginx-controller-jqbfc
+53m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-controller                        Error updating Endpoint Slices for Service default/ingress-nginx-controller: node "ip-10-1-30-25.eu-west-3.compute.internal" not found
+53m         Normal    CREATE                         configmap/ingress-nginx-controller                      ConfigMap default/ingress-nginx-controller
+47m         Normal    SuccessfulCreate               daemonset/ingress-nginx-controller                      Created pod: ingress-nginx-controller-4pj58
+47m         Normal    CREATE                         configmap/ingress-nginx-controller                      ConfigMap default/ingress-nginx-controller
+36m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-controller                        Error updating Endpoint Slices for Service default/ingress-nginx-controller: node "ip-10-1-1-25.eu-west-3.compute.internal" not found
+37m         Normal    SuccessfulCreate               daemonset/ingress-nginx-controller                      Created pod: ingress-nginx-controller-lzgm2
+37m         Normal    CREATE                         configmap/ingress-nginx-controller                      ConfigMap default/ingress-nginx-controller
+36m         Warning   FailedToUpdateEndpoint         endpoints/ingress-nginx-controller                      Failed to update endpoint default/ingress-nginx-controller: Operation cannot be fulfilled on endpoints "ingress-nginx-controller": the object has been modified; please apply your changes to the latest version and try again
+34m         Normal    SuccessfulCreate               daemonset/ingress-nginx-controller                      Created pod: ingress-nginx-controller-bv52b
+33m         Normal    CREATE                         configmap/ingress-nginx-controller                      ConfigMap default/ingress-nginx-controller
+29m         Normal    DeletingLoadBalancer           service/ingress-nginx-controller                        Deleting load balancer
+29m         Normal    DeletedLoadBalancer            service/ingress-nginx-controller                        Deleted load balancer
+29m         Normal    SuccessfulDelete               daemonset/ingress-nginx-controller                      Deleted pod: ingress-nginx-controller-qjx2v
+29m         Normal    SuccessfulDelete               daemonset/ingress-nginx-controller                      Deleted pod: ingress-nginx-controller-bv52b
+29m         Normal    SuccessfulDelete               daemonset/ingress-nginx-controller                      Deleted pod: ingress-nginx-controller-b56wf
+29m         Normal    SuccessfulDelete               daemonset/ingress-nginx-controller                      Deleted pod: ingress-nginx-controller-tfr2h
+29m         Normal    SuccessfulDelete               daemonset/ingress-nginx-controller                      Deleted pod: ingress-nginx-controller-lzgm2
+20m         Normal    EnsuringLoadBalancer           service/ingress-nginx-controller                        Ensuring load balancer
+20m         Normal    EnsuredLoadBalancer            service/ingress-nginx-controller                        Ensured load balancer
+20m         Normal    SuccessfulCreate               daemonset/ingress-nginx-controller                      Created pod: ingress-nginx-controller-l8n9f
+20m         Normal    SuccessfulCreate               daemonset/ingress-nginx-controller                      Created pod: ingress-nginx-controller-b8jht
+20m         Normal    SuccessfulCreate               daemonset/ingress-nginx-controller                      Created pod: ingress-nginx-controller-f7bwc
+20m         Normal    SuccessfulCreate               daemonset/ingress-nginx-controller                      Created pod: ingress-nginx-controller-v7hws
+20m         Normal    SuccessfulCreate               daemonset/ingress-nginx-controller                      Created pod: ingress-nginx-controller-s2fjp
+19m         Normal    CREATE                         configmap/ingress-nginx-controller                      ConfigMap default/ingress-nginx-controller
+19m         Normal    CREATE                         configmap/ingress-nginx-controller                      ConfigMap default/ingress-nginx-controller
+19m         Normal    CREATE                         configmap/ingress-nginx-controller                      ConfigMap default/ingress-nginx-controller
+19m         Normal    CREATE                         configmap/ingress-nginx-controller                      ConfigMap default/ingress-nginx-controller
+19m         Normal    CREATE                         configmap/ingress-nginx-controller                      ConfigMap default/ingress-nginx-controller
+11m         Normal    UpdatedLoadBalancer            service/ingress-nginx-controller                        Updated load balancer with new hosts
+11m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-controller                        Error updating Endpoint Slices for Service default/ingress-nginx-controller: node "ip-10-1-37-225.eu-west-3.compute.internal" not found
+11m         Normal    SuccessfulCreate               daemonset/ingress-nginx-controller                      Created pod: ingress-nginx-controller-7jgd4
+11m         Normal    CREATE                         configmap/ingress-nginx-controller                      ConfigMap default/ingress-nginx-controller
+29m         Normal    Scheduled                      pod/ingress-nginx-internal-admission-create-dg2h5       Successfully assigned default/ingress-nginx-internal-admission-create-dg2h5 to ip-10-1-32-108.eu-west-3.compute.internal
+29m         Normal    Pulled                         pod/ingress-nginx-internal-admission-create-dg2h5       Container image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0" already present on machine
+29m         Normal    Created                        pod/ingress-nginx-internal-admission-create-dg2h5       Created container create
+29m         Normal    Started                        pod/ingress-nginx-internal-admission-create-dg2h5       Started container create
+20m         Normal    Scheduled                      pod/ingress-nginx-internal-admission-create-hstzh       Successfully assigned default/ingress-nginx-internal-admission-create-hstzh to ip-10-1-51-246.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-internal-admission-create-hstzh       Pulling image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0"
+20m         Normal    Pulled                         pod/ingress-nginx-internal-admission-create-hstzh       Successfully pulled image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0" in 1.605444829s
+20m         Normal    Created                        pod/ingress-nginx-internal-admission-create-hstzh       Created container create
+20m         Normal    Started                        pod/ingress-nginx-internal-admission-create-hstzh       Started container create
+29m         Normal    SuccessfulCreate               job/ingress-nginx-internal-admission-create             Created pod: ingress-nginx-internal-admission-create-dg2h5
+29m         Normal    Completed                      job/ingress-nginx-internal-admission-create             Job completed
+20m         Normal    SuccessfulCreate               job/ingress-nginx-internal-admission-create             Created pod: ingress-nginx-internal-admission-create-hstzh
+20m         Normal    Completed                      job/ingress-nginx-internal-admission-create             Job completed
+20m         Normal    Scheduled                      pod/ingress-nginx-internal-admission-patch-fwxsj        Successfully assigned default/ingress-nginx-internal-admission-patch-fwxsj to ip-10-1-62-180.eu-west-3.compute.internal
+20m         Normal    Pulled                         pod/ingress-nginx-internal-admission-patch-fwxsj        Container image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0" already present on machine
+20m         Normal    Created                        pod/ingress-nginx-internal-admission-patch-fwxsj        Created container patch
+20m         Normal    Started                        pod/ingress-nginx-internal-admission-patch-fwxsj        Started container patch
+29m         Normal    Scheduled                      pod/ingress-nginx-internal-admission-patch-scnsq        Successfully assigned default/ingress-nginx-internal-admission-patch-scnsq to ip-10-1-32-108.eu-west-3.compute.internal
+29m         Normal    Pulled                         pod/ingress-nginx-internal-admission-patch-scnsq        Container image "hub.simloudcorp.customers.simloud.com/jettech/kube-webhook-certgen:v1.2.0" already present on machine
+29m         Normal    Created                        pod/ingress-nginx-internal-admission-patch-scnsq        Created container patch
+29m         Normal    Started                        pod/ingress-nginx-internal-admission-patch-scnsq        Started container patch
+29m         Normal    SuccessfulCreate               job/ingress-nginx-internal-admission-patch              Created pod: ingress-nginx-internal-admission-patch-scnsq
+29m         Normal    Completed                      job/ingress-nginx-internal-admission-patch              Job completed
+20m         Normal    SuccessfulCreate               job/ingress-nginx-internal-admission-patch              Created pod: ingress-nginx-internal-admission-patch-fwxsj
+20m         Normal    Completed                      job/ingress-nginx-internal-admission-patch              Job completed
+20m         Normal    Scheduled                      pod/ingress-nginx-internal-controller-22srv             Successfully assigned default/ingress-nginx-internal-controller-22srv to ip-10-1-12-138.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-internal-controller-22srv             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+19m         Normal    Pulled                         pod/ingress-nginx-internal-controller-22srv             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 16.668198747s
+19m         Normal    Created                        pod/ingress-nginx-internal-controller-22srv             Created container controller
+19m         Normal    Started                        pod/ingress-nginx-internal-controller-22srv             Started container controller
+14m         Normal    ScaleDown                      pod/ingress-nginx-internal-controller-22srv             deleting pod for node scale down
+14m         Normal    Killing                        pod/ingress-nginx-internal-controller-22srv             Stopping container controller
+13m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-22srv             Readiness probe failed: HTTP probe failed with statuscode: 500
+13m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-22srv             Liveness probe failed: HTTP probe failed with statuscode: 500
+13m         Warning   FailedKillPod                  pod/ingress-nginx-internal-controller-22srv             error killing pod: failed to "KillPodSandbox" for "06bb0938-9fad-4e76-a091-45638b232ae7" with KillPodSandboxError: "rpc error: code = Unknown desc = networkPlugin cni failed to teardown pod \"ingress-nginx-internal-controller-22srv_default\" network: del cmd: error received from DelNetwork gRPC call: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 127.0.0.1:50051: connect: connection refused\""
+29m         Normal    Killing                        pod/ingress-nginx-internal-controller-5rg92             Stopping container controller
+29m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-5rg92             Readiness probe failed: HTTP probe failed with statuscode: 500
+29m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-5rg92             Liveness probe failed: HTTP probe failed with statuscode: 500
+11m         Normal    Scheduled                      pod/ingress-nginx-internal-controller-6lzx8             Successfully assigned default/ingress-nginx-internal-controller-6lzx8 to ip-10-1-26-106.eu-west-3.compute.internal
+11m         Normal    Pulling                        pod/ingress-nginx-internal-controller-6lzx8             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+11m         Normal    Pulled                         pod/ingress-nginx-internal-controller-6lzx8             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 15.824331225s
+11m         Normal    Created                        pod/ingress-nginx-internal-controller-6lzx8             Created container controller
+11m         Normal    Started                        pod/ingress-nginx-internal-controller-6lzx8             Started container controller
+20m         Normal    Scheduled                      pod/ingress-nginx-internal-controller-725bm             Successfully assigned default/ingress-nginx-internal-controller-725bm to ip-10-1-51-246.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-internal-controller-725bm             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+19m         Normal    Pulled                         pod/ingress-nginx-internal-controller-725bm             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 25.508254852s
+19m         Normal    Created                        pod/ingress-nginx-internal-controller-725bm             Created container controller
+19m         Normal    Started                        pod/ingress-nginx-internal-controller-725bm             Started container controller
+29m         Normal    Killing                        pod/ingress-nginx-internal-controller-7j4lp             Stopping container controller
+29m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-7j4lp             Readiness probe failed: HTTP probe failed with statuscode: 500
+29m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-7j4lp             Liveness probe failed: HTTP probe failed with statuscode: 500
+47m         Normal    Scheduled                      pod/ingress-nginx-internal-controller-8pj9j             Successfully assigned default/ingress-nginx-internal-controller-8pj9j to ip-10-1-1-25.eu-west-3.compute.internal
+47m         Normal    Pulling                        pod/ingress-nginx-internal-controller-8pj9j             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+47m         Normal    Pulled                         pod/ingress-nginx-internal-controller-8pj9j             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 19.130642849s
+47m         Normal    Created                        pod/ingress-nginx-internal-controller-8pj9j             Created container controller
+47m         Normal    Started                        pod/ingress-nginx-internal-controller-8pj9j             Started container controller
+38m         Warning   NodeNotReady                   pod/ingress-nginx-internal-controller-8pj9j             Node is not ready
+11m         Warning   FailedToUpdateEndpoint         endpoints/ingress-nginx-internal-controller-admission   Failed to update endpoint default/ingress-nginx-internal-controller-admission: Operation cannot be fulfilled on endpoints "ingress-nginx-internal-controller-admission": the object has been modified; please apply your changes to the latest version and try again
+53m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-internal-controller-admission     Error updating Endpoint Slices for Service default/ingress-nginx-internal-controller-admission: node "ip-10-1-30-25.eu-west-3.compute.internal" not found
+36m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-internal-controller-admission     Error updating Endpoint Slices for Service default/ingress-nginx-internal-controller-admission: node "ip-10-1-1-25.eu-west-3.compute.internal" not found
+11m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-internal-controller-admission     Error updating Endpoint Slices for Service default/ingress-nginx-internal-controller-admission: node "ip-10-1-37-225.eu-west-3.compute.internal" not found
+20m         Normal    Scheduled                      pod/ingress-nginx-internal-controller-c26mq             Successfully assigned default/ingress-nginx-internal-controller-c26mq to ip-10-1-62-180.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-internal-controller-c26mq             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+19m         Normal    Pulled                         pod/ingress-nginx-internal-controller-c26mq             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 24.492243846s
+19m         Normal    Created                        pod/ingress-nginx-internal-controller-c26mq             Created container controller
+19m         Normal    Started                        pod/ingress-nginx-internal-controller-c26mq             Started container controller
+54m         Warning   NodeNotReady                   pod/ingress-nginx-internal-controller-dkvdn             Node is not ready
+54m         Normal    Scheduled                      pod/ingress-nginx-internal-controller-dp89p             Successfully assigned default/ingress-nginx-internal-controller-dp89p to ip-10-1-52-192.eu-west-3.compute.internal
+54m         Normal    Pulling                        pod/ingress-nginx-internal-controller-dp89p             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+53m         Normal    Pulled                         pod/ingress-nginx-internal-controller-dp89p             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 15.352782607s
+53m         Normal    Created                        pod/ingress-nginx-internal-controller-dp89p             Created container controller
+53m         Normal    Started                        pod/ingress-nginx-internal-controller-dp89p             Started container controller
+39m         Normal    ScaleDown                      pod/ingress-nginx-internal-controller-dp89p             deleting pod for node scale down
+39m         Normal    Killing                        pod/ingress-nginx-internal-controller-dp89p             Stopping container controller
+39m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-dp89p             Liveness probe failed: HTTP probe failed with statuscode: 500
+39m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-dp89p             Readiness probe failed: HTTP probe failed with statuscode: 500
+39m         Warning   FailedKillPod                  pod/ingress-nginx-internal-controller-dp89p             error killing pod: failed to "KillPodSandbox" for "90fa6f3b-176e-418f-868a-b915aec35e64" with KillPodSandboxError: "rpc error: code = Unknown desc = networkPlugin cni failed to teardown pod \"ingress-nginx-internal-controller-dp89p_default\" network: del cmd: error received from DelNetwork gRPC call: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 127.0.0.1:50051: connect: connection refused\""
+20m         Normal    Scheduled                      pod/ingress-nginx-internal-controller-fgjgm             Successfully assigned default/ingress-nginx-internal-controller-fgjgm to ip-10-1-37-225.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-internal-controller-fgjgm             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+19m         Normal    Pulled                         pod/ingress-nginx-internal-controller-fgjgm             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 18.839479835s
+19m         Normal    Created                        pod/ingress-nginx-internal-controller-fgjgm             Created container controller
+19m         Normal    Started                        pod/ingress-nginx-internal-controller-fgjgm             Started container controller
+12m         Warning   NodeNotReady                   pod/ingress-nginx-internal-controller-fgjgm             Node is not ready
+20m         Normal    Scheduled                      pod/ingress-nginx-internal-controller-g5gx6             Successfully assigned default/ingress-nginx-internal-controller-g5gx6 to ip-10-1-0-97.eu-west-3.compute.internal
+20m         Normal    Pulling                        pod/ingress-nginx-internal-controller-g5gx6             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+19m         Normal    Pulled                         pod/ingress-nginx-internal-controller-g5gx6             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 26.698603555s
+19m         Normal    Created                        pod/ingress-nginx-internal-controller-g5gx6             Created container controller
+19m         Normal    Started                        pod/ingress-nginx-internal-controller-g5gx6             Started container controller
+29m         Normal    Killing                        pod/ingress-nginx-internal-controller-gfmt7             Stopping container controller
+29m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-gfmt7             Liveness probe failed: HTTP probe failed with statuscode: 500
+29m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-gfmt7             Readiness probe failed: HTTP probe failed with statuscode: 500
+34m         Normal    Scheduled                      pod/ingress-nginx-internal-controller-lz2pp             Successfully assigned default/ingress-nginx-internal-controller-lz2pp to ip-10-1-32-108.eu-west-3.compute.internal
+34m         Normal    Pulling                        pod/ingress-nginx-internal-controller-lz2pp             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+33m         Normal    Pulled                         pod/ingress-nginx-internal-controller-lz2pp             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 17.967630374s
+33m         Normal    Created                        pod/ingress-nginx-internal-controller-lz2pp             Created container controller
+33m         Normal    Started                        pod/ingress-nginx-internal-controller-lz2pp             Started container controller
+29m         Normal    Killing                        pod/ingress-nginx-internal-controller-lz2pp             Stopping container controller
+29m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-lz2pp             Liveness probe failed: HTTP probe failed with statuscode: 500
+29m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-lz2pp             Readiness probe failed: HTTP probe failed with statuscode: 500
+11m         Warning   FailedToUpdateEndpoint         endpoints/ingress-nginx-internal-controller-metrics     Failed to update endpoint default/ingress-nginx-internal-controller-metrics: Operation cannot be fulfilled on endpoints "ingress-nginx-internal-controller-metrics": the object has been modified; please apply your changes to the latest version and try again
+53m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-internal-controller-metrics       Error updating Endpoint Slices for Service default/ingress-nginx-internal-controller-metrics: node "ip-10-1-30-25.eu-west-3.compute.internal" not found
+36m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-internal-controller-metrics       Error updating Endpoint Slices for Service default/ingress-nginx-internal-controller-metrics: node "ip-10-1-1-25.eu-west-3.compute.internal" not found
+11m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-internal-controller-metrics       Error updating Endpoint Slices for Service default/ingress-nginx-internal-controller-metrics: node "ip-10-1-37-225.eu-west-3.compute.internal" not found
+37m         Normal    Scheduled                      pod/ingress-nginx-internal-controller-qt42q             Successfully assigned default/ingress-nginx-internal-controller-qt42q to ip-10-1-38-3.eu-west-3.compute.internal
+37m         Normal    Pulling                        pod/ingress-nginx-internal-controller-qt42q             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0"
+37m         Normal    Pulled                         pod/ingress-nginx-internal-controller-qt42q             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetes-ingress-controller/nginx-ingress-controller:0.33.0" in 15.526287005s
+37m         Normal    Created                        pod/ingress-nginx-internal-controller-qt42q             Created container controller
+37m         Normal    Started                        pod/ingress-nginx-internal-controller-qt42q             Started container controller
+29m         Normal    Killing                        pod/ingress-nginx-internal-controller-qt42q             Stopping container controller
+29m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-qt42q             Readiness probe failed: HTTP probe failed with statuscode: 500
+29m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-qt42q             Liveness probe failed: HTTP probe failed with statuscode: 500
+56m         Normal    ScaleDown                      pod/ingress-nginx-internal-controller-t4hs4             deleting pod for node scale down
+56m         Normal    Killing                        pod/ingress-nginx-internal-controller-t4hs4             Stopping container controller
+56m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-t4hs4             Liveness probe failed: HTTP probe failed with statuscode: 500
+56m         Warning   Unhealthy                      pod/ingress-nginx-internal-controller-t4hs4             Readiness probe failed: HTTP probe failed with statuscode: 500
+56m         Warning   FailedKillPod                  pod/ingress-nginx-internal-controller-t4hs4             error killing pod: failed to "KillPodSandbox" for "9997e160-3c83-4d04-9239-8004577b7562" with KillPodSandboxError: "rpc error: code = Unknown desc = networkPlugin cni failed to teardown pod \"ingress-nginx-internal-controller-t4hs4_default\" network: del cmd: error received from DelNetwork gRPC call: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 127.0.0.1:50051: connect: connection refused\""
+36m         Warning   FailedToUpdateEndpoint         endpoints/ingress-nginx-internal-controller             Failed to update endpoint default/ingress-nginx-internal-controller: Operation cannot be fulfilled on endpoints "ingress-nginx-internal-controller": the object has been modified; please apply your changes to the latest version and try again
+34m         Normal    UpdatedLoadBalancer            service/ingress-nginx-internal-controller               Updated load balancer with new hosts
+54m         Normal    SuccessfulCreate               daemonset/ingress-nginx-internal-controller             Created pod: ingress-nginx-internal-controller-dp89p
+53m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-internal-controller               Error updating Endpoint Slices for Service default/ingress-nginx-internal-controller: node "ip-10-1-30-25.eu-west-3.compute.internal" not found
+53m         Normal    CREATE                         configmap/ingress-nginx-internal-controller             ConfigMap default/ingress-nginx-internal-controller
+47m         Normal    SuccessfulCreate               daemonset/ingress-nginx-internal-controller             Created pod: ingress-nginx-internal-controller-8pj9j
+47m         Normal    CREATE                         configmap/ingress-nginx-internal-controller             ConfigMap default/ingress-nginx-internal-controller
+37m         Normal    SuccessfulCreate               daemonset/ingress-nginx-internal-controller             Created pod: ingress-nginx-internal-controller-qt42q
+36m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-internal-controller               Error updating Endpoint Slices for Service default/ingress-nginx-internal-controller: node "ip-10-1-1-25.eu-west-3.compute.internal" not found
+37m         Normal    CREATE                         configmap/ingress-nginx-internal-controller             ConfigMap default/ingress-nginx-internal-controller
+34m         Normal    SuccessfulCreate               daemonset/ingress-nginx-internal-controller             Created pod: ingress-nginx-internal-controller-lz2pp
+33m         Normal    CREATE                         configmap/ingress-nginx-internal-controller             ConfigMap default/ingress-nginx-internal-controller
+29m         Normal    DeletingLoadBalancer           service/ingress-nginx-internal-controller               Deleting load balancer
+29m         Normal    DeletedLoadBalancer            service/ingress-nginx-internal-controller               Deleted load balancer
+29m         Normal    SuccessfulDelete               daemonset/ingress-nginx-internal-controller             Deleted pod: ingress-nginx-internal-controller-5rg92
+29m         Normal    SuccessfulDelete               daemonset/ingress-nginx-internal-controller             Deleted pod: ingress-nginx-internal-controller-7j4lp
+29m         Normal    SuccessfulDelete               daemonset/ingress-nginx-internal-controller             Deleted pod: ingress-nginx-internal-controller-lz2pp
+29m         Normal    SuccessfulDelete               daemonset/ingress-nginx-internal-controller             Deleted pod: ingress-nginx-internal-controller-qt42q
+29m         Normal    SuccessfulDelete               daemonset/ingress-nginx-internal-controller             Deleted pod: ingress-nginx-internal-controller-gfmt7
+20m         Normal    EnsuringLoadBalancer           service/ingress-nginx-internal-controller               Ensuring load balancer
+20m         Normal    EnsuredLoadBalancer            service/ingress-nginx-internal-controller               Ensured load balancer
+20m         Normal    SuccessfulCreate               daemonset/ingress-nginx-internal-controller             Created pod: ingress-nginx-internal-controller-g5gx6
+20m         Normal    SuccessfulCreate               daemonset/ingress-nginx-internal-controller             Created pod: ingress-nginx-internal-controller-22srv
+20m         Normal    SuccessfulCreate               daemonset/ingress-nginx-internal-controller             Created pod: ingress-nginx-internal-controller-fgjgm
+20m         Normal    SuccessfulCreate               daemonset/ingress-nginx-internal-controller             Created pod: ingress-nginx-internal-controller-725bm
+20m         Normal    SuccessfulCreate               daemonset/ingress-nginx-internal-controller             Created pod: ingress-nginx-internal-controller-c26mq
+19m         Normal    CREATE                         configmap/ingress-nginx-internal-controller             ConfigMap default/ingress-nginx-internal-controller
+19m         Normal    CREATE                         configmap/ingress-nginx-internal-controller             ConfigMap default/ingress-nginx-internal-controller
+19m         Normal    CREATE                         configmap/ingress-nginx-internal-controller             ConfigMap default/ingress-nginx-internal-controller
+19m         Normal    CREATE                         configmap/ingress-nginx-internal-controller             ConfigMap default/ingress-nginx-internal-controller
+19m         Normal    CREATE                         configmap/ingress-nginx-internal-controller             ConfigMap default/ingress-nginx-internal-controller
+11m         Normal    UpdatedLoadBalancer            service/ingress-nginx-internal-controller               Updated load balancer with new hosts
+11m         Normal    SuccessfulCreate               daemonset/ingress-nginx-internal-controller             Created pod: ingress-nginx-internal-controller-6lzx8
+11m         Warning   FailedToUpdateEndpointSlices   service/ingress-nginx-internal-controller               Error updating Endpoint Slices for Service default/ingress-nginx-internal-controller: node "ip-10-1-37-225.eu-west-3.compute.internal" not found
+11m         Normal    CREATE                         configmap/ingress-nginx-internal-controller             ConfigMap default/ingress-nginx-internal-controller
+21m         Normal    Starting                       node/ip-10-1-0-97.eu-west-3.compute.internal            Starting kubelet.
+21m         Normal    NodeHasSufficientMemory        node/ip-10-1-0-97.eu-west-3.compute.internal            Node ip-10-1-0-97.eu-west-3.compute.internal status is now: NodeHasSufficientMemory
+21m         Normal    NodeHasNoDiskPressure          node/ip-10-1-0-97.eu-west-3.compute.internal            Node ip-10-1-0-97.eu-west-3.compute.internal status is now: NodeHasNoDiskPressure
+21m         Normal    NodeHasSufficientPID           node/ip-10-1-0-97.eu-west-3.compute.internal            Node ip-10-1-0-97.eu-west-3.compute.internal status is now: NodeHasSufficientPID
+21m         Normal    NodeAllocatableEnforced        node/ip-10-1-0-97.eu-west-3.compute.internal            Updated Node Allocatable limit across pods
+21m         Normal    RegisteredNode                 node/ip-10-1-0-97.eu-west-3.compute.internal            Node ip-10-1-0-97.eu-west-3.compute.internal event: Registered Node ip-10-1-0-97.eu-west-3.compute.internal in Controller
+21m         Normal    Starting                       node/ip-10-1-0-97.eu-west-3.compute.internal            Starting kube-proxy.
+20m         Normal    NodeReady                      node/ip-10-1-0-97.eu-west-3.compute.internal            Node ip-10-1-0-97.eu-west-3.compute.internal status is now: NodeReady
+48m         Normal    Starting                       node/ip-10-1-1-25.eu-west-3.compute.internal            Starting kubelet.
+48m         Normal    NodeHasSufficientMemory        node/ip-10-1-1-25.eu-west-3.compute.internal            Node ip-10-1-1-25.eu-west-3.compute.internal status is now: NodeHasSufficientMemory
+48m         Normal    NodeHasNoDiskPressure          node/ip-10-1-1-25.eu-west-3.compute.internal            Node ip-10-1-1-25.eu-west-3.compute.internal status is now: NodeHasNoDiskPressure
+48m         Normal    NodeHasSufficientPID           node/ip-10-1-1-25.eu-west-3.compute.internal            Node ip-10-1-1-25.eu-west-3.compute.internal status is now: NodeHasSufficientPID
+48m         Normal    NodeAllocatableEnforced        node/ip-10-1-1-25.eu-west-3.compute.internal            Updated Node Allocatable limit across pods
+48m         Normal    RegisteredNode                 node/ip-10-1-1-25.eu-west-3.compute.internal            Node ip-10-1-1-25.eu-west-3.compute.internal event: Registered Node ip-10-1-1-25.eu-west-3.compute.internal in Controller
+48m         Normal    Starting                       node/ip-10-1-1-25.eu-west-3.compute.internal            Starting kube-proxy.
+47m         Normal    NodeReady                      node/ip-10-1-1-25.eu-west-3.compute.internal            Node ip-10-1-1-25.eu-west-3.compute.internal status is now: NodeReady
+38m         Normal    NodeNotReady                   node/ip-10-1-1-25.eu-west-3.compute.internal            Node ip-10-1-1-25.eu-west-3.compute.internal status is now: NodeNotReady
+37m         Normal    DeletingNode                   node/ip-10-1-1-25.eu-west-3.compute.internal            Deleting node ip-10-1-1-25.eu-west-3.compute.internal because it does not exist in the cloud provider
+37m         Normal    RemovingNode                   node/ip-10-1-1-25.eu-west-3.compute.internal            Node ip-10-1-1-25.eu-west-3.compute.internal event: Removing Node ip-10-1-1-25.eu-west-3.compute.internal from Controller
+21m         Normal    Starting                       node/ip-10-1-12-138.eu-west-3.compute.internal          Starting kubelet.
+21m         Normal    NodeHasSufficientMemory        node/ip-10-1-12-138.eu-west-3.compute.internal          Node ip-10-1-12-138.eu-west-3.compute.internal status is now: NodeHasSufficientMemory
+21m         Normal    NodeHasNoDiskPressure          node/ip-10-1-12-138.eu-west-3.compute.internal          Node ip-10-1-12-138.eu-west-3.compute.internal status is now: NodeHasNoDiskPressure
+21m         Normal    NodeHasSufficientPID           node/ip-10-1-12-138.eu-west-3.compute.internal          Node ip-10-1-12-138.eu-west-3.compute.internal status is now: NodeHasSufficientPID
+21m         Normal    NodeAllocatableEnforced        node/ip-10-1-12-138.eu-west-3.compute.internal          Updated Node Allocatable limit across pods
+21m         Normal    RegisteredNode                 node/ip-10-1-12-138.eu-west-3.compute.internal          Node ip-10-1-12-138.eu-west-3.compute.internal event: Registered Node ip-10-1-12-138.eu-west-3.compute.internal in Controller
+21m         Normal    Starting                       node/ip-10-1-12-138.eu-west-3.compute.internal          Starting kube-proxy.
+20m         Normal    NodeReady                      node/ip-10-1-12-138.eu-west-3.compute.internal          Node ip-10-1-12-138.eu-west-3.compute.internal status is now: NodeReady
+14m         Normal    ScaleDown                      node/ip-10-1-12-138.eu-west-3.compute.internal          marked the node as toBeDeleted/unschedulable
+13m         Normal    Starting                       node/ip-10-1-12-138.eu-west-3.compute.internal          Starting kube-proxy.
+12m         Normal    NodeNotReady                   node/ip-10-1-12-138.eu-west-3.compute.internal          Node ip-10-1-12-138.eu-west-3.compute.internal status is now: NodeNotReady
+12m         Normal    DeletingNode                   node/ip-10-1-12-138.eu-west-3.compute.internal          Deleting node ip-10-1-12-138.eu-west-3.compute.internal because it does not exist in the cloud provider
+12m         Normal    RemovingNode                   node/ip-10-1-12-138.eu-west-3.compute.internal          Node ip-10-1-12-138.eu-west-3.compute.internal event: Removing Node ip-10-1-12-138.eu-west-3.compute.internal from Controller
+12m         Normal    Starting                       node/ip-10-1-26-106.eu-west-3.compute.internal          Starting kubelet.
+12m         Normal    NodeHasSufficientMemory        node/ip-10-1-26-106.eu-west-3.compute.internal          Node ip-10-1-26-106.eu-west-3.compute.internal status is now: NodeHasSufficientMemory
+12m         Normal    NodeHasNoDiskPressure          node/ip-10-1-26-106.eu-west-3.compute.internal          Node ip-10-1-26-106.eu-west-3.compute.internal status is now: NodeHasNoDiskPressure
+12m         Normal    NodeHasSufficientPID           node/ip-10-1-26-106.eu-west-3.compute.internal          Node ip-10-1-26-106.eu-west-3.compute.internal status is now: NodeHasSufficientPID
+12m         Normal    NodeAllocatableEnforced        node/ip-10-1-26-106.eu-west-3.compute.internal          Updated Node Allocatable limit across pods
+12m         Normal    RegisteredNode                 node/ip-10-1-26-106.eu-west-3.compute.internal          Node ip-10-1-26-106.eu-west-3.compute.internal event: Registered Node ip-10-1-26-106.eu-west-3.compute.internal in Controller
+12m         Normal    Starting                       node/ip-10-1-26-106.eu-west-3.compute.internal          Starting kube-proxy.
+11m         Normal    NodeReady                      node/ip-10-1-26-106.eu-west-3.compute.internal          Node ip-10-1-26-106.eu-west-3.compute.internal status is now: NodeReady
+29m         Normal    NodeNotSchedulable             node/ip-10-1-29-31.eu-west-3.compute.internal           Node ip-10-1-29-31.eu-west-3.compute.internal status is now: NodeNotSchedulable
+28m         Normal    NodeNotReady                   node/ip-10-1-29-31.eu-west-3.compute.internal           Node ip-10-1-29-31.eu-west-3.compute.internal status is now: NodeNotReady
+27m         Normal    DeletingNode                   node/ip-10-1-29-31.eu-west-3.compute.internal           Deleting node ip-10-1-29-31.eu-west-3.compute.internal because it does not exist in the cloud provider
+27m         Normal    RemovingNode                   node/ip-10-1-29-31.eu-west-3.compute.internal           Node ip-10-1-29-31.eu-west-3.compute.internal event: Removing Node ip-10-1-29-31.eu-west-3.compute.internal from Controller
+54m         Normal    NodeNotReady                   node/ip-10-1-30-25.eu-west-3.compute.internal           Node ip-10-1-30-25.eu-west-3.compute.internal status is now: NodeNotReady
+54m         Normal    DeletingNode                   node/ip-10-1-30-25.eu-west-3.compute.internal           Deleting node ip-10-1-30-25.eu-west-3.compute.internal because it does not exist in the cloud provider
+54m         Normal    RemovingNode                   node/ip-10-1-30-25.eu-west-3.compute.internal           Node ip-10-1-30-25.eu-west-3.compute.internal event: Removing Node ip-10-1-30-25.eu-west-3.compute.internal from Controller
+34m         Normal    Starting                       node/ip-10-1-32-108.eu-west-3.compute.internal          Starting kubelet.
+34m         Normal    NodeHasSufficientMemory        node/ip-10-1-32-108.eu-west-3.compute.internal          Node ip-10-1-32-108.eu-west-3.compute.internal status is now: NodeHasSufficientMemory
+34m         Normal    NodeHasNoDiskPressure          node/ip-10-1-32-108.eu-west-3.compute.internal          Node ip-10-1-32-108.eu-west-3.compute.internal status is now: NodeHasNoDiskPressure
+34m         Normal    NodeHasSufficientPID           node/ip-10-1-32-108.eu-west-3.compute.internal          Node ip-10-1-32-108.eu-west-3.compute.internal status is now: NodeHasSufficientPID
+34m         Normal    NodeAllocatableEnforced        node/ip-10-1-32-108.eu-west-3.compute.internal          Updated Node Allocatable limit across pods
+34m         Normal    RegisteredNode                 node/ip-10-1-32-108.eu-west-3.compute.internal          Node ip-10-1-32-108.eu-west-3.compute.internal event: Registered Node ip-10-1-32-108.eu-west-3.compute.internal in Controller
+34m         Normal    Starting                       node/ip-10-1-32-108.eu-west-3.compute.internal          Starting kube-proxy.
+34m         Normal    NodeReady                      node/ip-10-1-32-108.eu-west-3.compute.internal          Node ip-10-1-32-108.eu-west-3.compute.internal status is now: NodeReady
+29m         Normal    NodeNotSchedulable             node/ip-10-1-32-108.eu-west-3.compute.internal          Node ip-10-1-32-108.eu-west-3.compute.internal status is now: NodeNotSchedulable
+27m         Normal    NodeNotReady                   node/ip-10-1-32-108.eu-west-3.compute.internal          Node ip-10-1-32-108.eu-west-3.compute.internal status is now: NodeNotReady
+27m         Normal    DeletingNode                   node/ip-10-1-32-108.eu-west-3.compute.internal          Deleting node ip-10-1-32-108.eu-west-3.compute.internal because it does not exist in the cloud provider
+27m         Normal    RemovingNode                   node/ip-10-1-32-108.eu-west-3.compute.internal          Node ip-10-1-32-108.eu-west-3.compute.internal event: Removing Node ip-10-1-32-108.eu-west-3.compute.internal from Controller
+56m         Normal    ScaleDown                      node/ip-10-1-34-180.eu-west-3.compute.internal          marked the node as toBeDeleted/unschedulable
+56m         Normal    Starting                       node/ip-10-1-34-180.eu-west-3.compute.internal          Starting kube-proxy.
+55m         Normal    NodeNotReady                   node/ip-10-1-34-180.eu-west-3.compute.internal          Node ip-10-1-34-180.eu-west-3.compute.internal status is now: NodeNotReady
+54m         Normal    DeletingNode                   node/ip-10-1-34-180.eu-west-3.compute.internal          Deleting node ip-10-1-34-180.eu-west-3.compute.internal because it does not exist in the cloud provider
+54m         Normal    RemovingNode                   node/ip-10-1-34-180.eu-west-3.compute.internal          Node ip-10-1-34-180.eu-west-3.compute.internal event: Removing Node ip-10-1-34-180.eu-west-3.compute.internal from Controller
+21m         Normal    Starting                       node/ip-10-1-37-225.eu-west-3.compute.internal          Starting kubelet.
+21m         Normal    NodeHasSufficientMemory        node/ip-10-1-37-225.eu-west-3.compute.internal          Node ip-10-1-37-225.eu-west-3.compute.internal status is now: NodeHasSufficientMemory
+21m         Normal    NodeHasNoDiskPressure          node/ip-10-1-37-225.eu-west-3.compute.internal          Node ip-10-1-37-225.eu-west-3.compute.internal status is now: NodeHasNoDiskPressure
+21m         Normal    NodeHasSufficientPID           node/ip-10-1-37-225.eu-west-3.compute.internal          Node ip-10-1-37-225.eu-west-3.compute.internal status is now: NodeHasSufficientPID
+21m         Normal    NodeAllocatableEnforced        node/ip-10-1-37-225.eu-west-3.compute.internal          Updated Node Allocatable limit across pods
+21m         Normal    RegisteredNode                 node/ip-10-1-37-225.eu-west-3.compute.internal          Node ip-10-1-37-225.eu-west-3.compute.internal event: Registered Node ip-10-1-37-225.eu-west-3.compute.internal in Controller
+21m         Normal    Starting                       node/ip-10-1-37-225.eu-west-3.compute.internal          Starting kube-proxy.
+20m         Normal    NodeReady                      node/ip-10-1-37-225.eu-west-3.compute.internal          Node ip-10-1-37-225.eu-west-3.compute.internal status is now: NodeReady
+12m         Normal    NodeNotReady                   node/ip-10-1-37-225.eu-west-3.compute.internal          Node ip-10-1-37-225.eu-west-3.compute.internal status is now: NodeNotReady
+12m         Normal    DeletingNode                   node/ip-10-1-37-225.eu-west-3.compute.internal          Deleting node ip-10-1-37-225.eu-west-3.compute.internal because it does not exist in the cloud provider
+11m         Normal    RemovingNode                   node/ip-10-1-37-225.eu-west-3.compute.internal          Node ip-10-1-37-225.eu-west-3.compute.internal event: Removing Node ip-10-1-37-225.eu-west-3.compute.internal from Controller
+38m         Normal    Starting                       node/ip-10-1-38-3.eu-west-3.compute.internal            Starting kubelet.
+38m         Normal    NodeHasSufficientMemory        node/ip-10-1-38-3.eu-west-3.compute.internal            Node ip-10-1-38-3.eu-west-3.compute.internal status is now: NodeHasSufficientMemory
+38m         Normal    NodeHasNoDiskPressure          node/ip-10-1-38-3.eu-west-3.compute.internal            Node ip-10-1-38-3.eu-west-3.compute.internal status is now: NodeHasNoDiskPressure
+38m         Normal    NodeHasSufficientPID           node/ip-10-1-38-3.eu-west-3.compute.internal            Node ip-10-1-38-3.eu-west-3.compute.internal status is now: NodeHasSufficientPID
+38m         Normal    NodeAllocatableEnforced        node/ip-10-1-38-3.eu-west-3.compute.internal            Updated Node Allocatable limit across pods
+37m         Normal    RegisteredNode                 node/ip-10-1-38-3.eu-west-3.compute.internal            Node ip-10-1-38-3.eu-west-3.compute.internal event: Registered Node ip-10-1-38-3.eu-west-3.compute.internal in Controller
+37m         Normal    Starting                       node/ip-10-1-38-3.eu-west-3.compute.internal            Starting kube-proxy.
+37m         Normal    NodeReady                      node/ip-10-1-38-3.eu-west-3.compute.internal            Node ip-10-1-38-3.eu-west-3.compute.internal status is now: NodeReady
+29m         Normal    NodeNotSchedulable             node/ip-10-1-38-3.eu-west-3.compute.internal            Node ip-10-1-38-3.eu-west-3.compute.internal status is now: NodeNotSchedulable
+27m         Normal    NodeNotReady                   node/ip-10-1-38-3.eu-west-3.compute.internal            Node ip-10-1-38-3.eu-west-3.compute.internal status is now: NodeNotReady
+27m         Normal    DeletingNode                   node/ip-10-1-38-3.eu-west-3.compute.internal            Deleting node ip-10-1-38-3.eu-west-3.compute.internal because it does not exist in the cloud provider
+27m         Normal    RemovingNode                   node/ip-10-1-38-3.eu-west-3.compute.internal            Node ip-10-1-38-3.eu-west-3.compute.internal event: Removing Node ip-10-1-38-3.eu-west-3.compute.internal from Controller
+21m         Normal    Starting                       node/ip-10-1-51-246.eu-west-3.compute.internal          Starting kubelet.
+21m         Normal    NodeHasSufficientMemory        node/ip-10-1-51-246.eu-west-3.compute.internal          Node ip-10-1-51-246.eu-west-3.compute.internal status is now: NodeHasSufficientMemory
+21m         Normal    NodeHasNoDiskPressure          node/ip-10-1-51-246.eu-west-3.compute.internal          Node ip-10-1-51-246.eu-west-3.compute.internal status is now: NodeHasNoDiskPressure
+21m         Normal    NodeHasSufficientPID           node/ip-10-1-51-246.eu-west-3.compute.internal          Node ip-10-1-51-246.eu-west-3.compute.internal status is now: NodeHasSufficientPID
+21m         Normal    NodeAllocatableEnforced        node/ip-10-1-51-246.eu-west-3.compute.internal          Updated Node Allocatable limit across pods
+21m         Normal    RegisteredNode                 node/ip-10-1-51-246.eu-west-3.compute.internal          Node ip-10-1-51-246.eu-west-3.compute.internal event: Registered Node ip-10-1-51-246.eu-west-3.compute.internal in Controller
+21m         Normal    Starting                       node/ip-10-1-51-246.eu-west-3.compute.internal          Starting kube-proxy.
+20m         Normal    NodeReady                      node/ip-10-1-51-246.eu-west-3.compute.internal          Node ip-10-1-51-246.eu-west-3.compute.internal status is now: NodeReady
+54m         Normal    Starting                       node/ip-10-1-52-192.eu-west-3.compute.internal          Starting kubelet.
+54m         Normal    NodeHasSufficientMemory        node/ip-10-1-52-192.eu-west-3.compute.internal          Node ip-10-1-52-192.eu-west-3.compute.internal status is now: NodeHasSufficientMemory
+54m         Normal    NodeHasNoDiskPressure          node/ip-10-1-52-192.eu-west-3.compute.internal          Node ip-10-1-52-192.eu-west-3.compute.internal status is now: NodeHasNoDiskPressure
+54m         Normal    NodeHasSufficientPID           node/ip-10-1-52-192.eu-west-3.compute.internal          Node ip-10-1-52-192.eu-west-3.compute.internal status is now: NodeHasSufficientPID
+54m         Normal    NodeAllocatableEnforced        node/ip-10-1-52-192.eu-west-3.compute.internal          Updated Node Allocatable limit across pods
+54m         Normal    RegisteredNode                 node/ip-10-1-52-192.eu-west-3.compute.internal          Node ip-10-1-52-192.eu-west-3.compute.internal event: Registered Node ip-10-1-52-192.eu-west-3.compute.internal in Controller
+54m         Normal    Starting                       node/ip-10-1-52-192.eu-west-3.compute.internal          Starting kube-proxy.
+54m         Normal    NodeReady                      node/ip-10-1-52-192.eu-west-3.compute.internal          Node ip-10-1-52-192.eu-west-3.compute.internal status is now: NodeReady
+39m         Normal    ScaleDown                      node/ip-10-1-52-192.eu-west-3.compute.internal          marked the node as toBeDeleted/unschedulable
+39m         Normal    Starting                       node/ip-10-1-52-192.eu-west-3.compute.internal          Starting kube-proxy.
+38m         Normal    NodeNotReady                   node/ip-10-1-52-192.eu-west-3.compute.internal          Node ip-10-1-52-192.eu-west-3.compute.internal status is now: NodeNotReady
+37m         Normal    DeletingNode                   node/ip-10-1-52-192.eu-west-3.compute.internal          Deleting node ip-10-1-52-192.eu-west-3.compute.internal because it does not exist in the cloud provider
+37m         Normal    RemovingNode                   node/ip-10-1-52-192.eu-west-3.compute.internal          Node ip-10-1-52-192.eu-west-3.compute.internal event: Removing Node ip-10-1-52-192.eu-west-3.compute.internal from Controller
+29m         Normal    NodeNotSchedulable             node/ip-10-1-55-135.eu-west-3.compute.internal          Node ip-10-1-55-135.eu-west-3.compute.internal status is now: NodeNotSchedulable
+27m         Normal    NodeNotReady                   node/ip-10-1-55-135.eu-west-3.compute.internal          Node ip-10-1-55-135.eu-west-3.compute.internal status is now: NodeNotReady
+27m         Normal    DeletingNode                   node/ip-10-1-55-135.eu-west-3.compute.internal          Deleting node ip-10-1-55-135.eu-west-3.compute.internal because it does not exist in the cloud provider
+27m         Normal    RemovingNode                   node/ip-10-1-55-135.eu-west-3.compute.internal          Node ip-10-1-55-135.eu-west-3.compute.internal event: Removing Node ip-10-1-55-135.eu-west-3.compute.internal from Controller
+21m         Normal    Starting                       node/ip-10-1-62-180.eu-west-3.compute.internal          Starting kubelet.
+21m         Normal    NodeHasSufficientMemory        node/ip-10-1-62-180.eu-west-3.compute.internal          Node ip-10-1-62-180.eu-west-3.compute.internal status is now: NodeHasSufficientMemory
+21m         Normal    NodeHasNoDiskPressure          node/ip-10-1-62-180.eu-west-3.compute.internal          Node ip-10-1-62-180.eu-west-3.compute.internal status is now: NodeHasNoDiskPressure
+21m         Normal    NodeHasSufficientPID           node/ip-10-1-62-180.eu-west-3.compute.internal          Node ip-10-1-62-180.eu-west-3.compute.internal status is now: NodeHasSufficientPID
+21m         Normal    NodeAllocatableEnforced        node/ip-10-1-62-180.eu-west-3.compute.internal          Updated Node Allocatable limit across pods
+21m         Normal    RegisteredNode                 node/ip-10-1-62-180.eu-west-3.compute.internal          Node ip-10-1-62-180.eu-west-3.compute.internal event: Registered Node ip-10-1-62-180.eu-west-3.compute.internal in Controller
+20m         Normal    Starting                       node/ip-10-1-62-180.eu-west-3.compute.internal          Starting kube-proxy.
+20m         Normal    NodeReady                      node/ip-10-1-62-180.eu-west-3.compute.internal          Node ip-10-1-62-180.eu-west-3.compute.internal status is now: NodeReady
+29m         Normal    NodeNotSchedulable             node/ip-10-1-9-246.eu-west-3.compute.internal           Node ip-10-1-9-246.eu-west-3.compute.internal status is now: NodeNotSchedulable
+27m         Normal    NodeNotReady                   node/ip-10-1-9-246.eu-west-3.compute.internal           Node ip-10-1-9-246.eu-west-3.compute.internal status is now: NodeNotReady
+27m         Normal    DeletingNode                   node/ip-10-1-9-246.eu-west-3.compute.internal           Deleting node ip-10-1-9-246.eu-west-3.compute.internal because it does not exist in the cloud provider
+27m         Normal    RemovingNode                   node/ip-10-1-9-246.eu-west-3.compute.internal           Node ip-10-1-9-246.eu-west-3.compute.internal event: Removing Node ip-10-1-9-246.eu-west-3.compute.internal from Controller
+19m         Normal    Scheduled                      pod/jenkins-df975bf56-crjbg                             Successfully assigned default/jenkins-df975bf56-crjbg to ip-10-1-62-180.eu-west-3.compute.internal
+19m         Normal    SuccessfulAttachVolume         pod/jenkins-df975bf56-crjbg                             AttachVolume.Attach succeeded for volume "pvc-15969a9a-3516-406a-b9c2-80fee3cc5bd7"
+18m         Normal    Pulling                        pod/jenkins-df975bf56-crjbg                             Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+18m         Normal    Pulled                         pod/jenkins-df975bf56-crjbg                             Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 12.279514787s
+18m         Normal    Created                        pod/jenkins-df975bf56-crjbg                             Created container vault-agent-init
+18m         Normal    Started                        pod/jenkins-df975bf56-crjbg                             Started container vault-agent-init
+18m         Normal    Pulling                        pod/jenkins-df975bf56-crjbg                             Pulling image "hub.simloudcorp.customers.simloud.com/simloud/jenkins/jenkins:2.350-2396"
+17m         Normal    Pulled                         pod/jenkins-df975bf56-crjbg                             Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins/jenkins:2.350-2396" in 41.284803232s
+17m         Normal    Created                        pod/jenkins-df975bf56-crjbg                             Created container copy-default-config
+17m         Normal    Started                        pod/jenkins-df975bf56-crjbg                             Started container copy-default-config
+17m         Normal    Pulled                         pod/jenkins-df975bf56-crjbg                             Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins/jenkins:2.350-2396" already present on machine
+17m         Normal    Created                        pod/jenkins-df975bf56-crjbg                             Created container jenkins
+17m         Normal    Started                        pod/jenkins-df975bf56-crjbg                             Started container jenkins
+17m         Normal    Pulled                         pod/jenkins-df975bf56-crjbg                             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+17m         Normal    Created                        pod/jenkins-df975bf56-crjbg                             Created container vault-agent
+17m         Normal    Started                        pod/jenkins-df975bf56-crjbg                             Started container vault-agent
+60m         Normal    Pulled                         pod/jenkins-df975bf56-m5l6g                             Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/jenkins/jenkins:2.350-2396" in 42.69690674s
+60m         Normal    Created                        pod/jenkins-df975bf56-m5l6g                             Created container copy-default-config
+60m         Normal    Started                        pod/jenkins-df975bf56-m5l6g                             Started container copy-default-config
+60m         Normal    Pulled                         pod/jenkins-df975bf56-m5l6g                             Container image "hub.simloudcorp.customers.simloud.com/simloud/jenkins/jenkins:2.350-2396" already present on machine
+60m         Normal    Created                        pod/jenkins-df975bf56-m5l6g                             Created container jenkins
+60m         Normal    Started                        pod/jenkins-df975bf56-m5l6g                             Started container jenkins
+60m         Normal    Pulled                         pod/jenkins-df975bf56-m5l6g                             Container image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" already present on machine
+60m         Normal    Created                        pod/jenkins-df975bf56-m5l6g                             Created container vault-agent
+60m         Normal    Started                        pod/jenkins-df975bf56-m5l6g                             Started container vault-agent
+59m         Warning   Unhealthy                      pod/jenkins-df975bf56-m5l6g                             Startup probe failed: cat: /tmp/simloud-jenkins-started.lock: No such file or directory
+29m         Normal    Killing                        pod/jenkins-df975bf56-m5l6g                             Stopping container jenkins
+29m         Normal    Killing                        pod/jenkins-df975bf56-m5l6g                             Stopping container vault-agent
+29m         Normal    SuccessfulDelete               replicaset/jenkins-df975bf56                            Deleted pod: jenkins-df975bf56-m5l6g
+19m         Normal    SuccessfulCreate               replicaset/jenkins-df975bf56                            Created pod: jenkins-df975bf56-crjbg
+3m32s       Normal    NoPods                         poddisruptionbudget/jenkins-slave-pdb                   No matching pods found
+19m         Normal    ScalingReplicaSet              deployment/jenkins                                      Scaled up replica set jenkins-df975bf56 to 1
+29m         Normal    ScalingReplicaSet              deployment/jenkins                                      Scaled down replica set jenkins-df975bf56 to 0
+53m         Normal    CREATE                         ingress/jenkins                                         Ingress default/jenkins
+47m         Normal    CREATE                         ingress/jenkins                                         Ingress default/jenkins
+37m         Normal    CREATE                         ingress/jenkins                                         Ingress default/jenkins
+33m         Normal    CREATE                         ingress/jenkins                                         Ingress default/jenkins
+19m         Normal    CREATE                         ingress/jenkins                                         Ingress default/jenkins
+19m         Normal    CREATE                         ingress/jenkins                                         Ingress default/jenkins
+19m         Normal    CREATE                         ingress/jenkins                                         Ingress default/jenkins
+19m         Normal    CREATE                         ingress/jenkins                                         Ingress default/jenkins
+19m         Normal    CREATE                         ingress/jenkins                                         Ingress default/jenkins
+19m         Normal    UPDATE                         ingress/jenkins                                         Ingress default/jenkins
+19m         Normal    UPDATE                         ingress/jenkins                                         Ingress default/jenkins
+19m         Normal    UPDATE                         ingress/jenkins                                         Ingress default/jenkins
+19m         Normal    UPDATE                         ingress/jenkins                                         Ingress default/jenkins
+19m         Normal    UPDATE                         ingress/jenkins                                         Ingress default/jenkins
+11m         Normal    CREATE                         ingress/jenkins                                         Ingress default/jenkins
+53m         Normal    CREATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+47m         Normal    CREATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+37m         Normal    CREATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+34m         Normal    DELETE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+34m         Normal    DELETE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+34m         Normal    DELETE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+34m         Normal    DELETE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+10m         Normal    CREATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+10m         Normal    CREATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+10m         Normal    CREATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+10m         Normal    CREATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+10m         Normal    UPDATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+10m         Normal    UPDATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+10m         Normal    UPDATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+10m         Normal    UPDATE                         ingress/lambda-service-1                                Ingress default/lambda-service-1
+53m         Normal    CREATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+47m         Normal    CREATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+37m         Normal    CREATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+33m         Normal    CREATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+32m         Normal    DELETE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+32m         Normal    DELETE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+32m         Normal    DELETE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+32m         Normal    DELETE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+32m         Normal    DELETE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+10m         Normal    CREATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+10m         Normal    CREATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+10m         Normal    CREATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+10m         Normal    CREATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+10m         Normal    UPDATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+10m         Normal    UPDATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+10m         Normal    UPDATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+10m         Normal    UPDATE                         ingress/lambda-service-2                                Ingress default/lambda-service-2
+45m         Normal    Scheduled                      pod/micro-service1-65cd67b8ff-m6944                     Successfully assigned default/micro-service1-65cd67b8ff-m6944 to ip-10-1-9-246.eu-west-3.compute.internal
+45m         Normal    Pulling                        pod/micro-service1-65cd67b8ff-m6944                     Pulling image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service1:29"
+45m         Normal    Pulled                         pod/micro-service1-65cd67b8ff-m6944                     Successfully pulled image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service1:29" in 10.259292797s
+45m         Normal    Created                        pod/micro-service1-65cd67b8ff-m6944                     Created container micro-service1
+45m         Normal    Started                        pod/micro-service1-65cd67b8ff-m6944                     Started container micro-service1
+33m         Normal    Killing                        pod/micro-service1-65cd67b8ff-m6944                     Stopping container micro-service1
+45m         Normal    SuccessfulCreate               replicaset/micro-service1-65cd67b8ff                    Created pod: micro-service1-65cd67b8ff-m6944
+4m59s       Normal    Scheduled                      pod/micro-service1-676f8b775d-dh8zj                     Successfully assigned default/micro-service1-676f8b775d-dh8zj to ip-10-1-51-246.eu-west-3.compute.internal
+4m58s       Normal    Pulling                        pod/micro-service1-676f8b775d-dh8zj                     Pulling image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service1:33"
+4m49s       Normal    Pulled                         pod/micro-service1-676f8b775d-dh8zj                     Successfully pulled image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service1:33" in 9.354310847s
+4m48s       Normal    Created                        pod/micro-service1-676f8b775d-dh8zj                     Created container micro-service1
+4m47s       Normal    Started                        pod/micro-service1-676f8b775d-dh8zj                     Started container micro-service1
+4m59s       Normal    SuccessfulCreate               replicaset/micro-service1-676f8b775d                    Created pod: micro-service1-676f8b775d-dh8zj
+54m         Warning   NodeNotReady                   pod/micro-service1-859c5d4c69-9bn9p                     Node is not ready
+53m         Normal    TaintManagerEviction           pod/micro-service1-859c5d4c69-9bn9p                     Cancelling deletion of Pod default/micro-service1-859c5d4c69-9bn9p
+53m         Normal    Scheduled                      pod/micro-service1-859c5d4c69-xbgv5                     Successfully assigned default/micro-service1-859c5d4c69-xbgv5 to ip-10-1-52-192.eu-west-3.compute.internal
+53m         Normal    Pulling                        pod/micro-service1-859c5d4c69-xbgv5                     Pulling image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service1:27"
+53m         Normal    Pulled                         pod/micro-service1-859c5d4c69-xbgv5                     Successfully pulled image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service1:27" in 13.466281451s
+53m         Normal    Created                        pod/micro-service1-859c5d4c69-xbgv5                     Created container micro-service1
+53m         Normal    Started                        pod/micro-service1-859c5d4c69-xbgv5                     Started container micro-service1
+45m         Normal    Killing                        pod/micro-service1-859c5d4c69-xbgv5                     Stopping container micro-service1
+53m         Normal    SuccessfulCreate               replicaset/micro-service1-859c5d4c69                    Created pod: micro-service1-859c5d4c69-xbgv5
+45m         Normal    SuccessfulDelete               replicaset/micro-service1-859c5d4c69                    Deleted pod: micro-service1-859c5d4c69-xbgv5
+53m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/micro-service1                  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+53m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/micro-service1                  invalid metrics (1 invalid out of 1), first error is: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+45m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/micro-service1                  failed to get cpu utilization: did not receive metrics for any ready pods
+45m         Normal    ScalingReplicaSet              deployment/micro-service1                               Scaled down replica set micro-service1-859c5d4c69 to 0
+56m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/micro-service1                  failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+56m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/micro-service1                  invalid metrics (1 invalid out of 1), first error is: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+53m         Normal    CREATE                         ingress/micro-service1                                  Ingress default/micro-service1
+47m         Normal    CREATE                         ingress/micro-service1                                  Ingress default/micro-service1
+45m         Normal    ScalingReplicaSet              deployment/micro-service1                               Scaled up replica set micro-service1-65cd67b8ff to 1
+37m         Normal    CREATE                         ingress/micro-service1                                  Ingress default/micro-service1
+33m         Normal    CREATE                         ingress/micro-service1                                  Ingress default/micro-service1
+33m         Normal    DELETE                         ingress/micro-service1                                  Ingress default/micro-service1
+33m         Normal    DELETE                         ingress/micro-service1                                  Ingress default/micro-service1
+33m         Normal    DELETE                         ingress/micro-service1                                  Ingress default/micro-service1
+33m         Normal    DELETE                         ingress/micro-service1                                  Ingress default/micro-service1
+33m         Normal    DELETE                         ingress/micro-service1                                  Ingress default/micro-service1
+4m59s       Normal    CREATE                         ingress/micro-service1                                  Ingress default/micro-service1
+4m59s       Normal    CREATE                         ingress/micro-service1                                  Ingress default/micro-service1
+4m59s       Normal    CREATE                         ingress/micro-service1                                  Ingress default/micro-service1
+4m59s       Normal    ScalingReplicaSet              deployment/micro-service1                               Scaled up replica set micro-service1-676f8b775d to 1
+4m59s       Normal    CREATE                         ingress/micro-service1                                  Ingress default/micro-service1
+4m29s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/micro-service1                  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+4m29s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/micro-service1                  invalid metrics (1 invalid out of 1), first error is: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+4m25s       Normal    UPDATE                         ingress/micro-service1                                  Ingress default/micro-service1
+4m25s       Normal    UPDATE                         ingress/micro-service1                                  Ingress default/micro-service1
+4m25s       Normal    UPDATE                         ingress/micro-service1                                  Ingress default/micro-service1
+4m25s       Normal    UPDATE                         ingress/micro-service1                                  Ingress default/micro-service1
+4m14s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/micro-service1                  failed to get cpu utilization: did not receive metrics for any ready pods
+4m14s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/micro-service1                  invalid metrics (1 invalid out of 1), first error is: failed to get cpu utilization: did not receive metrics for any ready pods
+49m         Warning   Unhealthy                      pod/micro-service2-5bf64548d-nh974                      Readiness probe failed:
+45m         Normal    Killing                        pod/micro-service2-5bf64548d-nh974                      Stopping container micro-service2
+45m         Warning   FailedPreStopHook              pod/micro-service2-5bf64548d-nh974                      Exec lifecycle hook ([echo "ok"]) for Container "micro-service2" in Pod "micro-service2-5bf64548d-nh974_default(4d23ee61-6209-44e9-81d3-00bfe0b50083)" failed - error: command 'echo "ok"' exited with 126: , message: "OCI runtime exec failed: exec failed: unable to start container process: exec: \"echo \\\"ok\\\"\": executable file not found in $PATH: unknown\r\n"
+45m         Warning   Unhealthy                      pod/micro-service2-5bf64548d-nh974                      Readiness probe errored: rpc error: code = Unknown desc = container not running (c2b0afde46e6f1b93fbb96420c9e21ea6e0e173638a594f6eaca2bb6a3156606)
+45m         Warning   Unhealthy                      pod/micro-service2-5bf64548d-nh974                      Liveness probe failed: dial tcp 10.1.19.97:8080: i/o timeout
+45m         Normal    SuccessfulDelete               replicaset/micro-service2-5bf64548d                     Deleted pod: micro-service2-5bf64548d-nh974
+45m         Normal    Scheduled                      pod/micro-service2-5cc8c54dbc-87s2t                     Successfully assigned default/micro-service2-5cc8c54dbc-87s2t to ip-10-1-52-192.eu-west-3.compute.internal
+45m         Normal    Pulling                        pod/micro-service2-5cc8c54dbc-87s2t                     Pulling image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service2:30"
+45m         Normal    Pulled                         pod/micro-service2-5cc8c54dbc-87s2t                     Successfully pulled image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service2:30" in 145.837209ms
+45m         Normal    Created                        pod/micro-service2-5cc8c54dbc-87s2t                     Created container micro-service2
+45m         Normal    Started                        pod/micro-service2-5cc8c54dbc-87s2t                     Started container micro-service2
+39m         Normal    ScaleDown                      pod/micro-service2-5cc8c54dbc-87s2t                     deleting pod for node scale down
+39m         Normal    Killing                        pod/micro-service2-5cc8c54dbc-87s2t                     Stopping container micro-service2
+39m         Warning   FailedPreStopHook              pod/micro-service2-5cc8c54dbc-87s2t                     Exec lifecycle hook ([echo "ok"]) for Container "micro-service2" in Pod "micro-service2-5cc8c54dbc-87s2t_default(d17041f1-8a96-4dc4-903b-f655f465fa7d)" failed - error: command 'echo "ok"' exited with 126: , message: "OCI runtime exec failed: exec failed: unable to start container process: exec: \"echo \\\"ok\\\"\": executable file not found in $PATH: unknown\r\n"
+39m         Warning   Unhealthy                      pod/micro-service2-5cc8c54dbc-87s2t                     Readiness probe errored: rpc error: code = Unknown desc = container not running (72157cbe76c92996e8bb17041e691c6c9fe4b01a21a547c4cbb29d44cbf13f1e)
+39m         Normal    Scheduled                      pod/micro-service2-5cc8c54dbc-hwnmn                     Successfully assigned default/micro-service2-5cc8c54dbc-hwnmn to ip-10-1-29-31.eu-west-3.compute.internal
+39m         Normal    Pulling                        pod/micro-service2-5cc8c54dbc-hwnmn                     Pulling image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service2:30"
+39m         Normal    Pulled                         pod/micro-service2-5cc8c54dbc-hwnmn                     Successfully pulled image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service2:30" in 9.507650494s
+39m         Normal    Created                        pod/micro-service2-5cc8c54dbc-hwnmn                     Created container micro-service2
+39m         Normal    Started                        pod/micro-service2-5cc8c54dbc-hwnmn                     Started container micro-service2
+35m         Warning   Unhealthy                      pod/micro-service2-5cc8c54dbc-hwnmn                     Readiness probe failed:
+33m         Normal    Killing                        pod/micro-service2-5cc8c54dbc-hwnmn                     Stopping container micro-service2
+33m         Warning   FailedPreStopHook              pod/micro-service2-5cc8c54dbc-hwnmn                     Exec lifecycle hook ([echo "ok"]) for Container "micro-service2" in Pod "micro-service2-5cc8c54dbc-hwnmn_default(c2973acb-2e67-4cf5-8609-eb1d2946d1c7)" failed - error: command 'echo "ok"' exited with 126: , message: "OCI runtime exec failed: exec failed: unable to start container process: exec: \"echo \\\"ok\\\"\": executable file not found in $PATH: unknown\r\n"
+45m         Normal    SuccessfulCreate               replicaset/micro-service2-5cc8c54dbc                    Created pod: micro-service2-5cc8c54dbc-87s2t
+39m         Normal    SuccessfulCreate               replicaset/micro-service2-5cc8c54dbc                    Created pod: micro-service2-5cc8c54dbc-hwnmn
+3m56s       Normal    Scheduled                      pod/micro-service2-788bc5d9c9-htf7m                     Successfully assigned default/micro-service2-788bc5d9c9-htf7m to ip-10-1-26-106.eu-west-3.compute.internal
+3m55s       Normal    Pulling                        pod/micro-service2-788bc5d9c9-htf7m                     Pulling image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service2:34"
+3m54s       Normal    Pulled                         pod/micro-service2-788bc5d9c9-htf7m                     Successfully pulled image "322219090568.dkr.ecr.eu-west-3.amazonaws.com/srn/deployment/51b5907c-e3f7-4a71-a553-384a68ffc952/micro-service2:34" in 336.46259ms
+3m54s       Normal    Created                        pod/micro-service2-788bc5d9c9-htf7m                     Created container micro-service2
+3m54s       Normal    Started                        pod/micro-service2-788bc5d9c9-htf7m                     Started container micro-service2
+3m56s       Normal    SuccessfulCreate               replicaset/micro-service2-788bc5d9c9                    Created pod: micro-service2-788bc5d9c9-htf7m
+39m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/micro-service2                  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+39m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/micro-service2                  invalid metrics (1 invalid out of 1), first error is: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+39m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/micro-service2                  failed to get cpu utilization: did not receive metrics for any ready pods
+39m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/micro-service2                  invalid metrics (1 invalid out of 1), first error is: failed to get cpu utilization: did not receive metrics for any ready pods
+45m         Normal    ScalingReplicaSet              deployment/micro-service2                               Scaled down replica set micro-service2-5bf64548d to 0
+56m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/micro-service2                  failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+56m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/micro-service2                  invalid metrics (1 invalid out of 1), first error is: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+53m         Normal    CREATE                         ingress/micro-service2                                  Ingress default/micro-service2
+47m         Normal    CREATE                         ingress/micro-service2                                  Ingress default/micro-service2
+45m         Normal    ScalingReplicaSet              deployment/micro-service2                               Scaled up replica set micro-service2-5cc8c54dbc to 1
+37m         Normal    CREATE                         ingress/micro-service2                                  Ingress default/micro-service2
+33m         Normal    CREATE                         ingress/micro-service2                                  Ingress default/micro-service2
+33m         Normal    DELETE                         ingress/micro-service2                                  Ingress default/micro-service2
+33m         Normal    DELETE                         ingress/micro-service2                                  Ingress default/micro-service2
+33m         Normal    DELETE                         ingress/micro-service2                                  Ingress default/micro-service2
+33m         Normal    DELETE                         ingress/micro-service2                                  Ingress default/micro-service2
+33m         Normal    DELETE                         ingress/micro-service2                                  Ingress default/micro-service2
+3m56s       Normal    ScalingReplicaSet              deployment/micro-service2                               Scaled up replica set micro-service2-788bc5d9c9 to 1
+3m56s       Normal    CREATE                         ingress/micro-service2                                  Ingress default/micro-service2
+3m56s       Normal    CREATE                         ingress/micro-service2                                  Ingress default/micro-service2
+3m56s       Normal    CREATE                         ingress/micro-service2                                  Ingress default/micro-service2
+3m56s       Normal    CREATE                         ingress/micro-service2                                  Ingress default/micro-service2
+3m41s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/micro-service2                  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+3m41s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/micro-service2                  invalid metrics (1 invalid out of 1), first error is: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+3m26s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/micro-service2                  failed to get cpu utilization: did not receive metrics for any ready pods
+3m26s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/micro-service2                  invalid metrics (1 invalid out of 1), first error is: failed to get cpu utilization: did not receive metrics for any ready pods
+3m25s       Normal    UPDATE                         ingress/micro-service2                                  Ingress default/micro-service2
+3m25s       Normal    UPDATE                         ingress/micro-service2                                  Ingress default/micro-service2
+3m25s       Normal    UPDATE                         ingress/micro-service2                                  Ingress default/micro-service2
+3m25s       Normal    UPDATE                         ingress/micro-service2                                  Ingress default/micro-service2

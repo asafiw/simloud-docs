@@ -1,0 +1,78 @@
+==> Starting Consul agent...
+           Version: '1.10.0'
+           Node ID: '926eec0a-03d6-7745-17b4-5e9327aa6d36'
+         Node name: 'consul-server-2'
+        Datacenter: 'dc1' (Segment: '<all>')
+            Server: true (Bootstrap: false)
+       Client Addr: [0.0.0.0] (HTTP: 8500, HTTPS: -1, gRPC: -1, DNS: 8600)
+      Cluster Addr: 10.0.138.18 (LAN: 8301, WAN: 8302)
+           Encrypt: Gossip: false, TLS-Outgoing: false, TLS-Incoming: false, Auto-Encrypt-TLS: false
+
+==> Log data will now stream in as it occurs:
+
+2022-09-05T17:41:56.600Z [WARN]  agent: bootstrap_expect > 0: expecting 3 servers
+2022-09-05T17:41:56.800Z [WARN]  agent.auto_config: bootstrap_expect > 0: expecting 3 servers
+2022-09-05T17:41:57.331Z [INFO]  agent.server.raft: initial configuration: index=2193 servers="[{Suffrage:Voter ID:122e85c6-19ce-acd4-d14c-72f9168dc3fe Address:10.0.144.30:8300} {Suffrage:Voter ID:4b73a7ff-ab8b-322b-808d-7b4e554e39ba Address:10.0.138.0:8300} {Suffrage:Voter ID:926eec0a-03d6-7745-17b4-5e9327aa6d36 Address:10.0.131.91:8300}]"
+2022-09-05T17:41:57.331Z [INFO]  agent.server.raft: entering follower state: follower="Node at 10.0.138.18:8300 [Follower]" leader=
+2022-09-05T17:41:57.400Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-2.dc1 10.0.138.18
+2022-09-05T17:41:57.400Z [INFO]  agent.server.serf.wan: serf: Attempting re-join to previously known node: consul-server-1.dc1: 10.0.144.30:8302
+2022-09-05T17:41:57.404Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-2 10.0.138.18
+2022-09-05T17:41:57.404Z [INFO]  agent.router: Initializing LAN area manager
+2022-09-05T17:41:57.404Z [INFO]  agent.server.serf.lan: serf: Attempting re-join to previously known node: ip-10-0-155-246.eu-west-2.compute.internal: 10.0.154.89:8301
+2022-09-05T17:41:57.404Z [INFO]  agent: Started DNS server: address=0.0.0.0:8600 network=udp
+2022-09-05T17:41:57.404Z [INFO]  agent.server: Adding LAN server: server="consul-server-2 (Addr: tcp/10.0.138.18:8300) (DC: dc1)"
+2022-09-05T17:41:57.404Z [INFO]  agent.server: Raft data found, disabling bootstrap mode
+2022-09-05T17:41:57.404Z [INFO]  agent: Started DNS server: address=0.0.0.0:8600 network=tcp
+2022-09-05T17:41:57.405Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-2.dc1 area=wan
+2022-09-05T17:41:57.405Z [WARN]  agent: grpc: addrConn.createTransport failed to connect to {10.0.138.18:8300 0 consul-server-2.dc1 <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp 10.0.138.18:8300: operation was canceled". Reconnecting...
+2022-09-05T17:41:57.405Z [INFO]  agent: Starting server: address=[::]:8500 network=tcp protocol=http
+2022-09-05T17:41:57.405Z [WARN]  agent: DEPRECATED Backwards compatibility with pre-1.9 metrics enabled. These metrics will be removed in a future version of Consul. Set `telemetry { disable_compat_1.9 = true }` to disable them.
+2022-09-05T17:41:57.406Z [WARN]  agent.server.memberlist.wan: memberlist: Refuting a suspect message (from: consul-server-2.dc1)
+2022-09-05T17:41:57.406Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-0.dc1 10.0.138.0
+2022-09-05T17:41:57.406Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-1.dc1 10.0.144.30
+2022-09-05T17:41:57.406Z [INFO]  agent.server.serf.wan: serf: Re-joined to previously known node: consul-server-1.dc1: 10.0.144.30:8302
+2022-09-05T17:41:57.406Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-0.dc1 area=wan
+2022-09-05T17:41:57.406Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-1.dc1 area=wan
+2022-09-05T17:41:57.406Z [INFO]  agent: started state syncer
+2022-09-05T17:41:57.406Z [INFO]  agent: Consul agent running!
+2022-09-05T17:41:57.406Z [INFO]  agent: Retry join is supported for the following discovery methods: cluster=LAN discovery_methods="aliyun aws azure digitalocean gce k8s linode mdns os packet scaleway softlayer tencentcloud triton vsphere"
+2022-09-05T17:41:57.406Z [INFO]  agent: Joining cluster...: cluster=LAN
+2022-09-05T17:41:57.406Z [INFO]  agent: (LAN) joining: lan_addresses=[consul-server-0.consul-server.kube-system.svc:8301, consul-server-1.consul-server.kube-system.svc:8301, consul-server-2.consul-server.kube-system.svc:8301]
+2022-09-05T17:41:57.408Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-0 10.0.138.0
+2022-09-05T17:41:57.408Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-147-0.eu-west-2.compute.internal 10.0.148.107
+2022-09-05T17:41:57.408Z [INFO]  agent.server: Adding LAN server: server="consul-server-0 (Addr: tcp/10.0.138.0:8300) (DC: dc1)"
+2022-09-05T17:41:57.408Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-137-244.eu-west-2.compute.internal 10.0.142.213
+2022-09-05T17:41:57.408Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-151-108.eu-west-2.compute.internal 10.0.155.9
+2022-09-05T17:41:57.408Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89
+2022-09-05T17:41:57.408Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-1 10.0.144.30
+2022-09-05T17:41:57.408Z [WARN]  agent.server.memberlist.lan: memberlist: Refuting a suspect message (from: consul-server-2)
+2022-09-05T17:41:57.408Z [INFO]  agent.server.serf.lan: serf: Re-joined to previously known node: ip-10-0-155-246.eu-west-2.compute.internal: 10.0.154.89:8301
+2022-09-05T17:41:57.408Z [INFO]  agent.server: Adding LAN server: server="consul-server-1 (Addr: tcp/10.0.144.30:8300) (DC: dc1)"
+2022-09-05T17:41:57.609Z [INFO]  agent: (LAN) joined: number_of_nodes=3
+2022-09-05T17:41:57.609Z [INFO]  agent: Join cluster completed. Synced with initial agents: cluster=LAN num_agents=3
+2022-09-05T17:42:02.236Z [INFO]  agent: Newer Consul version available: new_version=1.13.1 current_version=1.10.0
+2022-09-05T17:42:03.730Z [WARN]  agent.server.raft: heartbeat timeout reached, starting election: last-leader=
+2022-09-05T17:42:03.730Z [INFO]  agent.server.raft: entering candidate state: node="Node at 10.0.138.18:8300 [Candidate]" term=15
+2022-09-05T17:42:03.738Z [INFO]  agent.server.raft: entering follower state: follower="Node at 10.0.138.18:8300 [Follower]" leader=
+2022-09-05T17:42:04.514Z [ERROR] agent.anti_entropy: failed to sync remote state: error="No cluster leader"
+2022-09-05T17:42:12.991Z [WARN]  agent.server.raft: heartbeat timeout reached, starting election: last-leader=
+2022-09-05T17:42:12.991Z [INFO]  agent.server.raft: entering candidate state: node="Node at 10.0.138.18:8300 [Candidate]" term=17
+2022-09-05T17:42:19.345Z [WARN]  agent.server.raft: Election timeout reached, restarting election
+2022-09-05T17:42:19.345Z [INFO]  agent.server.raft: entering candidate state: node="Node at 10.0.138.18:8300 [Candidate]" term=18
+2022-09-05T17:42:28.139Z [ERROR] agent: Coordinate update error: error="No cluster leader"
+2022-09-05T17:42:28.287Z [WARN]  agent.server.raft: Election timeout reached, restarting election
+2022-09-05T17:42:28.288Z [INFO]  agent.server.raft: entering candidate state: node="Node at 10.0.138.18:8300 [Candidate]" term=19
+2022-09-05T17:42:32.579Z [ERROR] agent.anti_entropy: failed to sync remote state: error="No cluster leader"
+2022-09-05T17:42:34.522Z [INFO]  agent.server: New leader elected: payload=consul-server-0
+2022-09-05T17:42:34.906Z [WARN]  agent.server.raft: Election timeout reached, restarting election
+2022-09-05T17:42:34.906Z [INFO]  agent.server.raft: entering candidate state: node="Node at 10.0.138.18:8300 [Candidate]" term=20
+2022-09-05T17:42:40.718Z [WARN]  agent.server.raft: failed to get previous log: previous-index=2431 last-index=2412 error="log not found"
+2022-09-05T17:42:40.719Z [INFO]  agent.server.raft: entering follower state: follower="Node at 10.0.138.18:8300 [Follower]" leader=10.0.138.0:8300
+2022-09-05T17:42:40.722Z [INFO]  agent.server: New leader elected: payload=consul-server-0
+2022-09-05T17:42:41.600Z [INFO]  agent: Synced node info
+2022-09-05T17:42:43.407Z [INFO]  agent.server.memberlist.lan: memberlist: Marking ip-10-0-155-246.eu-west-2.compute.internal as failed, suspect timeout reached (2 peer confirmations)
+2022-09-05T17:42:43.407Z [INFO]  agent.server.serf.lan: serf: EventMemberFailed: ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89
+2022-09-05T17:42:43.699Z [INFO]  agent: Synced node info
+2022-09-05T17:43:58.696Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-140-142.eu-west-2.compute.internal 10.0.140.172
+2022-09-05T17:58:27.514Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89:8301
+2022-09-05T18:02:07.519Z [INFO]  agent.server.serf.lan: serf: attempting reconnect to ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89:8301

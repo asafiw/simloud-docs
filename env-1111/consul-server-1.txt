@@ -1,0 +1,54 @@
+==> Starting Consul agent...
+           Version: '1.10.0'
+           Node ID: 'df03522e-b091-64cb-e596-bdefc41fa460'
+         Node name: 'consul-server-1'
+        Datacenter: 'dc1' (Segment: '<all>')
+            Server: true (Bootstrap: false)
+       Client Addr: [0.0.0.0] (HTTP: 8500, HTTPS: -1, gRPC: -1, DNS: 8600)
+      Cluster Addr: 10.0.150.237 (LAN: 8301, WAN: 8302)
+           Encrypt: Gossip: false, TLS-Outgoing: false, TLS-Incoming: false, Auto-Encrypt-TLS: false
+
+==> Log data will now stream in as it occurs:
+
+2022-09-05T17:32:59.235Z [WARN]  agent: bootstrap_expect > 0: expecting 3 servers
+2022-09-05T17:32:59.440Z [WARN]  agent.auto_config: bootstrap_expect > 0: expecting 3 servers
+2022-09-05T17:33:00.258Z [INFO]  agent.server.raft: initial configuration: index=3672 servers="[{Suffrage:Voter ID:716b5489-9a4b-bcb2-8d43-4275f8a16d65 Address:10.0.130.208:8300} {Suffrage:Voter ID:df03522e-b091-64cb-e596-bdefc41fa460 Address:10.0.147.97:8300} {Suffrage:Voter ID:315d4dc1-e6a8-a734-f51d-f5441feffecc Address:10.0.135.170:8300}]"
+2022-09-05T17:33:00.258Z [INFO]  agent.server.raft: entering follower state: follower="Node at 10.0.150.237:8300 [Follower]" leader=
+2022-09-05T17:33:00.260Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-1.dc1 10.0.150.237
+2022-09-05T17:33:00.260Z [INFO]  agent.server.serf.wan: serf: Attempting re-join to previously known node: consul-server-0.dc1: 10.0.130.208:8302
+2022-09-05T17:33:00.261Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-1 10.0.150.237
+2022-09-05T17:33:00.262Z [INFO]  agent.router: Initializing LAN area manager
+2022-09-05T17:33:00.262Z [INFO]  agent.server.serf.lan: serf: Attempting re-join to previously known node: consul-server-0: 10.0.130.208:8301
+2022-09-05T17:33:00.262Z [INFO]  agent.server: Adding LAN server: server="consul-server-1 (Addr: tcp/10.0.150.237:8300) (DC: dc1)"
+2022-09-05T17:33:00.262Z [INFO]  agent.server: Raft data found, disabling bootstrap mode
+2022-09-05T17:33:00.262Z [INFO]  agent: Started DNS server: address=0.0.0.0:8600 network=udp
+2022-09-05T17:33:00.263Z [INFO]  agent: Started DNS server: address=0.0.0.0:8600 network=tcp
+2022-09-05T17:33:00.263Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-1.dc1 area=wan
+2022-09-05T17:33:00.263Z [WARN]  agent: grpc: addrConn.createTransport failed to connect to {10.0.150.237:8300 0 consul-server-1.dc1 <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp 10.0.150.237:8300: operation was canceled". Reconnecting...
+2022-09-05T17:33:00.264Z [INFO]  agent: Starting server: address=[::]:8500 network=tcp protocol=http
+2022-09-05T17:33:00.264Z [WARN]  agent: DEPRECATED Backwards compatibility with pre-1.9 metrics enabled. These metrics will be removed in a future version of Consul. Set `telemetry { disable_compat_1.9 = true }` to disable them.
+2022-09-05T17:33:00.329Z [INFO]  agent: started state syncer
+2022-09-05T17:33:00.329Z [INFO]  agent: Consul agent running!
+2022-09-05T17:33:00.329Z [INFO]  agent: Retry join is supported for the following discovery methods: cluster=LAN discovery_methods="aliyun aws azure digitalocean gce k8s linode mdns os packet scaleway softlayer tencentcloud triton vsphere"
+2022-09-05T17:33:00.329Z [INFO]  agent: Joining cluster...: cluster=LAN
+2022-09-05T17:33:00.329Z [INFO]  agent: (LAN) joining: lan_addresses=[consul-server-0.consul-server.kube-system.svc:8301, consul-server-1.consul-server.kube-system.svc:8301, consul-server-2.consul-server.kube-system.svc:8301]
+2022-09-05T17:33:00.330Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-0.dc1 10.0.130.208
+2022-09-05T17:33:00.330Z [INFO]  agent.server.serf.wan: serf: EventMemberJoin: consul-server-2.dc1 10.0.135.170
+2022-09-05T17:33:00.330Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-149-119.eu-west-3.compute.internal 10.0.155.252
+2022-09-05T17:33:00.330Z [INFO]  agent.server.serf.wan: serf: Re-joined to previously known node: consul-server-0.dc1: 10.0.130.208:8302
+2022-09-05T17:33:00.330Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-0 10.0.130.208
+2022-09-05T17:33:00.330Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-137-207.eu-west-3.compute.internal 10.0.142.163
+2022-09-05T17:33:00.330Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-0.dc1 area=wan
+2022-09-05T17:33:00.330Z [INFO]  agent.server: Handled event for server in area: event=member-join server=consul-server-2.dc1 area=wan
+2022-09-05T17:33:00.330Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: consul-server-2 10.0.135.170
+2022-09-05T17:33:00.330Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-147-29.eu-west-3.compute.internal 10.0.153.67
+2022-09-05T17:33:00.331Z [INFO]  agent.server.serf.lan: serf: EventMemberJoin: ip-10-0-140-164.eu-west-3.compute.internal 10.0.139.7
+2022-09-05T17:33:00.331Z [INFO]  agent.server: Adding LAN server: server="consul-server-0 (Addr: tcp/10.0.130.208:8300) (DC: dc1)"
+2022-09-05T17:33:00.331Z [INFO]  agent.server: Adding LAN server: server="consul-server-2 (Addr: tcp/10.0.135.170:8300) (DC: dc1)"
+2022-09-05T17:33:00.331Z [INFO]  agent.server.serf.lan: serf: Re-joined to previously known node: consul-server-0: 10.0.130.208:8301
+2022-09-05T17:33:00.331Z [WARN]  agent.server.raft: failed to get previous log: previous-index=3713 last-index=3676 error="log not found"
+2022-09-05T17:33:01.129Z [INFO]  agent: Synced node info
+2022-09-05T17:33:02.132Z [INFO]  agent: (LAN) joined: number_of_nodes=3
+2022-09-05T17:33:02.132Z [INFO]  agent: Join cluster completed. Synced with initial agents: cluster=LAN num_agents=3
+2022-09-05T17:33:21.871Z [INFO]  agent: Newer Consul version available: new_version=1.13.1 current_version=1.10.0
+2022-09-05T17:35:00.264Z [WARN]  agent: grpc: addrConn.createTransport failed to connect to {10.0.130.208:8300 0 consul-server-0.dc1 <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp 10.0.130.208:8300: operation was canceled". Reconnecting...

@@ -1,0 +1,489 @@
+LAST SEEN   TYPE      REASON                         OBJECT                                     MESSAGE
+40m         Normal    Scheduled                      pod/aws-node-46jbt                         Successfully assigned kube-system/aws-node-46jbt to ip-10-0-147-0.eu-west-2.compute.internal
+40m         Normal    Pulling                        pod/aws-node-46jbt                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1"
+39m         Normal    Pulled                         pod/aws-node-46jbt                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1" in 9.7841978s
+39m         Normal    Created                        pod/aws-node-46jbt                         Created container aws-vpc-cni-init
+39m         Normal    Started                        pod/aws-node-46jbt                         Started container aws-vpc-cni-init
+39m         Normal    Pulling                        pod/aws-node-46jbt                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1"
+39m         Normal    Pulled                         pod/aws-node-46jbt                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1" in 2.632563496s
+39m         Normal    Created                        pod/aws-node-46jbt                         Created container aws-node
+39m         Normal    Started                        pod/aws-node-46jbt                         Started container aws-node
+39m         Warning   Unhealthy                      pod/aws-node-46jbt                         Readiness probe failed: {"level":"info","ts":"2022-09-05T17:22:09.417Z","caller":"/usr/local/go/src/runtime/proc.go:225","msg":"timeout: failed to connect service \":50051\" within 5s"}
+40m         Normal    Scheduled                      pod/aws-node-4gdc4                         Successfully assigned kube-system/aws-node-4gdc4 to ip-10-0-151-108.eu-west-2.compute.internal
+40m         Normal    Pulling                        pod/aws-node-4gdc4                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1"
+39m         Normal    Pulled                         pod/aws-node-4gdc4                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1" in 10.109043291s
+39m         Normal    Created                        pod/aws-node-4gdc4                         Created container aws-vpc-cni-init
+39m         Normal    Started                        pod/aws-node-4gdc4                         Started container aws-vpc-cni-init
+39m         Normal    Pulling                        pod/aws-node-4gdc4                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1"
+39m         Normal    Pulled                         pod/aws-node-4gdc4                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1" in 3.183094772s
+39m         Normal    Created                        pod/aws-node-4gdc4                         Created container aws-node
+39m         Normal    Started                        pod/aws-node-4gdc4                         Started container aws-node
+39m         Warning   Unhealthy                      pod/aws-node-4gdc4                         Readiness probe failed: {"level":"info","ts":"2022-09-05T17:22:08.151Z","caller":"/usr/local/go/src/runtime/proc.go:225","msg":"timeout: failed to connect service \":50051\" within 5s"}
+46m         Warning   NodeNotReady                   pod/aws-node-76x5n                         Node is not ready
+46m         Warning   NodeNotReady                   pod/aws-node-kkbxf                         Node is not ready
+40m         Normal    Scheduled                      pod/aws-node-l7t2p                         Successfully assigned kube-system/aws-node-l7t2p to ip-10-0-137-244.eu-west-2.compute.internal
+40m         Normal    Pulling                        pod/aws-node-l7t2p                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1"
+39m         Normal    Pulled                         pod/aws-node-l7t2p                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1" in 9.98025352s
+39m         Normal    Created                        pod/aws-node-l7t2p                         Created container aws-vpc-cni-init
+39m         Normal    Started                        pod/aws-node-l7t2p                         Started container aws-vpc-cni-init
+39m         Normal    Pulling                        pod/aws-node-l7t2p                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1"
+39m         Normal    Pulled                         pod/aws-node-l7t2p                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1" in 2.707273012s
+39m         Normal    Created                        pod/aws-node-l7t2p                         Created container aws-node
+39m         Normal    Started                        pod/aws-node-l7t2p                         Started container aws-node
+39m         Warning   Unhealthy                      pod/aws-node-l7t2p                         Readiness probe failed: {"level":"info","ts":"2022-09-05T17:22:10.058Z","caller":"/usr/local/go/src/runtime/proc.go:225","msg":"timeout: failed to connect service \":50051\" within 5s"}
+40m         Normal    Scheduled                      pod/aws-node-l8m8g                         Successfully assigned kube-system/aws-node-l8m8g to ip-10-0-140-78.eu-west-2.compute.internal
+40m         Normal    Pulling                        pod/aws-node-l8m8g                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1"
+39m         Normal    Pulled                         pod/aws-node-l8m8g                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1" in 9.568870337s
+39m         Normal    Created                        pod/aws-node-l8m8g                         Created container aws-vpc-cni-init
+39m         Normal    Started                        pod/aws-node-l8m8g                         Started container aws-vpc-cni-init
+39m         Normal    Pulling                        pod/aws-node-l8m8g                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1"
+39m         Normal    Pulled                         pod/aws-node-l8m8g                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1" in 2.588382579s
+39m         Normal    Created                        pod/aws-node-l8m8g                         Created container aws-node
+39m         Normal    Started                        pod/aws-node-l8m8g                         Started container aws-node
+20m         Normal    ScaleDown                      pod/aws-node-l8m8g                         deleting pod for node scale down
+20m         Normal    Killing                        pod/aws-node-l8m8g                         Stopping container aws-node
+46m         Warning   NodeNotReady                   pod/aws-node-m7xlh                         Node is not ready
+36m         Normal    Scheduled                      pod/aws-node-nf4ls                         Successfully assigned kube-system/aws-node-nf4ls to ip-10-0-155-246.eu-west-2.compute.internal
+36m         Normal    Pulling                        pod/aws-node-nf4ls                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1"
+36m         Normal    Pulled                         pod/aws-node-nf4ls                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1" in 10.026558364s
+36m         Normal    Created                        pod/aws-node-nf4ls                         Created container aws-vpc-cni-init
+36m         Normal    Started                        pod/aws-node-nf4ls                         Started container aws-vpc-cni-init
+36m         Normal    Pulling                        pod/aws-node-nf4ls                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1"
+36m         Normal    Pulled                         pod/aws-node-nf4ls                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1" in 2.66428063s
+36m         Normal    Created                        pod/aws-node-nf4ls                         Created container aws-node
+36m         Normal    Started                        pod/aws-node-nf4ls                         Started container aws-node
+18m         Warning   NodeNotReady                   pod/aws-node-nf4ls                         Node is not ready
+46m         Warning   NodeNotReady                   pod/aws-node-tknbk                         Node is not ready
+20m         Normal    Scheduled                      pod/aws-node-x9wcg                         Successfully assigned kube-system/aws-node-x9wcg to ip-10-0-140-78.eu-west-2.compute.internal
+20m         Normal    Pulled                         pod/aws-node-x9wcg                         Container image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1" already present on machine
+20m         Normal    Created                        pod/aws-node-x9wcg                         Created container aws-vpc-cni-init
+20m         Normal    Started                        pod/aws-node-x9wcg                         Started container aws-vpc-cni-init
+20m         Normal    Pulled                         pod/aws-node-x9wcg                         Container image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1" already present on machine
+20m         Normal    Created                        pod/aws-node-x9wcg                         Created container aws-node
+20m         Normal    Started                        pod/aws-node-x9wcg                         Started container aws-node
+19m         Warning   NodeNotReady                   pod/aws-node-x9wcg                         Node is not ready
+18m         Normal    Scheduled                      pod/aws-node-xwhmr                         Successfully assigned kube-system/aws-node-xwhmr to ip-10-0-140-142.eu-west-2.compute.internal
+18m         Normal    Pulling                        pod/aws-node-xwhmr                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1"
+18m         Normal    Pulled                         pod/aws-node-xwhmr                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni-init:v1.10.1-eksbuild.1" in 9.923288537s
+18m         Normal    Created                        pod/aws-node-xwhmr                         Created container aws-vpc-cni-init
+18m         Normal    Started                        pod/aws-node-xwhmr                         Started container aws-vpc-cni-init
+18m         Normal    Pulling                        pod/aws-node-xwhmr                         Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1"
+18m         Normal    Pulled                         pod/aws-node-xwhmr                         Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/amazon-k8s-cni:v1.10.1-eksbuild.1" in 2.62589063s
+18m         Normal    Created                        pod/aws-node-xwhmr                         Created container aws-node
+18m         Normal    Started                        pod/aws-node-xwhmr                         Started container aws-node
+40m         Normal    SuccessfulCreate               daemonset/aws-node                         Created pod: aws-node-l8m8g
+40m         Normal    SuccessfulCreate               daemonset/aws-node                         Created pod: aws-node-4gdc4
+40m         Normal    SuccessfulCreate               daemonset/aws-node                         Created pod: aws-node-l7t2p
+40m         Normal    SuccessfulCreate               daemonset/aws-node                         Created pod: aws-node-46jbt
+36m         Normal    SuccessfulCreate               daemonset/aws-node                         Created pod: aws-node-nf4ls
+20m         Normal    SuccessfulCreate               daemonset/aws-node                         Created pod: aws-node-x9wcg
+18m         Normal    SuccessfulCreate               daemonset/aws-node                         Created pod: aws-node-xwhmr
+48m         Normal    Killing                        pod/cluster-autoscaler-7cb55767d9-h7gz6    Stopping container cluster-autoscaler
+38m         Normal    Scheduled                      pod/cluster-autoscaler-7cb55767d9-pj4gh    Successfully assigned kube-system/cluster-autoscaler-7cb55767d9-pj4gh to ip-10-0-137-244.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/cluster-autoscaler-7cb55767d9-pj4gh    Pulling image "hub.simloudcorp.customers.simloud.com/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.21.1"
+38m         Normal    Pulled                         pod/cluster-autoscaler-7cb55767d9-pj4gh    Successfully pulled image "hub.simloudcorp.customers.simloud.com/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.21.1" in 22.12187565s
+38m         Normal    Created                        pod/cluster-autoscaler-7cb55767d9-pj4gh    Created container cluster-autoscaler
+38m         Warning   Failed                         pod/cluster-autoscaler-7cb55767d9-pj4gh    Error: failed to start container "cluster-autoscaler": Error response from daemon: cannot join network of a non running container: cc8f145b654a8874e6022760abc2d1d5b6d738a3317fa8c666b4dd95cd0ae6a8
+48m         Normal    SuccessfulDelete               replicaset/cluster-autoscaler-7cb55767d9   Deleted pod: cluster-autoscaler-7cb55767d9-h7gz6
+38m         Normal    SuccessfulCreate               replicaset/cluster-autoscaler-7cb55767d9   Created pod: cluster-autoscaler-7cb55767d9-pj4gh
+38m         Normal    SuccessfulDelete               replicaset/cluster-autoscaler-7cb55767d9   Deleted pod: cluster-autoscaler-7cb55767d9-pj4gh
+38m         Normal    Scheduled                      pod/cluster-autoscaler-c84c84699-rhwcd     Successfully assigned kube-system/cluster-autoscaler-c84c84699-rhwcd to ip-10-0-147-0.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/cluster-autoscaler-c84c84699-rhwcd     Pulling image "hub.simloudcorp.customers.simloud.com/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.21.1"
+38m         Normal    Pulled                         pod/cluster-autoscaler-c84c84699-rhwcd     Successfully pulled image "hub.simloudcorp.customers.simloud.com/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.21.1" in 16.679798371s
+38m         Normal    Created                        pod/cluster-autoscaler-c84c84699-rhwcd     Created container cluster-autoscaler
+38m         Normal    Started                        pod/cluster-autoscaler-c84c84699-rhwcd     Started container cluster-autoscaler
+38m         Normal    SuccessfulCreate               replicaset/cluster-autoscaler-c84c84699    Created pod: cluster-autoscaler-c84c84699-rhwcd
+37m         Normal    ScaledUpGroup                  configmap/cluster-autoscaler-status        Scale-up: setting group eksctl-Olga-test-new-5b5e30b09-8a95-4840-9611-c8d6f9781bd8-nodegroup-af96f74a-9a07-4018-a37d-5ad4389883f0-NodeGroup-162GE0E6FU1PY size to 5
+20m         Normal    ScaleDown                      configmap/cluster-autoscaler-status        Scale-down: removing node ip-10-0-140-78.eu-west-2.compute.internal, utilization: {0.4792746113989637 0.2261777461460521 0 cpu 0.4792746113989637}, pods to reschedule: kube-system/consul-server-2,kube-system/grafana-69b9cc69d9-bk9bb,kube-system/coredns-65ccb76b7c-kntlj,kube-system/vault-agent-injector-57d87ff44f-hrsbf
+38m         Normal    ScalingReplicaSet              deployment/cluster-autoscaler              Scaled up replica set cluster-autoscaler-7cb55767d9 to 1
+38m         Normal    ScalingReplicaSet              deployment/cluster-autoscaler              Scaled down replica set cluster-autoscaler-7cb55767d9 to 0
+38m         Normal    ScalingReplicaSet              deployment/cluster-autoscaler              Scaled up replica set cluster-autoscaler-c84c84699 to 1
+38m         Normal    LeaderElection                 lease/cluster-autoscaler                   cluster-autoscaler-c84c84699-rhwcd became leader
+39m         Normal    Scheduled                      pod/consul-29lk7                           Successfully assigned kube-system/consul-29lk7 to ip-10-0-137-244.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/consul-29lk7                           Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0"
+38m         Normal    Pulled                         pod/consul-29lk7                           Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0" in 17.068981802s
+38m         Normal    Created                        pod/consul-29lk7                           Created container consul
+38m         Normal    Started                        pod/consul-29lk7                           Started container consul
+20m         Warning   Unhealthy                      pod/consul-29lk7                           Readiness probe failed:
+39m         Normal    Scheduled                      pod/consul-bdwl8                           Successfully assigned kube-system/consul-bdwl8 to ip-10-0-147-0.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/consul-bdwl8                           Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0"
+38m         Normal    Pulled                         pod/consul-bdwl8                           Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0" in 20.598160563s
+38m         Normal    Created                        pod/consul-bdwl8                           Created container consul
+38m         Normal    Started                        pod/consul-bdwl8                           Started container consul
+20m         Warning   Unhealthy                      pod/consul-bdwl8                           Readiness probe failed:
+39m         Normal    Scheduled                      pod/consul-bqfkb                           Successfully assigned kube-system/consul-bqfkb to ip-10-0-151-108.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/consul-bqfkb                           Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0"
+38m         Normal    Pulled                         pod/consul-bqfkb                           Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0" in 11.248357821s
+38m         Normal    Created                        pod/consul-bqfkb                           Created container consul
+38m         Normal    Started                        pod/consul-bqfkb                           Started container consul
+20m         Warning   Unhealthy                      pod/consul-bqfkb                           Readiness probe failed:
+48m         Normal    Killing                        pod/consul-bvdhl                           Stopping container consul
+48m         Normal    Killing                        pod/consul-d62m5                           Stopping container consul
+36m         Normal    Scheduled                      pod/consul-dh62m                           Successfully assigned kube-system/consul-dh62m to ip-10-0-155-246.eu-west-2.compute.internal
+36m         Normal    Pulling                        pod/consul-dh62m                           Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0"
+36m         Normal    Pulled                         pod/consul-dh62m                           Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0" in 6.428723924s
+35m         Normal    Created                        pod/consul-dh62m                           Created container consul
+35m         Normal    Started                        pod/consul-dh62m                           Started container consul
+20m         Warning   Unhealthy                      pod/consul-dh62m                           Readiness probe failed:
+18m         Warning   NodeNotReady                   pod/consul-dh62m                           Node is not ready
+20m         Warning   FailedToUpdateEndpoint         endpoints/consul-dns                       Failed to update endpoint kube-system/consul-dns: Operation cannot be fulfilled on endpoints "consul-dns": the object has been modified; please apply your changes to the latest version and try again
+17m         Warning   FailedToUpdateEndpointSlices   service/consul-dns                         Error updating Endpoint Slices for Service kube-system/consul-dns: node "ip-10-0-155-246.eu-west-2.compute.internal" not found
+39m         Normal    Scheduled                      pod/consul-jrgqf                           Successfully assigned kube-system/consul-jrgqf to ip-10-0-140-78.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/consul-jrgqf                           Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0"
+38m         Normal    Pulled                         pod/consul-jrgqf                           Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0" in 15.388195321s
+38m         Normal    Created                        pod/consul-jrgqf                           Created container consul
+38m         Normal    Started                        pod/consul-jrgqf                           Started container consul
+38m         Warning   Unhealthy                      pod/consul-jrgqf                           Readiness probe failed:
+20m         Normal    ScaleDown                      pod/consul-jrgqf                           deleting pod for node scale down
+20m         Normal    Killing                        pod/consul-jrgqf                           Stopping container consul
+18m         Normal    Scheduled                      pod/consul-mnftw                           Successfully assigned kube-system/consul-mnftw to ip-10-0-140-142.eu-west-2.compute.internal
+18m         Normal    Pulling                        pod/consul-mnftw                           Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0"
+17m         Normal    Pulled                         pod/consul-mnftw                           Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0" in 6.654532328s
+17m         Normal    Created                        pod/consul-mnftw                           Created container consul
+17m         Normal    Started                        pod/consul-mnftw                           Started container consul
+17m         Warning   Unhealthy                      pod/consul-mnftw                           Readiness probe failed:
+48m         Warning   Unhealthy                      pod/consul-server-0                        Readiness probe failed:
+48m         Normal    Killing                        pod/consul-server-0                        Stopping container consul
+39m         Normal    Scheduled                      pod/consul-server-0                        Successfully assigned kube-system/consul-server-0 to ip-10-0-137-244.eu-west-2.compute.internal
+38m         Normal    SuccessfulAttachVolume         pod/consul-server-0                        AttachVolume.Attach succeeded for volume "pvc-8b54bf66-650d-48a4-aa42-38fd5e0b43ee"
+38m         Normal    Pulling                        pod/consul-server-0                        Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0"
+38m         Normal    Pulled                         pod/consul-server-0                        Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0" in 5.589202725s
+38m         Normal    Created                        pod/consul-server-0                        Created container consul
+38m         Normal    Started                        pod/consul-server-0                        Started container consul
+19m         Warning   Unhealthy                      pod/consul-server-0                        Readiness probe failed:
+48m         Normal    Killing                        pod/consul-server-1                        Stopping container consul
+48m         Warning   Unhealthy                      pod/consul-server-1                        Readiness probe errored: rpc error: code = Unknown desc = container not running (2fb925f1646e2cbf21afac57a569c9b06d71e60035653a3349523ebb056ba60d)
+39m         Normal    Scheduled                      pod/consul-server-1                        Successfully assigned kube-system/consul-server-1 to ip-10-0-147-0.eu-west-2.compute.internal
+38m         Normal    SuccessfulAttachVolume         pod/consul-server-1                        AttachVolume.Attach succeeded for volume "pvc-ea2f7be8-bd16-4767-98a6-68b40c5a4e7a"
+38m         Normal    Pulling                        pod/consul-server-1                        Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0"
+38m         Normal    Pulled                         pod/consul-server-1                        Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0" in 8.908280729s
+38m         Normal    Created                        pod/consul-server-1                        Created container consul
+38m         Normal    Started                        pod/consul-server-1                        Started container consul
+20m         Warning   Unhealthy                      pod/consul-server-1                        Readiness probe failed:
+48m         Normal    Killing                        pod/consul-server-2                        Stopping container consul
+39m         Normal    Scheduled                      pod/consul-server-2                        Successfully assigned kube-system/consul-server-2 to ip-10-0-140-78.eu-west-2.compute.internal
+38m         Normal    SuccessfulAttachVolume         pod/consul-server-2                        AttachVolume.Attach succeeded for volume "pvc-440ffe34-d9e9-4345-99ce-f2daeec9ca52"
+38m         Normal    Pulling                        pod/consul-server-2                        Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0"
+38m         Normal    Pulled                         pod/consul-server-2                        Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0" in 9.532397515s
+38m         Normal    Created                        pod/consul-server-2                        Created container consul
+38m         Normal    Started                        pod/consul-server-2                        Started container consul
+38m         Warning   Unhealthy                      pod/consul-server-2                        Readiness probe failed:
+20m         Normal    ScaleDown                      pod/consul-server-2                        deleting pod for node scale down
+20m         Normal    Killing                        pod/consul-server-2                        Stopping container consul
+20m         Warning   Unhealthy                      pod/consul-server-2                        Readiness probe failed: ttrpc: closed: unknown
+20m         Normal    Scheduled                      pod/consul-server-2                        Successfully assigned kube-system/consul-server-2 to ip-10-0-137-244.eu-west-2.compute.internal
+20m         Normal    SuccessfulAttachVolume         pod/consul-server-2                        AttachVolume.Attach succeeded for volume "pvc-440ffe34-d9e9-4345-99ce-f2daeec9ca52"
+19m         Normal    Pulled                         pod/consul-server-2                        Container image "hub.simloudcorp.customers.simloud.com/hashicorp/consul:1.10.0" already present on machine
+19m         Normal    Created                        pod/consul-server-2                        Created container consul
+19m         Normal    Started                        pod/consul-server-2                        Started container consul
+19m         Warning   Unhealthy                      pod/consul-server-2                        Readiness probe failed:
+48m         Normal    NoPods                         poddisruptionbudget/consul-server          No matching pods found
+39m         Normal    SuccessfulCreate               statefulset/consul-server                  create Pod consul-server-0 in StatefulSet consul-server successful
+39m         Normal    SuccessfulCreate               statefulset/consul-server                  create Pod consul-server-1 in StatefulSet consul-server successful
+20m         Normal    SuccessfulCreate               statefulset/consul-server                  create Pod consul-server-2 in StatefulSet consul-server successful
+48m         Normal    SuccessfulDelete               statefulset/consul-server                  delete Pod consul-server-2 in StatefulSet consul-server successful
+48m         Normal    SuccessfulDelete               statefulset/consul-server                  delete Pod consul-server-1 in StatefulSet consul-server successful
+48m         Normal    SuccessfulDelete               statefulset/consul-server                  delete Pod consul-server-0 in StatefulSet consul-server successful
+48m         Normal    Killing                        pod/consul-tgfdv                           Stopping container consul
+48m         Warning   FailedToUpdateEndpoint         endpoints/consul-ui                        Failed to update endpoint kube-system/consul-ui: Operation cannot be fulfilled on endpoints "consul-ui": the object has been modified; please apply your changes to the latest version and try again
+48m         Normal    Killing                        pod/consul-zx42j                           Stopping container consul
+48m         Normal    SuccessfulDelete               daemonset/consul                           Deleted pod: consul-d62m5
+48m         Normal    SuccessfulDelete               daemonset/consul                           Deleted pod: consul-bvdhl
+48m         Normal    SuccessfulDelete               daemonset/consul                           Deleted pod: consul-zx42j
+48m         Normal    SuccessfulDelete               daemonset/consul                           Deleted pod: consul-tgfdv
+39m         Normal    SuccessfulCreate               daemonset/consul                           Created pod: consul-jrgqf
+39m         Normal    SuccessfulCreate               daemonset/consul                           Created pod: consul-bqfkb
+39m         Normal    SuccessfulCreate               daemonset/consul                           Created pod: consul-29lk7
+39m         Normal    SuccessfulCreate               daemonset/consul                           Created pod: consul-bdwl8
+36m         Normal    SuccessfulCreate               daemonset/consul                           Created pod: consul-dh62m
+18m         Normal    SuccessfulCreate               daemonset/consul                           Created pod: consul-mnftw
+20m         Normal    Scheduled                      pod/coredns-65ccb76b7c-hcv2k               Successfully assigned kube-system/coredns-65ccb76b7c-hcv2k to ip-10-0-137-244.eu-west-2.compute.internal
+20m         Normal    Pulling                        pod/coredns-65ccb76b7c-hcv2k               Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/coredns:v1.8.4-eksbuild.1"
+20m         Normal    Pulled                         pod/coredns-65ccb76b7c-hcv2k               Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/coredns:v1.8.4-eksbuild.1" in 1.264477224s
+20m         Normal    Created                        pod/coredns-65ccb76b7c-hcv2k               Created container coredns
+20m         Normal    Started                        pod/coredns-65ccb76b7c-hcv2k               Started container coredns
+46m         Warning   FailedScheduling               pod/coredns-65ccb76b7c-kntlj               0/4 nodes are available: 4 node(s) were unschedulable.
+40m         Warning   FailedScheduling               pod/coredns-65ccb76b7c-kntlj               no nodes available to schedule pods
+40m         Warning   FailedScheduling               pod/coredns-65ccb76b7c-kntlj               0/1 nodes are available: 1 node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate.
+39m         Warning   FailedScheduling               pod/coredns-65ccb76b7c-kntlj               0/4 nodes are available: 4 node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate.
+39m         Normal    Scheduled                      pod/coredns-65ccb76b7c-kntlj               Successfully assigned kube-system/coredns-65ccb76b7c-kntlj to ip-10-0-140-78.eu-west-2.compute.internal
+39m         Normal    Pulling                        pod/coredns-65ccb76b7c-kntlj               Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/coredns:v1.8.4-eksbuild.1"
+39m         Normal    Pulled                         pod/coredns-65ccb76b7c-kntlj               Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/coredns:v1.8.4-eksbuild.1" in 1.132503976s
+39m         Normal    Created                        pod/coredns-65ccb76b7c-kntlj               Created container coredns
+39m         Normal    Started                        pod/coredns-65ccb76b7c-kntlj               Started container coredns
+20m         Normal    ScaleDown                      pod/coredns-65ccb76b7c-kntlj               deleting pod for node scale down
+20m         Normal    Killing                        pod/coredns-65ccb76b7c-kntlj               Stopping container coredns
+46m         Warning   FailedScheduling               pod/coredns-65ccb76b7c-qtc8g               0/4 nodes are available: 4 node(s) were unschedulable.
+46m         Warning   FailedScheduling               pod/coredns-65ccb76b7c-qtc8g               0/3 nodes are available: 3 node(s) were unschedulable.
+40m         Warning   FailedScheduling               pod/coredns-65ccb76b7c-qtc8g               no nodes available to schedule pods
+40m         Warning   FailedScheduling               pod/coredns-65ccb76b7c-qtc8g               0/1 nodes are available: 1 node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate.
+39m         Warning   FailedScheduling               pod/coredns-65ccb76b7c-qtc8g               0/4 nodes are available: 4 node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate.
+39m         Normal    Scheduled                      pod/coredns-65ccb76b7c-qtc8g               Successfully assigned kube-system/coredns-65ccb76b7c-qtc8g to ip-10-0-151-108.eu-west-2.compute.internal
+39m         Normal    Pulling                        pod/coredns-65ccb76b7c-qtc8g               Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/coredns:v1.8.4-eksbuild.1"
+39m         Normal    Pulled                         pod/coredns-65ccb76b7c-qtc8g               Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/coredns:v1.8.4-eksbuild.1" in 1.216223934s
+39m         Normal    Created                        pod/coredns-65ccb76b7c-qtc8g               Created container coredns
+39m         Normal    Started                        pod/coredns-65ccb76b7c-qtc8g               Started container coredns
+48m         Normal    Killing                        pod/coredns-65ccb76b7c-rlxkb               Stopping container coredns
+47m         Normal    Killing                        pod/coredns-65ccb76b7c-znsfs               Stopping container coredns
+48m         Normal    SuccessfulCreate               replicaset/coredns-65ccb76b7c              Created pod: coredns-65ccb76b7c-qtc8g
+47m         Normal    SuccessfulCreate               replicaset/coredns-65ccb76b7c              Created pod: coredns-65ccb76b7c-kntlj
+20m         Normal    SuccessfulCreate               replicaset/coredns-65ccb76b7c              Created pod: coredns-65ccb76b7c-hcv2k
+38m         Normal    Scheduled                      pod/dashboard-7f7d79fd8b-kldqr             Successfully assigned kube-system/dashboard-7f7d79fd8b-kldqr to ip-10-0-151-108.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/dashboard-7f7d79fd8b-kldqr             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetesui/dashboard:v2.0.4"
+38m         Normal    Pulled                         pod/dashboard-7f7d79fd8b-kldqr             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetesui/dashboard:v2.0.4" in 19.188655465s
+38m         Normal    Created                        pod/dashboard-7f7d79fd8b-kldqr             Created container dashboard
+38m         Normal    Started                        pod/dashboard-7f7d79fd8b-kldqr             Started container dashboard
+38m         Normal    Pulling                        pod/dashboard-7f7d79fd8b-kldqr             Pulling image "hub.simloudcorp.customers.simloud.com/kubernetesui/metrics-scraper:v1.0.4"
+38m         Normal    Pulled                         pod/dashboard-7f7d79fd8b-kldqr             Successfully pulled image "hub.simloudcorp.customers.simloud.com/kubernetesui/metrics-scraper:v1.0.4" in 5.563566002s
+38m         Normal    Created                        pod/dashboard-7f7d79fd8b-kldqr             Created container dashboard-metrics-scraper
+38m         Normal    Started                        pod/dashboard-7f7d79fd8b-kldqr             Started container dashboard-metrics-scraper
+48m         Normal    Killing                        pod/dashboard-7f7d79fd8b-mkj5g             Stopping container dashboard-metrics-scraper
+48m         Normal    Killing                        pod/dashboard-7f7d79fd8b-mkj5g             Stopping container dashboard
+48m         Normal    SuccessfulDelete               replicaset/dashboard-7f7d79fd8b            Deleted pod: dashboard-7f7d79fd8b-mkj5g
+38m         Normal    SuccessfulCreate               replicaset/dashboard-7f7d79fd8b            Created pod: dashboard-7f7d79fd8b-kldqr
+38m         Normal    ScalingReplicaSet              deployment/dashboard                       Scaled up replica set dashboard-7f7d79fd8b to 1
+48m         Normal    ScalingReplicaSet              deployment/dashboard                       Scaled down replica set dashboard-7f7d79fd8b to 0
+38m         Normal    CREATE                         ingress/dashboard                          Ingress kube-system/dashboard
+38m         Normal    CREATE                         ingress/dashboard                          Ingress kube-system/dashboard
+38m         Normal    CREATE                         ingress/dashboard                          Ingress kube-system/dashboard
+38m         Normal    CREATE                         ingress/dashboard                          Ingress kube-system/dashboard
+38m         Normal    UPDATE                         ingress/dashboard                          Ingress kube-system/dashboard
+38m         Normal    UPDATE                         ingress/dashboard                          Ingress kube-system/dashboard
+38m         Normal    UPDATE                         ingress/dashboard                          Ingress kube-system/dashboard
+38m         Normal    UPDATE                         ingress/dashboard                          Ingress kube-system/dashboard
+35m         Normal    CREATE                         ingress/dashboard                          Ingress kube-system/dashboard
+17m         Normal    CREATE                         ingress/dashboard                          Ingress kube-system/dashboard
+38m         Normal    Scheduled                      pod/grafana-69b9cc69d9-bk9bb               Successfully assigned kube-system/grafana-69b9cc69d9-bk9bb to ip-10-0-140-78.eu-west-2.compute.internal
+38m         Warning   FailedMount                    pod/grafana-69b9cc69d9-bk9bb               MountVolume.SetUp failed for volume "dashboards-nlb" : failed to sync configmap cache: timed out waiting for the condition
+38m         Warning   FailedMount                    pod/grafana-69b9cc69d9-bk9bb               MountVolume.SetUp failed for volume "dashboards-default" : failed to sync configmap cache: timed out waiting for the condition
+38m         Warning   FailedMount                    pod/grafana-69b9cc69d9-bk9bb               MountVolume.SetUp failed for volume "dashboards-lambda" : failed to sync configmap cache: timed out waiting for the condition
+38m         Normal    SuccessfulAttachVolume         pod/grafana-69b9cc69d9-bk9bb               AttachVolume.Attach succeeded for volume "pvc-23ac23a6-f389-476d-80c7-a2c35c0c8053"
+38m         Normal    Pulling                        pod/grafana-69b9cc69d9-bk9bb               Pulling image "hub.simloudcorp.customers.simloud.com/simloud/busybox/busybox:1.31.1"
+38m         Normal    Pulled                         pod/grafana-69b9cc69d9-bk9bb               Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/busybox/busybox:1.31.1" in 6.793802646s
+38m         Normal    Created                        pod/grafana-69b9cc69d9-bk9bb               Created container init-chown-data
+38m         Normal    Started                        pod/grafana-69b9cc69d9-bk9bb               Started container init-chown-data
+38m         Normal    Pulling                        pod/grafana-69b9cc69d9-bk9bb               Pulling image "hub.simloudcorp.customers.simloud.com/curlimages/curl:7.70.0"
+38m         Normal    Pulled                         pod/grafana-69b9cc69d9-bk9bb               Successfully pulled image "hub.simloudcorp.customers.simloud.com/curlimages/curl:7.70.0" in 5.230384877s
+38m         Normal    Created                        pod/grafana-69b9cc69d9-bk9bb               Created container download-dashboards
+38m         Normal    Started                        pod/grafana-69b9cc69d9-bk9bb               Started container download-dashboards
+38m         Normal    Pulling                        pod/grafana-69b9cc69d9-bk9bb               Pulling image "hub.simloudcorp.customers.simloud.com/grafana/grafana:7.2.0"
+38m         Normal    Pulled                         pod/grafana-69b9cc69d9-bk9bb               Successfully pulled image "hub.simloudcorp.customers.simloud.com/grafana/grafana:7.2.0" in 8.833711553s
+38m         Normal    Created                        pod/grafana-69b9cc69d9-bk9bb               Created container grafana
+38m         Normal    Started                        pod/grafana-69b9cc69d9-bk9bb               Started container grafana
+20m         Normal    ScaleDown                      pod/grafana-69b9cc69d9-bk9bb               deleting pod for node scale down
+20m         Normal    Killing                        pod/grafana-69b9cc69d9-bk9bb               Stopping container grafana
+48m         Normal    Killing                        pod/grafana-69b9cc69d9-plc9n               Stopping container grafana
+20m         Normal    Scheduled                      pod/grafana-69b9cc69d9-t6xjf               Successfully assigned kube-system/grafana-69b9cc69d9-t6xjf to ip-10-0-137-244.eu-west-2.compute.internal
+20m         Warning   FailedAttachVolume             pod/grafana-69b9cc69d9-t6xjf               Multi-Attach error for volume "pvc-23ac23a6-f389-476d-80c7-a2c35c0c8053" Volume is already used by pod(s) grafana-69b9cc69d9-bk9bb
+20m         Normal    SuccessfulAttachVolume         pod/grafana-69b9cc69d9-t6xjf               AttachVolume.Attach succeeded for volume "pvc-23ac23a6-f389-476d-80c7-a2c35c0c8053"
+19m         Normal    Pulling                        pod/grafana-69b9cc69d9-t6xjf               Pulling image "hub.simloudcorp.customers.simloud.com/simloud/busybox/busybox:1.31.1"
+19m         Normal    Pulled                         pod/grafana-69b9cc69d9-t6xjf               Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/busybox/busybox:1.31.1" in 704.794575ms
+19m         Normal    Created                        pod/grafana-69b9cc69d9-t6xjf               Created container init-chown-data
+19m         Normal    Started                        pod/grafana-69b9cc69d9-t6xjf               Started container init-chown-data
+19m         Normal    Pulling                        pod/grafana-69b9cc69d9-t6xjf               Pulling image "hub.simloudcorp.customers.simloud.com/curlimages/curl:7.70.0"
+19m         Normal    Pulled                         pod/grafana-69b9cc69d9-t6xjf               Successfully pulled image "hub.simloudcorp.customers.simloud.com/curlimages/curl:7.70.0" in 1.961330539s
+19m         Normal    Created                        pod/grafana-69b9cc69d9-t6xjf               Created container download-dashboards
+19m         Normal    Started                        pod/grafana-69b9cc69d9-t6xjf               Started container download-dashboards
+19m         Normal    Pulling                        pod/grafana-69b9cc69d9-t6xjf               Pulling image "hub.simloudcorp.customers.simloud.com/grafana/grafana:7.2.0"
+19m         Normal    Pulled                         pod/grafana-69b9cc69d9-t6xjf               Successfully pulled image "hub.simloudcorp.customers.simloud.com/grafana/grafana:7.2.0" in 5.594176004s
+19m         Normal    Created                        pod/grafana-69b9cc69d9-t6xjf               Created container grafana
+19m         Normal    Started                        pod/grafana-69b9cc69d9-t6xjf               Started container grafana
+19m         Warning   Unhealthy                      pod/grafana-69b9cc69d9-t6xjf               Readiness probe failed: Get "http://10.0.128.105:3000/api/health": dial tcp 10.0.128.105:3000: connect: connection refused
+48m         Normal    SuccessfulDelete               replicaset/grafana-69b9cc69d9              Deleted pod: grafana-69b9cc69d9-plc9n
+38m         Normal    SuccessfulCreate               replicaset/grafana-69b9cc69d9              Created pod: grafana-69b9cc69d9-bk9bb
+20m         Normal    SuccessfulCreate               replicaset/grafana-69b9cc69d9              Created pod: grafana-69b9cc69d9-t6xjf
+38m         Normal    ScalingReplicaSet              deployment/grafana                         Scaled up replica set grafana-69b9cc69d9 to 1
+48m         Normal    ScalingReplicaSet              deployment/grafana                         Scaled down replica set grafana-69b9cc69d9 to 0
+38m         Normal    CREATE                         ingress/grafana                            Ingress kube-system/grafana
+38m         Normal    CREATE                         ingress/grafana                            Ingress kube-system/grafana
+38m         Normal    CREATE                         ingress/grafana                            Ingress kube-system/grafana
+38m         Normal    CREATE                         ingress/grafana                            Ingress kube-system/grafana
+38m         Normal    UPDATE                         ingress/grafana                            Ingress kube-system/grafana
+38m         Normal    UPDATE                         ingress/grafana                            Ingress kube-system/grafana
+38m         Normal    UPDATE                         ingress/grafana                            Ingress kube-system/grafana
+38m         Normal    UPDATE                         ingress/grafana                            Ingress kube-system/grafana
+35m         Normal    CREATE                         ingress/grafana                            Ingress kube-system/grafana
+17m         Normal    CREATE                         ingress/grafana                            Ingress kube-system/grafana
+46m         Warning   NodeNotReady                   pod/kube-proxy-2v7nt                       Node is not ready
+40m         Normal    Scheduled                      pod/kube-proxy-5h2lq                       Successfully assigned kube-system/kube-proxy-5h2lq to ip-10-0-147-0.eu-west-2.compute.internal
+40m         Normal    Pulling                        pod/kube-proxy-5h2lq                       Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2"
+39m         Normal    Pulled                         pod/kube-proxy-5h2lq                       Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2" in 5.471199017s
+39m         Normal    Created                        pod/kube-proxy-5h2lq                       Created container kube-proxy
+39m         Normal    Started                        pod/kube-proxy-5h2lq                       Started container kube-proxy
+46m         Warning   NodeNotReady                   pod/kube-proxy-d49jv                       Node is not ready
+46m         Warning   NodeNotReady                   pod/kube-proxy-j86sj                       Node is not ready
+46m         Warning   NodeNotReady                   pod/kube-proxy-jpqtk                       Node is not ready
+40m         Normal    Scheduled                      pod/kube-proxy-mh8zk                       Successfully assigned kube-system/kube-proxy-mh8zk to ip-10-0-151-108.eu-west-2.compute.internal
+40m         Normal    Pulling                        pod/kube-proxy-mh8zk                       Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2"
+39m         Normal    Pulled                         pod/kube-proxy-mh8zk                       Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2" in 6.091248918s
+39m         Normal    Created                        pod/kube-proxy-mh8zk                       Created container kube-proxy
+39m         Normal    Started                        pod/kube-proxy-mh8zk                       Started container kube-proxy
+20m         Normal    Scheduled                      pod/kube-proxy-mkwg9                       Successfully assigned kube-system/kube-proxy-mkwg9 to ip-10-0-140-78.eu-west-2.compute.internal
+20m         Normal    Pulled                         pod/kube-proxy-mkwg9                       Container image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2" already present on machine
+20m         Normal    Created                        pod/kube-proxy-mkwg9                       Created container kube-proxy
+20m         Normal    Started                        pod/kube-proxy-mkwg9                       Started container kube-proxy
+19m         Warning   NodeNotReady                   pod/kube-proxy-mkwg9                       Node is not ready
+36m         Normal    Scheduled                      pod/kube-proxy-ppr2f                       Successfully assigned kube-system/kube-proxy-ppr2f to ip-10-0-155-246.eu-west-2.compute.internal
+36m         Normal    Pulling                        pod/kube-proxy-ppr2f                       Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2"
+36m         Normal    Pulled                         pod/kube-proxy-ppr2f                       Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2" in 5.797679387s
+36m         Normal    Created                        pod/kube-proxy-ppr2f                       Created container kube-proxy
+36m         Normal    Started                        pod/kube-proxy-ppr2f                       Started container kube-proxy
+18m         Warning   NodeNotReady                   pod/kube-proxy-ppr2f                       Node is not ready
+40m         Normal    Scheduled                      pod/kube-proxy-rcczg                       Successfully assigned kube-system/kube-proxy-rcczg to ip-10-0-140-78.eu-west-2.compute.internal
+40m         Normal    Pulling                        pod/kube-proxy-rcczg                       Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2"
+40m         Normal    Pulled                         pod/kube-proxy-rcczg                       Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2" in 5.941872293s
+39m         Normal    Created                        pod/kube-proxy-rcczg                       Created container kube-proxy
+39m         Normal    Started                        pod/kube-proxy-rcczg                       Started container kube-proxy
+20m         Normal    ScaleDown                      pod/kube-proxy-rcczg                       deleting pod for node scale down
+20m         Normal    Killing                        pod/kube-proxy-rcczg                       Stopping container kube-proxy
+40m         Normal    Scheduled                      pod/kube-proxy-sd929                       Successfully assigned kube-system/kube-proxy-sd929 to ip-10-0-137-244.eu-west-2.compute.internal
+40m         Normal    Pulling                        pod/kube-proxy-sd929                       Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2"
+39m         Normal    Pulled                         pod/kube-proxy-sd929                       Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2" in 5.700997893s
+39m         Normal    Created                        pod/kube-proxy-sd929                       Created container kube-proxy
+39m         Normal    Started                        pod/kube-proxy-sd929                       Started container kube-proxy
+18m         Normal    Scheduled                      pod/kube-proxy-xtrh2                       Successfully assigned kube-system/kube-proxy-xtrh2 to ip-10-0-140-142.eu-west-2.compute.internal
+18m         Normal    Pulling                        pod/kube-proxy-xtrh2                       Pulling image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2"
+18m         Normal    Pulled                         pod/kube-proxy-xtrh2                       Successfully pulled image "602401143452.dkr.ecr.eu-west-2.amazonaws.com/eks/kube-proxy:v1.21.2-eksbuild.2" in 5.783269415s
+18m         Normal    Created                        pod/kube-proxy-xtrh2                       Created container kube-proxy
+18m         Normal    Started                        pod/kube-proxy-xtrh2                       Started container kube-proxy
+40m         Normal    SuccessfulCreate               daemonset/kube-proxy                       Created pod: kube-proxy-rcczg
+40m         Normal    SuccessfulCreate               daemonset/kube-proxy                       Created pod: kube-proxy-mh8zk
+40m         Normal    SuccessfulCreate               daemonset/kube-proxy                       Created pod: kube-proxy-sd929
+40m         Normal    SuccessfulCreate               daemonset/kube-proxy                       Created pod: kube-proxy-5h2lq
+36m         Normal    SuccessfulCreate               daemonset/kube-proxy                       Created pod: kube-proxy-ppr2f
+20m         Normal    SuccessfulCreate               daemonset/kube-proxy                       Created pod: kube-proxy-mkwg9
+18m         Normal    SuccessfulCreate               daemonset/kube-proxy                       Created pod: kube-proxy-xtrh2
+47m         Normal    Killing                        pod/kubed-688688dd9-d5mkc                  Stopping container kubed
+46m         Warning   FailedScheduling               pod/kubed-688688dd9-tqcbx                  0/4 nodes are available: 4 node(s) were unschedulable.
+46m         Warning   FailedScheduling               pod/kubed-688688dd9-tqcbx                  0/3 nodes are available: 3 node(s) were unschedulable.
+40m         Warning   FailedScheduling               pod/kubed-688688dd9-tqcbx                  no nodes available to schedule pods
+40m         Warning   FailedScheduling               pod/kubed-688688dd9-tqcbx                  0/1 nodes are available: 1 node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate.
+39m         Warning   FailedScheduling               pod/kubed-688688dd9-tqcbx                  0/4 nodes are available: 4 node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate.
+39m         Normal    Scheduled                      pod/kubed-688688dd9-tqcbx                  Successfully assigned kube-system/kubed-688688dd9-tqcbx to ip-10-0-147-0.eu-west-2.compute.internal
+39m         Warning   FailedMount                    pod/kubed-688688dd9-tqcbx                  MountVolume.SetUp failed for volume "serving-cert" : failed to sync secret cache: timed out waiting for the condition
+39m         Normal    Pulling                        pod/kubed-688688dd9-tqcbx                  Pulling image "appscode/kubed:v0.12.0"
+39m         Normal    Pulled                         pod/kubed-688688dd9-tqcbx                  Successfully pulled image "appscode/kubed:v0.12.0" in 3.568991571s
+39m         Normal    Created                        pod/kubed-688688dd9-tqcbx                  Created container kubed
+39m         Normal    Started                        pod/kubed-688688dd9-tqcbx                  Started container kubed
+47m         Normal    SuccessfulCreate               replicaset/kubed-688688dd9                 Created pod: kubed-688688dd9-tqcbx
+38m         Normal    Scheduled                      pod/metrics-server-645499f5cf-xv55c        Successfully assigned kube-system/metrics-server-645499f5cf-xv55c to ip-10-0-147-0.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/metrics-server-645499f5cf-xv55c        Pulling image "hub.simloudcorp.customers.simloud.com/metrics-server/metrics-server:v0.6.0"
+38m         Normal    Pulled                         pod/metrics-server-645499f5cf-xv55c        Successfully pulled image "hub.simloudcorp.customers.simloud.com/metrics-server/metrics-server:v0.6.0" in 20.661374702s
+38m         Normal    Created                        pod/metrics-server-645499f5cf-xv55c        Created container metrics-server
+38m         Normal    Started                        pod/metrics-server-645499f5cf-xv55c        Started container metrics-server
+48m         Normal    Killing                        pod/metrics-server-645499f5cf-zzmjt        Stopping container metrics-server
+48m         Normal    SuccessfulDelete               replicaset/metrics-server-645499f5cf       Deleted pod: metrics-server-645499f5cf-zzmjt
+38m         Normal    SuccessfulCreate               replicaset/metrics-server-645499f5cf       Created pod: metrics-server-645499f5cf-xv55c
+38m         Normal    ScalingReplicaSet              deployment/metrics-server                  Scaled up replica set metrics-server-645499f5cf to 1
+48m         Normal    ScalingReplicaSet              deployment/metrics-server                  Scaled down replica set metrics-server-645499f5cf to 0
+48m         Normal    Killing                        pod/vault-0                                Stopping container vault
+48m         Warning   Unhealthy                      pod/vault-0                                Readiness probe failed: Error checking leader status: Error making API request.
+
+URL: GET http://127.0.0.1:8200/v1/sys/leader
+Code: 500. Errors:
+
+* Unexpected response code: 500
+48m         Warning   Unhealthy                      pod/vault-0                                    Readiness probe failed:
+48m         Warning   Unhealthy                      pod/vault-0                                    Readiness probe failed: Error checking seal status: Get "http://127.0.0.1:8200/v1/sys/seal-status": dial tcp 127.0.0.1:8200: connect: connection refused
+39m         Normal    Scheduled                      pod/vault-0                                    Successfully assigned kube-system/vault-0 to ip-10-0-137-244.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/vault-0                                    Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+38m         Normal    Pulled                         pod/vault-0                                    Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 43.421720413s
+38m         Normal    Created                        pod/vault-0                                    Created container vault
+38m         Normal    Started                        pod/vault-0                                    Started container vault
+19m         Warning   Unhealthy                      pod/vault-0                                    Readiness probe failed:
+48m         Normal    Killing                        pod/vault-1                                    Stopping container vault
+47m         Warning   Unhealthy                      pod/vault-1                                    Readiness probe failed: Error checking seal status: Get "http://127.0.0.1:8200/v1/sys/seal-status": dial tcp 127.0.0.1:8200: connect: connection refused
+39m         Normal    Scheduled                      pod/vault-1                                    Successfully assigned kube-system/vault-1 to ip-10-0-151-108.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/vault-1                                    Pulling image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1"
+38m         Normal    Pulled                         pod/vault-1                                    Successfully pulled image "hub.simloudcorp.customers.simloud.com/simloud/vault/vault:1.9.2-1" in 33.775142175s
+38m         Normal    Created                        pod/vault-1                                    Created container vault
+38m         Normal    Started                        pod/vault-1                                    Started container vault
+20m         Warning   Unhealthy                      pod/vault-1                                    Readiness probe failed:
+48m         Normal    Killing                        pod/vault-agent-injector-57d87ff44f-2jhst      Stopping container sidecar-injector
+48m         Normal    Killing                        pod/vault-agent-injector-57d87ff44f-2jhst      Stopping container leader-elector
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-2jhst      Readiness probe failed: Get "https://10.0.137.189:8080/health/ready": dial tcp 10.0.137.189:8080: connect: connection refused
+48m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-2jhst      Liveness probe failed: Get "https://10.0.137.189:8080/health/ready": dial tcp 10.0.137.189:8080: connect: connection refused
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-2jhst      Readiness probe failed: Get "https://10.0.137.189:8080/health/ready": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-2jhst      Liveness probe failed: Get "http://10.0.137.189:4040/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-2jhst      Readiness probe failed: Get "http://10.0.137.189:4040/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+38m         Normal    Scheduled                      pod/vault-agent-injector-57d87ff44f-2wg26      Successfully assigned kube-system/vault-agent-injector-57d87ff44f-2wg26 to ip-10-0-137-244.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/vault-agent-injector-57d87ff44f-2wg26      Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/vault-k8s:0.14.2"
+38m         Normal    Pulled                         pod/vault-agent-injector-57d87ff44f-2wg26      Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/vault-k8s:0.14.2" in 15.929804812s
+38m         Normal    Created                        pod/vault-agent-injector-57d87ff44f-2wg26      Created container sidecar-injector
+38m         Normal    Started                        pod/vault-agent-injector-57d87ff44f-2wg26      Started container sidecar-injector
+38m         Normal    Pulling                        pod/vault-agent-injector-57d87ff44f-2wg26      Pulling image "hub.simloudcorp.customers.simloud.com/google_containers/leader-elector:0.4"
+38m         Normal    Pulled                         pod/vault-agent-injector-57d87ff44f-2wg26      Successfully pulled image "hub.simloudcorp.customers.simloud.com/google_containers/leader-elector:0.4" in 20.165635292s
+38m         Normal    Created                        pod/vault-agent-injector-57d87ff44f-2wg26      Created container leader-elector
+38m         Normal    Started                        pod/vault-agent-injector-57d87ff44f-2wg26      Started container leader-elector
+38m         Normal    Scheduled                      pod/vault-agent-injector-57d87ff44f-84ft6      Successfully assigned kube-system/vault-agent-injector-57d87ff44f-84ft6 to ip-10-0-147-0.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/vault-agent-injector-57d87ff44f-84ft6      Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/vault-k8s:0.14.2"
+38m         Normal    Pulled                         pod/vault-agent-injector-57d87ff44f-84ft6      Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/vault-k8s:0.14.2" in 17.133888381s
+38m         Normal    Created                        pod/vault-agent-injector-57d87ff44f-84ft6      Created container sidecar-injector
+38m         Normal    Started                        pod/vault-agent-injector-57d87ff44f-84ft6      Started container sidecar-injector
+38m         Normal    Pulling                        pod/vault-agent-injector-57d87ff44f-84ft6      Pulling image "hub.simloudcorp.customers.simloud.com/google_containers/leader-elector:0.4"
+38m         Normal    Pulled                         pod/vault-agent-injector-57d87ff44f-84ft6      Successfully pulled image "hub.simloudcorp.customers.simloud.com/google_containers/leader-elector:0.4" in 14.960017943s
+38m         Normal    Created                        pod/vault-agent-injector-57d87ff44f-84ft6      Created container leader-elector
+38m         Normal    Started                        pod/vault-agent-injector-57d87ff44f-84ft6      Started container leader-elector
+48m         Normal    Killing                        pod/vault-agent-injector-57d87ff44f-fdwcp      Stopping container sidecar-injector
+48m         Normal    Killing                        pod/vault-agent-injector-57d87ff44f-fdwcp      Stopping container leader-elector
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-fdwcp      Readiness probe failed: Get "https://10.0.159.253:8080/health/ready": dial tcp 10.0.159.253:8080: connect: connection refused
+48m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-fdwcp      Liveness probe failed: Get "https://10.0.159.253:8080/health/ready": dial tcp 10.0.159.253:8080: connect: connection refused
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-fdwcp      Liveness probe failed: Get "http://10.0.159.253:4040/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-fdwcp      Readiness probe failed: Get "http://10.0.159.253:4040/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-fdwcp      Readiness probe failed: Get "https://10.0.159.253:8080/health/ready": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+38m         Normal    Scheduled                      pod/vault-agent-injector-57d87ff44f-hrsbf      Successfully assigned kube-system/vault-agent-injector-57d87ff44f-hrsbf to ip-10-0-140-78.eu-west-2.compute.internal
+38m         Normal    Pulling                        pod/vault-agent-injector-57d87ff44f-hrsbf      Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/vault-k8s:0.14.2"
+38m         Normal    Pulled                         pod/vault-agent-injector-57d87ff44f-hrsbf      Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/vault-k8s:0.14.2" in 17.969468073s
+38m         Normal    Created                        pod/vault-agent-injector-57d87ff44f-hrsbf      Created container sidecar-injector
+38m         Normal    Started                        pod/vault-agent-injector-57d87ff44f-hrsbf      Started container sidecar-injector
+38m         Normal    Pulling                        pod/vault-agent-injector-57d87ff44f-hrsbf      Pulling image "hub.simloudcorp.customers.simloud.com/google_containers/leader-elector:0.4"
+38m         Normal    Pulled                         pod/vault-agent-injector-57d87ff44f-hrsbf      Successfully pulled image "hub.simloudcorp.customers.simloud.com/google_containers/leader-elector:0.4" in 13.597762775s
+38m         Normal    Created                        pod/vault-agent-injector-57d87ff44f-hrsbf      Created container leader-elector
+38m         Normal    Started                        pod/vault-agent-injector-57d87ff44f-hrsbf      Started container leader-elector
+20m         Normal    ScaleDown                      pod/vault-agent-injector-57d87ff44f-hrsbf      deleting pod for node scale down
+20m         Normal    Killing                        pod/vault-agent-injector-57d87ff44f-hrsbf      Stopping container sidecar-injector
+20m         Normal    Killing                        pod/vault-agent-injector-57d87ff44f-hrsbf      Stopping container leader-elector
+20m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-hrsbf      Liveness probe failed: Get "https://10.0.134.178:8080/health/ready": dial tcp 10.0.134.178:8080: connect: connection refused
+19m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-hrsbf      Readiness probe failed: Get "https://10.0.134.178:8080/health/ready": dial tcp 10.0.134.178:8080: connect: connection refused
+20m         Normal    Scheduled                      pod/vault-agent-injector-57d87ff44f-sj57v      Successfully assigned kube-system/vault-agent-injector-57d87ff44f-sj57v to ip-10-0-151-108.eu-west-2.compute.internal
+20m         Normal    Pulling                        pod/vault-agent-injector-57d87ff44f-sj57v      Pulling image "hub.simloudcorp.customers.simloud.com/hashicorp/vault-k8s:0.14.2"
+20m         Normal    Pulled                         pod/vault-agent-injector-57d87ff44f-sj57v      Successfully pulled image "hub.simloudcorp.customers.simloud.com/hashicorp/vault-k8s:0.14.2" in 2.018595786s
+20m         Normal    Created                        pod/vault-agent-injector-57d87ff44f-sj57v      Created container sidecar-injector
+20m         Normal    Started                        pod/vault-agent-injector-57d87ff44f-sj57v      Started container sidecar-injector
+20m         Normal    Pulling                        pod/vault-agent-injector-57d87ff44f-sj57v      Pulling image "hub.simloudcorp.customers.simloud.com/google_containers/leader-elector:0.4"
+20m         Normal    Pulled                         pod/vault-agent-injector-57d87ff44f-sj57v      Successfully pulled image "hub.simloudcorp.customers.simloud.com/google_containers/leader-elector:0.4" in 5.57842971s
+20m         Normal    Created                        pod/vault-agent-injector-57d87ff44f-sj57v      Created container leader-elector
+20m         Normal    Started                        pod/vault-agent-injector-57d87ff44f-sj57v      Started container leader-elector
+48m         Normal    Killing                        pod/vault-agent-injector-57d87ff44f-ts4nf      Stopping container sidecar-injector
+48m         Normal    Killing                        pod/vault-agent-injector-57d87ff44f-ts4nf      Stopping container leader-elector
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-ts4nf      Readiness probe failed: Get "https://10.0.140.97:8080/health/ready": dial tcp 10.0.140.97:8080: connect: connection refused
+48m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-ts4nf      Liveness probe failed: Get "https://10.0.140.97:8080/health/ready": dial tcp 10.0.140.97:8080: connect: connection refused
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-ts4nf      Readiness probe failed: Get "https://10.0.140.97:8080/health/ready": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-ts4nf      Liveness probe failed: Get "http://10.0.140.97:4040/": dial tcp 10.0.140.97:4040: i/o timeout (Client.Timeout exceeded while awaiting headers)
+47m         Warning   Unhealthy                      pod/vault-agent-injector-57d87ff44f-ts4nf      Readiness probe failed: Get "http://10.0.140.97:4040/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+48m         Normal    SuccessfulDelete               replicaset/vault-agent-injector-57d87ff44f     Deleted pod: vault-agent-injector-57d87ff44f-2jhst
+48m         Normal    SuccessfulDelete               replicaset/vault-agent-injector-57d87ff44f     Deleted pod: vault-agent-injector-57d87ff44f-fdwcp
+48m         Normal    SuccessfulDelete               replicaset/vault-agent-injector-57d87ff44f     Deleted pod: vault-agent-injector-57d87ff44f-ts4nf
+38m         Normal    SuccessfulCreate               replicaset/vault-agent-injector-57d87ff44f     Created pod: vault-agent-injector-57d87ff44f-2wg26
+38m         Normal    SuccessfulCreate               replicaset/vault-agent-injector-57d87ff44f     Created pod: vault-agent-injector-57d87ff44f-84ft6
+38m         Normal    SuccessfulCreate               replicaset/vault-agent-injector-57d87ff44f     Created pod: vault-agent-injector-57d87ff44f-hrsbf
+20m         Normal    SuccessfulCreate               replicaset/vault-agent-injector-57d87ff44f     Created pod: vault-agent-injector-57d87ff44f-sj57v
+38m         Normal    ScalingReplicaSet              deployment/vault-agent-injector                Scaled up replica set vault-agent-injector-57d87ff44f to 3
+3m14s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/vault-agent-injector   failed to get cpu utilization: missing request for cpu
+48m         Normal    ScalingReplicaSet              deployment/vault-agent-injector                Scaled down replica set vault-agent-injector-57d87ff44f to 0
+38m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/vault-agent-injector   failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+47m         Normal    NoPods                         poddisruptionbudget/vault                      No matching pods found
+39m         Normal    SuccessfulCreate               statefulset/vault                              create Pod vault-0 in StatefulSet vault successful
+39m         Normal    SuccessfulCreate               statefulset/vault                              create Pod vault-1 in StatefulSet vault successful
+48m         Normal    SuccessfulDelete               statefulset/vault                              delete Pod vault-1 in StatefulSet vault successful
+48m         Normal    SuccessfulDelete               statefulset/vault                              delete Pod vault-0 in StatefulSet vault successful
+38m         Normal    CREATE                         ingress/vault                                  Ingress kube-system/vault
+38m         Normal    CREATE                         ingress/vault                                  Ingress kube-system/vault
+38m         Normal    CREATE                         ingress/vault                                  Ingress kube-system/vault
+38m         Normal    CREATE                         ingress/vault                                  Ingress kube-system/vault
+38m         Normal    UPDATE                         ingress/vault                                  Ingress kube-system/vault
+38m         Normal    UPDATE                         ingress/vault                                  Ingress kube-system/vault
+38m         Normal    UPDATE                         ingress/vault                                  Ingress kube-system/vault
+38m         Normal    UPDATE                         ingress/vault                                  Ingress kube-system/vault
+35m         Normal    CREATE                         ingress/vault                                  Ingress kube-system/vault
+17m         Normal    CREATE                         ingress/vault                                  Ingress kube-system/vault

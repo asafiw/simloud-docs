@@ -1,0 +1,74 @@
+==> Starting Consul agent...
+           Version: '1.10.0'
+           Node ID: '77bdfe3e-ad41-dd92-9225-14853863604d'
+         Node name: 'ip-10-0-137-244.eu-west-2.compute.internal'
+        Datacenter: 'dc1' (Segment: '')
+            Server: false (Bootstrap: false)
+       Client Addr: [0.0.0.0] (HTTP: 8500, HTTPS: -1, gRPC: 8502, DNS: 8600)
+      Cluster Addr: 10.0.142.213 (LAN: 8301, WAN: 8302)
+           Encrypt: Gossip: false, TLS-Outgoing: false, TLS-Incoming: false, Auto-Encrypt-TLS: false
+
+==> Log data will now stream in as it occurs:
+
+2022-09-05T17:23:17.170Z [WARN]  agent: Node name "ip-10-0-137-244.eu-west-2.compute.internal" will not be discoverable via DNS due to invalid characters. Valid characters include all alpha-numerics and dashes.
+2022-09-05T17:23:17.273Z [WARN]  agent.auto_config: Node name "ip-10-0-137-244.eu-west-2.compute.internal" will not be discoverable via DNS due to invalid characters. Valid characters include all alpha-numerics and dashes.
+2022-09-05T17:23:17.328Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: ip-10-0-137-244.eu-west-2.compute.internal 10.0.142.213
+2022-09-05T17:23:17.328Z [INFO]  agent.router: Initializing LAN area manager
+2022-09-05T17:23:17.328Z [INFO]  agent: Started DNS server: address=0.0.0.0:8600 network=udp
+2022-09-05T17:23:17.328Z [INFO]  agent: Started DNS server: address=0.0.0.0:8600 network=tcp
+2022-09-05T17:23:17.350Z [INFO]  agent: Starting server: address=[::]:8500 network=tcp protocol=http
+2022-09-05T17:23:17.350Z [WARN]  agent: DEPRECATED Backwards compatibility with pre-1.9 metrics enabled. These metrics will be removed in a future version of Consul. Set `telemetry { disable_compat_1.9 = true }` to disable them.
+2022-09-05T17:23:17.351Z [INFO]  agent: Started gRPC server: address=[::]:8502 network=tcp
+2022-09-05T17:23:17.351Z [INFO]  agent: Retry join is supported for the following discovery methods: cluster=LAN discovery_methods="aliyun aws azure digitalocean gce k8s linode mdns os packet scaleway softlayer tencentcloud triton vsphere"
+2022-09-05T17:23:17.351Z [INFO]  agent: Joining cluster...: cluster=LAN
+2022-09-05T17:23:17.351Z [INFO]  agent: (LAN) joining: lan_addresses=[consul-server-0.consul-server.kube-system.svc:8301, consul-server-1.consul-server.kube-system.svc:8301, consul-server-2.consul-server.kube-system.svc:8301]
+2022-09-05T17:23:17.356Z [INFO]  agent: started state syncer
+2022-09-05T17:23:17.356Z [INFO]  agent: Consul agent running!
+2022-09-05T17:23:17.369Z [WARN]  agent.router.manager: No servers available
+2022-09-05T17:23:17.369Z [ERROR] agent.anti_entropy: failed to sync remote state: error="No known Consul servers"
+2022-09-05T17:23:17.484Z [WARN]  agent.client.memberlist.lan: memberlist: Failed to resolve consul-server-1.consul-server.kube-system.svc:8301: lookup consul-server-1.consul-server.kube-system.svc on 172.20.0.10:53: no such host
+2022-09-05T17:23:17.565Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: consul-server-2 10.0.131.91
+2022-09-05T17:23:17.566Z [INFO]  agent: (LAN) joined: number_of_nodes=1
+2022-09-05T17:23:17.566Z [INFO]  agent: Join cluster completed. Synced with initial agents: cluster=LAN num_agents=1
+2022-09-05T17:23:17.566Z [INFO]  agent.client: adding server: server="consul-server-2 (Addr: tcp/10.0.131.91:8300) (DC: dc1)"
+2022-09-05T17:23:18.522Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: consul-server-0 10.0.138.0
+2022-09-05T17:23:18.523Z [INFO]  agent.client: adding server: server="consul-server-0 (Addr: tcp/10.0.138.0:8300) (DC: dc1)"
+2022-09-05T17:23:18.901Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: ip-10-0-147-0.eu-west-2.compute.internal 10.0.148.107
+2022-09-05T17:23:19.497Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: consul-server-1 10.0.144.30
+2022-09-05T17:23:19.497Z [INFO]  agent.client: adding server: server="consul-server-1 (Addr: tcp/10.0.144.30:8300) (DC: dc1)"
+2022-09-05T17:23:21.145Z [INFO]  agent.client: New leader elected: payload=consul-server-2
+2022-09-05T17:23:24.248Z [INFO]  agent: Synced node info
+2022-09-05T17:23:42.322Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: ip-10-0-151-108.eu-west-2.compute.internal 10.0.155.9
+2022-09-05T17:23:42.339Z [INFO]  agent: Newer Consul version available: new_version=1.13.1 current_version=1.10.0
+2022-09-05T17:23:44.049Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: ip-10-0-140-78.eu-west-2.compute.internal 10.0.129.60
+2022-09-05T17:25:54.985Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89
+2022-09-05T17:41:30.400Z [ERROR] agent.client: RPC failed to server: method=Status.Leader server=10.0.131.91:8300 error="rpc error making call: stream closed"
+2022-09-05T17:41:30.651Z [INFO]  agent.client.serf.lan: serf: EventMemberLeave: ip-10-0-140-78.eu-west-2.compute.internal 10.0.129.60
+2022-09-05T17:41:36.329Z [INFO]  agent.client.memberlist.lan: memberlist: Suspect consul-server-2 has failed, no acks received
+2022-09-05T17:41:36.923Z [INFO]  agent.client.memberlist.lan: memberlist: Marking consul-server-2 as failed, suspect timeout reached (2 peer confirmations)
+2022-09-05T17:41:36.923Z [INFO]  agent.client.serf.lan: serf: EventMemberFailed: consul-server-2 10.0.131.91
+2022-09-05T17:41:36.923Z [INFO]  agent.client: removing server: server="consul-server-2 (Addr: tcp/10.0.131.91:8300) (DC: dc1)"
+2022-09-05T17:41:44.321Z [INFO]  agent.client: New leader elected: payload=consul-server-0
+2022-09-05T17:41:55.330Z [INFO]  agent.client.serf.lan: serf: EventMemberLeave (forced): consul-server-2 10.0.131.91
+2022-09-05T17:41:55.331Z [INFO]  agent.client: removing server: server="consul-server-2 (Addr: tcp/10.0.131.91:8300) (DC: dc1)"
+2022-09-05T17:41:57.806Z [ERROR] agent.client.memberlist.lan: memberlist: Conflicting address for consul-server-2. Mine: 10.0.131.91:8301 Theirs: 10.0.138.18:8301 Old state: 2
+2022-09-05T17:41:57.806Z [WARN]  agent.client.serf.lan: serf: Name conflict for 'consul-server-2' both 10.0.131.91:8301 and 10.0.138.18:8301 are claiming
+2022-09-05T17:41:57.806Z [ERROR] agent.client.memberlist.lan: memberlist: Conflicting address for consul-server-2. Mine: 10.0.131.91:8301 Theirs: 10.0.138.18:8301 Old state: 2
+2022-09-05T17:41:57.806Z [WARN]  agent.client.serf.lan: serf: Name conflict for 'consul-server-2' both 10.0.131.91:8301 and 10.0.138.18:8301 are claiming
+2022-09-05T17:42:28.921Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: consul-server-2 10.0.138.18
+2022-09-05T17:42:28.922Z [INFO]  agent.client: adding server: server="consul-server-2 (Addr: tcp/10.0.138.18:8300) (DC: dc1)"
+2022-09-05T17:42:34.605Z [INFO]  agent.client: New leader elected: payload=consul-server-0
+2022-09-05T17:42:40.721Z [INFO]  agent.client: New leader elected: payload=consul-server-0
+2022-09-05T17:42:41.334Z [INFO]  agent.client.memberlist.lan: memberlist: Suspect ip-10-0-155-246.eu-west-2.compute.internal has failed, no acks received
+2022-09-05T17:42:43.402Z [INFO]  agent.client.memberlist.lan: memberlist: Marking ip-10-0-155-246.eu-west-2.compute.internal as failed, suspect timeout reached (2 peer confirmations)
+2022-09-05T17:42:43.402Z [INFO]  agent.client.serf.lan: serf: EventMemberFailed: ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89
+2022-09-05T17:42:45.328Z [INFO]  agent.client.memberlist.lan: memberlist: Suspect ip-10-0-155-246.eu-west-2.compute.internal has failed, no acks received
+2022-09-05T17:43:17.420Z [INFO]  agent.client.serf.lan: serf: attempting reconnect to ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89:8301
+2022-09-05T17:43:58.584Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: ip-10-0-140-142.eu-west-2.compute.internal 10.0.140.172
+2022-09-05T17:45:57.427Z [INFO]  agent.client.serf.lan: serf: attempting reconnect to ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89:8301
+2022-09-05T17:47:07.437Z [INFO]  agent.client.serf.lan: serf: attempting reconnect to ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89:8301
+2022-09-05T17:48:17.439Z [INFO]  agent.client.serf.lan: serf: attempting reconnect to ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89:8301
+2022-09-05T17:52:57.449Z [INFO]  agent.client.serf.lan: serf: attempting reconnect to ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89:8301
+2022-09-05T17:57:37.457Z [INFO]  agent.client.serf.lan: serf: attempting reconnect to ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89:8301
+2022-09-05T17:58:47.459Z [INFO]  agent.client.serf.lan: serf: attempting reconnect to ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89:8301
+2022-09-05T17:59:57.461Z [INFO]  agent.client.serf.lan: serf: attempting reconnect to ip-10-0-155-246.eu-west-2.compute.internal 10.0.154.89:8301

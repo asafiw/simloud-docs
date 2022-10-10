@@ -1,0 +1,41 @@
+==> Starting Consul agent...
+           Version: '1.10.0'
+           Node ID: '1572185b-89b4-4fb1-3034-3513666e0b09'
+         Node name: 'ip-10-0-140-164.eu-west-3.compute.internal'
+        Datacenter: 'dc1' (Segment: '')
+            Server: false (Bootstrap: false)
+       Client Addr: [0.0.0.0] (HTTP: 8500, HTTPS: -1, gRPC: 8502, DNS: 8600)
+      Cluster Addr: 10.0.139.7 (LAN: 8301, WAN: 8302)
+           Encrypt: Gossip: false, TLS-Outgoing: false, TLS-Incoming: false, Auto-Encrypt-TLS: false
+
+==> Log data will now stream in as it occurs:
+
+2022-09-05T17:31:35.484Z [WARN]  agent: Node name "ip-10-0-140-164.eu-west-3.compute.internal" will not be discoverable via DNS due to invalid characters. Valid characters include all alpha-numerics and dashes.
+2022-09-05T17:31:35.585Z [WARN]  agent.auto_config: Node name "ip-10-0-140-164.eu-west-3.compute.internal" will not be discoverable via DNS due to invalid characters. Valid characters include all alpha-numerics and dashes.
+2022-09-05T17:31:35.586Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: ip-10-0-140-164.eu-west-3.compute.internal 10.0.139.7
+2022-09-05T17:31:35.586Z [INFO]  agent.router: Initializing LAN area manager
+2022-09-05T17:31:35.586Z [INFO]  agent: Started DNS server: address=0.0.0.0:8600 network=udp
+2022-09-05T17:31:35.586Z [INFO]  agent: Started DNS server: address=0.0.0.0:8600 network=tcp
+2022-09-05T17:31:35.587Z [INFO]  agent: Starting server: address=[::]:8500 network=tcp protocol=http
+2022-09-05T17:31:35.587Z [WARN]  agent: DEPRECATED Backwards compatibility with pre-1.9 metrics enabled. These metrics will be removed in a future version of Consul. Set `telemetry { disable_compat_1.9 = true }` to disable them.
+2022-09-05T17:31:35.587Z [INFO]  agent: started state syncer
+2022-09-05T17:31:35.587Z [INFO]  agent: Consul agent running!
+2022-09-05T17:31:35.587Z [INFO]  agent: Started gRPC server: address=[::]:8502 network=tcp
+2022-09-05T17:31:35.587Z [INFO]  agent: Retry join is supported for the following discovery methods: cluster=LAN discovery_methods="aliyun aws azure digitalocean gce k8s linode mdns os packet scaleway softlayer tencentcloud triton vsphere"
+2022-09-05T17:31:35.587Z [INFO]  agent: Joining cluster...: cluster=LAN
+2022-09-05T17:31:35.587Z [INFO]  agent: (LAN) joining: lan_addresses=[consul-server-0.consul-server.kube-system.svc:8301, consul-server-1.consul-server.kube-system.svc:8301, consul-server-2.consul-server.kube-system.svc:8301]
+2022-09-05T17:31:35.588Z [WARN]  agent.router.manager: No servers available
+2022-09-05T17:31:35.588Z [ERROR] agent.anti_entropy: failed to sync remote state: error="No known Consul servers"
+2022-09-05T17:31:35.616Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: consul-server-0 10.0.130.208
+2022-09-05T17:31:35.616Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: ip-10-0-149-119.eu-west-3.compute.internal 10.0.155.252
+2022-09-05T17:31:35.616Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: ip-10-0-137-207.eu-west-3.compute.internal 10.0.142.163
+2022-09-05T17:31:35.616Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: consul-server-2 10.0.135.170
+2022-09-05T17:31:35.616Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: ip-10-0-147-29.eu-west-3.compute.internal 10.0.153.67
+2022-09-05T17:31:35.617Z [INFO]  agent.client: adding server: server="consul-server-0 (Addr: tcp/10.0.130.208:8300) (DC: dc1)"
+2022-09-05T17:31:35.617Z [INFO]  agent.client: adding server: server="consul-server-2 (Addr: tcp/10.0.135.170:8300) (DC: dc1)"
+2022-09-05T17:31:37.663Z [INFO]  agent: Synced node info
+2022-09-05T17:31:45.714Z [INFO]  agent: (LAN) joined: number_of_nodes=2
+2022-09-05T17:31:45.714Z [INFO]  agent: Join cluster completed. Synced with initial agents: cluster=LAN num_agents=2
+2022-09-05T17:32:03.190Z [INFO]  agent: Newer Consul version available: new_version=1.13.1 current_version=1.10.0
+2022-09-05T17:33:00.533Z [INFO]  agent.client.serf.lan: serf: EventMemberJoin: consul-server-1 10.0.150.237
+2022-09-05T17:33:00.533Z [INFO]  agent.client: adding server: server="consul-server-1 (Addr: tcp/10.0.150.237:8300) (DC: dc1)"

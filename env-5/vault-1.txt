@@ -1,0 +1,59 @@
+==> Vault server configuration:
+
+              HA Storage: consul
+             Api Address: http://10.0.159.43:8200
+                     Cgo: disabled
+         Cluster Address: https://vault-1.vault-internal:8201
+              Go Version: go1.17.5
+              Listener 1: tcp (addr: "[::]:8200", cluster address: "[::]:8201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
+               Log Level: info
+                   Mlock: supported: true, enabled: false
+           Recovery Mode: false
+                 Storage: s3
+                 Version: Vault v1.9.2
+             Version Sha: f4c6d873e2767c0d6853b5d9ffc77b0d297bfbdf
+
+==> Vault server started! Log data will stream in below:
+
+2022-09-05T17:23:30.453Z [INFO]  proxy environment: http_proxy="\"\"" https_proxy="\"\"" no_proxy="\"\""
+2022-09-05T17:23:31.692Z [WARN]  ha.consul: appending trailing forward slash to path
+2022-09-05T17:23:31.749Z [INFO]  core: Initializing VersionTimestamps for core
+2022-09-05T17:23:31.750Z [INFO]  core: stored unseal keys supported, attempting fetch
+2022-09-05T17:23:31.815Z [INFO]  core.cluster-listener.tcp: starting listener: listener_address=[::]:8201
+2022-09-05T17:23:31.815Z [INFO]  core.cluster-listener: serving cluster requests: cluster_listen_address=[::]:8201
+2022-09-05T17:23:31.815Z [INFO]  core: vault is unsealed
+2022-09-05T17:23:31.815Z [INFO]  core: entering standby mode
+2022-09-05T17:23:31.938Z [INFO]  core: unsealed with stored key
+2022-09-05T17:26:14.470Z [ERROR] core: error during forwarded RPC request: error="rpc error: code = Canceled desc = context canceled"
+2022-09-05T17:26:14.470Z [ERROR] core: forward request error: error="error during forwarding RPC request"
+2022-09-05T17:41:40.776Z [ERROR] core: failed to acquire lock: error="failed to read lock: Unexpected response code: 500"
+2022-09-05T17:42:00.810Z [INFO]  core: acquired lock, enabling active operation
+2022-09-05T17:42:01.056Z [INFO]  core: post-unseal setup starting
+2022-09-05T17:42:01.147Z [INFO]  core: loaded wrapping token key
+2022-09-05T17:42:01.183Z [INFO]  core: successfully setup plugin catalog: plugin-directory="\"\""
+2022-09-05T17:42:01.250Z [INFO]  core: successfully mounted backend: type=system path=sys/
+2022-09-05T17:42:01.269Z [INFO]  core: successfully mounted backend: type=identity path=identity/
+2022-09-05T17:42:01.281Z [INFO]  core: successfully mounted backend: type=kv path=jenkins/
+2022-09-05T17:42:01.294Z [INFO]  core: successfully mounted backend: type=kv path=default-app/
+2022-09-05T17:42:01.304Z [INFO]  core: successfully mounted backend: type=kv path=secrets/
+2022-09-05T17:42:01.320Z [INFO]  core: successfully mounted backend: type=kv path=ssh/
+2022-09-05T17:42:01.324Z [INFO]  core: successfully mounted backend: type=pki path=pki/
+2022-09-05T17:42:01.324Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
+2022-09-05T17:42:01.456Z [INFO]  core: successfully enabled credential backend: type=token path=token/
+2022-09-05T17:42:01.456Z [INFO]  core: successfully enabled credential backend: type=kubernetes path=kubernetes/
+2022-09-05T17:42:01.458Z [INFO]  core: successfully enabled credential backend: type=jwt path=jwt/
+2022-09-05T17:42:01.492Z [INFO]  rollback: starting rollback manager
+2022-09-05T17:42:01.492Z [INFO]  core: restoring leases
+2022-09-05T17:42:01.563Z [INFO]  identity: entities restored
+2022-09-05T17:42:01.578Z [INFO]  identity: groups restored
+2022-09-05T17:42:01.845Z [INFO]  core: usage gauge collection is disabled
+2022-09-05T17:42:01.867Z [INFO]  core: post-unseal setup complete
+2022-09-05T17:42:01.883Z [INFO]  expiration: lease restore complete
+2022-09-05T17:43:57.050Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h1066a507c01b967153eaf579aefbb4780427ffadbfadc2c750798c712e081372
+2022-09-05T17:43:57.063Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/hdc9f0cd2973b12bddf1da015054b060660b1404c3a0165a1633a40430da8a5d0
+2022-09-05T17:43:57.075Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h0df8cee7866a771b7ba61281150cf3de75cdabb45ae08213905774f6d4738e9e
+2022-09-05T17:43:57.089Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h8326572c6ba7c8f83eb0714f3f271bc95d6bbaf0153725821ccb97d6c8733e90
+2022-09-05T17:43:57.105Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/heb3d35a5703a61026c8b06b8bc87aa925c2c8e27f218bbe4cbe985680dfb5b73
+2022-09-05T17:43:57.121Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h5fee8a5ba687d4319e86b01aeb233f5a43c803b91db85c1755b0bf2e879f32dc
+2022-09-05T17:43:57.903Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h1c2b7efea88e421388d8359240f88297bad84f942897bfea0f5e93404d1d233d
+2022-09-05T17:44:06.201Z [INFO]  expiration: revoked lease: lease_id=auth/token/create/h815072340d7cc44759591ebbff0d35ca323461d6d3b1a7b0c94860b311227831

@@ -10,8 +10,8 @@ slug: "/"
 3. Go to the Account tab.
    - press "Add Account" button.
    - Follow the instructions in the pop up message.
-     ![](/img/onboarding/intro/image1.png)
-   - Download the CloudFormation script to your local computer.
+     ![](../../img/onboarding/intro/image1.png)
+   - Download the CloudFormation script to your local computer. ????
    - Open your AWS account console CloudFormation service and press the Create stack button.
      ![](/img/onboarding/intro/image2.png)
    - Chose the following options, upload the script and click on the next button:
@@ -34,7 +34,7 @@ Make sure that there are no spaces before or after the Account Role string!
 
 4. Following steps are related to CI/CD, they can be skipped in deployment creation and added later.
 
-### Create new SSH key pair
+### Create new SSH key pair         !!!! Doesn't work??
 
 - Go to the "Repositories" tab.
 - Press on the "SSH key list" button.
