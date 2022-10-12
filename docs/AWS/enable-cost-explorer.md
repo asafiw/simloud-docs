@@ -4,7 +4,7 @@
 
 To grant Simloud access to the calculation of actual usage cost, need to perform manual operations (they cannot be automated by Simloud due to restrictions from AWS side):
 
-**Step 1** - enable [cost explorer](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-enable.html).i
+**Step 1** - enable [cost explorer](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-enable.html).
 
 **Step 2** - enable Simloud tag through cost allocation tag:
 
