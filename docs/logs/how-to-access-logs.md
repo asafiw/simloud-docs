@@ -1,15 +1,15 @@
-# How to access logs?
+# How to access logs
 
-Simloud configure logs in AWS CloudWatch Insight, for both application and infrastructure levels, and allows customers to easily access them.
+Simloud configures logs in AWS CloudWatch Insight, for both application and infrastructure levels, and allows customers to access them easily.
 
 1. In Simloud UI, on the main dashboard page choose deployment whose logs should be displayed.
 2. Open context menu (three dots on the right side) and press **CloudWatch logs**.
 
-![](/img/logs/how-to-access-logs/image1.jpg)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/logs/how-to-access-logs/image1.jpg)
 
-Now you can see CloudWatch Insight page with pre-defined log groups (no need to remove and add something), datetime picker (you can customize period of logs) and query form (you can customize query using powerful query language, see [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) for more details). Once you select datetime and query is ready, press **Run query**.
+On the CloudWatch Insight page, you can see pre-defined log groups (you don't have to remove or add anything), the datetime picker (for customizing the log period), and the query form, where you can customize queries using powerful query language (see [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) for more details). When you have selected the datetime and the query is ready, click **Run query**.
 
-![](/img/logs/how-to-access-logs/image2.jpg)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/logs/how-to-access-logs/image2.jpg)
 
 Query example for new infrastructure-engine (as k8s job):
 
@@ -22,7 +22,7 @@ parse log ‘“message”: “*”’ as message
 | limit 2000
 ```
 
-Example of queries:
+Examples of queries:
 
 - Application logs for specific service.
 
@@ -66,7 +66,7 @@ Another option to view logs is through k8s cli (kubectl):
 
 Establish connection with [kubernetes cluster](https://docs.google.com/document/d/1o88eQGYYYcDfEq4MftpXBns4hEgOD5w-KrIufTsKwO0/edit).
 
-Run command this command in terminal:
+Run these commands in terminal:
 
 ```
 kubectl get pod --namespace default
@@ -77,6 +77,6 @@ kubectl logs <name_of_your_pod> --namespace default
 Don't forget to change the namespace to the one in which the POD is located.
 :::
 
-Example output from searching logs of ingress POD:
+Ingress POD logs output example:
 
-![](/img/logs/how-to-access-logs/image9.png)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/logs/how-to-access-logs/image9.png)

@@ -1,25 +1,25 @@
-# Simloud connect to K8s and AWS services
+# Simloud connection to K8s and AWS services
 
 1. Install and enable [Docker](https://docs.docker.com/get-docker/) in your local computer.
 2. Install and configure [AWS CLI](https://aws.amazon.com/cli/) in your local computer.
 3. Configure aws cli user in your local directory.
-4. Create a new cloud user in your Simloud account:
+4. Create a new cloud user in your Simloud account.
 
-![](../../../img/onboarding/connect-k8s-aws/image1.png)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/image1.png)
 
-5. Add this user to your cloud account and press the save button:
+5. Add this user to your cloud account and press the save button.
 
-![](../../../img/onboarding/connect-k8s-aws/image2.png)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/image2.png)
 
-6. Go to the deployment which is configured with this cloud account and press the button "Connect K8s" and follow the instructions:
+6. Go to the deployment which is configured with this cloud account and press the button "Connect K8s" and follow the instructions.
 
-![](/../../img/onboarding/connect-k8s-aws/image3.png)
-![](/img/onboarding/connect-k8s-aws/image4.png)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/image3.png)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/image4.png)
 
 ### How to connect K8s
 
-1. Make sure that your [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) credentials are intalled on your local computer.
-2. Enable [Docker](https://docs.docker.com/engine/install/) in your local computer.
+1. Make sure that your [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) credentials are installed on your local computer.
+2. Enable [Docker](https://docs.docker.com/engine/install/) on your local computer.
 3. Copy the following docker commands and run it locally:
 
    **Windows**
@@ -36,7 +36,7 @@
 
 4. Copy assume role and run it inside your docker container.
    :::note
-   Connect string will be generated after deployment creation.
+   String to connect will be generated after deployment creation.
    :::
 
 5. Copy file from/to docker _(Optional)_
@@ -57,20 +57,20 @@
 
 Open deployment menu and choose the service:
 
-![](/img/onboarding/connect-k8s-aws/image6.png)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/image6.png)
 
 1. Jenkins - `admin` / `LA#$4zUFl%Xk9!WM`  ????? should I left it or change to command?
-2. monitoring (grafana) - `admin` / `password`
+2. Grafana (monitoring) - `admin` / `password`
 
-   **Password:**
+   **To get password run this command:**
 
    ```
    kubectl get secret --namespace kube-system  grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
    ```
 
-3. vault (Hashicorp vault) - token
+3. Vault (Hashicorp vault) - `token`
 
-   **Token:**
+   **To get token run this command:**
 
    ```
    kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.root_token}" | base64 -d ; echo
@@ -78,9 +78,8 @@ Open deployment menu and choose the service:
 
 4. K8s dashboard - click on the CPU/Memory graph
 
-Use token.
 
-**Token**
+**To get token run this command:**
 
 ```
 kubectl get secret -n kube-system  $(kubectl get secret -n kube-system | grep dashboard-token | awk '{ print $1 }') -o jsonpath="{.data.token}" | base64 -d ; echo
@@ -89,9 +88,9 @@ kubectl get secret -n kube-system  $(kubectl get secret -n kube-system | grep da
 ### How to access AWS services - Cloudwatch logs/System manager
 
 1. Login to your aws console.
-2. Click the relevant button on Simloud UI
+2. Click the relevant buttons on Simloud UI.
 
-![](/img/onboarding/connect-k8s-aws/image7.png)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/image7.png)
 
 3. System manager:
 

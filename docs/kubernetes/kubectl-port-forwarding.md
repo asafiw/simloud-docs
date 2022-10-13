@@ -16,11 +16,10 @@
 
 5. Assume kubernetes role.
 
-Copy assumeRole script from UI by pressing the Copy AssumeRole button. That will copy a command line to your clipboard. Paste it into the docker and run it inside the docker.
+Copy assumeRole script from UI by pressing the **Copy AssumeRole button**. That will copy a command to your clipboard. Paste it into the docker and run it inside the docker.
 
-![](/img/kubernetes/kubectl-port-forwarding/image1.png)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/kubernetes/kubectl-port-forwarding/image1.png)
 
-And paste.
 
 6. Check kubectl access to kubernetes API.
 
@@ -90,7 +89,7 @@ Installing, downloading or otherwise using this software is subject to the Couch
 8. Set port-forwarding.
 
 That action should be performed outside the docker in your local computer for Windows and MacOS
-(in Linux like OS you can run inside docker container).
+(fot the Linux OS you can run inside docker container).
 
 Use the commands from the helm note output:
 
@@ -100,7 +99,7 @@ Couchbase:
 #kubectl port-forward --namespace default couchbase-couchbase-cluster-0000 8091:8091
 ```
 
-Rabitmq:
+Rabbitmq:
 
 ```
 #kubectl port-forward --namespace default svc/rabbitmq 15672:15672
@@ -125,7 +124,7 @@ E.g. `kubectl get service | grep couchbase`
   Credentials - use helm note output:
   `#helm get notes couchbase`
 
-- Rabitmq - http://127.0.0.1:15672/
+- Rabbitmq - http://127.0.0.1:15672/
 
   Find credentials in:
   `#helm get notes rabbitmq`
