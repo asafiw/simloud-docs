@@ -12,7 +12,7 @@
    docker run --rm --network host -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws simloud/aws-tools:1.1.22 /bin/bash
    ```
 
-4. Add your aws user to trusted relationships role.
+4. Add your AWS user to trusted relationship role.
 
 5. Assume kubernetes role.
 
