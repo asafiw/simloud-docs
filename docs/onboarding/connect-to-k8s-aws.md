@@ -59,7 +59,8 @@ Open deployment menu and choose the service:
 
 ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/image6.png)
 
-1. Jenkins - `admin` / `LA#$4zUFl%Xk9!WM`  ????? should I left it or change to command?
+1. Jenkins - `admin` / `password`  
+   **To get password run this command:**   **!!!!! add command**
 2. Grafana (monitoring) - `admin` / `password`
 
    **To get password run this command:**
