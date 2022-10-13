@@ -8,13 +8,19 @@ slug: "/"
 1. Browse to the Simloud portal: https://portal.simloud.com/
 2. Login using your credentials.
 3. Go to the Account tab.
-   - press "Add Account" button.
-   - Follow the instructions in the pop-up message.
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image1.png)
+   - press "Cloud management" button.
+   - press "Accounts" button
+  
+     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/1.png)
+   -  press "Add Account" button.
+     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/2.png)
+   - Follow the instructions "how to get Account role" in the pop-up message.
+     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/12.png)
+    
    - Download the CloudFormation script to your local computer. ????
    - Open your AWS account console CloudFormation service and press the **Create stack** button.
      ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image2.png)
-   - Chose the following options, upload the script and click on the **Next button.**
+   - Chose the following options, upload the script and click on the **Next button.** 
      ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image3.png)
      ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image4.png)
    - Scroll down and click again on the **Next button.**
@@ -34,26 +40,29 @@ Make sure that there are no spaces before or after the Account Role string!
 
 4. CI/CD steps are included here, but they can be skipped during deployment creation and added later.
 
-### Create new SSH key pair         !!!! Doesn't work??
+### Create new SSH key pair         
 
-- Go to the "Repositories" tab.
+- Go to the "Infrastructure" tab -> "Repositories".
 - Press on the "SSH key list" button.
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image10.png)
-- Press the "Add SSH key" button.
-- Enter value to the "SSH key name" field and press the save button for creation.
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image11.png)
+  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/11.png)
+- Press the "Add key" button.
+  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/6.png)
+- Enter value to the "Key name" field and press the save button for creation.
+  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/77.png)
+- Make sure if everything is correct. If yes - press "Confirm" button.
+  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/8.png)
 - Copy the public SSH key.
   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image12.png)
 - Provide this SSH key to the git user with read permissions on your repository. (Bitbucket/GitLab/GitHb, etc)
 
 ### Add new git repositories (services):
 
-- Go to the "Repositories" tab.
+- Go to the "Repositories" tab -> "Repositories".
 - Press the "Add repository" button
 - Paste the repository URL (e.g. git@bitbucket.org:xxxx/xxx-2.git)
 - Paste the service folder's path if you are using mono/single repo(e.g. service1)
 - Select the SSH key from the drop down field and save changes.
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image13.png)
+  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/13.png)
 
 ### Add Simloudfle and .simloud_ci files to git repositories
 
