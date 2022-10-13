@@ -26,7 +26,7 @@ The next step is to configure permissions per **project** role:
 ![](/home/simloud/IdeaProjects/simloud-docs/static/img/jenkins/assign-roles-to-users/image4.png)
 
 In the next step, we'll assign users to our newly created group.
-To achieve this, we must:
+To achieve this, we need:
 
 1. Enter the **Assign Roles** tab in **“Manage and Assign Roles” menu**.
 2. Enter the name of a user into **“User/group to add”** field below “Global roles” section and press the **Add** button.
