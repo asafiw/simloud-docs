@@ -95,7 +95,7 @@ kubectl get secret -n kube-system  $(kubectl get secret -n kube-system | grep da
 3. System manager:
 
    - Allows you to ssh to the k8s worker nodes.
-   - Once you select this option this service will be opened in your AWS console.
+   - This service will be opened in your AWS console, once you select this option.
    - It will display the list of available worker nodes.
    - Please select the worker node you would like to connect.
 
@@ -103,11 +103,11 @@ kubectl get secret -n kube-system  $(kubectl get secret -n kube-system | grep da
 
    - Allows you to connect to Cloudwatch insight to perform centralized log query.
    - Simloud sends all k8s traffic to AWS Cloudwatch log groups - both application and cluster level.
-   - In addition lambda functions are sending logs to AWS Cloudwatch log group.
-   - Once you press the Cloudwatch logs button this service will be opened in your AWS console with the relevant log groups already selected.
-   - Please perform the log query according to AWS insight syntax.
+   - In addition, lambda functions sends logs to AWS Cloudwatch log group.
+   - This service will be opened in your AWS console with the relevant log groups already selected, once you press the Cloudwatch logs button .
+   - Please, perform the log query according to AWS insight syntax.
 
-5. SSH to pod
+5. SSH to pod.
 
    - Get list of pods:
      ```

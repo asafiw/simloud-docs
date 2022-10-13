@@ -1,13 +1,13 @@
 # How to hide parameters from "build with parameters" screen
 
-In order to hide unnecessary parameters from “Build with parameters” screen, please follow these steps:
+In order to hide unnecessary parameters from “Build with parameters” screen, please, follow these steps:
 
 - Select the job you wish to remove parameters from.
 - Press the **Configure** option in the job’s menu.
 
 ![](/home/simloud/IdeaProjects/simloud-docs/static/img/jenkins/hide-params/image1.jpg)
 
-- Scroll down to **“This project is parameterized”** option and press the cross button on the parameter you wish to remove.
+- Click the cross button on the parameter you wish to remove in the "This project is parameterized" section.
 
 ![](/home/simloud/IdeaProjects/simloud-docs/static/img/jenkins/hide-params/image2.jpg)
 

@@ -1,6 +1,6 @@
 # Simloudfile.yaml
 
-Dynamic configuration file that is responsible for deploying different components of the infrastructure.
+A dynamic configuration file which is responsible for deploying different components of the infrastructure.
 
 ### Full `SimloudFile.yaml` file :
 
@@ -177,8 +177,6 @@ spec: {} # frontend service will be emply
 - Jenkins release/5.0 
 - Backend: 
 
-### Parameters explane:
-\
 **Annotation block:**
 
 | Parameter | Default value          | Type      | M/O | Variants                                                                                                                                                                                                                                                                                                                                                      | Remarks                                                                                                                  |
