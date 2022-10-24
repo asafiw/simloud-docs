@@ -1,4 +1,4 @@
-# How to hide parameters from "build with parameters" screen
+# How to hide parameters from "build with parameters" screen  
 
 In order to hide unnecessary parameters from “Build with parameters” screen, please, follow these steps:
 
@@ -16,6 +16,8 @@ In order to hide unnecessary parameters from “Build with parameters” screen,
 
 ![](/home/simloud/IdeaProjects/simloud-docs/static/img/jenkins/hide-params/image3.jpg)
 
+
+**?????????????????????????**
 - Continue scrolling down to the lowest level and find the corresponding parameter.
 - Change the appendix near the corresponding parameter from `params.GIT_REPO_URL` to `GIT_REPO_URL`.
 

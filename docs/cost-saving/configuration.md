@@ -19,10 +19,11 @@
 
 ![](/home/simloud/IdeaProjects/simloud-docs/static/img/cost-saving/configuration/image2.png)
 ![](/home/simloud/IdeaProjects/simloud-docs/static/img/cost-saving/configuration/image3.png)
-
+- Enter the name of the stack in the "Stack name" field.
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/cost-saving/configuration/1.png)
 - Scroll down and click again on the **Next** button.
 
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/cost-saving/configuration/image4.png)
+ ![](/home/simloud/IdeaProjects/simloud-docs/static/img/cost-saving/configuration/image4.png)
 
 - Scroll down and select the following options and press the **Create stack** button.
 

@@ -60,7 +60,10 @@ Open deployment menu and choose the service:
 ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/image6.png)
 
 1. Jenkins - `admin` / `password`  
-   **To get password run this command:**   **!!!!! add command**
+   **To get password run this command:**  
+   ```
+    kubectl get secrets jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 -d ; echo
+   ```
 2. Grafana (monitoring) - `admin` / `password`
 
    **To get password run this command:**

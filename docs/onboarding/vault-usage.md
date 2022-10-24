@@ -27,7 +27,7 @@ kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.
 
    ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image4.jpg)
 
-## Examples of using Vault.
+## Examples of using Vault
 
 1. How to create secrets:
 

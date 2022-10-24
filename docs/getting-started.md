@@ -10,35 +10,30 @@ slug: "/"
 3. Go to the Account tab.
    - press "Cloud management" button.
    - press "Accounts" button
-  
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/1.png)
-   -  press "Add Account" button.
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/2.png)
+
+     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/new1.png)
+   - press "Add Account" button.
+     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/new2.png)
    - Follow the instructions "how to get Account role" in the pop-up message.
      ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/12.png)
     
-   - Download the CloudFormation script to your local computer. ????
-   - Open your AWS account console CloudFormation service and press the **Create stack** button.
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image2.png)
-   - Chose the following options, upload the script and click on the **Next button.** 
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image3.png)
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image4.png)
-   - Scroll down and click again on the **Next button.**
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image5.png)
+
+   
+ 
    - Scroll down and select the following options and press the **Create stack** button.
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image6.png)
+       ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image6.png)
    - Wait for a few minutes until the script will complete (CREATE_COMPLETE)
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image7.png)
+     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/new3.png)
    - Go to **Outputs** tab and copy the following value.
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image8.png)
+     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/new4.png)
    - Paste this value into **Account Role** field and press the **Save** button
-     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image9.png)
+     ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/new5.png)
 
 :::note
 Make sure that there are no spaces before or after the Account Role string!
 :::
 
-4. CI/CD steps are included here, but they can be skipped during deployment creation and added later.
+
 
 ### Create new SSH key pair         
 
@@ -69,7 +64,7 @@ Make sure that there are no spaces before or after the Account Role string!
 - The attached Simloudfle and .simloud_ci can be used as references.
 - Edit them according to your definitions.
 
-**Simloudfle**:
+[Simloudfle](/home/simloud/IdeaProjects/simloud-docs/docs/simloudfile.yaml.md):
 
 - Contains the microservice cloud resources definitions (currently s3/sqs/RDS mysql, RDS postgres, later it will contain other resources).
 - The path to the ingress should be filled if it is needed (if not, then leave it empty (external_api: {}).
@@ -79,11 +74,10 @@ Make sure that there are no spaces before or after the Account Role string!
 **.simloud_ci**:
 
 - Provides customizations for each service's CI process.
-- Should be located next to the Dockerfile.
-- Contains bash script for CI steps (there are plans to change it to yml file)
-- The file should be empty if there is no customization (maybe in lambda).
+- Should be placed in the same directory with Dockerfile.
+- Contains bash script with specific CI steps  
+- The file should be empty if there is no customization.
 
 Place these two files at the root folder of each microservice repository.
 
-5. Create Deployment
-   - follow the different steps in the wizard
+

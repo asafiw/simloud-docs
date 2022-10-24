@@ -1,8 +1,9 @@
 # Kubectl port forwarding
 
-1. Enable [AWS credential](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) configuration.
+1. Install and configure [AWS CLI](https://aws.amazon.com/cli/) in your local computer.
+2. Enable [AWS credential](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) configuration.
 
-2. Enable docker on your computer.
+2. Install and enable [Docker](https://docs.docker.com/get-docker/) in your local computer.
 
 3. Run simloud docker image.
 
