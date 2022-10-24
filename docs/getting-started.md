@@ -1,4 +1,12 @@
-# Getting started
+
+
+---
+sidebar_position: 1
+slug: "/"
+---
+
+# Getting started.
+
 
 1. Browse to the Simloud portal: https://portal.simloud.com/
 2. Login using your credentials.
