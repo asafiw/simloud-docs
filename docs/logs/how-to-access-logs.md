@@ -79,4 +79,5 @@ Don't forget to change the namespace to the one in which the POD is located.
 
 Ingress POD logs output example:
 
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/logs/how-to-access-logs/image9.png)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/logs/how-to-access-logs/image3.png)
+

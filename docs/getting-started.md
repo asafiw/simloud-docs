@@ -11,10 +11,7 @@
      ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/new2.png)
    - Follow the instructions "how to get Account role" in the pop-up message.
      ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/12.png)
-    
-
-   
- 
+     
    - Scroll down and select the following options and press the **Create stack** button.
        ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/image6.png)
    - Wait for a few minutes until the script will complete (CREATE_COMPLETE)
@@ -23,6 +20,7 @@
      ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/new4.png)
    - Paste this value into **Account Role** field and press the **Save** button
      ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/intro/new5.png)
+
 
 :::note
 Make sure that there are no spaces before or after the Account Role string!
