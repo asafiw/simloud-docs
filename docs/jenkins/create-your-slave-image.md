@@ -30,7 +30,7 @@ Choose jenkins-slave image `4.9-2330-jdk8` or `4.9-2330-jdk11` according to your
 - Running a job on kubernetes dynamic slave
 
 
-### How to use Simloufile.yaml.
+### How to use Simloufile.yaml
 
 1. Go to GitHub/Bitbucket etc. and **clone** your **service repository**.
 2. Open **Simloufile.yaml** file and change **image** field value from default to custom.
@@ -47,7 +47,7 @@ Choose jenkins-slave image `4.9-2330-jdk8` or `4.9-2330-jdk11` according to your
 In case when you don't have image field in simloudfile.yaml
 
 
-### How to change jenkins slave image in the job.
+### How to change jenkins slave image in the job
 
 1. Launch to your Jenkins job.
 2. Open job configuration.
@@ -55,7 +55,7 @@ In case when you don't have image field in simloudfile.yaml
 
 ![](../../../img/jenkins/create-your-slave-image/image1.png)
 
-### How to run a job on kubernetes dynamic slave.
+### How to run a job on kubernetes dynamic slave
 
 A job can run either on the master pod or on a separate slave pod.
 The general rule is to run “heavy” jobs on a separate slave pod and run “light” jobs such as a simple wrapper on the master pod in order to save resources.

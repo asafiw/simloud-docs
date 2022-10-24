@@ -1,6 +1,6 @@
 # Kubectl port forwarding
 
-1. Install and configure [AWS CLI](https://aws.amazon.com/cli/) in your local computer.
+1. Install and configure [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in your local computer.
 2. Enable [AWS credential](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) configuration.
 
 2. Install and enable [Docker](https://docs.docker.com/get-docker/) in your local computer.
@@ -10,16 +10,16 @@
    On your local computer run following command:
 
    ```
-   docker run --rm --network host -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws simloud/aws-tools:1.1.22 /bin/bash
+   docker run --rm --network host -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws simloud/aws-tools:1.1.38 /bin/bash
    ```
 
 4. Add your AWS user to trusted relationship role.
 
 5. Assume kubernetes role.
 
-Copy assumeRole script from UI by pressing the **Copy AssumeRole button**. That will copy a command to your clipboard. Paste it into the docker and run it inside the docker.
+Copy assumeRole script from Simloud Portal by pressing the **Copy AssumeRole button**. That will copy a command to your clipboard. Paste it into the docker and run it inside the docker.
 
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/kubernetes/kubectl-port-forwarding/image1.png)
+![](/home/simloud/IdeaProjects/simloud-docs/static/img/kubernetes/kubectl-port-forwarding/1.png)
 
 
 6. Check kubectl access to kubernetes API.
@@ -33,58 +33,22 @@ ip-10-0-12-245.eu-central-1.compute.internal Ready <none> 8h v1.18.9-eks-d1db3c
 
 7. Get chart notes of the relevant chart.
 
-For couchbase chart use the following command:
 
+
+
+_**Example.**_ For jenkins chart use the following command:
 ```
-xxx@xxx:/code# helm get notes couchbase
+xxx@xxx:/code# helm get notes jenkins
 
 NOTES:
 
+----------------
 
+Get your 'admin' user password by running:
+  printf $(kubectl get secret --namespace default jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 
 ----------------
 
-Installing, downloading or otherwise using this software is subject to the Couchbase, Inc. License Agreement posted at https://www.couchbase.com/LA08242020
-
-----------------
-
-== Couchbase-operator deployed.
-
-   # Check the couchbase-operator logs
-
-   kubectl logs -f deployment/couchbase-couchbase-operator  --namespace default
-
-
-
-
-
-== Admission-controller deployed.
-
-   # Check the admission-controller logs
-
-   kubectl logs -f deployment/couchbase-couchbase-admission-controller --namespace default
-
-
-
-== Connect to Admin console
-
-   kubectl port-forward --namespace default couchbase-couchbase-cluster-0000 8091:8091
-
-
-
-   # open http://localhost:8091
-
-   username: Administrator
-
-   password: TkFqbGJx
-
-
-
-== Manage this chart
-   # Upgrade Couchbase
-   helm upgrade couchbase -f <values.yaml> stable/couchbase
-   # Show this status again
-   helm status couchbase
 ```
 
 8. Set port-forwarding.
@@ -116,18 +80,4 @@ Jenkins:
 
 The service port can be detected from: `kubectl get service | grep service name`
 
-E.g. `kubectl get service | grep couchbase`
-
-9. Access web url according to port.
-
-- Couchbase - http://127.0.0.1:8091
-
-  Credentials - use helm note output:
-  `#helm get notes couchbase`
-
-- Rabbitmq - http://127.0.0.1:15672/
-
-  Find credentials in:
-  `#helm get notes rabbitmq`
-
-- Jenkins http://127.0.0.1:15672/
+E.g. `kubectl get service | grep jenkins`

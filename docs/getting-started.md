@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-slug: "/"
----
-
 # Getting started
 
 1. Browse to the Simloud portal: https://portal.simloud.com/
@@ -64,7 +59,7 @@ Make sure that there are no spaces before or after the Account Role string!
 - The attached Simloudfle and .simloud_ci can be used as references.
 - Edit them according to your definitions.
 
-[Simloudfle](/home/simloud/IdeaProjects/simloud-docs/docs/simloudfile.yaml.md):
+**Simloudfle**:
 
 - Contains the microservice cloud resources definitions (currently s3/sqs/RDS mysql, RDS postgres, later it will contain other resources).
 - The path to the ingress should be filled if it is needed (if not, then leave it empty (external_api: {}).

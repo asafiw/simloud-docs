@@ -1,5 +1,5 @@
 # How to create deployment using Simloud Portal
-# 
+
 This instruction will show you how to create deployments using Simloud Portal:
 - Launch Portal UI using your credentials
 

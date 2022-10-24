@@ -1,23 +1,16 @@
 # How to use Vault
 
-1. Establish connection with kubernetes cluster. Please see the documentation SimloudConnectToK8sAndAWSServices.
+1. Establish connection with kubernetes cluster. Please, follow the instruction in documentation "**_Simloud connection to K8s and AWS services"._**
 
 2. Run this command in terminal.
-
 ```
 kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.root_token}" | base64 -d ; echo
 ```
-
-3. Copy the output
-
-   _Example output_
-   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image1.jpg)
-
-4. In Simloud UI, on the main dashboard page choose deployment where you want to use Vault.
-
+3. Copy the output.
+4. On the Simloud Portal, on the main dashboard page choose deployment where you want to use Vault.
 5. Open context menu (three dots on the right side) and press “Vault”.
 
-   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image2.jpg)
+   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/1.png)
 
 6. In Vault UI paste output from previous command in “Token” field.
 
