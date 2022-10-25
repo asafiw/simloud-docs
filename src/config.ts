@@ -46,28 +46,27 @@ export type Sidebar = Record<
 >;
 export const SIDEBAR: Sidebar = {
 	en: {
+		'Onboarding': [
+			{ text: 'Getting started', link: 'en/getting-started' },
+			{ text: 'How to create deployment using Simloud Portal', link: 'en/create-deployment' },
+			{ text: 'Simloud connection to K8s and AWS services', link: 'en/connect-to-k8s-aws' },
+			{ text: 'How to use Vault', link: 'en/vault-usage' },
+		],
 		'Jenkins': [
 			{ text: 'How to manage and assign roles to users', link: 'en/assign-roles-to-users' },
 			{ text: 'How to create your own slave image from Simloud jenkins image', link: 'en/create-your-slave-image' },
 			{ text: 'How to hide parameters from "build with parameters" screen', link: 'en/hide-params' },
-
 		],
 		'Kubernetes': [
-        			{ text: 'Kubectl port forwarding', link: 'en/kubectl-port-forwarding' },
-        			{ text: 'How to access logs', link: 'en/how-to-access-logs' },
-        ],
-        'Onboarding': [
-                            { text: 'Getting started', link: 'en/getting-started' },
-                            { text: 'How to create deployment using Simloud Portal', link: 'en/create-deployment' },
-                			{ text: 'Simloud connection to K8s and AWS services', link: 'en/connect-to-k8s-aws' },
-                			{ text: 'How to use Vault', link: 'en/vault-usage' },
-                			],
-        'SimloudFiles': [
-                			{ text: 'Simloudfile.yaml', link: 'en/simloudfile.yaml' },
-                			{ text: 'Simloud-pipeline.yaml', link: 'en/simloud-pipeline.yaml' },
-                ],
-        'Cost saving': [
-                        			{ text: 'Simloud cost saving configuration', link: 'en/cost-saving-configuration' },
-                        ],
+			{ text: 'Kubectl port forwarding', link: 'en/kubectl-port-forwarding' },
+			{ text: 'How to access logs', link: 'en/how-to-access-logs' },
+		],
+		'Cost saving': [
+			{ text: 'Simloud cost saving configuration', link: 'en/cost-saving-configuration' },
+		],
+		'SimloudFiles': [
+			{ text: 'Simloudfile.yaml', link: 'en/simloudfile.yaml' },
+			{ text: 'Simloud-pipeline.yaml', link: 'en/simloud-pipeline.yaml' },
+		],
 	},
 };
