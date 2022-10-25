@@ -1,0 +1,20 @@
+---
+// import AvatarList from './AvatarList.astro';
+type Props = {
+	path: string;
+};
+const { path } = Astro.props as Props;
+---
+
+<footer>
+	<h5>Simloud.com &copy; 2022</h5>
+	<!-- <AvatarList path={path} /> -->
+</footer>
+
+<style>
+	footer {
+		margin-top: auto;
+		padding: 2rem;
+		border-top: 3px solid var(--theme-divider);
+	}
+</style>
