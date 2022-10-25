@@ -4,15 +4,15 @@
 2. Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) on your local computer.
 3. Configure aws cli user in your local directory.
 4. Create a new cloud user in your Simloud account (**CLOUD MANAGEMENT** -> **Users** -> "**Add user**" -> Enter the name of the user -> "**Save**" ).
-   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/1.png)
+   ![](/static/img/onboarding/connect-k8s-aws/1.png)
 
 5. Add this user to your cloud account (**CLOUD MANAGEMENT** -> **Accounts** -> From "**CLOUD USERS**" drop-down menu  select the user you want to add -> "**Save**"  ).
 
-   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/2.png)
+   ![](/static/img/onboarding/connect-k8s-aws/2.png)
 
 6. Go to the deployment which is configured with this cloud account and press the button "Connect K8s" and follow the instructions.
 
-   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/3.png)
+   ![](/static/img/onboarding/connect-k8s-aws/3.png)
 
 ### How to connect K8s
 
@@ -33,7 +33,7 @@
    ```
 
 4. Copy assume role and run it inside your docker container.
-   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/4.png)
+   ![](/static/img/onboarding/connect-k8s-aws/4.png)
    :::note
    String to connect will be generated after deployment creation.
    :::
@@ -55,7 +55,7 @@
 ### How to access jenkins/grafana/k8s-dashboarf
 
 Open deployment menu and choose the service:
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/5.png)
+![](/static/img/onboarding/connect-k8s-aws/5.png)
 
 1. Jenkins - `admin` / `password`  
    **To get password run this command in your terminal:**  
@@ -93,7 +93,7 @@ Open deployment menu and choose the service:
 1. Login to your aws console.
 2. Click the relevant buttons on Simloud UI.
 
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/connect-k8s-aws/6.png)
+![](/static/img/onboarding/connect-k8s-aws/6.png)
 
 **System manager:**
    - Allows you to ssh to the k8s worker nodes.

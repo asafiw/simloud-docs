@@ -10,7 +10,7 @@ To grant Simloud access to the calculation of actual usage cost, need to perform
 2.  In AWS Console, go to Services Billing Cost allocation tags, choose **[User-Defined Cost Allocation Tags](https://console.aws.amazon.com/billing/home#/preferences/tags)** tab.
 3. Find _simloud:environment_ tag (by searching the input box), check it and press **Activate**.
    If tag was not found, need to wait up to 24 hours OR try to press **Refresh**.
-   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/cost-saving/configuration/2.png)
+   ![](/static/img/cost-saving/configuration/2.png)
 
 
 **Step 3** - required If you use nested (linked) accounts:
@@ -18,6 +18,6 @@ To grant Simloud access to the calculation of actual usage cost, need to perform
 2.  Go to Services Cost Explorer Preferences.
 3.  In AWS Cost Explorer section, check **Linked Account Access**, **Linked Account Refunds and Credits**, and **Linked Account Discounts**.
 4.  Press **Save preferences**.
-    ![](/home/simloud/IdeaProjects/simloud-docs/static/img/aws/enable-cost-explorer/image3.png)
+    ![](/static/img/aws/enable-cost-explorer/image3.png)
 
     

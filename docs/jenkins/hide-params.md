@@ -5,16 +5,16 @@ In order to hide unnecessary parameters from “Build with parameters” screen,
 - Select the job you wish to remove parameters from.
 - Press the **Configure** option in the job’s menu.
 
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/jenkins/hide-params/image1.jpg)
+![](/static/img/jenkins/hide-params/image1.jpg)
 
 - Click the cross button on the parameter you wish to remove in the "This project is parameterized" section.
 
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/jenkins/hide-params/image2.jpg)
+![](/static/img/jenkins/hide-params/image2.jpg)
 
 - After the parameter has been removed, scroll down to the code of the pipeline and find the block called "parameters".
 - Comment out the parameter you wish to remove by adding `//` next to the corresponding line.
 
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/jenkins/hide-params/image3.jpg)
+![](/static/img/jenkins/hide-params/image3.jpg)
 
 
 **?????????????????????????**
@@ -23,8 +23,8 @@ In order to hide unnecessary parameters from “Build with parameters” screen,
 
 Change the following:
 
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/jenkins/hide-params/image4.png)
+![](/static/img/jenkins/hide-params/image4.png)
 
 To the following:
 
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/jenkins/hide-params/image5.png)
+![](/static/img/jenkins/hide-params/image5.png)

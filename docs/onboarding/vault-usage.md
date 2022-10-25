@@ -10,15 +10,15 @@ kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.
 4. On the Simloud Portal, on the main dashboard page choose deployment where you want to use Vault.
 5. Open context menu (three dots on the right side) and press “Vault”.
 
-   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/1.png)
+   ![](/static/img/onboarding/how-to-use-vault/1.png)
 
 6. In Vault UI paste output from previous command in “Token” field.
 
-   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image3.jpg)
+   ![](/static/img/onboarding/how-to-use-vault/image3.jpg)
 
 7. Here you can manage all your secrets.
 
-   ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image4.jpg)
+   ![](/static/img/onboarding/how-to-use-vault/image4.jpg)
 
 ## Examples of using Vault
 
@@ -26,15 +26,15 @@ kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.
 
 - Enter in Secrets Engines, for example in “deffault-app”
 
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image5.jpg)
+  ![](/static/img/onboarding/how-to-use-vault/image5.jpg)
 
 - Press “Create secret” button
 
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image6.jpg)
+  ![](/static/img/onboarding/how-to-use-vault/image6.jpg)
 
 - Fill these fields and press “Save” button
 
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image7.png)
+  ![](/static/img/onboarding/how-to-use-vault/image7.png)
 
 2. How to view secrets: Press on “eye” button.
 
@@ -46,22 +46,22 @@ In order to pass secrets into the container through Simloudfile.yaml you can do 
 
 - Find the “secrets” field.
 
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image8.jpg)
+  ![](/static/img/onboarding/how-to-use-vault/image8.jpg)
 
 - “Path” specifies the vault path in which required secrets are stored. The path specified must correspond to a vault path to an existing secret. **Please note, that Jenkins is only permitted access to the "secrets" folder inside of vault.**
 
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image9.png)
+  ![](/static/img/onboarding/how-to-use-vault/image9.png)
 
 - The "env_name_prefix" parameter specifies the prefix for the resulting environmental variable. In case the prefix is not needed, you can remove this field. Please, make sure that Simloudfile includes **“check_mode: advanced”** field (see example above).
 
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image10.jpg)
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image11.png)
+  ![](/static/img/onboarding/how-to-use-vault/image10.jpg)
+  ![](/static/img/onboarding/how-to-use-vault/image11.png)
 
   _Example of variables with prefix being passed into the container_
 
 - Secrets can be passed from multiple paths in the following way:
 
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image12.jpg)
+  ![](/static/img/onboarding/how-to-use-vault/image12.jpg)
 
 - It is possible to add as many such blocks as you need. 
 
@@ -75,11 +75,11 @@ In order to check if your variables were successfully passed through Jenkins, pl
 
 - On the right panel choose a relevant build and press on it.
 
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image13.jpg)
+  ![](/static/img/onboarding/how-to-use-vault/image13.jpg)
 
 - Choose the “Console Output” option.
 
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image14.jpg)
+  ![](/static/img/onboarding/how-to-use-vault/image14.jpg)
 
 - Look for the value under the "path" parameter in your "Simloudfile.yaml".
 
@@ -89,4 +89,4 @@ In order to check if your variables were successfully passed through Jenkins, pl
 
 - The absence of _“No value found at `<path>`”_ message means that secrets were successfully passed into the container.
 
-  ![](/home/simloud/IdeaProjects/simloud-docs/static/img/onboarding/how-to-use-vault/image15.jpg)
+  ![](/static/img/onboarding/how-to-use-vault/image15.jpg)
