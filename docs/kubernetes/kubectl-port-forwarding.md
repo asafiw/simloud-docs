@@ -19,7 +19,7 @@
 
 Copy assumeRole script from Simloud Portal by pressing the **Copy AssumeRole button**. That will copy a command to your clipboard. Paste it into the docker and run it inside the docker.
 
-![](/home/simloud/IdeaProjects/simloud-docs/static/img/kubernetes/kubectl-port-forwarding/1.png)
+![](/simloud-docs/static/img/kubernetes/kubectl-port-forwarding/1.png)
 
 
 6. Check kubectl access to kubernetes API.
