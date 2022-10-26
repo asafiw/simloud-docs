@@ -71,17 +71,17 @@ layout: ../../layouts/MainLayout.astro
 
 ### Add Simloudfle and .simloud_ci files to git repositories
 
-- The attached Simloudfle and .simloud_ci can be used as references.  _**Please, use files from documentation ”Simloudfiles”.**_ 
+- The attached Simloudfle  and .simloud_ci can be used as references. 
 - Edit them according to your definitions.
 
-**Simloudfle**:
+[**_SimloudFile._**](/en/simloudfile.yaml)
 
 - Contains the microservice cloud resources definitions (currently s3/sqs/RDS mysql, RDS postgres, later it will contain other resources).
 - The path to the ingress should be filled if it is needed (if not, then leave it empty (external_api: {}).
 - Cloud resources per service (if it is not needed, it should be empty (cloud_resources: {}).
 - k8s deployment fields.
 
-**.simloud_ci**:
+[**.simloud_ci**](/en/simloud-pipeline.yaml)
 
 - Provides customizations for each service's CI process.
 - Should be placed in the same directory with Dockerfile.
