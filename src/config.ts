@@ -1,5 +1,5 @@
 export const SITE = {
-	title: 'Docs',
+	title: 'Simloud Docs',
 	description: 'Simloud Portal documentation',
 	defaultLanguage: 'en_US',
 };
