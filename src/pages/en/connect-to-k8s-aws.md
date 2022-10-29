@@ -4,14 +4,13 @@ description: Simloud connection to K8s and AWS services
 layout: ../../layouts/MainLayout.astro
 ---
 
-
 1. Install and enable [Docker](https://docs.docker.com/get-docker/) on your local computer.
 2. Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) on your local computer.
 3. Configure aws cli user in your local directory.
 4. Create a new cloud user in your Simloud account (**CLOUD MANAGEMENT** -> **Users** -> "**Add user**" -> Enter the name of the user -> "**Save**" ).
    ![](/img/onboarding/connect-k8s-aws/1.png)
 
-5. Add this user to your cloud account (**CLOUD MANAGEMENT** -> **Accounts** -> From "**CLOUD USERS**" drop-down menu  select the user you want to add -> "**Save**"  ).
+5. Add this user to your cloud account (**CLOUD MANAGEMENT** -> **Accounts** -> From "**CLOUD USERS**" drop-down menu select the user you want to add -> "**Save**" ).
 
    ![](/img/onboarding/connect-k8s-aws/2.png)
 
@@ -27,34 +26,33 @@ layout: ../../layouts/MainLayout.astro
 
    **Windows**
 
-   ```
+   ```powershell
    docker run --rm -ti -v %HOMEDRIVE%%HOMEPATH%/.kube:/root/.kube -v %HOMEDRIVE%%HOMEPATH%/.ssh:/root/.ssh -v %HOMEDRIVE%%HOMEPATH%/.aws:/root/.aws -v %CD%:/code simloud/aws-tools:1.1.37 /bin/bash
    ```
 
    **MacOS/Linux**
 
-   ```
+   ```sh
    docker run --rm -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $(pwd):/code simloud/aws-tools:1.1.37 /bin/bash
    ```
 
 4. Copy assume role and run it inside your docker container.
    ![](/img/onboarding/connect-k8s-aws/4.png)
-   
+
    > **_NOTE:_**
-   String to connect will be generated after deployment creation.
-   
+   > String to connect will be generated after deployment creation.
 
 5. Copy file from/to docker _(Optional)_
 
    **From**
 
-   ```
+   ```sh
    docker cp simloud:tmp/yourfile /tmp/yourfile
    ```
 
    **To**
 
-   ```
+   ```sh
    docker cp /tmp/yourfile simloud:tmp/yourfile
    ```
 
@@ -64,7 +62,7 @@ Open deployment menu and choose the service:
 ![](/img/onboarding/connect-k8s-aws/5.png)
 
 1. Jenkins - `admin` / `password`  
-   **To get password run this command in your terminal:**  
+   **To get password run this command in your terminal:**
    ```
     kubectl get secrets jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 -d ; echo
    ```
@@ -86,13 +84,11 @@ Open deployment menu and choose the service:
 
 4. K8s dashboard - click on the CPU/Memory graph
 
-    **To get token run this command:**
-     ```
-     kubectl get secret -n kube-system  $(kubectl get secret -n kube-system | grep dashboard-token | awk '{ print $1 }') -o jsonpath="{.data.token}" | base64 -d ; echo
-     ```
-     
+   **To get token run this command:**
 
-    
+   ```
+   kubectl get secret -n kube-system  $(kubectl get secret -n kube-system | grep dashboard-token | awk '{ print $1 }') -o jsonpath="{.data.token}" | base64 -d ; echo
+   ```
 
 ### How to access AWS services - Cloudwatch logs/System manager
 
@@ -102,17 +98,19 @@ Open deployment menu and choose the service:
 ![](/img/onboarding/connect-k8s-aws/6.png)
 
 **System manager:**
-   - Allows you to ssh to the k8s worker nodes.
-   - This service will be opened in your AWS console, once you select this option.
-   - It will display the list of available worker nodes.
-   - Please select the worker node you would like to connect.
+
+- Allows you to ssh to the k8s worker nodes.
+- This service will be opened in your AWS console, once you select this option.
+- It will display the list of available worker nodes.
+- Please select the worker node you would like to connect.
 
 **Cloudwatch logs:**
-   - Allows you to connect to Cloudwatch insight to perform centralized log query.
-   - Simloud sends all k8s traffic to AWS Cloudwatch log groups - both application and cluster level.
-   - In addition, lambda functions sends logs to AWS Cloudwatch log group.
-   - This service will be opened in your AWS console with the relevant log groups already selected, once you press the Cloudwatch logs button .
-   - Please, perform the log query according to AWS insight syntax.
+
+- Allows you to connect to Cloudwatch insight to perform centralized log query.
+- Simloud sends all k8s traffic to AWS Cloudwatch log groups - both application and cluster level.
+- In addition, lambda functions sends logs to AWS Cloudwatch log group.
+- This service will be opened in your AWS console with the relevant log groups already selected, once you press the Cloudwatch logs button .
+- Please, perform the log query according to AWS insight syntax.
 
 3. SSH to pod.
 
