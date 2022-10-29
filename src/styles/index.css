@@ -380,20 +380,3 @@ h2.heading {
 :target {
   scroll-margin: calc(var(--theme-sidebar-offset, 5rem) + 2rem) 0 2rem;
 }
-
-#img-zoom-preview {
-  cursor: zoom-out;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #555555aa;
-  z-index: 5000;
-  background-image: none;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  padding: 10vh;
-  background-origin: content-box;
-}
