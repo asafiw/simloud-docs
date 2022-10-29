@@ -3,6 +3,7 @@ import type { Frontmatter } from '../../config';
 import MoreMenu from '../RightSidebar/MoreMenu.astro';
 import TableOfContents from '../RightSidebar/TableOfContents';
 import type { MarkdownHeading } from 'astro';
+import Content from './Content';
 
 type Props = {
 	frontmatter: Frontmatter;
@@ -12,6 +13,7 @@ type Props = {
 
 const { frontmatter, headings, githubEditUrl } = Astro.props as Props;
 const title = frontmatter.title;
+const content = await Astro.slots.render('default')
 ---
 
 <article id="article" class="content">
@@ -20,7 +22,7 @@ const title = frontmatter.title;
 		<nav class="block sm:hidden">
 			<TableOfContents client:media="(max-width: 50em)" headings={headings} />
 		</nav>
-		<slot />
+		<Content client:load content={content} />
 	</section>
 	<nav class="block sm:hidden">
 		<MoreMenu editHref={githubEditUrl} />

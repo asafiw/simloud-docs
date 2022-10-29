@@ -4,48 +4,42 @@ description: Getting started
 layout: ../../layouts/MainLayout.astro
 ---
 
-
-1. Browse to the Simloud portal: https://portal.simloud.com/
+1. Browse to the [Simloud portal](https://portal.simloud.com/)
 2. Login using your credentials.
 3. Go to the Account tab:
 
    - press "Cloud management" button.
    - press "Accounts" button
-   
-    ![](/img/onboarding/intro/new1.png)
+
+   ![](/img/onboarding/intro/new1.png)
 
    - press "Add Account" button.
-   
+
    ![](/img/onboarding/intro/new2.png)
 
    - Follow the instructions "how to get Account role" in the pop-up message.
 
    ![](/img/onboarding/intro/12.png)
-     
+
    - Scroll down and select the following options and press the **Create stack** button.
 
    ![](/img/onboarding/intro/image6.png)
-   
+
    - Wait for a few minutes until the script will complete (CREATE_COMPLETE)
-   
+
    ![](/img/onboarding/intro/new3.png)
 
    - Go to **Outputs** tab and copy the following value.
 
-    ![](/img/onboarding/intro/new4.png)
+   ![](/img/onboarding/intro/new4.png)
 
    - Paste this value into **Account Role** field and press the **Save** button.
-   
-    ![](/img/onboarding/intro/new5.png)
 
+   ![](/img/onboarding/intro/new5.png)
 
-> **_NOTE:_**
- _Make sure that there are no spaces before or after the Account Role string!_
+> **_NOTE:_** > _Make sure that there are no spaces before or after the Account Role string!_
 
-
-
-
-### Create new SSH key pair         
+### Create new SSH key pair
 
 - Go to the "Infrastructure" tab -> "Repositories".
 - Press on the "SSH key list" button.
@@ -71,7 +65,7 @@ layout: ../../layouts/MainLayout.astro
 
 ### Add Simloudfle and .simloud_ci files to git repositories
 
-- The attached Simloudfle  and .simloud_ci can be used as references. 
+- The attached Simloudfle and .simloud_ci can be used as references.
 - Edit them according to your definitions.
 
 [**_SimloudFile._**](/en/simloudfile.yaml)
@@ -85,9 +79,7 @@ layout: ../../layouts/MainLayout.astro
 
 - Provides customizations for each service's CI process.
 - Should be placed in the same directory with Dockerfile.
-- Contains bash script with specific CI steps  
+- Contains bash script with specific CI steps
 - The file should be empty if there is no customization.
 
 Place these two files at the root folder of each microservice repository.
-
-
