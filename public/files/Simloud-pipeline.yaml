@@ -1,0 +1,12 @@
+version: v1
+kind: simloud-pipeline
+
+pipeline:
+  default: # profile name. Currently only default
+    - stages:
+        - name: "bash"
+          shell: bash # "bash" by default ( optional )
+          args: [] # shell arguments ( optional )
+          homedir: /home/jenkins/agent/workspace/generic-pipeline # shell command default folder ( optional )
+          scripts: # for "sh,bash,zsh" shells only
+            - ./helm_install.sh

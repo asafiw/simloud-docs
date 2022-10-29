@@ -1,14 +1,15 @@
-import { defineConfig } from "astro/config";
-import preact from "@astrojs/preact";
-import react from "@astrojs/react";
+import { defineConfig } from 'astro/config'
+import preact from '@astrojs/preact'
+import react from '@astrojs/react'
+import rehypeCodeBlock from './plugins/rehypeCodeBlock'
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    // Enable Preact to support Preact JSX components.
-    preact(),
-    // Enable React for the Algolia search component.
-    react(),
-  ],
-  site: `https://docs.simloud.com`,
-});
+  markdown: {
+    extendDefaultPlugins: true,
+    rehypePlugins: [rehypeCodeBlock],
+    syntaxHighlight: false
+  },
+  integrations: [preact(), react()],
+  site: `https://docs.simloud.com`
+})
