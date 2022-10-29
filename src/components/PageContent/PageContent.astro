@@ -1,55 +1,107 @@
 ---
-import type { Frontmatter } from '../../config';
-import MoreMenu from '../RightSidebar/MoreMenu.astro';
-import TableOfContents from '../RightSidebar/TableOfContents';
-import type { MarkdownHeading } from 'astro';
-import Content from './Content';
+import type { Frontmatter } from '../../config'
+import MoreMenu from '../RightSidebar/MoreMenu.astro'
+import TableOfContents from '../RightSidebar/TableOfContents'
+import type { MarkdownHeading } from 'astro'
 
 type Props = {
-	frontmatter: Frontmatter;
-	headings: MarkdownHeading[];
-	githubEditUrl: string;
-};
+  frontmatter: Frontmatter
+  headings: MarkdownHeading[]
+  githubEditUrl: string
+}
 
-const { frontmatter, headings, githubEditUrl } = Astro.props as Props;
-const title = frontmatter.title;
-const content = await Astro.slots.render('default')
+const { frontmatter, headings, githubEditUrl } = Astro.props as Props
+const title = frontmatter.title
 ---
 
 <article id="article" class="content">
-	<section class="main-section">
-		<h1 class="content-title" id="overview">{title}</h1>
-		<nav class="block sm:hidden">
-			<TableOfContents client:media="(max-width: 50em)" headings={headings} />
-		</nav>
-		<Content client:load content={content} />
-	</section>
-	<nav class="block sm:hidden">
-		<MoreMenu editHref={githubEditUrl} />
-	</nav>
+  <section class="main-section">
+    <h1 class="content-title" id="overview">{title}</h1>
+    <nav class="block sm:hidden">
+      <TableOfContents client:media="(max-width: 50em)" headings={headings} />
+    </nav>
+    <div id="real-content">
+      <div
+        id="img-zoom-preview"
+        class="hidden"
+        style={{ display: 'none', backgroundImage: 'none' }}
+      >
+      </div>
+      <slot />
+    </div>
+  </section>
+
+  <nav class="block sm:hidden">
+    <MoreMenu editHref={githubEditUrl} />
+  </nav>
 </article>
 
 <style>
-	.content {
-		padding: 0;
-		max-width: 75ch;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-	}
+  .content {
+    padding: 0;
+    max-width: 75ch;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
-	.content > section {
-		margin-bottom: 4rem;
-	}
+  .content > section {
+    margin-bottom: 4rem;
+  }
 
-	.block {
-		display: block;
-	}
+  .block {
+    display: block;
+  }
 
-	@media (min-width: 50em) {
-		.sm\:hidden {
-			display: none;
-		}
-	}
+  @media (min-width: 50em) {
+    .sm\:hidden {
+      display: none;
+    }
+  }
 </style>
+
+<script>
+  const content = document.querySelector('#real-content') as HTMLElement
+  const zoomPreview = document.querySelector('#img-zoom-preview') as HTMLImageElement
+
+  const handleContentClick = e => {
+    if (e.target.tagName === 'IMG') {
+      const src = e.target.src
+
+      zoomPreview.style.backgroundImage = `url(${src})`
+      zoomPreview.style.display = 'block'
+    }
+
+    if (e.target.className === 'source-copy') {
+      const source = e.target.parentElement.querySelector('.source-raw').innerHTML
+      navigator.clipboard.writeText(source).then(() => {
+        e.target.innerHTML = '✅ Copied!'
+        setTimeout(() => {
+          e.target.innerHTML = '📋 Copy'
+        }, 2000)
+      })
+    }
+
+    if (e.target.className === 'source-show-more') {
+      const parent = e.target.parentElement
+      parent.classList.remove('source-show-compacted')
+      parent.classList.add('source-show-expanded')
+    }
+
+    if (e.target.className === 'source-show-less') {
+      const parent = e.target.parentElement
+      parent.classList.remove('source-show-expanded')
+      parent.classList.add('source-show-compacted')
+    }
+  }
+
+  content.addEventListener('click', handleContentClick)
+
+  const exitZoom = e => {
+    zoomPreview.style.backgroundImage = `none`
+    zoomPreview.style.display = 'none'
+  }
+
+  zoomPreview.addEventListener('click', exitZoom)
+</script>
