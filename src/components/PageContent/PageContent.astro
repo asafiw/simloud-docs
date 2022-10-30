@@ -72,18 +72,6 @@ const title = frontmatter.title
       zoomPreview.style.backgroundImage = `url(${src})`
       zoomPreview.style.display = 'block'
     }
-
-    // if (e.target.className === 'source-show-more') {
-    //   const parent = e.target.parentElement
-    //   parent.classList.remove('source-show-compacted')
-    //   parent.classList.add('source-show-expanded')
-    // }
-
-    // if (e.target.className === 'source-show-less') {
-    //   const parent = e.target.parentElement
-    //   parent.classList.remove('source-show-expanded')
-    //   parent.classList.add('source-show-compacted')
-    // }
   }
 
   content.addEventListener('click', handleContentClick)
