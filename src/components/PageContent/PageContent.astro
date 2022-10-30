@@ -73,16 +73,6 @@ const title = frontmatter.title
       zoomPreview.style.display = 'block'
     }
 
-    if (e.target.className === 'source-copy') {
-      const source = e.target.parentElement.querySelector('.source-raw').innerHTML
-      navigator.clipboard.writeText(source).then(() => {
-        e.target.innerHTML = '✅ Copied!'
-        setTimeout(() => {
-          e.target.innerHTML = '📋 Copy'
-        }, 2000)
-      })
-    }
-
     if (e.target.className === 'source-show-more') {
       const parent = e.target.parentElement
       parent.classList.remove('source-show-compacted')

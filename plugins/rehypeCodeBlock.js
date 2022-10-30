@@ -28,8 +28,6 @@ export default function rehypeCodeBlock() {
   return async function (tree) {
     const starryNight = await starryNightPromise
 
-    // saveOutput("tree-before.json", tree);
-
     visit(tree, 'element', function (node, index, parent) {
       if (!parent || index === null || node.tagName !== 'pre') {
         return
@@ -62,25 +60,8 @@ export default function rehypeCodeBlock() {
       const stringContent = toString(head)
       const fragment = starryNight.highlight(stringContent, scope)
       const children = /** @type {Array<ElementContent>} */ (fragment.children)
-
       const stringCount = (stringContent.match(/\n/g) || '').length + 1
       const expandable = stringCount > 5
-      const expandableBtns = expandable
-        ? [
-            {
-              type: 'element',
-              tagName: 'span',
-              properties: { className: ['source-show-more'] },
-              children: [{ type: 'text', value: 'Show more' }]
-            },
-            {
-              type: 'element',
-              tagName: 'span',
-              properties: { className: ['source-show-less'] },
-              children: [{ type: 'text', value: 'Show less' }]
-            }
-          ]
-        : []
 
       parent.children.splice(index, 1, {
         type: 'element',
@@ -93,33 +74,65 @@ export default function rehypeCodeBlock() {
           ]
         },
         children: [
-          {
-            type: 'element',
-            tagName: 'div',
-            properties: { className: ['source-raw'], style: 'display: none' },
-            children: [{ type: 'text', value: stringContent }]
-          },
-          {
-            type: 'element',
-            tagName: 'span',
-            properties: { className: ['source-copy'] },
-            children: [{ type: 'text', value: '📋 Copy' }]
-          },
-          ...expandableBtns,
+          getSourceRaw(stringContent),
+          getCopyBtn(),
+          ...getExpandBtn(stringContent),
           { type: 'element', tagName: 'pre', properties: {}, children }
         ]
       })
-
-      // saveOutput("tree-after.json", tree);
     })
   }
 }
 
-function saveOutput(fileName, tree) {
-  fs.writeFile(fileName, JSON.stringify(tree, null, 2), err => {
-    if (err) {
-      console.error(err)
-    }
-    // file written successfully
-  })
+function getSourceRaw(stringContent) {
+  const sourceRaw = {
+    type: 'element',
+    tagName: 'div',
+    properties: { className: ['source-raw'], style: 'display: none' },
+    children: [{ type: 'text', value: stringContent }]
+  }
+  return sourceRaw
+}
+
+function getExpandBtn(expandable) {
+  return expandable
+    ? [
+        {
+          type: 'element',
+          tagName: 'span',
+          properties: { className: ['source-show-more'] },
+          children: [{ type: 'text', value: 'Show more' }]
+        },
+        {
+          type: 'element',
+          tagName: 'span',
+          properties: { className: ['source-show-less'] },
+          children: [{ type: 'text', value: 'Show less' }]
+        }
+      ]
+    : []
+}
+
+function getCopyBtn() {
+  function handleCopyClick(e) {
+    const source = e.target.parentElement.querySelector('.source-raw').innerHTML
+    navigator.clipboard.writeText(source).then(() => {
+      e.target.innerHTML = '✅ Copied!'
+      setTimeout(() => {
+        e.target.innerHTML = '📋 Copy'
+      }, 2000)
+    })
+
+    return false
+  }
+
+  return {
+    type: 'element',
+    tagName: 'span',
+    properties: {
+      className: ['source-copy'],
+      onClick: `${handleCopyClick.toString()}; handleCopyClick(arguments[0]); return false;`
+    },
+    children: [{ type: 'text', value: '📋 Copy' }]
+  }
 }

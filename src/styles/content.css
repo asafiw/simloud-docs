@@ -32,6 +32,7 @@
 }
 
 #real-content .source-copy {
+  user-select: none;
   display: none;
   position: absolute;
   top: 0;
@@ -71,6 +72,7 @@
 
 #real-content .source-show-more,
 #real-content .source-show-less {
+  user-select: none;
   position: absolute;
   bottom: 0;
   right: 0;
