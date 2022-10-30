@@ -95,26 +95,48 @@ function getSourceRaw(stringContent) {
 }
 
 function getExpandBtn(expandable) {
-  return expandable
-    ? [
-        {
-          type: 'element',
-          tagName: 'span',
-          properties: { className: ['source-show-more'] },
-          children: [{ type: 'text', value: 'Show more' }]
-        },
-        {
-          type: 'element',
-          tagName: 'span',
-          properties: { className: ['source-show-less'] },
-          children: [{ type: 'text', value: 'Show less' }]
-        }
-      ]
-    : []
+  if (!expandable) return []
+
+  function handleShowMore(e) {
+    const parent = e.target.parentElement
+    parent.classList.remove('source-show-compacted')
+    parent.classList.add('source-show-expanded')
+
+    return false
+  }
+
+  function handleShowLess(e) {
+    const parent = e.target.parentElement
+    parent.classList.remove('source-show-expanded')
+    parent.classList.add('source-show-compacted')
+
+    return false
+  }
+
+  return [
+    {
+      type: 'element',
+      tagName: 'span',
+      properties: {
+        className: ['source-show-more'],
+        onClick: `${handleShowMore.toString()}; handleShowMore(arguments[0]); return false;`
+      },
+      children: [{ type: 'text', value: 'Show more' }]
+    },
+    {
+      type: 'element',
+      tagName: 'span',
+      properties: {
+        className: ['source-show-less'],
+        onClick: `${handleShowLess.toString()}; handleShowLess(arguments[0]); return false;`
+      },
+      children: [{ type: 'text', value: 'Show less' }]
+    }
+  ]
 }
 
 function getCopyBtn() {
-  function handleCopyClick(e) {
+  function handleCopy(e) {
     const source = e.target.parentElement.querySelector('.source-raw').innerHTML
     navigator.clipboard.writeText(source).then(() => {
       e.target.innerHTML = '✅ Copied!'
@@ -131,7 +153,7 @@ function getCopyBtn() {
     tagName: 'span',
     properties: {
       className: ['source-copy'],
-      onClick: `${handleCopyClick.toString()}; handleCopyClick(arguments[0]); return false;`
+      onClick: `${handleCopy.toString()}; handleCopy(arguments[0]); return false;`
     },
     children: [{ type: 'text', value: '📋 Copy' }]
   }
