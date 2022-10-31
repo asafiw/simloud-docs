@@ -1,24 +1,8 @@
-/**
- * @typedef {import('hast').Root} Root
- * @typedef {import('hast').ElementContent} ElementContent
- * @typedef {import('@wooorm/starry-night').Grammar} Grammar
- *
- * @typedef Options
- *   Configuration (optional)
- * @property {Array<Grammar>} [grammars]
- *   Grammars to support (defaults: `common`).
- */
-
 import { createStarryNight, common } from '@wooorm/starry-night'
 import sourcePS from '@wooorm/starry-night/lang/source.powershell.js'
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
 
-/**
- * Plugin to highlight code with `starry-night`.
- *
- * @type {import('unified').Plugin<[Options?], Root>}
- */
 export default function rehypeCodeBlock() {
   const grammars = [...common, sourcePS]
 
@@ -59,7 +43,7 @@ export default function rehypeCodeBlock() {
 
       const stringContent = toString(head)
       const fragment = starryNight.highlight(stringContent, scope)
-      const children = /** @type {Array<ElementContent>} */ (fragment.children)
+      const children = fragment.children
       const stringCount = (stringContent.match(/\n/g) || '').length + 1
       const expandable = stringCount > 5
 
