@@ -28,21 +28,21 @@ This instruction will show you how to create deployments using [Simloud Portal](
 > **_NOTE:_** 
 > - **SNAT** — Source Network Address Translation, enables pods to communicate bi-directionally with the internet, using worker nodes public IPs. Recommended in case of lower network cost requirements.
 **DNAT** — Destination Network Address Translation, enables pods to bi-directionally communicate with the internet using persistent static IP, via NAT gateway service. Recommended in case of high security requirements. 
-> - Enabling HA mode for Vault & Consul requires more CPU and memory. All instances should have at least 16 GB of memory total.
-> - AWS CloudFront will use as Content Delivery Network. It will be applied only to the root domain (which is generally used for frontend), but not to any of sub-domains.
-> - Web Application Firewall protects your web applications from common web exploits. It's only available when CDN is on.
-> - "Skip DNS validation" option should be checked in case of using external DNS hosting provider (e.g. not using route53 in AWS).
+> - **Enabling HA mode for Vault & Consul** requires more CPU and memory. All instances should have at least 16 GB of memory total.
+> - AWS CloudFront will use as **Content Delivery Network**. It will be applied only to the root domain (which is generally used for frontend), but not to any of sub-domains.
+> - **Web Application Firewall** protects your web applications from common web exploits. It's only available when CDN is on.
+> - "**Skip DNS validation**" option should be checked in case of using external DNS hosting provider (e.g. not using route53 in AWS).
 - Add services using your repositories and click the "Save" button
   ![](/img/create-deployment/7.png)
   ![](/img/create-deployment/8.png)
 - Confirm your actions
   ![](/img/create-deployment/9.png)
   - Now you can go through all the steps to the status page and press the “Start” button
-    ![](/img/create-deployment/10.png)
+  ![](/img/create-deployment/10.png)
     - After deployment is created it will be in the "Active Running" state.
-      ![](/img/create-deployment/14.png)
+  ![](/img/create-deployment/14.png)
     - You can Delete/Redeploy or Add more repositories after deployment is created
-      ![](/img/create-deployment/13.png)
+  ![](/img/create-deployment/13.png)
        >   **_NOTE:_**
        >    - Use "Redeploy" option, when you want to restart deployment with the updated configuration
 
