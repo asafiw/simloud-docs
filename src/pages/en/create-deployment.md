@@ -19,8 +19,8 @@ This instruction will show you how to create deployments using [Simloud Portal](
   ![](/img/create-deployment/5.png)
 - There are some advanced options: you can edit your "**URL**" (it can be different from the "Deployment name" ). You can select some additional options such as "Application protection", "Start/Stop protection" or "Deletion protection". 
   ![](/img/create-deployment/11.png)
-> **_NOTE:_**  _Select "Application protection" if you want no-one has an opportunity to  attach/detach/redeploy repositories. "Start/Stop protection" is used if you want no-one can start and stop your deployment. "Deletion protection" allow you to protect your deployment from deletion._ 
-  - Select the "+Add notes" option, if you want to leave some information about your deployment.
+> **_NOTE:_**  _Select "**Application protection**" if you want no-one has an opportunity to  attach/detach/redeploy repositories. "**Start/Stop protection**" is used if you want no-one can start and stop your deployment. "**Deletion protection**" allow you to protect your deployment from deletion._ 
+  - Select the "**+Add notes**" option, if you want to leave some information about your deployment.
 
   ![](/img/create-deployment/12.png)
 - Fill in your Cluster info. Set kubernetes version from drop-down menu. Select instance type and additional options if you need it
@@ -39,12 +39,14 @@ This instruction will show you how to create deployments using [Simloud Portal](
   ![](/img/create-deployment/9.png)
   - Now you can go through all the steps to the status page and press the “Start” button
   ![](/img/create-deployment/10.png)
-    - After deployment is created it will be in the "Active Running" state.
+    - After deployment is created it will be in the "**Active Running**" state.
   ![](/img/create-deployment/14.png)
-    - You can Delete/Redeploy or Add more repositories after deployment is created
+    - You can Delete/Redeploy or Add more repositories after deployment is created.
   ![](/img/create-deployment/13.png)
        >   **_NOTE:_**
-       >    - Use "Redeploy" option, when you want to restart deployment with the updated configuration
+       >    - Use "**Redeploy**" option, when you want to restart deployment with the updated configuration
+       >    - "**Delete**" if you do not need some repositories
+       >    - Adding more or another repositories after deployment is created is possible
 
   
 #

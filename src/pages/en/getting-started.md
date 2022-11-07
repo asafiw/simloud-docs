@@ -99,13 +99,13 @@ layout: ../../layouts/MainLayout.astro
 - Enter the name of your SSH key in the **_"Title"_** field, and paste your public SSH key in the **_"Key"_** field. Press the **"Add key"** button.
   ![](/img/onboarding/intro/21.png)
 
-##
+
 > **_NOTE:_** _**If you don't have an account on Bitbucket/ Github/ Gitlab - it's necessary to create a user and attach this user to all the accessed repositories.**_ 
 
 - [Link](https://id.atlassian.com/) to create your account for **Bitbucket**. 
 - [Link](https://github.com/login) to create your account for **GitHub**.
 - [Link](https://gitlab.com/users/sign_in) to create your account for **GitLab**.
-
+ 
 
 ### Add new git repositories (services):
 
