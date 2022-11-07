@@ -8,7 +8,7 @@ layout: ../../layouts/MainLayout.astro
 
 **Docker file example:**
 
-```
+```sh
 # Pull base image.
 FROM simloud/jenkins-slave:4.9-2330-jdk11   
 
@@ -66,7 +66,7 @@ The general rule is to run “heavy” jobs on a separate slave pod and run “l
 
 Following agent section is required to be included in the pipeline in order to run this job as a separate slave pod:
 
-```
+```sh
 podTemplate (yaml: """
     apiVersion: v1
     kind: Pod
@@ -114,7 +114,7 @@ You can change these stages to make custom job.
 ![](/static/img/jenkins/create-your-slave-image/image2.png)
 **Dockerfile** content:
 
-```
+```sh
 FROM jenkins/jnlp-slave:4.13.2-1-jdk11
 
 WORKDIR /service
@@ -124,10 +124,12 @@ COPY src ./src
 
 RUN yarn && yarn build
 ```
+[Download Dockerfile.sh](/files/Dockerfile.sh)
+
 
 **simloud_ci** content:
 
-```
+```sh
 #!/bin/bash
 docker build -t $2 --network container:$1 -f Dockerfile .
 docker create --name cont1 $2
@@ -135,4 +137,4 @@ docker cp temp:/service/build .
 docker rm temp
 # do whatever is needed with `build` folder
 ```
-
+[Download simloud_ci.sh](/files/simloud_ci.sh)

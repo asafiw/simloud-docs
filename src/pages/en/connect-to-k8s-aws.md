@@ -63,14 +63,14 @@ Open deployment menu and choose the service:
 
 1. Jenkins - `admin` / `password`  
    **To get password run this command in your terminal:**
-   ```
+   ```sh
     kubectl get secrets jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 -d ; echo
    ```
 2. Grafana (monitoring) - `admin` / `password`
 
    **To get password run this command in your terminal:**
 
-   ```
+   ```sh
    kubectl get secret --namespace kube-system  grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
    ```
 
@@ -78,7 +78,7 @@ Open deployment menu and choose the service:
 
    **To get token run this command in your terminal:**
 
-   ```
+   ```sh
    kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.root_token}" | base64 -d ; echo
    ```
 
@@ -86,7 +86,7 @@ Open deployment menu and choose the service:
 
    **To get token run this command:**
 
-   ```
+   ```sh
    kubectl get secret -n kube-system  $(kubectl get secret -n kube-system | grep dashboard-token | awk '{ print $1 }') -o jsonpath="{.data.token}" | base64 -d ; echo
    ```
 
@@ -115,29 +115,29 @@ Open deployment menu and choose the service:
 3. SSH to pod.
 
    - Get list of pods:
-     ```
+     ```sh
      kubectl get pod
      ```
    - Connect to pods:
-     ```
+     ```sh
      kubectl exec --stdin --tty pod-xx -- /bin/sh
      ```
-     ```
+     ```sh
      kubectl exec --stdin --tty pod-xx -- /bin/bash
      ```
    - Mount a folder to the local docker linux/mac:
 
-     ```
+     ```sh
      docker run --rm -ti -v $HOME/Downloads:/tmp -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $(pwd):/code hub.simloudcorp.customers.simloud.com/simloud/simloud-tools:1.1.28 /bin/bash
      ```
 
    - Mount a folder to the local docker windows:
 
-     ```
+     ```sh
      docker run --rm -ti -v %HOMEDRIVE%%HOMEPATH%/.kube:root/.kube -v %HOMEDRIVE%%HOMEPATH%/.ssh:/root/.ssh -v %HOMEDRIVE%%HOMEPATH%/.aws:/root/.aws -v %CD%:/code simloud/aws-tools:1.1.26 /bin/bash
      ```
 
    - Copy to pod from local docker
-     ```
+     ```sh
      kubectl cp file pod-xx:/service/srv/tmp
      ```
