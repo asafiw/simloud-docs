@@ -73,7 +73,7 @@ Establish connection with kubernetes cluster. Please follow the instruction in d
 
 Run these commands in terminal:
 
-```
+```sh
 kubectl get pod --namespace default
 kubectl logs <name_of_your_pod> --namespace default
 ```

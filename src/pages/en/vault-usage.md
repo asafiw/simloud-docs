@@ -8,7 +8,7 @@ layout: ../../layouts/MainLayout.astro
 1. Establish connection with kubernetes cluster. Please, follow the instruction in documentation [**_"Simloud connection to K8s and AWS services"_**](/en/connect-to-k8s-aws)
 
 2. Run this command in terminal.
-```
+```sh
 kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.root_token}" | base64 -d ; echo
 ```
 3. Copy the output.
