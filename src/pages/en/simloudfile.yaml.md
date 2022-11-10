@@ -181,7 +181,31 @@ spec: {} # frontend service will be emply
 - Jenkins release/5.0
 - Backend:
 
-**Annotation block:**
+## Required parameters
+
+### `.version`
+
+**Default value**: `v2`
+
+**Type**: `str`
+
+`v2` - Only available From version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode. Details in **?!!?** document.
+
+### `.kind`
+
+**Default value**: `simloud-deployment`
+
+**Type**: `const str`
+
+## Optional parameters
+
+### `.mode`
+
+**Default value**: `strict`
+
+**Type**: `set str`
+
+**Variants**: `strict` - Strict syntax validation; `advanced` - Advanced syntax validation
 
 | Parameter | Default value        | Type      | M/O | Variants                                                                                                                                                                                                                                                                                                                                        | Remarks                                                                                                              |
 | --------- | -------------------- | --------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
