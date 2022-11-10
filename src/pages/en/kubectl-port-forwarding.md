@@ -14,7 +14,7 @@ layout: ../../layouts/MainLayout.astro
 
    On your local computer run following command:
 
-   ```
+   ```sh
    docker run --rm --network host -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws simloud/aws-tools:1.1.38 /bin/bash
    ```
 
@@ -29,7 +29,7 @@ Copy assumeRole script from Simloud Portal by pressing the **Copy AssumeRole but
 
 6. Check kubectl access to kubernetes API.
 
-```
+```sh
 root@docker-desktop:/code# kubectl get nodes
 NAME STATUS ROLES AGE VERSION
 ip-10-0-104-33.eu-central-1.compute.internal Ready <none> 8h v1.18.9-eks-d1db3c
@@ -41,20 +41,21 @@ ip-10-0-12-245.eu-central-1.compute.internal Ready <none> 8h v1.18.9-eks-d1db3c
 
 _**Example.**_ For jenkins chart is necessary to use the following command:
 
-```helm get notes jenkins```
+```sh
+helm get notes jenkins```
 ```
-xxx@xxx:/code# helm get notes jenkins
 
 NOTES:
 
 ----------------
-
+```sh
 Get your 'admin' user password by running:
   printf $(kubectl get secret --namespace default jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
-
+```
 ----------------
 
-```
+
+
 
 8. Set port-forwarding.
 
@@ -65,19 +66,19 @@ Use the commands from the helm note output:
 
 Couchbase:
 
-```
+```sh
 #kubectl port-forward --namespace default couchbase-couchbase-cluster-0000 8091:8091
 ```
 
 Rabbitmq:
 
-```
+```sh
 #kubectl port-forward --namespace default svc/rabbitmq 15672:15672
 ```
 
 Jenkins:
 
-```
+```sh
 #kubectl port-forward service/jenkins 7000:80
 ```
 

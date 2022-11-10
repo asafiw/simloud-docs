@@ -175,6 +175,7 @@ spec:  # for lambda mutually exclusive with above, see more in https://boto3.ama
 
 spec: {} # frontend service will be emply
 ```
+[Download Simloudfile.yaml](/files/Simloudfile.yaml)
 
 ### Minimal Requirements:
 

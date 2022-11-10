@@ -1,0 +1,19 @@
+version: v1
+kind: simloud-pipeline
+
+pipeline:
+  default: # profile name. Currently only default
+    - stages:
+        - name: “TF code”
+          shell: terraform # for terraform case
+          homedir: ./ # shell command directory
+          terraform:
+            version: 0.13 # tf version , default 0.12
+            workspace: default # Workspace’s name. Default workspace: default
+            statefile: # state file location
+              storage: kubernetes # default “kubernetes” (k8s?)
+              location: default.k8s-state # k8s: <namespace>.<secret_suffix>
+            secrets: # `-var-file="testing.tfvars"`
+              - storage: kubernetes # vault or k8s secrets
+                paths: # vault pats, or k8s secers names
+                  - kube-system.ssh-keys #

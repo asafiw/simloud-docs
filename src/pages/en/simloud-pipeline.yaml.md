@@ -52,3 +52,4 @@ pipeline:
                 paths: # vault pats, or k8s secers names
                   - kube-system.ssh-keys #
 ```
+[Download Simloud-pipeline.yaml](/files/Simloud-pipeline1.yaml)
