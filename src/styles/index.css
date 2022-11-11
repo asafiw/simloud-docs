@@ -201,7 +201,6 @@ code {
   font-family: var(--font-mono);
   font-size: 0.85em;
   color: inherit;
-  background-color: var(--theme-code-inline-bg);
   padding: var(--padding-block) var(--padding-inline);
   margin: calc(var(--padding-block) * -1) 0.125em;
   border-radius: var(--border-radius);
@@ -256,8 +255,58 @@ th {
 }
 
 pre {
+  background-color: #f9fafb;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+  font-weight: 600;
+}
+
+pre .pl-ent {
+  color: #a1462f;
+}
+
+pre .pl-c1 {
+  color: #20a42d;
+}
+
+pre .pl-s {
+  color: #2337e7;
+}
+
+pre .pl-c {
+  color: #6b7280;
+}
+
+pre .pl-k,
+pre .pl-smi {
+  color: #f005a6;
+}
+
+.theme-dark pre {
   background-color: var(--theme-code-bg);
   color: var(--theme-code-text);
+  border: 1px solid #404b5a;
+}
+
+.theme-dark pre .pl-ent {
+  color: #669bd1;
+}
+
+.theme-dark pre .pl-c1 {
+  color: #7aaf58;
+}
+
+.theme-dark pre .pl-s {
+  color: #c5947c;
+}
+
+.theme-dark pre .pl-c {
+  color: #e5e7eb;
+}
+
+.theme-dark pre .pl-k,
+.theme-dark pre .pl-smi {
+  color: #fad749;
 }
 
 blockquote code {
