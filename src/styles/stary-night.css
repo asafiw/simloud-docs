@@ -192,6 +192,7 @@
 /* HIGHLIGHT GENERAL */
 .highlight {
   position: relative;
+  margin-bottom: 20px;
 }
 
 /* COLLAPSE BUTTONS */
