@@ -184,6 +184,29 @@ spec: {} # frontend service will be emply
 
 **Annotation block:**
 
+
+```
+    .version
+
+        Default value: 'V2'
+        Type: str
+        M/O: M
+        Variants:  `v2` - Only available   
+
+    .kind
+
+        Default value: `simloud-deployment`
+        Type:  const str
+        M/O: M
+        Variants: `simloud-deployment`  
+
+    .name
+        Default value: `.service.name`
+        Type: str
+        M/O: O
+         
+```
+    
 | Parameter | Default value        | Type      | M/O | Variants                                                                                                                                                                                                                                                                                                                                        | Remarks                                                                                                              |
 | --------- | -------------------- | --------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | .version  | `v2`                 | str       | M   | `v2` - Only available                                                                                                                                                                                                                                                                                                                           | from version v2, mandatory parameter <br/> `v0` , `v1` or empty, back compatible mode. details in **?!!?** document. |
