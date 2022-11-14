@@ -2,6 +2,12 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "jsx": "preserve",
-    "skipLibCheck": true
+    "paths": {
+      "~/*": ["src/*"]
+    },
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "allowJs": true,
+    "types": ["vite/client"]
   }
 }
