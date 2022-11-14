@@ -207,6 +207,7 @@ code {
   margin: calc(var(--padding-block) * -1) 0.125em;
   border-radius: var(--border-radius);
   word-break: break-word;
+  background-color: var(--theme-code-inline-bg);
 }
 
 pre.astro-code > code {
