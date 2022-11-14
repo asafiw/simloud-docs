@@ -60,8 +60,12 @@ h2 {
   max-width: 40ch;
 }
 
-:is(h2, h3):not(:first-child) {
+:is(h2):not(:first-child) {
   margin-top: 3rem;
+}
+
+:is(h3):not(:first-child) {
+  margin-top: 1.8rem;
 }
 
 :is(h4, h5, h6):not(:first-child) {
@@ -91,6 +95,7 @@ h5 {
 
 p {
   line-height: 1.65em;
+  padding: 0.3rem 0;
 }
 
 .content ul {
@@ -198,7 +203,7 @@ code {
   color: inherit;
   background-color: var(--theme-code-inline-bg);
   padding: var(--padding-block) var(--padding-inline);
-  margin: calc(var(--padding-block) * -1) -0.125em;
+  margin: calc(var(--padding-block) * -1) 0.125em;
   border-radius: var(--border-radius);
   word-break: break-word;
 }
