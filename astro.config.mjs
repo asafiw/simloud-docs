@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config'
 import preact from '@astrojs/preact'
 import react from '@astrojs/react'
-import rehypeStarryNightCopyCollapse from './rehypeStarryNightCopyCollapse'
+import rehypeStarryNightCopyCollapse from 'rehype-starry-night-copy-collapse'
 
 // https://astro.build/config
 export default defineConfig({
