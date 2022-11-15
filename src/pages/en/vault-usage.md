@@ -95,3 +95,8 @@ In order to check if your variables were successfully passed through Jenkins, pl
 - The absence of _“No value found at `<path>`”_ message means that secrets were successfully passed into the container.
 
   ![](/img/onboarding/how-to-use-vault/image15.jpg)
+
+
+## Passing secrets from vault via simloid_ci file
+
+In order to output vault secrets through simloud_ci file in a Jenkins job, please, follow these steps:
