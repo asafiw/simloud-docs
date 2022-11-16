@@ -45,8 +45,7 @@ This instruction will show you how to create deployments using [Simloud Portal](
   ![](/img/create-deployment/13.png)
        >   **_NOTE:_**
        >    - Use "**Redeploy**" option, when you want to restart deployment with the updated configuration
-       >    - "**Delete**" if you do not need some repositories
-       >    - Adding more or another repositories after deployment is created is possible
-
+       >    - If you do not need some repositories select the "**Delete**" button
+       >    -  After deployment is created you can add more repositories pressing the "Add repository" button
   
 #
