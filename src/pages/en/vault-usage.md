@@ -29,7 +29,7 @@ kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.
 
 1. How to create secrets:
 
-- Enter in Secrets Engines, for example in “deffault-app”
+- Enter in Secrets Engines, for example in “default-app”
 
   ![](/img/onboarding/how-to-use-vault/image5.jpg)
 
