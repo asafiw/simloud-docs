@@ -50,23 +50,19 @@ In order to pass secrets into the container through Simloudfile.yaml you can do 
 - Open “Simloudfile.yaml”.
 
 - Find the “secrets” field.
-
-  ![](/img/onboarding/how-to-use-vault/image8.jpg)
+  ![](/img/onboarding/how-to-use-vault/img23.png)
 
 - “Path” specifies the vault path in which required secrets are stored. The path specified must correspond to a vault path to an existing secret. **Please note, that Jenkins is only permitted access to the "secrets" folder inside of vault.**
 
-  ![](/img/onboarding/how-to-use-vault/image9.png)
+  ![](/img/onboarding/how-to-use-vault/img24.png)
 
 - The "env_name_prefix" parameter specifies the prefix for the resulting environmental variable. In case the prefix is not needed, you can remove this field. Please, make sure that Simloudfile includes **“check_mode: advanced”** field (see example above).
-
-  ![](/img/onboarding/how-to-use-vault/image10.jpg)
-  ![](/img/onboarding/how-to-use-vault/image11.png)
+  ![](/img/onboarding/how-to-use-vault/image10.png) 
 
   _Example of variables with prefix being passed into the container_
 
 - Secrets can be passed from multiple paths in the following way:
-
-  ![](/img/onboarding/how-to-use-vault/image12.jpg)
+  ![](/img/onboarding/how-to-use-vault/image12.png)
 
 - It is possible to add as many such blocks as you need. 
 
@@ -80,21 +76,19 @@ In order to check if your variables were successfully passed through Jenkins, pl
 
 - On the right panel choose a relevant build and press on it.
 
-  ![](/img/onboarding/how-to-use-vault/image13.jpg)
+  ![](/img/onboarding/how-to-use-vault/image13.png)
 
 - Choose the “Console Output” option.
 
-  ![](/img/onboarding/how-to-use-vault/image14.jpg)
+  ![](/img/onboarding/how-to-use-vault/image14.png)
 
 - Look for the value under the "path" parameter in your "Simloudfile.yaml".
 
-- For this example we will search for the _“secrets/customer1/data1”_.
+- For this example we will search for the _“default-app/test/config”_.
 
 - In most browsers it can be done by pressing **Ctrl + F** buttons on your keyboard and entering the value used under the “path” parameter in the “Simloudfile.yaml”. We are only interested in the second match.
 
-- The absence of _“No value found at `<path>`”_ message means that secrets were successfully passed into the container.
-
-  ![](/img/onboarding/how-to-use-vault/image15.jpg)
+  ![](/img/onboarding/how-to-use-vault/image15.png)
 
 
 ## Passing secrets from vault via simloid_ci file
