@@ -209,27 +209,6 @@ spec: {} # frontend service will be emply
 **Variants**: `strict` - Strict syntax validation; `advanced` - Advanced syntax validation
 
 
-```
-    .version
-
-        Default value: 'V2'
-        Type: str
-        M/O: M
-        Variants:  `v2` - Only available   
-
-    .kind
-
-        Default value: `simloud-deployment`
-        Type:  const str
-        M/O: M
-        Variants: `simloud-deployment`  
-
-    .name
-        Default value: `.service.name`
-        Type: str
-        M/O: O
-         
-```
     
 | Parameter | Default value        | Type      | M/O | Variants                                                                                                                                                                                                                                                                                                                                        | Remarks                                                                                                              |
 | --------- | -------------------- | --------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
