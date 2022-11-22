@@ -178,7 +178,7 @@ spec: {} # frontend service will be emply
 [Download Simloudfile.yaml](/files/Simloudfile.yaml)
 
 
-# **Variant 1**
+## **Variant 1**
 
 ### Minimal Requirements:
 
@@ -214,16 +214,6 @@ spec: {} # frontend service will be emply
 - `pipeline` - Simloud pipeline execution, only
 
 ## Optional parameters
-
-#### `.mode`
-
-**Default value**: `strict`
-
-**Type**: `set str`
-
-**Variants**: `strict` - Strict syntax validation; `advanced` - Advanced syntax validation
-
-
 
 #### `.mode`
 
@@ -312,7 +302,7 @@ alias from `.cicd.image`.
 
 **Type**: `set str`
 
-\
+
 ## **Environment block:**
 
 ### Required parameters:
@@ -337,7 +327,6 @@ alias from `.cicd.image`.
 **Type**: `list`
 
 
-\
 ## **Internet facing interface:**
 
 ### Required parameters:
@@ -453,11 +442,11 @@ alias from `.cicd.image`.
 **Default value**: `*`
 
 **Type**: `str`
-**Variants**: `
-- * - will be set domain from Origin request header, or form `.external_api.base_domain`
-- `<domain-name>`- always will be set this domain
+**Variants**: 
+- will be set domain from Origin request header, or form `.external_api.base_domain`
+- `<domain-name>`- always will be set this domain 
 
-`
+
 
 #### `.external_api.cors.cors-allow-credentials`
 
@@ -507,7 +496,7 @@ alias from `.cicd.image`.
 true - always override same header;
 false - set header, if is not set only`
 
-\
+
 ## **LAN facing interface:**
 ### Required parameters:
 
@@ -575,9 +564,12 @@ false - set header, if is not set only`
 
 **Type**: `bool`
 
-**Type**: `
+**Type**: 
+``` 
 - true - always override same header;
-- false - set header, if is not set only`
+- false - set header, if is not set only 
+```
+
 
 **Service block:**
 
@@ -600,6 +592,7 @@ false - set header, if is not set only`
 **Default value**: `false`
 
 **Type**: `bool`
+
 **Variants**: `
 - enable
 - disable
@@ -607,16 +600,19 @@ false - set header, if is not set only`
 #### `..service.options.sidecars.consul.enable`
 **Default value**: `false`
 **Type**: `bool`
+
 **Variants**: `
 - enable
 - disable
 `
 #### `.service.options.timeouts.job_execute`
 **Default value**: `3600`
+
 **Type**: `	int`
 
 #### `.service.options.job.shell_command`
 **Default value**: `””`
+
 **Type**: `str`
 
 
@@ -624,6 +620,7 @@ false - set header, if is not set only`
 #### `.service.namespace`
 
 **Default value**: `default`
+
 **Type**: `str`
 
 #### `.service.type`
@@ -640,11 +637,13 @@ false - set header, if is not set only`
 
 #### `.service.servicePort`
 **Default value**: `80`
+
 **Type**: `int`
 
 #### `.service.podPort`
 
 **Default value**: `80`
+
 **Type**: `int`
 
 #### `.service.specType`
@@ -652,6 +651,7 @@ false - set header, if is not set only`
 **Default value**: `deployment`
 
 **Type**: `set str`
+
 **Variants**: `deployment, job, cronjob, replicasets, daemonset, statefulset`
 
 
@@ -676,16 +676,19 @@ false - set header, if is not set only`
 #### `.service.options.sidecars.vault.policy`
 
 **Default value**: `default-app`
+
 **Type**: `str`
 
 #### `.service.options.sidecars.vault.hcl`
 
 **Default value**: `””`
+
 **Type**: `str`
 
 #### `.service.options.sidecars.consul`
 
 **Default value**: `{}`
+
 **Type**: `map`
 
 #### `.service.options.sidecars.consul.policy`
@@ -703,20 +706,27 @@ false - set header, if is not set only`
 #### `.service.options.timeouts`
 
 **Default value**: `{}`
+
 **Type**: `map`
 
 
 #### `.service.options.job`
+
 **Default value**: `{}`
+
 **Type**: `map`
 
 #### `.service.options.job.cron`
+
 **Default value**: `*/1 * * * *`
+
 **Type**: `str`
 
 #### `.service.options.job.cron_concurrency`
 **Default value**: `Allow`
+
 **Type**: `set str`
+
 **Variants**: `
 - Allow
 - Forbid
@@ -724,22 +734,36 @@ false - set header, if is not set only`
 
 #### `.service.options.job.cron_suspend`
 **Default value**: `false`
+
 **Type**: `bool`
 
 #### `.service.options.job.cron_backoffLimit`
 **Default value**: `4`
+
 **Type**: `int`
 
 #### `.service.options.job.cron_completions`
 **Default value**: `1`
+
 **Type**: `int`
 
 #### `.service.options.job.cron_parallelism`
 **Default value**: `1`
+
 **Type**: `int`
 
-\
-# Variant 2
+
+
+## Variant 2
+| Parameter | Default value        | Type      | M/O | Variants                                                                                                                                                                                                                                                                                                                                        | Remarks                                                                                                              |
+| --------- | -------------------- | --------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| .version  | `v2`                 | str       | M   | `v2` - Only available                                                                                                                                                                                                                                                                                                                           | from version v2, mandatory parameter <br/> `v0` , `v1` or empty, back compatible mode. details in **?!!?** document. |
+| .kind     | `simloud-deployment` | const str | M   | `simloud-deployment`                                                                                                                                                                                                                                                                                                                            |                                                                                                                      |
+| .name     | `.service.name`      | str       | O   |                                                                                                                                                                                                                                                                                                                                                 | "Optional", if empty, will same with `.service.name`                                                                 |
+| .type     | `-`                  | set str   | M   | - `kubernetes` - deployment services as k8s service, any type. <br/> - `apigw` or `serverless` - deployment, using API GW solution, for example: lambda functions <br/> - `external` or `front-end` - deployment, using k8s external service solution, for example: frontend on s3 bucket <br/> - `pipeline` - Simloud pipeline execution, only | in `advanced` mode, prefix parameter: `env_name_prefix` is not mandatory                                             |
+| .mode     | `strict`             | set str   | O   | - `strict` - Strict syntax validation. <br/> - `advanced` - Advanced syntax validation                                                                                                                                                                                                                                                          |                                                                                                                      |
+| .image    | `””`                 | str       | O   | Send to jenkins as `SLAVE_IMAGE` parameter.                                                                                                                                                                                                                                                                                                     | Depricated<br/> alias from `.cicd.image`                                                                             |
+
 
 | Parameter                                                      | Default value | Type        | M/O | Variants                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Remarks                                                                                                                                                                       |
 | -------------------------------------------------------------- | ------------- | ----------- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -898,7 +922,6 @@ false - set header, if is not set only`
 | .internal_api.headers[].header   | `""`          | `str`     | M   | example: `"Content-Type: text/html; charset=UTF-8"`                                                                                                    |                                                                       |
 | .internal_api.headers[].override | `true`        | `bool`    | O   | - `true` - always override same header; <br/> - `false` - set header, if is not set only                                                               |                                                                       |
 
-\
 
 
 
