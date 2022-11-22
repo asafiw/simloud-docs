@@ -177,6 +177,9 @@ spec: {} # frontend service will be emply
 ```
 [Download Simloudfile.yaml](/files/Simloudfile.yaml)
 
+
+# **Variant 1**
+
 ### Minimal Requirements:
 
 - Jenkins release/5.0
@@ -184,23 +187,35 @@ spec: {} # frontend service will be emply
 
 ## Required parameters
 
-### `.version`
+#### `.version`
 
 **Default value**: `v2`
 
 **Type**: `str`
 
-`v2` - Only available From version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode. Details in **?!!?** document.
+`v2` - Only available. From version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode. Details in **?!!?** document.
 
-### `.kind`
+#### `.kind`
 
 **Default value**: `simloud-deployment`
 
 **Type**: `const str`
 
+#### `.type`
+
+**Default value**: `-`
+
+**Type**: `set str`
+
+**Variants**:
+- `kubernetes` - deployment services as k8s service, any type.
+- `apigw` or `serverless` - deployment, using API GW solution, for example: lambda functions
+- `external` or `front-end` - deployment, using k8s external service solution, for example: frontend on s3 bucket
+- `pipeline` - Simloud pipeline execution, only
+
 ## Optional parameters
 
-### `.mode`
+#### `.mode`
 
 **Default value**: `strict`
 
@@ -209,148 +224,522 @@ spec: {} # frontend service will be emply
 **Variants**: `strict` - Strict syntax validation; `advanced` - Advanced syntax validation
 
 
-```
-    .version
 
-        Default value: 'V2'
-        Type: str
-        M/O: M
-        Variants:  `v2` - Only available   
+#### `.mode`
 
-    .kind
+**Default value**: `strict`
 
-        Default value: `simloud-deployment`
-        Type:  const str
-        M/O: M
-        Variants: `simloud-deployment`  
+**Type**: `set str`
 
-    .name
-        Default value: `.service.name`
-        Type: str
-        M/O: O
-         
-```
-    
-| Parameter | Default value        | Type      | M/O | Variants                                                                                                                                                                                                                                                                                                                                        | Remarks                                                                                                              |
-| --------- | -------------------- | --------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| .version  | `v2`                 | str       | M   | `v2` - Only available                                                                                                                                                                                                                                                                                                                           | from version v2, mandatory parameter <br/> `v0` , `v1` or empty, back compatible mode. details in **?!!?** document. |
-| .kind     | `simloud-deployment` | const str | M   | `simloud-deployment`                                                                                                                                                                                                                                                                                                                            |                                                                                                                      |
-| .name     | `.service.name`      | str       | O   |                                                                                                                                                                                                                                                                                                                                                 | "Optional", if empty, will same with `.service.name`                                                                 |
-| .type     | `-`                  | set str   | M   | - `kubernetes` - deployment services as k8s service, any type. <br/> - `apigw` or `serverless` - deployment, using API GW solution, for example: lambda functions <br/> - `external` or `front-end` - deployment, using k8s external service solution, for example: frontend on s3 bucket <br/> - `pipeline` - Simloud pipeline execution, only | in `advanced` mode, prefix parameter: `env_name_prefix` is not mandatory                                             |
-| .mode     | `strict`             | set str   | O   | - `strict` - Strict syntax validation. <br/> - `advanced` - Advanced syntax validation                                                                                                                                                                                                                                                          |                                                                                                                      |
-| .image    | `””`                 | str       | O   | Send to jenkins as `SLAVE_IMAGE` parameter.                                                                                                                                                                                                                                                                                                     | Depricated<br/> alias from `.cicd.image`                                                                             |
+**Variants**: 
+- `strict` - Strict syntax validation. 
+- `advanced` - Advanced syntax validation
 
-\
-**Cloud Resources block:**
+#### `.image`
 
-| Parameter                          | Default value | Type | M/O | Variants | Remarks |
-| ---------------------------------- | ------------- | ---- | --- | -------- | ------- |
-| .cloud_resources                   | `[]`          | map  | O   |          |         |
-| .cloud_resources[].name            | `-`           | str  | M   |          |         |
-| .cloud_resources[].env_name_prefix | `-`           | str  | M   |          |         |
-| .cloud_resources[].type            | `-`           | str  | M   |          |         |
-| .cloud_resources[].params          | `[]`          | list | O   |          |         |
+**Default value**: `””`
 
-\
-**Secrets block:**
+**Type**: `str`
 
-| Parameter                  | Default value    | Type    | M/O                          | Variants                                                                                                                  | Remarks                                                                                          |
-| -------------------------- | ---------------- | ------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| .secrets                   | `[]`             | list    | O                            |                                                                                                                           | Provide secrets, stored in hashicorp vault or k8s secrets, mount to pod as environment variables |
-| .secrets[].path            | `-`              | str     | M                            | if `.secrets[].type` will be:<br/> - vault: `<vault-kv-path>` <br/> - k8s: `<secret-name>.<namespace>`                    |                                                                                                  |
-| .secrets[].env_name_prefix | `-`              | str     | M - strict<br/> O - advanced | environment variable prefix. will be generated by this logic: <br/> `.secrets[].env_name_prefix_secret-key`               | Mandatory in `.mode` : `strict` <br/> Optional in `.mode` : `advanced`                           |
-| .secrets[].type            | `vault&#124;k8s` | set str | O                            | Storage type: <br/> - `vault` - to read secret data from vault <br/> - `k8s` - to read secret data from kubernetes secret |                                                                                                  |
+**Variants**:  Send to jenkins as `SLAVE_IMAGE` parameter. Deprecated
+alias from `.cicd.image`.
 
-\
-**Environment block:**
+                                                                                                                                                                                                                                                                                                  | Depricated<br/> alias from `.cicd.image`                                                                             
+## **Cloud Resources block:**
 
-| Parameter               | Default value | Type | M/O | Variants | Remarks                                                           |
-| ----------------------- | ------------- | ---- | --- | -------- | ----------------------------------------------------------------- |
-| .environment            | `[]`          | list | O   |          | Provide availability apply hardcoded environment variables to pod |
-| .environment[].env_name | `-`           | str  | M   |          | Environment name                                                  |
-| .environment[].value    | `-`           | str  | M   |          | Environment variable                                              |
+### Required parameters:
 
-\
-**Internet facing interface:**
+#### `.cloud_resources[].name`
 
-| Parameter                                 | Default value | Type      | M/O | Variants                                                                                                                                               | Remarks                                                               |
-| ----------------------------------------- | ------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| .external_api                             | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
-| .external_api.base_url                    | `””`          | `str`     | O   |                                                                                                                                                        | Base url, if applicable                                               |
-| .external_api.sub_domain                  | `””`          | `str`     | O   |                                                                                                                                                        | Subdomain, if applicable                                              |
-| .external_api.base_domain                 | `-`           | `str`     | M   |                                                                                                                                                        | Base domain name                                                      |
-| .external_api.loadbalancer                | `aws_network` | `set str` | O   | `aws_network` - AWS Network                                                                                                                            |                                                                       |
-| .external_api.protocol                    | `tcp`         | `set str` | O   | - `tcp - for TCP protocol` <br/> - `tls` - SSL terminated TCP protocol <br/> - `udp` - for UDP protocol <br/> - `tcp_udp` - double support TCP and UDP | Currently available only `tcp` for `80` port and `tls` for `443` port |
-| .external_api.port                        | `80,443`      | `set int` | O   |                                                                                                                                                        | Currently available only values `80` or `443` or both                 |
-| .external_api.redirects                   | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
-| .external_api.redirects.http2https        | `true`        | `bool`    | O   |                                                                                                                                                        | Automatic redirect from `HTTP` to `HTTPS` protocol                    |
-| .external_api.cors                        | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
-| .external_api.cors.enable_cors            | `false`       | `bool`    | M   | - `true`                                                                                                                                               | Enable `CORS` headers support                                         |
-| .external_api.cors.cors-allow-methods     | `*`           | `set str` | O   | - `GET, PUT, POST, DELETE, PATCH, OPTIONS`                                                                                                             |                                                                       |
-| .external_api.cors.cors-allow-headers     | `*`           | `set str` | O   | - `DNT,X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization`                        |                                                                       |
-| .external_api.cors.cors-allow-origin      | `*`           | `str`     | O   | - `*` - will be set domain from `Origin` request header, or form `.external_api.base_domain` <br/> - `<domain-name>` - always will be set this domain  |                                                                       |
-| .external_api.cors.cors-allow-credentials | `false`       | `bool`    | O   |                                                                                                                                                        |                                                                       |
-| .external_api.cors.cors-max-age           | `1728000`     | `int`     | O   |                                                                                                                                                        |                                                                       |
-| .external_api.auth                        | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
-| .external_api.auth.url                    | `””`          | `str`     | O   |                                                                                                                                                        | Enable authentication, base on ingress logic                          |
-| .external_api.auth.sub_domain             | `-`           | `str`     | M   |                                                                                                                                                        |                                                                       |
-| .external_api.auth.type                   | `vouch`       | `set str` | O   | - `vouch` - enable vouch-proxy support <br/> - `keycloak` - enable keycloak support <br/> - `base` - enable http basic authentication support          |                                                                       |
-| .external_api.headers[]                   | `[]`          | `list`    | O   |                                                                                                                                                        |                                                                       |
-| .external_api.headers[].header            | `""`          | `str`     | M   | example: `"Content-Type: text/html; charset=UTF-8"`                                                                                                    |                                                                       |
-| .external_api.headers[].override          | `false`       | `bool`    | O   | - `true` - always override same header; <br/> `false` - set header, if is not set only                                                                 |                                                                       |
+**Default value**: `-`
+
+**Type**: `str`
+
+#### `.cloud_resources[].env_name_prefix`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+#### `.cloud_resources[].type`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+### Optional parameters
+
+#### `.cloud_resources`
+
+**Default value**: `[]`
+
+**Type**: `map`
+
+#### `.cloud_resources[].params`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+
+## **Secrets block:**
+
+### Required parameters:
+
+#### `.secrets[].path`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+#### `.secrets[].env_name_prefix`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+### Optional parameters
+
+#### `.secrets`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+#### `.secrets[].type`
+
+**Default value**: `vault&#124;k8s`
+
+**Type**: `set str`
 
 \
-**LAN facing interface:**
+## **Environment block:**
 
-| Parameter                        | Default value | Type      | M/O | Variants                                                                                                                                               | Remarks                                                               |
-| -------------------------------- | ------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| .internal_api                    | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
-| .internal_api.base_url           | `””`          | `str`     | O   |                                                                                                                                                        |                                                                       |
-| .internal_api.sub_domain         | `””`          | `str`     | O   |                                                                                                                                                        |                                                                       |
-| .internal_api.base_domain        | `-`           | `str`     | M   |                                                                                                                                                        |                                                                       |
-| .internal_api.loadbalancer       | `aws_network` | `set str` | O   | `aws_network` - AWS Network                                                                                                                            |                                                                       |
-| .internal_api.protocol           | `tcp`         | `set str` | O   | - `tcp` - for TCP protocol <br/> - `tls` - SSL terminated TCP protocol <br/> - `udp` - for UDP protocol <br/> - `tcp_udp` - double support TCP and UDP | Currently available only `tcp` for `80` port and `tls` for `443` port |
-| .internal_api.port               | `80,443`      | `set int` | O   |                                                                                                                                                        | Currently available only values `80` or `443` or both                 |
-| .internal_api.headers[]          | `[]`          | `list`    | O   |                                                                                                                                                        |                                                                       |
-| .internal_api.headers[].header   | `""`          | `str`     | M   | example: `"Content-Type: text/html; charset=UTF-8"`                                                                                                    |                                                                       |
-| .internal_api.headers[].override | `true`        | `bool`    | O   | - `true` - always override same header; <br/> - `false` - set header, if is not set only                                                               |                                                                       |
+### Required parameters:
+
+#### `.environment[].env_name`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+#### `.environment[].value`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+### Optional parameters
+#### `.environment`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
 
 \
+## **Internet facing interface:**
+
+### Required parameters:
+
+#### `.external_api.base_domain`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+#### `.external_api.cors.enable_cors`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+**Variants**: `true`
+
+#### `.external_api.auth.sub_domain`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+#### `.external_api.headers[].header`
+
+**Default value**: `""`
+
+**Type**: `str`
+
+**Variants**: `"Content-Type: text/html; charset=UTF-8"`
+
+### Optional parameters
+#### `.external_api`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+#### `.external_api.base_url`
+
+**Default value**: `_""_`
+
+**Type**: `str`
+
+#### `.external_api.sub_domain`
+
+**Default value**: `_""_`
+
+**Type**: `str`
+
+#### `.external_api.loadbalancer`
+
+**Default value**: `aws_network`
+
+**Type**: `set str`
+
+**Variants**: `aws_network - AWS Network`
+
+#### `.external_api.protocol`
+
+**Default value**: `tcp`
+
+**Type**: `set str`
+
+**Variants**: `
+- tcp - for TCP protocol
+- tls - SSL terminated TCP protocol
+- udp - for UDP protocol
+- tcp_udp - double support TCP and UDP`
+
+#### `.external_api.port`
+
+**Default value**: `80,443`
+
+**Type**: `set int`
+
+#### `.external_api.redirects`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+#### `.external_api.redirects.http2https`
+
+**Default value**: `true`
+
+**Type**: `bool`
+
+#### `.external_api.cors`
+
+**Default value**: `{}`
+
+**Type**: `	map`
+
+#### `.external_api.cors.cors-allow-methods`
+
+**Default value**: `*`
+
+**Type**: `set str`
+
+**Variants**: `GET, PUT, POST, DELETE, PATCH, OPTIONS`
+
+#### `.external_api.cors.cors-allow-headers`
+
+**Default value**: `*`
+
+**Type**: `set str`
+**Variants**: `DNT,X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization`
+
+#### `.external_api.cors.cors-allow-origin`
+
+**Default value**: `*`
+
+**Type**: `str`
+**Variants**: `
+- * - will be set domain from Origin request header, or form `.external_api.base_domain`
+- `<domain-name>`- always will be set this domain
+
+`
+
+#### `.external_api.cors.cors-allow-credentials`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+
+#### `.external_api.cors.cors-max-age`
+
+**Default value**: `1728000`
+
+**Type**: `int`
+
+
+#### `.external_api.auth`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+#### `.external_api.auth.url`
+
+**Default value**: `””`
+
+**Type**: `str`
+
+#### `.external_api.auth.type`
+
+**Default value**: `vouch`
+
+**Type**: `set str`
+
+#### `.external_api.headers[]`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+#### `.external_api.headers[].override`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+**Variants**: `
+true - always override same header;
+false - set header, if is not set only`
+
+\
+## **LAN facing interface:**
+### Required parameters:
+
+#### `.internal_api.base_domain`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+#### `.internal_api.headers[].header`
+
+**Default value**: `””`
+
+**Type**: `str`
+
+### Optional parameters
+#### `.internal_api`
+
+**Default value**: `{}`
+**Type**: `map`
+
+#### `.internal_api.base_url`
+
+**Default value**: `""`
+
+**Type**: `str`
+
+
+#### `.internal_api.sub_domain`
+
+**Default value**: `””`
+
+**Type**: `str`
+
+#### `.internal_api.loadbalancer`
+
+**Default value**: `aws_network`
+
+**Type**: `set str`
+
+**Variants**: `aws_network - AWS Network`
+
+#### `.internal_api.protocol`
+
+**Default value**: `tcp`
+
+**Type**: `set str`
+
+#### `.internal_api.port`
+
+**Default value**: `80,443`
+
+**Type**: `set int`
+
+#### `.internal_api.headers[]`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+
+#### `.internal_api.headers[].override`
+
+**Default value**: `true`
+
+**Type**: `bool`
+
+**Type**: `
+- true - always override same header;
+- false - set header, if is not set only`
+
 **Service block:**
 
-| Parameter                               | Default value | Type      | M/O | Variants                                                          | Remarks                                                                            |
-| --------------------------------------- | ------------- | --------- | --- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| .service                                | `{}`          | `map`     | M   |                                                                   |                                                                                    |
-| .service.name                           | `-`           | `str`     | M   |                                                                   |                                                                                    |
-| .service.namespace                      | `default`     | `str`     | O   |                                                                   |                                                                                    |
-| .service.type                           | `ClusterIP`   | `set str` | O   |                                                                   |                                                                                    |
-| .service.annotations                    | `{}`          | `map`     | O   |                                                                   |                                                                                    |
-| .service.servicePort                    | `80`          | `int`     | O   |                                                                   |                                                                                    |
-| .service.podPort                        | `80`          | `int`     | O   |                                                                   |                                                                                    |
-| .service.specType                       | `deployment`  | `set str` | O   | - `deployment, job, cronjob, replicasets, daemonset, statefulset` |                                                                                    |
-| .service.options                        | `{}`          | `map`     | O   |                                                                   |                                                                                    |
-| .service.options.sidecars               | `{}`          | `map`     | O   |                                                                   |                                                                                    |
-| .service.options.sidecars.vault         | `{}`          | `map`     | O   |                                                                   |                                                                                    |
-| .service.options.sidecars.vault.enable  | `false`       | `bool`    | M   | - `enable` <br/> - `disable`                                      |                                                                                    |
-| .service.options.sidecars.vault.policy  | `default-app` | `str`     | O   |                                                                   | Mandatory, if `.service.options.sidecars.vault_hcl` present                        |
-| .service.options.sidecars.vault.hcl     | `””`          | `str`     | O   |                                                                   | File with ACL policy body. Path is relative from current `simloudfile.yaml` folder |
-| .service.options.sidecars.consul        | `{}`          | `map`     | O   |                                                                   |                                                                                    |
-| .service.options.sidecars.consul.enable | `false`       | `bool`    | M   | - `enable` <br/> - `disable`                                      |                                                                                    |
-| .service.options.sidecars.consul.policy | `default-app` | `str`     | O   |                                                                   | Mandatory, if `.service.options.sidecars.consul_hcl` present                       |
-| .service.options.sidecars.consul.hlc    | `""`          | `str`     | O   |                                                                   | File with ACL policy body. Path is relative from current `simloudfile.yaml` folder |
-| .service.options.timeouts               | `{}`          | `map`     | O   |                                                                   |                                                                                    |
-| .service.options.timeouts.job_execute   | `3600`        | `int`     | M   |                                                                   | Job spec execution timeout in sec.                                                 |
-| .service.options.job                    | `{}`          | `map`     | O   |                                                                   | Applicable only for job/cronjob type                                               |
-| .service.options.job.shell_command      | `””`          | `str`     | M   |                                                                   | Default shell command                                                              |
-| .service.options.job.cron               | `*/1 * * * *` | `str`     | O   |                                                                   | Only for cronjob type                                                              |
-| .service.options.job.cron_concurrency   | `Allow`       | `set str` | O   | - `Allow` <br/> - `Forbid` <br/> - `Replace`                      |                                                                                    |
-| .service.options.job.cron_suspend       | `false`       | `bool`    |     |                                                                   |                                                                                    |
-| .service.options.job.cron_backoffLimit  | `4`           | `int`     |     |                                                                   |                                                                                    |
-| .service.options.job.cron_completions   | `1`           | `int`     |     |                                                                   |                                                                                    |
-| .service.options.job.cron_parallelism   | `1`           | `int`     |     |                                                                   |                                                                                    |
+### Required parameters:
+
+#### `.service`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+#### `.service.name`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+#### `.service.options.sidecars.vault.enable`
+
+**Default value**: `false`
+
+**Type**: `bool`
+**Variants**: `
+- enable
+- disable
+`
+#### `..service.options.sidecars.consul.enable`
+**Default value**: `false`
+**Type**: `bool`
+**Variants**: `
+- enable
+- disable
+`
+#### `.service.options.timeouts.job_execute`
+**Default value**: `3600`
+**Type**: `	int`
+
+#### `.service.options.job.shell_command`
+**Default value**: `””`
+**Type**: `str`
+
+
+## Optional parameters
+#### `.service.namespace`
+
+**Default value**: `default`
+**Type**: `str`
+
+#### `.service.type`
+
+**Default value**: `ClusterIP`
+
+**Type**: `	set str`
+
+
+#### `.service.annotations`
+
+**Default value**: `{}`
+**Type**: `	map`
+
+#### `.service.servicePort`
+**Default value**: `80`
+**Type**: `int`
+
+#### `.service.podPort`
+
+**Default value**: `80`
+**Type**: `int`
+
+#### `.service.specType`
+
+**Default value**: `deployment`
+
+**Type**: `set str`
+**Variants**: `deployment, job, cronjob, replicasets, daemonset, statefulset`
+
+
+#### `.service.options`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+#### `.service.options.sidecars`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+#### `.service.options.sidecars.vault`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+#### `.service.options.sidecars.vault.policy`
+
+**Default value**: `default-app`
+**Type**: `str`
+
+#### `.service.options.sidecars.vault.hcl`
+
+**Default value**: `””`
+**Type**: `str`
+
+#### `.service.options.sidecars.consul`
+
+**Default value**: `{}`
+**Type**: `map`
+
+#### `.service.options.sidecars.consul.policy`
+
+**Default value**: `default-app`
+
+**Type**: `str`
+
+#### `.service.options.sidecars.consul.hlc`
+
+**Default value**: `""`
+
+**Type**: `str`
+
+#### `.service.options.timeouts`
+
+**Default value**: `{}`
+**Type**: `map`
+
+
+#### `.service.options.job`
+**Default value**: `{}`
+**Type**: `map`
+
+#### `.service.options.job.cron`
+**Default value**: `*/1 * * * *`
+**Type**: `str`
+
+#### `.service.options.job.cron_concurrency`
+**Default value**: `Allow`
+**Type**: `set str`
+**Variants**: `
+- Allow
+- Forbid
+- Replace `
+
+#### `.service.options.job.cron_suspend`
+**Default value**: `false`
+**Type**: `bool`
+
+#### `.service.options.job.cron_backoffLimit`
+**Default value**: `4`
+**Type**: `int`
+
+#### `.service.options.job.cron_completions`
+**Default value**: `1`
+**Type**: `int`
+
+#### `.service.options.job.cron_parallelism`
+**Default value**: `1`
+**Type**: `int`
 
 \
-**Kubernetes oriented Spec block:**
+# Variant 2
 
 | Parameter                                                      | Default value | Type        | M/O | Variants                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Remarks                                                                                                                                                                       |
 | -------------------------------------------------------------- | ------------- | ----------- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -414,3 +803,254 @@ spec: {} # frontend service will be emply
 | Parameter | Default value | Type  | M/O | Variants | Remarks                           |
 | --------- | ------------- | ----- | --- | -------- | --------------------------------- |
 | .spec     | `{}`          | `map` | M   |          | Should be present, but empty `{}` |
+
+
+
+
+
+| Parameter                  | Default value    | Type    | M/O                          | Variants                                                                                                                  | Remarks                                                                                          |
+| -------------------------- | ---------------- | ------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| .secrets                   | `[]`             | list    | O                            |                                                                                                                           | Provide secrets, stored in hashicorp vault or k8s secrets, mount to pod as environment variables |
+| .secrets[].path            | `-`              | str     | M                            | if `.secrets[].type` will be:<br/> - vault: `<vault-kv-path>` <br/> - k8s: `<secret-name>.<namespace>`                    |                                                                                                  |
+| .secrets[].env_name_prefix | `-`              | str     | M - strict<br/> O - advanced | environment variable prefix. will be generated by this logic: <br/> `.secrets[].env_name_prefix_secret-key`               | Mandatory in `.mode` : `strict` <br/> Optional in `.mode` : `advanced`                           |
+| .secrets[].type            | `vault&#124;k8s` | set str | O                            | Storage type: <br/> - `vault` - to read secret data from vault <br/> - `k8s` - to read secret data from kubernetes secret |                                                                                                  |
+
+
+
+| Parameter               | Default value | Type | M/O | Variants | Remarks                                                           |
+| ----------------------- | ------------- | ---- | --- | -------- | ----------------------------------------------------------------- |
+| .environment            | `[]`          | list | O   |          | Provide availability apply hardcoded environment variables to pod |
+| .environment[].env_name | `-`           | str  | M   |          | Environment name                                                  |
+| .environment[].value    | `-`           | str  | M   |          | Environment variable                                              |
+
+
+| Parameter                                 | Default value | Type      | M/O | Variants                                                                                                                                               | Remarks                                                               |
+| ----------------------------------------- | ------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| .external_api                             | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
+| .external_api.base_url                    | `””`          | `str`     | O   |                                                                                                                                                        | Base url, if applicable                                               |
+| .external_api.sub_domain                  | `””`          | `str`     | O   |                                                                                                                                                        | Subdomain, if applicable                                              |
+| .external_api.base_domain                 | `-`           | `str`     | M   |                                                                                                                                                        | Base domain name                                                      |
+| .external_api.loadbalancer                | `aws_network` | `set str` | O   | `aws_network` - AWS Network                                                                                                                            |                                                                       |
+| .external_api.protocol                    | `tcp`         | `set str` | O   | - `tcp - for TCP protocol` <br/> - `tls` - SSL terminated TCP protocol <br/> - `udp` - for UDP protocol <br/> - `tcp_udp` - double support TCP and UDP | Currently available only `tcp` for `80` port and `tls` for `443` port |
+| .external_api.port                        | `80,443`      | `set int` | O   |                                                                                                                                                        | Currently available only values `80` or `443` or both                 |
+| .external_api.redirects                   | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
+| .external_api.redirects.http2https        | `true`        | `bool`    | O   |                                                                                                                                                        | Automatic redirect from `HTTP` to `HTTPS` protocol                    |
+| .external_api.cors                        | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
+| .external_api.cors.enable_cors            | `false`       | `bool`    | M   | - `true`                                                                                                                                               | Enable `CORS` headers support                                         |
+| .external_api.cors.cors-allow-methods     | `*`           | `set str` | O   | - `GET, PUT, POST, DELETE, PATCH, OPTIONS`                                                                                                             |                                                                       |
+| .external_api.cors.cors-allow-headers     | `*`           | `set str` | O   | - `DNT,X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization`                        |                                                                       |
+| .external_api.cors.cors-allow-origin      | `*`           | `str`     | O   | - `*` - will be set domain from `Origin` request header, or form `.external_api.base_domain` <br/> - `<domain-name>` - always will be set this domain  |                                                                       |
+| .external_api.cors.cors-allow-credentials | `false`       | `bool`    | O   |                                                                                                                                                        |                                                                       |
+| .external_api.cors.cors-max-age           | `1728000`     | `int`     | O   |                                                                                                                                                        |                                                                       |
+| .external_api.auth                        | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
+| .external_api.auth.url                    | `””`          | `str`     | O   |                                                                                                                                                        | Enable authentication, base on ingress logic                          |
+| .external_api.auth.sub_domain             | `-`           | `str`     | M   |                                                                                                                                                        |                                                                       |
+| .external_api.auth.type                   | `vouch`       | `set str` | O   | - `vouch` - enable vouch-proxy support <br/> - `keycloak` - enable keycloak support <br/> - `base` - enable http basic authentication support          |                                                                       |
+| .external_api.headers[]                   | `[]`          | `list`    | O   |                                                                                                                                                        |                                                                       |
+| .external_api.headers[].header            | `""`          | `str`     | M   | example: `"Content-Type: text/html; charset=UTF-8"`                                                                                                    |                                                                       |
+| .external_api.headers[].override          | `false`       | `bool`    | O   | - `true` - always override same header; <br/> `false` - set header, if is not set only                                                                 |                                                                       |
+
+
+
+| Parameter                               | Default value | Type      | M/O | Variants                                                          | Remarks                                                                            |
+| --------------------------------------- | ------------- | --------- | --- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| .service                                | `{}`          | `map`     | M   |                                                                   |                                                                                    |
+| .service.name                           | `-`           | `str`     | M   |                                                                   |                                                                                    |
+| .service.namespace                      | `default`     | `str`     | O   |                                                                   |                                                                                    |
+| .service.type                           | `ClusterIP`   | `set str` | O   |                                                                   |                                                                                    |
+| .service.annotations                    | `{}`          | `map`     | O   |                                                                   |                                                                                    |
+| .service.servicePort                    | `80`          | `int`     | O   |                                                                   |                                                                                    |
+| .service.podPort                        | `80`          | `int`     | O   |                                                                   |                                                                                    |
+| .service.specType                       | `deployment`  | `set str` | O   | - `deployment, job, cronjob, replicasets, daemonset, statefulset` |                                                                                    |
+| .service.options                        | `{}`          | `map`     | O   |                                                                   |                                                                                    |
+| .service.options.sidecars               | `{}`          | `map`     | O   |                                                                   |                                                                                    |
+| .service.options.sidecars.vault         | `{}`          | `map`     | O   |                                                                   |                                                                                    |
+| .service.options.sidecars.vault.enable  | `false`       | `bool`    | M   | - `enable` <br/> - `disable`                                      |                                                                                    |
+| .service.options.sidecars.vault.policy  | `default-app` | `str`     | O   |                                                                   | Mandatory, if `.service.options.sidecars.vault_hcl` present                        |
+| .service.options.sidecars.vault.hcl     | `””`          | `str`     | O   |                                                                   | File with ACL policy body. Path is relative from current `simloudfile.yaml` folder |
+| .service.options.sidecars.consul        | `{}`          | `map`     | O   |                                                                   |                                                                                    |
+| .service.options.sidecars.consul.enable | `false`       | `bool`    | M   | - `enable` <br/> - `disable`                                      |                                                                                    |
+| .service.options.sidecars.consul.policy | `default-app` | `str`     | O   |                                                                   | Mandatory, if `.service.options.sidecars.consul_hcl` present                       |
+| .service.options.sidecars.consul.hlc    | `""`          | `str`     | O   |                                                                   | File with ACL policy body. Path is relative from current `simloudfile.yaml` folder |
+| .service.options.timeouts               | `{}`          | `map`     | O   |                                                                   |                                                                                    |
+| .service.options.timeouts.job_execute   | `3600`        | `int`     | M   |                                                                   | Job spec execution timeout in sec.                                                 |
+| .service.options.job                    | `{}`          | `map`     | O   |                                                                   | Applicable only for job/cronjob type                                               |
+| .service.options.job.shell_command      | `””`          | `str`     | M   |                                                                   | Default shell command                                                              |
+| .service.options.job.cron               | `*/1 * * * *` | `str`     | O   |                                                                   | Only for cronjob type                                                              |
+| .service.options.job.cron_concurrency   | `Allow`       | `set str` | O   | - `Allow` <br/> - `Forbid` <br/> - `Replace`                      |                                                                                    |
+| .service.options.job.cron_suspend       | `false`       | `bool`    |     |                                                                   |                                                                                    |
+| .service.options.job.cron_backoffLimit  | `4`           | `int`     |     |                                                                   |                                                                                    |
+| .service.options.job.cron_completions   | `1`           | `int`     |     |                                                                   |                                                                                    |
+| .service.options.job.cron_parallelism   | `1`           | `int`     |     |                                                                   |                                                                                    |
+
+
+
+| Parameter                        | Default value | Type      | M/O | Variants                                                                                                                                               | Remarks                                                               |
+| -------------------------------- | ------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| .internal_api                    | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
+| .internal_api.base_url           | `””`          | `str`     | O   |                                                                                                                                                        |                                                                       |
+| .internal_api.sub_domain         | `””`          | `str`     | O   |                                                                                                                                                        |                                                                       |
+| .internal_api.base_domain        | `-`           | `str`     | M   |                                                                                                                                                        |                                                                       |
+| .internal_api.loadbalancer       | `aws_network` | `set str` | O   | `aws_network` - AWS Network                                                                                                                            |                                                                       |
+| .internal_api.protocol           | `tcp`         | `set str` | O   | - `tcp` - for TCP protocol <br/> - `tls` - SSL terminated TCP protocol <br/> - `udp` - for UDP protocol <br/> - `tcp_udp` - double support TCP and UDP | Currently available only `tcp` for `80` port and `tls` for `443` port |
+| .internal_api.port               | `80,443`      | `set int` | O   |                                                                                                                                                        | Currently available only values `80` or `443` or both                 |
+| .internal_api.headers[]          | `[]`          | `list`    | O   |                                                                                                                                                        |                                                                       |
+| .internal_api.headers[].header   | `""`          | `str`     | M   | example: `"Content-Type: text/html; charset=UTF-8"`                                                                                                    |                                                                       |
+| .internal_api.headers[].override | `true`        | `bool`    | O   | - `true` - always override same header; <br/> - `false` - set header, if is not set only                                                               |                                                                       |
+
+\
+
+
+
+## Example for V2 SimloudFile.yaml:
+
+**Kubernetes deployment mode:**
+``` yaml 
+version: v2
+kind: simloud-deployment
+name: <repo visual name>                         # "optional", if empty, will same with `.service.name`
+type: kubernetes
+mode: (strict|advаnced)                          # default "strict"
+image: <jenkins-slave-image>                     # default empty. Send to jenkins as
+# SLAVE_IMAGE parameter
+dependency:
+microservices:                                 # check depended microservices
+- name: <service_name>.                        # `.service.name` parameters from another
+  namespace: <namespace>                       # default "default"
+  check:                                       # what need to check
+  helm: (exist|notexist)                     # default "exist"
+
+cloud_resources:
+- name: service_name.db_1
+  env_name_prefix: ENVDB1
+  type: dynamodb
+  params:
+  dbname: aaa
+  Region: eu-central-1
+
+- name: s3_1
+  env_name_prefix: S31
+  type: s3
+
+- name: lambda-service-3.s3_1
+  env_name_prefix: LAMBDAS31
+  type: s3
+
+- name: lambda-service-3.db1_1
+  type: s3
+
+secrets:
+- path: secrets/customer1/data1        # vault: <path> ; k8s: `<secret-name>.<namespace>`
+  env_name_prefix: CUSTENV1            # mandatory in mode: `strict`, optional in `advanced`
+  type: (vault|k8s)                    # default "vault", k8s - kubernetes secret
+
+environment:
+- env_name: ENVNAME1
+  value: Yahoo!
+
+external_api:
+base_url: kube-service
+sub_domain: xxx
+base_domain: base.domain.name
+loadbalancer: aws_network
+protocol: tcp    # options: tcp, udp, tls, tcp_udp
+port: 80,443     # available 80 and 443 only
+redirects:
+http2https: true # by default enabled
+cors:
+enable_cors: true  # default "false"
+cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # default "*"
+cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # default "*"
+cors-allow-origin: "*"
+cors-allow-credentials: false
+cors-max-age: 1728000
+auth:                           # @v4.2.16
+url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain .
+sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
+type: (vouch|keycloak)        # default “vouch”, to integrate via vouch.
+
+internal_api:                     # @v4.2
+base_url: kube-service
+sub_domain: xxx
+base_domain: base.domain.name
+loadbalancer: aws_network
+protocol: tcp    # options: tcp, udp, tls, tcp_udp
+port: 80,443     # available 80 and 443 only
+
+service:
+name: kube-service-3
+namespace: default
+type: ClusterIP
+annotations: {}
+servicePort: 80 # default 80
+podPort: 80 # default 80
+# `pod` type replaced with `deployment`
+specType: (deployment|job|cronjob|replicasets|daemonset|statefulset)  # default “deployment”
+options:                                 # @v3.4.10
+sidecars:
+vault: false
+timeouts:                  # @v4.2.17
+job_execute: 3600        # job spec execution timeout in sec
+job:                       # @v4.2.17 applicable only for job/cronjob type
+shell_command: “”        # default shell command
+cron: “*/1 * * * *”      # job cron execution. Only for cronjob type
+cron_concurrency: Allow  # Enable cron jobs concurrency: Allow/Forbid/Replace
+
+spec:  # for k8s service, mutually exclusive with below
+pod:
+name: kube-service-3
+terminationGracePeriodSeconds: 300 # default 300sec
+replicas: 1
+strategy: # @v3.4.6
+# RollingUpdate: New pods are added gradually, and old pods are terminated gradually
+# Recreate: All old pods are terminated before any new pods are added
+type: (Recreate|RollingUpdate) # default “Recreate”
+rollingUpdate:                 # default empty
+maxSurge: 1                  # The number of pods that can be created above the desired amount of pods during an update
+maxUnavailable: 25%          # The number of pods that can be unavailable during the update process
+hascaler: # @v4.2
+enabled: false
+min: 1
+max: 10
+cpu_percent: 80
+containers:
+- name: container-name
+image: <image path>
+lifecycle:
+preStop:
+exec:
+# SIGTERM triggers a quick exit; gracefully terminate instead
+command: ["/usr/sbin/nginx","-s","quit"]
+resources:
+health_check: # @v4.2 - details
+readinessProbe:
+exec:
+command:
+- cat
+- /tmp/healthy
+initialDelaySeconds: 5
+periodSeconds: 5
+livenessProbe:
+tcpSocket:
+port: 8080
+initialDelaySeconds: 5
+periodSeconds: 10
+startupProbe:
+httpGet:
+path: /healthz
+port: 8080
+httpHeaders:
+- name: Custom-Header
+value: Awesome
+initialDelaySeconds: 3
+periodSeconds: 3
+requests:
+memory: "60Mi"
+cpu: "200m"
+limits:
+memory: "120Mi"
+cpu: "1000m"
+ ```
+[Download Simloudfilefork8s.yaml for k8s](/files/SImloudfilefork8s.yaml)
+
+
