@@ -1077,3 +1077,353 @@ cpu: "1000m"
 [Download Simloudfilefork8s.yaml for k8s](/files/SImloudfilefork8s.yaml)
 
 
+
+
+---
+title: Simloudfile.yaml
+description: Simloudfile.yaml
+layout: ../../layouts/MainLayout.astro
+---
+
+A dynamic configuration file which is responsible for deploying different components of the infrastructure.
+
+### Full `SimloudFile.yaml` file :
+
+```yaml
+version: v2
+kind: simloud-deployment
+name: <repo visual name>                          # "optional", if empty, will same with `.service.name`
+type: (kubernetes|pipeline|serverless|front-end)  # default "kubernetes" @v5.0
+mode: (strict|advаnced)                           # default "strict"
+image: <jenkins-slave-image>                      # Send to jenkins as SLAVE_IMAGE parameter
+
+cloud_resources:
+  - name: service_name.db_1
+    env_name_prefix: ENVDB1
+    type: dynamodb
+    params:
+      dbname: aaa
+      Region: eu-central-1
+
+  - name: s3_1
+    env_name_prefix: S31
+    type: s3
+
+  - name: lambda-service-3.s3_1
+    env_name_prefix: LAMBDAS31
+    type: s3
+
+  - name: lambda-service-3.db1_1
+    type: s3
+
+secrets:
+  - path: secrets/customer1/data1        # vault: <path>
+    env_name_prefix: CUSTENV1            # mandatory in mode: `strict`, optional in `advanced`
+    type: vault                          # default "vault"
+
+environment:
+  - env_name: ENVNAME1
+    value: Yahoo!
+
+external_api:       # internet facing loadbalancer
+  base_url: kube-service
+  sub_domain: xxx
+  base_domain: base.domain.name
+  regex:
+    enabled: false             # default `false`
+    rewrite-target: /$2$3$4    # default `for micro_service_type: serverless` will be `$1$2$3$4`, for all another modes `$2$3$4`
+  redirects:
+    http2https: true           # by default enabled
+  cors:
+    enable_cors: false          # default "false"
+    cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+    cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
+    cors-allow-origin: "*"
+    cors-allow-credentials: false
+    cors-max-age: 1728000
+  auth:
+    url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain as .
+    sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
+    type: vouch                   # default "vouch", to integrate via vouch.
+  headers:
+    - header: "Content-Type: text/html; charset=UTF-8"
+      override: true              # true - always override same header; false - set header, if is not set only
+
+internal_api:
+  base_url: kube-service
+  sub_domain: xxx
+  base_domain: base.domain.name
+  regex:
+    enabled: false             # default `false`
+    rewrite-target: /$2$3$4    # default `for micro_service_type: serverless` will be `$1$2$3$4`, for all another modes `$2$3$4`
+  redirects:
+    http2https: true           # by default enabled
+  cors:
+    enable_cors: false          # default "false"
+    cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+    cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
+    cors-allow-origin: "*"
+    cors-allow-credentials: false
+    cors-max-age: 1728000
+  auth:
+    url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain as .
+    sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
+    type: vouch                   # default "vouch", to integrate via vouch.
+  headers:
+    - header: "Content-Type: text/html; charset=UTF-8"
+      override: true              # true - always override same header; false - set header, if is not set only
+
+service:
+  name: kube-service-3  # microservice name
+  namespace: default    # namespace
+  type: ClusterIP
+  servicePort: 80  # default 80
+  podPort: 80      # default 80
+  # `pod` type replaced with `deployment`
+  specType: (deployment|job|cronjob)  # default "deployment"
+  options:
+    sidecars:
+      vault:
+        enable: false          # vault sidecar enable/disable
+        policy: default-app    # default vault acl policy name
+    timeouts:                  # @v4.2.17
+      job_execute: 3600        # job spec execution timeout in sec
+    job:                       # @v4.2.17 applicable only for job/cronjob type
+      shell_command: ""        # default shell command
+      cron: "*/1 * * * *"      # job cron execution. Only for cronjob type
+      cron_concurrency: Allow  # Enable cron jobs concurrency: Allow/Forbid/Replace
+      cron_suspend: false      # If it is set to true, all subsequent executions are suspended.
+      cron_backoffLimit: 4     # to specify the number of retries before considering a Job as failed
+      cron_completions: 1      #
+      cron_parallelism: 1      #
+
+spec:  # for k8s service, mutually exclusive with below
+  pod:
+    name: kube-service-3
+    terminationGracePeriodSeconds: 300 # default 300sec
+    replicas: 1
+    strategy:
+      # RollingUpdate: New pods are added gradually, and old pods are terminated gradually
+      # Recreate: All old pods are terminated before any new pods are added
+      type: (Recreate|RollingUpdate) # default "Recreate"
+      rollingUpdate:                 # default empty
+        maxSurge: 1                  # The number of pods that can be created above the desired amount of pods during an update
+        maxUnavailable: 25%          # The number of pods that can be unavailable during the update process
+    containers:                      # NOTE: currently supports only single container !!!
+      - imagePullSecrets:                              #
+          - name: <image-pull-secret-name>               # set customer one or more image pull secret name(s)
+        lifecycle: # optional
+          preStop:
+            exec:
+              # SIGTERM triggers a quick exit; gracefully terminate instead
+              command: ["/usr/sbin/nginx","-s","quit"]
+        resources:
+          health_check:
+            readinessProbe:
+              exec:
+                command:
+                  - cat
+                  - /tmp/healthy
+              initialDelaySeconds: 5
+              periodSeconds: 5
+            livenessProbe:
+              tcpSocket:
+                port: 8080
+              initialDelaySeconds: 5
+              periodSeconds: 10
+            startupProbe:
+              httpGet:
+                path: /healthz
+                port: 8080
+                httpHeaders:
+                  - name: Custom-Header
+                    value: Awesome
+              initialDelaySeconds: 3
+              periodSeconds: 3
+          requests:
+            memory: "60Mi"
+            cpu: "200m"
+            ephemeral-storage: "2G"
+          limits:
+            memory: "120Mi"
+            cpu: "1000m"
+            ephemeral-storage: "4G"
+
+spec:  # for lambda mutually exclusive with above, see more in https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.create_function
+  Runtime: 'python3.7'
+  Timeout: 15
+  MemorySize: 128
+
+spec: {} # frontend service will be emply
+```
+[Download Simloudfile.yaml](/files/Simloudfile.yaml)
+
+
+
+
+
+
+## Example for V2 SimloudFile.yaml:
+
+**Kubernetes deployment mode:**
+``` yaml 
+version: v2
+kind: simloud-deployment
+name: <repo visual name>                         # "optional", if empty, will same with `.service.name`
+type: kubernetes
+mode: (strict|advаnced)                          # default "strict"
+image: <jenkins-slave-image>                     # default empty. Send to jenkins as
+# SLAVE_IMAGE parameter
+dependency:
+microservices:                                 # check depended microservices
+- name: <service_name>.                        # `.service.name` parameters from another
+  namespace: <namespace>                       # default "default"
+  check:                                       # what need to check
+  helm: (exist|notexist)                     # default "exist"
+
+cloud_resources:
+- name: service_name.db_1
+  env_name_prefix: ENVDB1
+  type: dynamodb
+  params:
+  dbname: aaa
+  Region: eu-central-1
+
+- name: s3_1
+  env_name_prefix: S31
+  type: s3
+
+- name: lambda-service-3.s3_1
+  env_name_prefix: LAMBDAS31
+  type: s3
+
+- name: lambda-service-3.db1_1
+  type: s3
+
+secrets:
+- path: secrets/customer1/data1        # vault: <path> ; k8s: `<secret-name>.<namespace>`
+  env_name_prefix: CUSTENV1            # mandatory in mode: `strict`, optional in `advanced`
+  type: (vault|k8s)                    # default "vault", k8s - kubernetes secret
+
+environment:
+- env_name: ENVNAME1
+  value: Yahoo!
+
+external_api:
+base_url: kube-service
+sub_domain: xxx
+base_domain: base.domain.name
+loadbalancer: aws_network
+protocol: tcp    # options: tcp, udp, tls, tcp_udp
+port: 80,443     # available 80 and 443 only
+redirects:
+http2https: true # by default enabled
+cors:
+enable_cors: true  # default "false"
+cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # default "*"
+cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # default "*"
+cors-allow-origin: "*"
+cors-allow-credentials: false
+cors-max-age: 1728000
+auth:                           # @v4.2.16
+url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain .
+sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
+type: (vouch|keycloak)        # default “vouch”, to integrate via vouch.
+
+internal_api:                     # @v4.2
+base_url: kube-service
+sub_domain: xxx
+base_domain: base.domain.name
+loadbalancer: aws_network
+protocol: tcp    # options: tcp, udp, tls, tcp_udp
+port: 80,443     # available 80 and 443 only
+
+service:
+name: kube-service-3
+namespace: default
+type: ClusterIP
+annotations: {}
+servicePort: 80 # default 80
+podPort: 80 # default 80
+# `pod` type replaced with `deployment`
+specType: (deployment|job|cronjob|replicasets|daemonset|statefulset)  # default “deployment”
+options:                                 # @v3.4.10
+sidecars:
+vault: false
+timeouts:                  # @v4.2.17
+job_execute: 3600        # job spec execution timeout in sec
+job:                       # @v4.2.17 applicable only for job/cronjob type
+shell_command: “”        # default shell command
+cron: “*/1 * * * *”      # job cron execution. Only for cronjob type
+cron_concurrency: Allow  # Enable cron jobs concurrency: Allow/Forbid/Replace
+
+spec:  # for k8s service, mutually exclusive with below
+pod:
+name: kube-service-3
+terminationGracePeriodSeconds: 300 # default 300sec
+replicas: 1
+strategy: # @v3.4.6
+# RollingUpdate: New pods are added gradually, and old pods are terminated gradually
+# Recreate: All old pods are terminated before any new pods are added
+type: (Recreate|RollingUpdate) # default “Recreate”
+rollingUpdate:                 # default empty
+maxSurge: 1                  # The number of pods that can be created above the desired amount of pods during an update
+maxUnavailable: 25%          # The number of pods that can be unavailable during the update process
+hascaler: # @v4.2
+enabled: false
+min: 1
+max: 10
+cpu_percent: 80
+containers:
+- name: container-name
+image: <image path>
+lifecycle:
+preStop:
+exec:
+# SIGTERM triggers a quick exit; gracefully terminate instead
+command: ["/usr/sbin/nginx","-s","quit"]
+resources:
+health_check: # @v4.2 - details
+readinessProbe:
+exec:
+command:
+- cat
+- /tmp/healthy
+initialDelaySeconds: 5
+periodSeconds: 5
+livenessProbe:
+tcpSocket:
+port: 8080
+initialDelaySeconds: 5
+periodSeconds: 10
+startupProbe:
+httpGet:
+path: /healthz
+port: 8080
+httpHeaders:
+- name: Custom-Header
+value: Awesome
+initialDelaySeconds: 3
+periodSeconds: 3
+requests:
+memory: "60Mi"
+cpu: "200m"
+limits:
+memory: "120Mi"
+cpu: "1000m"
+ ```
+[Download Simloudfilefork8s.yaml for k8s](/files/SImloudfilefork8s.yaml)
+
+
+
+ Default aligned | Left aligned | Center aligned  | Right aligned  |
+|----------------|:-------------|:---------------:|---------------:|
+| First body part| Second cell  | Third cell      | fourth cell    |
+| Second line    | foo          | **strong**      | baz            |
+| Third line     | quux         | baz             | bar            |
+|----------------+--------------+-----------------+----------------|
+| Second body    |              |                 |                |
+| 2nd line       |              |                 |                |
+|----------------+--------------+-----------------+----------------|
+| Third body     |              |                 | Foo            |
+{: .custom-class #custom-id}
