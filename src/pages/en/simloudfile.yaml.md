@@ -176,186 +176,988 @@ spec: {} # frontend service will be emply
 [Download Simloudfile.yaml](/files/Simloudfile.yaml)
 
 
+
 ### Minimal Requirements:
 
 - Jenkins release/5.0
 - Backend:
 
- ## **Annotation block:**
-| Parameter |     Default value      |   Type    | M/O |                                                                                                                                                                           Variants                                                                                                                                                                            | Remarks                                                                                                                  |
-|:---------:|:----------------------:|:---------:|:---:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|--------------------------------------------------------------------------------------------------------------------------|
-| .version  |         ``v2``         |    str    |  M  |                                                                                                                                                                    ``v2`` - Only available                                                                                                                                                                    | from version v2, mandatory parameter <br/> ``v0`` , ``v1`` or empty, back compatible mode. details in **?!!?** document. |
-|   .kind   | ``simloud-deployment`` | const str |  M  |                                                                                                                                                                    ``simloud-deployment``                                                                                                                                                                     |                                                                                                                          |
-|   .name   |   ``.service.name``    |    str    |  O  |                                                                                                                                                                                                                                                                                                                                                               | "Optional", if empty, will same with ``.service.name``                                                                   | 
-|   .type   |         ``-``          |  set str  |  M  | -  ``kubernetes`` - deployment services as k8s service, any type. <br/> - ``apigw``  or ``serverless`` - deployment, using API GW solution, for example: lambda functions <br/> - ``external`` or ``front-end`` - deployment, using k8s external service solution, for example: frontend on s3 bucket <br/> - ``pipeline`` - Simloud pipeline execution, only | in ``advanced`` mode, prefix parameter: ``env_name_prefix`` is not mandatory                                             |
-|   .mode   |       ``strict``       |  set str  |  O  |                                                                                                                                  - ``strict`` - Strict syntax validation. <br/> - ``advanced`` - Advanced syntax validation                                                                                                                                   |                                                                                                                          |
-|  .image   |         ``””``         |    str    |  O  |                                                                                                                                                         Send to jenkins as ``SLAVE_IMAGE`` parameter.                                                                                                                                                         | Depricated<br/> alias from ``.cicd.image``                                                                               |
+## **Annotation block:**
 
+## Required parameters
 
+### `.version`
 
+**Default value**: `v2`
+
+**Type**: `str`
+
+`v2` - Only available. From version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode. Details in **?!!?** document.
+
+### `.kind`
+
+**Default value**: `simloud-deployment`
+
+**Type**: `const str`
+
+### `.type`
+
+**Default value**: `-`
+
+**Type**: `set str`
+
+**Variants**:
+- `kubernetes` - deployment services as k8s service, any type.
+- `apigw` or `serverless` - deployment, using API GW solution, for example: lambda functions
+- `external` or `front-end` - deployment, using k8s external service solution, for example: frontend on s3 bucket
+- `pipeline` - Simloud pipeline execution, only
+
+## Optional parameters
+
+### `.mode`
+
+**Default value**: `strict`
+
+**Type**: `set str`
+
+**Variants**:
+- `strict` - Strict syntax validation.
+- `advanced` - Advanced syntax validation
+
+**Remarks**: `in advanced mode, prefix parameter: env_name_prefix is not mandatory`
+### `.image`
+
+**Default value**: `””`
+
+**Type**: `str`
+
+**Variants**:  Send to jenkins as `SLAVE_IMAGE` parameter. Deprecated
+alias from `.cicd.image`.
+
+                                                                                                                                                                                                                                                                                                  | Depricated<br/> alias from `.cicd.image`                                                                             
 ## **Cloud Resources block:**
 
-|             Parameter              | Default value | Type | M/O | Variants | Remarks |
-|:----------------------------------:|:-------------:|:----:|:---:|:--------:|:-------:|
-|          .cloud_resources          |    ``[]``     | map  |  O  |          |         |
-|      .cloud_resources[].name       |     ``-``     | str  |  M  |          |         |
-| .cloud_resources[].env_name_prefix |     ``-``     | str  |  M  |          |         |
-|      .cloud_resources[].type       |     ``-``     | str  |  M  |          |         |
-|     .cloud_resources[].params      |    ``[]``     | list |  O  |          |         |
+### Required parameters:
+
+### `.cloud_resources[].name`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+### `.cloud_resources[].env_name_prefix`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+### `.cloud_resources[].type`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+### Optional parameters
+
+### `.cloud_resources`
+
+**Default value**: `[]`
+
+**Type**: `map`
+
+### `.cloud_resources[].params`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
 
 ## **Secrets block:**
-|         Parameter          |   Default value    |  Type   |             M/O              | Variants                                                                                                                       | Remarks                                                                                          |
-|:--------------------------:|--------------------|---------|:----------------------------:|:-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-|          .secrets          |       ``[]``       |  list   |              O               |                                                                                                                                | Provide secrets, stored in hashicorp vault or k8s secrets, mount to pod as environment variables |
-|      .secrets[].path       |       ``-``        |   str   |              M               | if ``.secrets[].type`` will be:<br/> - vault: ``<vault-kv-path>`` <br/> - k8s: ``<secret-name>.<namespace>``                   |                                                                                                  |
-| .secrets[].env_name_prefix |       ``-``        |   str   | M - strict<br/> O - advanced | environment variable prefix. will be generated by this logic: <br/> ``.secrets[].env_name_prefix_secret-key``                  | Mandatory in ``.mode`` : ``strict`` <br/> Optional in ``.mode`` : ``advanced``                   |
-|      .secrets[].type       | ``vault&#124;k8s`` | set str |              O               | Storage type: <br/>  - ``vault`` - to read secret data from vault <br/> - ``k8s`` - to read secret data from kubernetes secret |                                                                                                  | 
 
+### Required parameters:
+
+### `.secrets[].path`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+**Variants**: if  `.secrets[].type` will be:
+
+- `vault`: `<vault-kv-path>`
+- ` k8s: <secret-name>.<namespace> `
+
+### `.secrets[].env_name_prefix`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+**Variants**: environment variable prefix. will be generated by this logic:
+`.secrets[].env_name_prefix_secret-key`
+
+**Remarks**: 
+- Mandatory in `.mode : strict`
+- Optional in `.mode : advanced`
+- 
+### Optional parameters
+
+### `.secrets`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+**Remarks**: `Provide secrets, stored in hashicorp vault or k8s secrets, mount to pod as environment variables`
+
+### `.secrets[].type`
+
+**Default value**: `vault&#124;k8s`
+
+**Type**: `set str`
+
+**Variants**: 	
+Storage type:
+- `vault` - to read secret data from vault
+- `k8s` - to read secret data from kubernetes secret
 
 ## **Environment block:**
 
-| Parameter               | Default value | Type | M/O | Variants | Remarks                                                           |
-|-------------------------|---------------|------|-----|----------|-------------------------------------------------------------------|
-| .environment            | ``[]``        | list | O   |          | Provide availability apply hardcoded environment variables to pod |
-| .environment[].env_name | ``-``         | str  | M   |          | Environment name                                                  |
-| .environment[].value    | ``-``         | str  | M   |          | Environment variable                                              |
+### Required parameters:
 
+### `.environment[].env_name`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+**Remarks**: `Environment name`
+### `.environment[].value`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+**Remarks**: `Environment variable`
+
+### Optional parameters
+### `.environment`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+**Remarks**: `Provide availability apply hardcoded environment variables to pod `
 
 ## **Internet facing interface:**
-| Parameter                                 | Default value   | Type        | M/O | Variants                                                                                                                                                                                          | Remarks                                                                       |  
-|-------------------------------------------|-----------------|-------------|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| .external_api                             | ``{}``          | ``map``     | O   |                                                                                                                                                                                                   |                                                                               |
-| .external_api.base_url                    | ``””``          | ``str``     | O   |                                                                                                                                                                                                   | Base url, if applicable                                                       |
-| .external_api.sub_domain                  | ``””``          | ``str``     | O   |                                                                                                                                                                                                   | Subdomain, if applicable                                                      |
-| .external_api.base_domain                 | ``-``           | ``str``     | M   |                                                                                                                                                                                                   | Base domain name                                                              |
-| .external_api.loadbalancer                | ``aws_network`` | ``set str`` | O   | ``aws_network`` - AWS Network                                                                                                                                                                     |                                                                               |
-| .external_api.protocol                    | ``tcp``         | ``set str`` | O   | - ``tcp - for TCP protocol`` <br/> - ``tls`` - SSL terminated TCP protocol <br/> - ``udp`` - for UDP protocol <br/> - ``tcp_udp`` - double support TCP and UDP                                    | Currently available only ``tcp`` for ``80`` port and ``tls`` for ``443`` port |
-| .external_api.port                        | ``80,443``      | ``set int`` | O   |                                                                                                                                                                                                   | Currently available only values ``80`` or ``443`` or both                     |
-| .external_api.redirects                   | ``{}``          | ``map``     | O   |                                                                                                                                                                                                   |                                                                               |
-| .external_api.redirects.http2https        | ``true``        | ``bool``    | O   |                                                                                                                                                                                                   | Automatic redirect from ``HTTP`` to ``HTTPS`` protocol                        |
-| .external_api.cors                        | ``{}``          | ``map``     | O   |                                                                                                                                                                                                   |                                                                               |
-| .external_api.cors.enable_cors            | ``false``       | ``bool``    | M   | - ``true``                                                                                                                                                                                        | Enable ``CORS`` headers support                                               |
-| .external_api.cors.cors-allow-methods     | ``*``           | ``set str`` | O   | - ``GET, PUT, POST, DELETE, PATCH, OPTIONS``                                                                                                                                                      |                                                                               |
-| .external_api.cors.cors-allow-headers     | ``*``           | ``set str`` | O   | - ``DNT,X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization``                                                                 |                                                                               |
-| .external_api.cors.cors-allow-origin      | ``*``           | ``str``     | O   | - ``*`` - will be set domain from ``Origin`` request header, or form ``.external_api.base_domain`` <br/> - ``<domain-name>`` - always will be set this domain                                     |                                                                               |
-| .external_api.cors.cors-allow-credentials | ``false``       | ``bool``    | O   |                                                                                                                                                                                                   |                                                                               |
-| .external_api.cors.cors-max-age           | ``1728000``     | ``int``     | O   |                                                                                                                                                                                                   |                                                                               |
-| .external_api.auth                        | ``{}``          | ``map``     | O   |                                                                                                                                                                                                   |                                                                               |
-| .external_api.auth.url                    | ``””``          | ``str``     | O   |                                                                                                                                                                                                   | Enable authentication, base on ingress logic                                  |
-| .external_api.auth.sub_domain             | ``-``           | ``str``     | M   |                                                                                                                                                                                                   |                                                                               |
-| .external_api.auth.type                   | ``vouch``       | ``set str`` | O   | - ``vouch`` - enable vouch-proxy support <br/> - ``keycloak`` - enable keycloak support <br/> - ``base`` - enable http basic authentication support                                               |                                                                               |
-| .external_api.headers[]                   | ``[]``          | ``list``    | O   |                                                                                                                                                                                                   |                                                                               |
-| .external_api.headers[].header            | ``""``          | ``str``     | M   | example: ``"Content-Type: text/html; charset=UTF-8"``                                                                                                                                             |                                                                               |
-| .external_api.headers[].override          | ``false``       | ``bool``    | O   | ``true`` - always override same header; <br/> ``false`` - set header, if is not set only                                                                                                           |                                                                               |
-| .external_api.regex                       | ``false``       | ``bool``    | O   | ``true`` - full control over the format in which url is configured; <br/> ``false`` - default regex configuration was provided end equals the following <br/> configuration as if entered by hand. |  
+
+### Required parameters:
+
+### `.external_api.base_domain`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+**Remarks**: `Base domain name`
+
+### `.external_api.cors.enable_cors`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+**Variants**: `true`
+
+**Remarks**: `Enable CORS headers support`
+
+### `.external_api.auth.sub_domain`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+### `.external_api.headers[].header`
+
+**Default value**: `""`
+
+**Type**: `str`
+
+**Variants**: `"Content-Type: text/html; charset=UTF-8"`
+
+### Optional parameters
+### `.external_api`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.external_api.base_url`
+
+**Default value**: `_""_`
+
+**Type**: `str`
+
+**Remarks**: `Base url, if applicable`
+
+### `.external_api.sub_domain`
+
+**Default value**: `_""_`
+
+**Type**: `str`
+
+**Remarks**: `Subdomain, if applicable`
+
+### `.external_api.loadbalancer`
+
+**Default value**: `aws_network`
+
+**Type**: `set str`
+
+**Variants**: `aws_network - AWS Network`
+
+### `.external_api.protocol`
+
+**Default value**: `tcp`
+
+**Type**: `set str`
+
+**Variants**: `
+- `tcp` - for TCP protocol
+- `tls` - SSL terminated TCP protocol
+- `udp` - for UDP protocol
+- `tcp_udp` - double support TCP and UDP`
+
+### `.external_api.port`
+
+**Default value**: `80,443`
+
+**Type**: `set int`
+
+**Remarks**: `Currently available only values 80 or 443 or both`
+
+### `.external_api.redirects`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.external_api.redirects.http2https`
+
+**Default value**: `true`
+
+**Type**: `bool`
+
+**Remarks**: `Automatic redirect from HTTP to HTTPS protocol`
+
+### `.external_api.cors`
+
+**Default value**: `{}`
+
+**Type**: `	map`
+
+### `.external_api.cors.cors-allow-methods`
+
+**Default value**: `*`
+
+**Type**: `set str`
+
+**Variants**: `GET, PUT, POST, DELETE, PATCH, OPTIONS`
+
+### `.external_api.cors.cors-allow-headers`
+
+**Default value**: `*`
+
+**Type**: `set str`
+**Variants**: `DNT,X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization`
+
+### `.external_api.cors.cors-allow-origin`
+
+**Default value**: `*`
+
+**Type**: `str`
+**Variants**:
+- will be set domain from Origin request header, or form `.external_api.base_domain`
+- `<domain-name>`- always will be set this domain
+
+
+
+### `.external_api.cors.cors-allow-credentials`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+
+### `.external_api.cors.cors-max-age`
+
+**Default value**: `1728000`
+
+**Type**: `int`
+
+
+### `.external_api.auth`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+**Remarks**: `Enable authentication, base on ingress logic`
+
+### `.external_api.auth.url`
+
+**Default value**: `””`
+
+**Type**: `str`
+
+### `.external_api.auth.type`
+
+**Default value**: `vouch`
+
+**Type**: `set str`
+
+### `.external_api.headers[]`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+### `.external_api.headers[].override`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+**Variants**: `
+true - always override same header;
+false - set header, if is not set only`
+
+### `.external_api.regex`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+**Variants**: 
+- `true` - full control over the format in which url is configured;
+- `false` - default regex configuration was provided end equals the following
+configuration as if entered by hand.
 
 ## **LAN facing interface:**
-| Parameter                        | Default value   | Type        | M/O | Variants                                                                                                                                                       | Remarks                                                                       |  
-|----------------------------------|-----------------|-------------|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| .internal_api                    | ``{}``          | ``map``     | O   |                                                                                                                                                                |                                                                               |
-| .internal_api.base_url           | ``””``          | ``str``     | O   |                                                                                                                                                                |                                                                               |
-| .internal_api.sub_domain         | ``””``          | ``str``     | O   |                                                                                                                                                                |                                                                               |
-| .internal_api.base_domain        | ``-``           | ``str``     | M   |                                                                                                                                                                |                                                                               |
-| .internal_api.loadbalancer       | ``aws_network`` | ``set str`` | O   | ``aws_network`` - AWS Network                                                                                                                                  |                                                                               |
-| .internal_api.protocol           | ``tcp``         | ``set str`` | O   | - ``tcp`` - for TCP protocol <br/> - ``tls`` - SSL terminated TCP protocol <br/> - ``udp`` - for UDP protocol <br/> - ``tcp_udp`` - double support TCP and UDP | Currently available only ``tcp`` for ``80`` port and ``tls`` for ``443`` port |
-| .internal_api.port               | ``80,443``      | ``set int`` | O   |                                                                                                                                                                | Currently available only values ``80`` or ``443`` or both                     |
-| .internal_api.headers[]          | ``[]``          | ``list``    | O   |                                                                                                                                                                |                                                                               |
-| .internal_api.headers[].header   | ``""``          | ``str``     | M   | example: ``"Content-Type: text/html; charset=UTF-8"``                                                                                                          |                                                                               |
-| .internal_api.headers[].override | ``true``        | ``bool``    | O   | - ``true`` - always override same header; <br/> - ``false`` - set header, if is not set only                                                                   |                                                                               |
+### Required parameters:
+
+### `.internal_api.base_domain`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+### `.internal_api.headers[].header`
+
+**Default value**: `””`
+
+**Type**: `str`
+
+### Optional parameters
+### `.internal_api`
+
+**Default value**: `{}`
+**Type**: `map`
+
+### `.internal_api.base_url`
+
+**Default value**: `""`
+
+**Type**: `str`
+
+
+### `.internal_api.sub_domain`
+
+**Default value**: `””`
+
+**Type**: `str`
+
+### `.internal_api.loadbalancer`
+
+**Default value**: `aws_network`
+
+**Type**: `set str`
+
+**Variants**: `aws_network - AWS Network`
+
+### `.internal_api.protocol`
+
+**Default value**: `tcp`
+
+**Type**: `set str`
+
+**Variants**: `
+- `tcp` - for TCP protocol
+- `tls` - SSL terminated TCP protocol
+- `udp` - for UDP protocol
+- `tcp_udp` - double support TCP and UDP`
+
+**Remarks**: `Currently available only tcp for 80 port and tls for 443 port`
+
+### `.internal_api.port`
+
+**Default value**: `80,443`
+
+**Type**: `set int`
+
+**Remarks**: `Currently available only values 80 or 443 or both`
+### `.internal_api.headers[]`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+
+### `.internal_api.headers[].override`
+
+**Default value**: `true`
+
+**Type**: `bool`
+
+**Type**:
+``` 
+- true - always override same header;
+- false - set header, if is not set only 
+```
+
 
 ## **Service block:**
-| Parameter                               | Default value   | Type         | M/O | Variants                                                            | Remarks                                                                              |  
-|-----------------------------------------|-----------------|--------------|-----|---------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| .service                                | ``{}``          | ``map``      | M   |                                                                     |                                                                                      |
-| .service.name                           | ``-``           | ``str``      | M   |                                                                     |                                                                                      |
-| .service.namespace                      | ``default``     | ``str``      | O   |                                                                     |                                                                                      |
-| .service.type                           | ``ClusterIP``   | ``set str``  | O   |                                                                     |                                                                                      |
-| .service.annotations                    | ``{}``          | ``map``      | O   |                                                                     |                                                                                      |
-| .service.servicePort                    | ``80``          | ``int``      | O   |                                                                     |                                                                                      |
-| .service.podPort                        | ``80``          | ``int``      | O   |                                                                     |                                                                                      |
-| .service.specType                       | ``deployment``  | ``set str``  | O   | - ``deployment, job, cronjob, replicasets, daemonset, statefulset`` |                                                                                      |
-| .service.options                        | ``{}``          | ``map``      | O   |                                                                     |                                                                                      |
-| .service.options.sidecars               | ``{}``          | ``map``      | O   |                                                                     |                                                                                      |
-| .service.options.sidecars.vault         | ``{}``          | ``map``      | O   |                                                                     |                                                                                      |
-| .service.options.sidecars.vault.enable  | ``false``       | ``bool``     | M   | - ``enable`` <br/> - ``disable``                                    |                                                                                      |
-| .service.options.sidecars.vault.policy  | ``default-app`` | ``str``      | O   |                                                                     | Mandatory, if ``.service.options.sidecars.vault_hcl`` present                        |
-| .service.options.sidecars.vault.hcl     | ``””``          | ``str``      | O   |                                                                     | File with ACL policy body. Path is relative from current ``simloudfile.yaml`` folder |
-| .service.options.sidecars.consul        | ``{}``          | ``map``      | O   |                                                                     |                                                                                      |
-| .service.options.sidecars.consul.enable | ``false``       | ``bool``     | M   | - ``enable`` <br/> - ``disable``                                    |                                                                                      |
-| .service.options.sidecars.consul.policy | ``default-app`` | ``str``      | O   |                                                                     | Mandatory, if ``.service.options.sidecars.consul_hcl`` present                       |
-| .service.options.sidecars.consul.hlc    | ``""``          | ``str``      | O   |                                                                     | File with ACL policy body. Path is relative from current ``simloudfile.yaml`` folder |
-| .service.options.timeouts               | ``{}``          | ``map``      | O   |                                                                     |                                                                                      |
-| .service.options.timeouts.job_execute   | ``3600``        | ``int``      | M   |                                                                     | Job spec execution timeout in sec.                                                   |
-| .service.options.job                    | ``{}``          | ``map``      | O   |                                                                     | Applicable only for job/cronjob type                                                 |
-| .service.options.job.shell_command      | ``””``          | ``str``      | M   |                                                                     | Default shell command                                                                |
-| .service.options.job.cron               | ``*/1 * * * *`` | ``str``      | O   |                                                                     | Only for cronjob type                                                                |
-| .service.options.job.cron_concurrency   | ``Allow``       | ``set str``  | O   | - ``Allow`` <br/> - ``Forbid`` <br/> - ``Replace``                  |                                                                                      |
-| .service.options.job.cron_suspend       | ``false``       | ``bool``     |     |                                                                     |                                                                                      |
-| .service.options.job.cron_backoffLimit  | ``4``           | ``int``      |     |                                                                     |                                                                                      |
-| .service.options.job.cron_completions   | ``1``           | ``int``      |     |                                                                     |                                                                                      |
-| .service.options.job.cron_parallelism   | ``1``           | ``int``      |     |                                                                     |                                                                                      |
+
+### Required parameters:
+
+### `.service`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.service.name`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+### `.service.options.sidecars.vault.enable`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+**Variants**: `
+- enable
+- disable
+  `
+### `.service.options.sidecars.consul.enable`
+**Default value**: `false`
+**Type**: `bool`
+
+**Variants**: `
+- enable
+- disable
+  `
+### `.service.options.timeouts.job_execute`
+**Default value**: `3600`
+
+**Type**: `	int`
+
+**Remarks:** `Job spec execution timeout in sec`
+
+### `.service.options.job.shell_command`
+**Default value**: `””`
+
+**Type**: `str`
+
+**Remarks:** `Default shell command`
+
+## Optional parameters
+### `.service.namespace`
+
+**Default value**: `default`
+
+**Type**: `str`
+
+### `.service.type`
+
+**Default value**: `ClusterIP`
+
+**Type**: `	set str`
+
+
+### `.service.annotations`
+
+**Default value**: `{}`
+**Type**: `	map`
+
+### `.service.servicePort`
+**Default value**: `80`
+
+**Type**: `int`
+
+### `.service.podPort`
+
+**Default value**: `80`
+
+**Type**: `int`
+
+### `.service.specType`
+
+**Default value**: `deployment`
+
+**Type**: `set str`
+
+**Variants**: `deployment, job, cronjob, replicasets, daemonset, statefulset`
+
+
+### `.service.options`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.service.options.sidecars`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.service.options.sidecars.vault`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.service.options.sidecars.vault.policy`
+
+**Default value**: `default-app`
+
+**Type**: `str`
+
+**Remarks**: Mandatory, if `.service.options.sidecars.vault_hcl` present
+
+### `.service.options.sidecars.vault.hcl`
+
+**Default value**: `””`
+
+**Type**: `str`
+
+**Remarks**: File with ACL policy body. Path is relative from current `simloudfile.yaml` folder
+
+### `.service.options.sidecars.consul`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.service.options.sidecars.consul.policy`
+
+**Default value**: `default-app`
+
+**Type**: `str`
+
+**Remarks**: Mandatory, if `.service.options.sidecars.consul_hcl` present
+
+### `.service.options.sidecars.consul.hlc`
+
+**Default value**: `""`
+
+**Type**: `str`
+
+**Remarks**: File with ACL policy body. Path is relative from current `simloudfile.yaml` folder
+
+### `.service.options.timeouts`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+
+### `.service.options.job`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+**Remarks**: `Applicable only for job/cronjob type`
+
+### `.service.options.job.cron`
+
+**Default value**: `*/1 * * * *`
+
+**Type**: `str`
+
+**Remarks**: `Only for cronjob type`
+
+### `.service.options.job.cron_concurrency`
+**Default value**: `Allow`
+
+**Type**: `set str`
+
+**Variants**: `
+- Allow
+- Forbid
+- Replace `
+
+### `.service.options.job.cron_suspend`
+**Default value**: `false`
+
+**Type**: `bool`
+
+### `.service.options.job.cron_backoffLimit`
+**Default value**: `4`
+
+**Type**: `int`
+
+### `.service.options.job.cron_completions`
+**Default value**: `1`
+
+**Type**: `int`
+
+### `.service.options.job.cron_parallelism`
+**Default value**: `1`
+
+**Type**: `int`
 
 ## **Kubernetes oriented Spec block:**
-| Parameter                                                      | Default value | Type          | M/O | Variants                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Remarks                                                                                                                                                                       |  
-|----------------------------------------------------------------|---------------|---------------|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| .spec                                                          | ``{}``        | ``map``       | M   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Should be present, but empty ``{}``, is is not used                                                                                                                           |
-| .spec.pod                                                      | ``{}``        | ``map``       | M   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.name                                                 | ``-``         | ``str``       | M   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.terminationGracePeriodSeconds                        | ``300``       | ``int``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.replicas                                             | ``1``         | ``int``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.strategy                                             | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.strategy.type                                        | ``Recreate``  | ``set str``   | O   | ``RollingUpdate``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                               |
-| .spec.pod.strategy.rollingUpdate                               | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Default empty                                                                                                                                                                 |
-| .spec.pod.strategy.rollingUpdate.maxSurge                      | ``1``         | ``int``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | The number of pods that can be created above the desired amount of pods during an update                                                                                      |
-| .spec.pod.strategy.rollingUpdate.maxUnavailable                | ``25%``       | ``int/str``   | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | The number of pods that can be unavailable during the update process                                                                                                          |
-| .spec.pod.hascaler                                             | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.hascaler.enabled                                     | ``false``     | ``bool``      | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.hascaler.min                                         | ``1``         | ``int``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.hascaler.max                                         | ``10``        | ``int``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.hascaler.cpu_percent                                 | ``80``        | ``int``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[]                                         | ``[]``        | ``list``      | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].name                                    | ``-``         | ``str``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | if is not set, will be same with .service.name, if used nore that one container, will be add number, for example: my-service-0, or my-service-1                               |
-| .spec.pod.containers[].image                                   | ``-``         | ``str``       | O   | set custom pod container image ( override )                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                               |
-| .spec.pod.containers[].imagePullSecrets                        | ``[]``        | ``list``      | O   | set custom pod container image pull secret name(s)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | more information: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials">Persistent Volumes</a> |
-| .spec.pod.containers[].lifecycle                               | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].lifecycle.preStop                       | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].lifecycle.preStop.exec                  | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].lifecycle.preStop.exec.command          | ``-``         | ``list(str)`` | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources                               | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.disks[]                       | ``[]``        | ``list``      | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.disks[].name                  | ``-``         | ``str``       | M   | pvc name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.disks[].size                  | ``8G``        | ``str``       | M   | You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.disks[].mount                 | ``/data``     | ``str``       | M   | mount point                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.disks[].className             | ``gp2``       | ``str``       | M   | pvc class name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.disks[].AccessModes[]         | ``{}``        | ``list``      | M   | The access modes are: <br/> **ReadWriteOnce** - the volume can be mounted as read-write by a single node. ReadWriteOnce access mode still can allow multiple pods to access the volume when the pods are running on the same node. <br/> **ReadOnlyMany** - the volume can be mounted as read-only by many nodes. <br/> **ReadWriteMany** - the volume can be mounted as read-write by many nodes. <br/> **ReadWriteOncePod** - the volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across whole cluster can read that PVC or write to it. **This is only supported for CSI volumes and Kubernetes version 1.22+.** <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes">Persistent Volumes</a> | default should be **ReadWriteOnce**                                                                                                                                           |
-| .spec.pod.containers[].resources.requests                      | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.requests.memory               | ``-``         | ``str``       | O   | Limits and requests for memory are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these <a href="https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/quantity/">quantity</a>  suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.requests.cpu                  | ``-``         | ``float/str`` | O   | Fractional requests are allowed. When you define a container with ``spec.containers[].resources.requests.cpu`` set to ``0.5``, you are requesting half as much CPU time compared to if you asked for ``1.0`` CPU. For CPU resource units, the <a href="https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/quantity/">quantity</a> expression ``0.1`` is equivalent to the expression ``100m``, which can be read as "one hundred millicpu". Some people say "one hundred millicores", and this is understood to mean the same thing.                                                                                                                                                                                                                                                        |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.requests.ephemeral-storage    | ``-``         | ``str``       | O   | Limits and requests for ``ephemeral-storage`` are measured in byte quantities. You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.limits                        | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.limits.memory                 | ``-``         | ``str``       | O   | Limits and requests for ``memory`` are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these <a href="https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/quantity/">quantity</a> suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.limits.cpu                    | ``-``         | ``float/str`` | O   | Fractional requests are allowed. When you define a container with spec.containers[].resources.requests.cpu set to 0.5, you are requesting half as much CPU time compared to if you asked for 1.0 CPU. For CPU resource units, the quantity expression 0.1 is equivalent to the expression 100m, which can be read as "one hundred millicpu". Some people say "one hundred millicores", and this is understood to mean the same thing.                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.limits.ephemeral-storage      | ``-``         | ``str``       | O   | Limits and requests for ``ephemeral-storage`` are measured in byte quantities. You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.health_check                  | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.health_check.readinessProbe   | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.health_check.readinessProbe{} | ``-``         | ``various``   | M   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.health_check.livenessProbe    | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.health_check.livenessProbe{}  | ``-``         | ``various``   | M   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.health_check.startupProbe     | ``{}``        | ``map``       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
-| .spec.pod.containers[].resources.health_check.startupProbe{}   | ``-``         | ``various``   | M   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
+
+### Required parameters:
+
+### `.spec`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+**Remarks**: `Should be present, but empty {}`
+
+### `.spec.pod`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.name`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+**Variants**: `
+- enable
+- disable
+  `
+### `.spec.pod.containers[].resources.disks[].name`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+**Variants**: `	pvc name `
+
+### `.spec.pod.containers[].resources.disks[].size`
+**Default value**: `8G`
+
+**Type**: `	str`
+
+**Variants**: `You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.`
+
+### `.spec.pod.containers[].resources.disks[].mount`
+**Default value**: `/data`
+
+**Type**: `str`
+
+**Variants**: `mount point`
+
+### `.spec.pod.containers[].resources.disks[].className`
+**Default value**: `gp2`
+
+**Type**: `	str`
+
+**Variants**: `pvc class name`
+
+### `.spec.pod.containers[].resources.disks[].AccessModes[]`
+**Default value**: `{}`
+
+**Type**: `list`
+
+**Variants**: 
+  The access modes are:
+- ReadWriteOnce - the volume can be mounted as read-write by a single node. ReadWriteOnce access mode still can allow multiple pods to access the volume when the pods are running on the same node.
+- ReadOnlyMany - the volume can be mounted as read-only by many nodes.
+- ReadWriteMany - the volume can be mounted as read-write by many nodes.
+- ReadWriteOncePod - the volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across whole cluster can read that PVC or write to it. This is only supported for CSI volumes and Kubernetes version 1.22+. Persistent Volumes
 
 
-## **Lambda / APIGW oriented Spec block:**
-| Parameter  | Default value | Type        | M/O | Variants | Remarks                                                                                                                                                                                           |  
-|------------|---------------|-------------|-----|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| .spec      | ``{}``        | ``map``     | M   |          | Should be present, but empty ``{}``, if is not used                                                                                                                                               |
-| .spec{}    | ``-``         | ``various`` | O   |          | For lambda mutually exclusive with above, see more in  <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.create_function">AWS doc</a> |
+### `.spec.pod.containers[].resources.health_check.readinessProbe{}`
+**Default value**: `-`
+
+**Type**: `various`
+
+
+### `.spec.pod.containers[].resources.health_check.livenessProbe{}`
+**Default value**: `-`
+
+**Type**: `	various`
+
+### `.spec.pod.containers[].resources.health_check.startupProbe{}`
+**Default value**: `-`
+
+**Type**: `various`
+
+## Optional parameters
+### `.spec.pod.terminationGracePeriodSeconds`
+
+**Default value**: `300`
+
+**Type**: `	int`
+
+### `.spec.pod.replicas`
+
+**Default value**: `1`
+
+**Type**: `int`
+
+### `.spec.pod.strategy`
+
+**Default value**: `{}`
+**Type**: `	map`
+
+### `.spec.pod.strategy.type`
+**Default value**: `Recreate`
+
+**Type**: `set str`
+
+**Variants**: `RollingUpdate`
+
+### `.spec.pod.strategy.rollingUpdate`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+**Remarks**: `Default empty`
+
+### `.spec.pod.strategy.rollingUpdate.maxSurge`
+
+**Default value**: `1`
+
+**Type**: `int`
+
+**Remarks**: `The number of pods that can be created above the desired amount of pods during an update`
+
+### `.spec.pod.strategy.rollingUpdate.maxUnavailable`
+
+**Default value**: `25%`
+
+**Type**: `int/str`
+
+**Remarks**: `The number of pods that can be unavailable during the update process`
+
+### `.spec.pod.hascaler`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.hascaler.enabled`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+### `.spec.pod.hascaler.min`
+
+**Default value**: `1`
+
+**Type**: `int`
+
+### `.spec.pod.hascaler.max`
+
+**Default value**: `10`
+
+**Type**: `int`
+
+### `.spec.pod.hascaler.cpu_percent`
+
+**Default value**: `80`
+
+**Type**: `int`
+
+### `.spec.pod.containers[]`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+### `.spec.pod.containers[].name`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+**Remarks**: `	if is not set, will be same with .service.name, if used nore that one container, will be add number, for example: my-service-0, or my-service-1`
+
+### `.spec.pod.containers[].image`
+
+**Default value**: `-`
+
+**Type**: `str`
+
+**Variants**: `set custom pod container image ( override )`
+
+### `.spec.pod.containers[].imagePullSecrets`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+**Variants**: `set custom pod container image pull secret name(s)`
+
+### `.spec.pod.containers[].lifecycle`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.containers[].lifecycle.preStop`
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.containers[].lifecycle.preStop.exec`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.containers[].lifecycle.preStop.exec.command`
+**Default value**: `-`
+
+**Type**: `list(str)`
+
+### `.spec.pod.containers[].resources`
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.containers[].resources.disks[] `
+**Default value**: `[]`
+
+**Type**: `list`
+
+### `.spec.pod.containers[].resources.requests`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.containers[].resources.requests.memory`
+**Default value**: `-`
+
+**Type**: `str`
+
+**Variants**: `Limits and requests for memory are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these quantity suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.`
+
+### `.spec.pod.containers[].resources.requests.cpu`
+
+**Default value**: `-`
+
+**Type**: `float/str`
+
+**Variants**: `Fractional requests are allowed. When you define a container with spec.containers[].resources.requests.cpu set to 0.5, you are requesting half as much CPU time compared to if you asked for 1.0 CPU. For CPU resource units, the quantity expression 0.1 is equivalent to the expression 100m, which can be read as "one hundred millicpu". Some people say "one hundred millicores", and this is understood to mean the same thing.`
+
+### `.spec.pod.containers[].resources.requests.ephemeral-storage`
+**Default value**: `-`
+
+**Type**: `str`
+
+**Variants**: `Limits and requests for ephemeral-storage are measured in byte quantities. You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.`
+
+### `.spec.pod.containers[].resources.limits`
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.containers[].resources.limits.memory`
+**Default value**: `-`
+
+**Type**: `str`
+
+**Variants**: `Limits and requests for memory are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these quantity suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.`
+
+
+### `.spec.pod.containers[].resources.limits.cpu`
+**Default value**: `-`
+
+**Type**: `	float/str`
+
+**Variants**: `Fractional requests are allowed. When you define a container with spec.containers[].resources.requests.cpu set to 0.5, you are requesting half as much CPU time compared to if you asked for 1.0 CPU. For CPU resource units, the quantity expression 0.1 is equivalent to the expression 100m, which can be read as "one hundred millicpu". Some people say "one hundred millicores", and this is understood to mean the same thing.`
+
+### `.spec.pod.containers[].resources.limits.ephemeral-storage`
+**Default value**: `-`
+
+**Type**: `str`
+
+**Variants:**: `Limits and requests for ephemeral-storage are measured in byte quantities. You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.`
+
+### `.spec.pod.containers[].resources.health_check`
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.containers[].resources.health_check.readinessProbe`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.containers[].resources.health_check.livenessProbe`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+### `.spec.pod.containers[].resources.health_check.startupProbe`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+## **Lambda / APIGW oriented Spec block:** 
+### Required parameters:
+
+### `.spec`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+**Remarks**: `Should be present, but empty {}, if is not used`
+
+### Optional parameters
+### `.spec{}`
+
+**Default value**: `-`
+**Type**: `various`
+
+**Remarks**: `For lambda mutually exclusive with above, see more in AWS doc`
+
 
 
 ## **Frontend / External service oriented Spec block:**
-| Parameter | Default value | Type    | M/O | Variants | Remarks                             |  
-|-----------|---------------|---------|-----|----------|-------------------------------------|
-| .spec     | ``{}``        | ``map`` | M   |          | Should be present, but empty ``{}`` |
+### Required parameters:
+
+### `.spec`
+
+**Default value**: `{}`
+
+**Type**: `map`
+
+**Remarks**: `Should be present, but empty {}, if is not used`
 
 
 
