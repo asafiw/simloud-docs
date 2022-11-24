@@ -4,8 +4,6 @@ description: Simloudfile.yaml
 layout: ../../layouts/MainLayout.astro
 ---
 
-A dynamic configuration file which is responsible for deploying different components of the infrastructure.
-
 ### Full `SimloudFile.yaml` file :
 
 ```yaml
@@ -49,7 +47,7 @@ external_api:       # internet facing loadbalancer
   sub_domain: xxx
   base_domain: base.domain.name
   regex:
-    enabled: false             # default `false`
+    enabled: true             # default `false`
     rewrite-target: /$2$3$4    # default `for micro_service_type: serverless` will be `$1$2$3$4`, for all another modes `$2$3$4`
   redirects:
     http2https: true           # by default enabled
@@ -175,6 +173,7 @@ spec:  # for lambda mutually exclusive with above, see more in https://boto3.ama
 
 spec: {} # frontend service will be emply
 ```
+
 [Download Simloudfile.yaml](/files/Simloudfile.yaml)
 
 ### Minimal Requirements:
@@ -182,64 +181,37 @@ spec: {} # frontend service will be emply
 - Jenkins release/5.0
 - Backend:
 
-## Required parameters
+## **Annotation block:**
 
-### `.version`
+| Parameter |    Default value     |   Type    | M/O |                                                                                                                                                                    Variants                                                                                                                                                                     | Remarks                                                                                                              |
+| :-------: | :------------------: | :-------: | :-: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | -------------------------------------------------------------------------------------------------------------------- |
+| .version  |         `v2`         |    str    |  M  |                                                                                                                                                              `v2` - Only available                                                                                                                                                              | from version v2, mandatory parameter <br/> `v0` , `v1` or empty, back compatible mode. details in **?!!?** document. |
+|   .kind   | `simloud-deployment` | const str |  M  |                                                                                                                                                              `simloud-deployment`                                                                                                                                                               |                                                                                                                      |
+|   .name   |   `.service.name`    |    str    |  O  |                                                                                                                                                                                                                                                                                                                                                 | "Optional", if empty, will same with `.service.name`                                                                 |
+|   .type   |         `-`          |  set str  |  M  | - `kubernetes` - deployment services as k8s service, any type. <br/> - `apigw` or `serverless` - deployment, using API GW solution, for example: lambda functions <br/> - `external` or `front-end` - deployment, using k8s external service solution, for example: frontend on s3 bucket <br/> - `pipeline` - Simloud pipeline execution, only | in `advanced` mode, prefix parameter: `env_name_prefix` is not mandatory                                             |
+|   .mode   |       `strict`       |  set str  |  O  |                                                                                                                             - `strict` - Strict syntax validation. <br/> - `advanced` - Advanced syntax validation                                                                                                                              |                                                                                                                      |
+|  .image   |         `””`         |    str    |  O  |                                                                                                                                                   Send to jenkins as `SLAVE_IMAGE` parameter.                                                                                                                                                   | Depricated<br/> alias from `.cicd.image`                                                                             |
 
-**Default value**: `v2`
+## **Cloud Resources block:**
 
-**Type**: `str`
+|             Parameter              | Default value | Type | M/O | Variants | Remarks |
+| :--------------------------------: | :-----------: | :--: | :-: | :------: | :-----: |
+|          .cloud_resources          |     `[]`      | map  |  O  |          |         |
+|      .cloud_resources[].name       |      `-`      | str  |  M  |          |         |
+| .cloud_resources[].env_name_prefix |      `-`      | str  |  M  |          |         |
+|      .cloud_resources[].type       |      `-`      | str  |  M  |          |         |
+|     .cloud_resources[].params      |     `[]`      | list |  O  |          |         |
 
-`v2` - Only available From version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode. Details in **?!!?** document.
+## **Secrets block:**
 
-### `.kind`
-
-**Default value**: `simloud-deployment`
-
-**Type**: `const str`
-
-## Optional parameters
-
-### `.mode`
-
-**Default value**: `strict`
-
-**Type**: `set str`
-
-**Variants**: `strict` - Strict syntax validation; `advanced` - Advanced syntax validation
-
-| Parameter | Default value        | Type      | M/O | Variants                                                                                                                                                                                                                                                                                                                                        | Remarks                                                                                                              |
-| --------- | -------------------- | --------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| .version  | `v2`                 | str       | M   | `v2` - Only available                                                                                                                                                                                                                                                                                                                           | from version v2, mandatory parameter <br/> `v0` , `v1` or empty, back compatible mode. details in **?!!?** document. |
-| .kind     | `simloud-deployment` | const str | M   | `simloud-deployment`                                                                                                                                                                                                                                                                                                                            |                                                                                                                      |
-| .name     | `.service.name`      | str       | O   |                                                                                                                                                                                                                                                                                                                                                 | "Optional", if empty, will same with `.service.name`                                                                 |
-| .type     | `-`                  | set str   | M   | - `kubernetes` - deployment services as k8s service, any type. <br/> - `apigw` or `serverless` - deployment, using API GW solution, for example: lambda functions <br/> - `external` or `front-end` - deployment, using k8s external service solution, for example: frontend on s3 bucket <br/> - `pipeline` - Simloud pipeline execution, only | in `advanced` mode, prefix parameter: `env_name_prefix` is not mandatory                                             |
-| .mode     | `strict`             | set str   | O   | - `strict` - Strict syntax validation. <br/> - `advanced` - Advanced syntax validation                                                                                                                                                                                                                                                          |                                                                                                                      |
-| .image    | `””`                 | str       | O   | Send to jenkins as `SLAVE_IMAGE` parameter.                                                                                                                                                                                                                                                                                                     | Depricated<br/> alias from `.cicd.image`                                                                             |
-
-\
-**Cloud Resources block:**
-
-| Parameter                          | Default value | Type | M/O | Variants | Remarks |
-| ---------------------------------- | ------------- | ---- | --- | -------- | ------- |
-| .cloud_resources                   | `[]`          | map  | O   |          |         |
-| .cloud_resources[].name            | `-`           | str  | M   |          |         |
-| .cloud_resources[].env_name_prefix | `-`           | str  | M   |          |         |
-| .cloud_resources[].type            | `-`           | str  | M   |          |         |
-| .cloud_resources[].params          | `[]`          | list | O   |          |         |
-
-\
-**Secrets block:**
-
-| Parameter                  | Default value    | Type    | M/O                          | Variants                                                                                                                  | Remarks                                                                                          |
-| -------------------------- | ---------------- | ------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| .secrets                   | `[]`             | list    | O                            |                                                                                                                           | Provide secrets, stored in hashicorp vault or k8s secrets, mount to pod as environment variables |
-| .secrets[].path            | `-`              | str     | M                            | if `.secrets[].type` will be:<br/> - vault: `<vault-kv-path>` <br/> - k8s: `<secret-name>.<namespace>`                    |                                                                                                  |
+|         Parameter          | Default value    | Type    |             M/O              | Variants                                                                                                                  | Remarks                                                                                          |
+| :------------------------: | ---------------- | ------- | :--------------------------: | :------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+|          .secrets          | `[]`             | list    |              O               |                                                                                                                           | Provide secrets, stored in hashicorp vault or k8s secrets, mount to pod as environment variables |
+|      .secrets[].path       | `-`              | str     |              M               | if `.secrets[].type` will be:<br/> - vault: `<vault-kv-path>` <br/> - k8s: `<secret-name>.<namespace>`                    |                                                                                                  |
 | .secrets[].env_name_prefix | `-`              | str     | M - strict<br/> O - advanced | environment variable prefix. will be generated by this logic: <br/> `.secrets[].env_name_prefix_secret-key`               | Mandatory in `.mode` : `strict` <br/> Optional in `.mode` : `advanced`                           |
-| .secrets[].type            | `vault&#124;k8s` | set str | O                            | Storage type: <br/> - `vault` - to read secret data from vault <br/> - `k8s` - to read secret data from kubernetes secret |                                                                                                  |
+|      .secrets[].type       | `vault&#124;k8s` | set str |              O               | Storage type: <br/> - `vault` - to read secret data from vault <br/> - `k8s` - to read secret data from kubernetes secret |                                                                                                  |
 
-\
-**Environment block:**
+## **Environment block:**
 
 | Parameter               | Default value | Type | M/O | Variants | Remarks                                                           |
 | ----------------------- | ------------- | ---- | --- | -------- | ----------------------------------------------------------------- |
@@ -247,37 +219,36 @@ spec: {} # frontend service will be emply
 | .environment[].env_name | `-`           | str  | M   |          | Environment name                                                  |
 | .environment[].value    | `-`           | str  | M   |          | Environment variable                                              |
 
-\
-**Internet facing interface:**
+## **Internet facing interface:**
 
-| Parameter                                 | Default value | Type      | M/O | Variants                                                                                                                                               | Remarks                                                               |
-| ----------------------------------------- | ------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| .external_api                             | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
-| .external_api.base_url                    | `””`          | `str`     | O   |                                                                                                                                                        | Base url, if applicable                                               |
-| .external_api.sub_domain                  | `””`          | `str`     | O   |                                                                                                                                                        | Subdomain, if applicable                                              |
-| .external_api.base_domain                 | `-`           | `str`     | M   |                                                                                                                                                        | Base domain name                                                      |
-| .external_api.loadbalancer                | `aws_network` | `set str` | O   | `aws_network` - AWS Network                                                                                                                            |                                                                       |
-| .external_api.protocol                    | `tcp`         | `set str` | O   | - `tcp - for TCP protocol` <br/> - `tls` - SSL terminated TCP protocol <br/> - `udp` - for UDP protocol <br/> - `tcp_udp` - double support TCP and UDP | Currently available only `tcp` for `80` port and `tls` for `443` port |
-| .external_api.port                        | `80,443`      | `set int` | O   |                                                                                                                                                        | Currently available only values `80` or `443` or both                 |
-| .external_api.redirects                   | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
-| .external_api.redirects.http2https        | `true`        | `bool`    | O   |                                                                                                                                                        | Automatic redirect from `HTTP` to `HTTPS` protocol                    |
-| .external_api.cors                        | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
-| .external_api.cors.enable_cors            | `false`       | `bool`    | M   | - `true`                                                                                                                                               | Enable `CORS` headers support                                         |
-| .external_api.cors.cors-allow-methods     | `*`           | `set str` | O   | - `GET, PUT, POST, DELETE, PATCH, OPTIONS`                                                                                                             |                                                                       |
-| .external_api.cors.cors-allow-headers     | `*`           | `set str` | O   | - `DNT,X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization`                        |                                                                       |
-| .external_api.cors.cors-allow-origin      | `*`           | `str`     | O   | - `*` - will be set domain from `Origin` request header, or form `.external_api.base_domain` <br/> - `<domain-name>` - always will be set this domain  |                                                                       |
-| .external_api.cors.cors-allow-credentials | `false`       | `bool`    | O   |                                                                                                                                                        |                                                                       |
-| .external_api.cors.cors-max-age           | `1728000`     | `int`     | O   |                                                                                                                                                        |                                                                       |
-| .external_api.auth                        | `{}`          | `map`     | O   |                                                                                                                                                        |                                                                       |
-| .external_api.auth.url                    | `””`          | `str`     | O   |                                                                                                                                                        | Enable authentication, base on ingress logic                          |
-| .external_api.auth.sub_domain             | `-`           | `str`     | M   |                                                                                                                                                        |                                                                       |
-| .external_api.auth.type                   | `vouch`       | `set str` | O   | - `vouch` - enable vouch-proxy support <br/> - `keycloak` - enable keycloak support <br/> - `base` - enable http basic authentication support          |                                                                       |
-| .external_api.headers[]                   | `[]`          | `list`    | O   |                                                                                                                                                        |                                                                       |
-| .external_api.headers[].header            | `""`          | `str`     | M   | example: `"Content-Type: text/html; charset=UTF-8"`                                                                                                    |                                                                       |
-| .external_api.headers[].override          | `false`       | `bool`    | O   | - `true` - always override same header; <br/> `false` - set header, if is not set only                                                                 |                                                                       |
+| Parameter                                 | Default value | Type      | M/O | Variants                                                                                                                                                                                       | Remarks                                                               |
+| ----------------------------------------- | ------------- | --------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| .external_api                             | `{}`          | `map`     | O   |                                                                                                                                                                                                |                                                                       |
+| .external_api.base_url                    | `””`          | `str`     | O   |                                                                                                                                                                                                | Base url, if applicable                                               |
+| .external_api.sub_domain                  | `””`          | `str`     | O   |                                                                                                                                                                                                | Subdomain, if applicable                                              |
+| .external_api.base_domain                 | `-`           | `str`     | M   |                                                                                                                                                                                                | Base domain name                                                      |
+| .external_api.loadbalancer                | `aws_network` | `set str` | O   | `aws_network` - AWS Network                                                                                                                                                                    |                                                                       |
+| .external_api.protocol                    | `tcp`         | `set str` | O   | - `tcp - for TCP protocol` <br/> - `tls` - SSL terminated TCP protocol <br/> - `udp` - for UDP protocol <br/> - `tcp_udp` - double support TCP and UDP                                         | Currently available only `tcp` for `80` port and `tls` for `443` port |
+| .external_api.port                        | `80,443`      | `set int` | O   |                                                                                                                                                                                                | Currently available only values `80` or `443` or both                 |
+| .external_api.redirects                   | `{}`          | `map`     | O   |                                                                                                                                                                                                |                                                                       |
+| .external_api.redirects.http2https        | `true`        | `bool`    | O   |                                                                                                                                                                                                | Automatic redirect from `HTTP` to `HTTPS` protocol                    |
+| .external_api.cors                        | `{}`          | `map`     | O   |                                                                                                                                                                                                |                                                                       |
+| .external_api.cors.enable_cors            | `false`       | `bool`    | M   | - `true`                                                                                                                                                                                       | Enable `CORS` headers support                                         |
+| .external_api.cors.cors-allow-methods     | `*`           | `set str` | O   | - `GET, PUT, POST, DELETE, PATCH, OPTIONS`                                                                                                                                                     |                                                                       |
+| .external_api.cors.cors-allow-headers     | `*`           | `set str` | O   | - `DNT,X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization`                                                                |                                                                       |
+| .external_api.cors.cors-allow-origin      | `*`           | `str`     | O   | - `*` - will be set domain from `Origin` request header, or form `.external_api.base_domain` <br/> - `<domain-name>` - always will be set this domain                                          |                                                                       |
+| .external_api.cors.cors-allow-credentials | `false`       | `bool`    | O   |                                                                                                                                                                                                |                                                                       |
+| .external_api.cors.cors-max-age           | `1728000`     | `int`     | O   |                                                                                                                                                                                                |                                                                       |
+| .external_api.auth                        | `{}`          | `map`     | O   |                                                                                                                                                                                                |                                                                       |
+| .external_api.auth.url                    | `””`          | `str`     | O   |                                                                                                                                                                                                | Enable authentication, base on ingress logic                          |
+| .external_api.auth.sub_domain             | `-`           | `str`     | M   |                                                                                                                                                                                                |                                                                       |
+| .external_api.auth.type                   | `vouch`       | `set str` | O   | - `vouch` - enable vouch-proxy support <br/> - `keycloak` - enable keycloak support <br/> - `base` - enable http basic authentication support                                                  |                                                                       |
+| .external_api.headers[]                   | `[]`          | `list`    | O   |                                                                                                                                                                                                |                                                                       |
+| .external_api.headers[].header            | `""`          | `str`     | M   | example: `"Content-Type: text/html; charset=UTF-8"`                                                                                                                                            |                                                                       |
+| .external_api.headers[].override          | `false`       | `bool`    | O   | `true` - always override same header; <br/> `false` - set header, if is not set only                                                                                                           |                                                                       |
+| .external_api.regex                       | `false`       | `bool`    | O   | `true` - full control over the format in which url is configured; <br/> `false` - default regex configuration was provided end equals the following <br/> configuration as if entered by hand. |
 
-\
-**LAN facing interface:**
+## **LAN facing interface:**
 
 | Parameter                        | Default value | Type      | M/O | Variants                                                                                                                                               | Remarks                                                               |
 | -------------------------------- | ------------- | --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
@@ -292,8 +263,7 @@ spec: {} # frontend service will be emply
 | .internal_api.headers[].header   | `""`          | `str`     | M   | example: `"Content-Type: text/html; charset=UTF-8"`                                                                                                    |                                                                       |
 | .internal_api.headers[].override | `true`        | `bool`    | O   | - `true` - always override same header; <br/> - `false` - set header, if is not set only                                                               |                                                                       |
 
-\
-**Service block:**
+## **Service block:**
 
 | Parameter                               | Default value | Type      | M/O | Variants                                                          | Remarks                                                                            |
 | --------------------------------------- | ------------- | --------- | --- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
@@ -326,8 +296,7 @@ spec: {} # frontend service will be emply
 | .service.options.job.cron_completions   | `1`           | `int`     |     |                                                                   |                                                                                    |
 | .service.options.job.cron_parallelism   | `1`           | `int`     |     |                                                                   |                                                                                    |
 
-\
-**Kubernetes oriented Spec block:**
+## **Kubernetes oriented Spec block:**
 
 | Parameter                                                      | Default value | Type        | M/O | Variants                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Remarks                                                                                                                                                                       |
 | -------------------------------------------------------------- | ------------- | ----------- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -377,17 +346,168 @@ spec: {} # frontend service will be emply
 | .spec.pod.containers[].resources.health_check.startupProbe     | `{}`          | `map`       | O   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
 | .spec.pod.containers[].resources.health_check.startupProbe{}   | `-`           | `various`   | M   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                               |
 
-\
-**Lambda / APIGW oriented Spec block:**
+## **Lambda / APIGW oriented Spec block:**
 
 | Parameter | Default value | Type      | M/O | Variants | Remarks                                                                                                                                                                                          |
 | --------- | ------------- | --------- | --- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | .spec     | `{}`          | `map`     | M   |          | Should be present, but empty `{}`, if is not used                                                                                                                                                |
 | .spec{}   | `-`           | `various` | O   |          | For lambda mutually exclusive with above, see more in <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.create_function">AWS doc</a> |
 
-\
-**Frontend / External service oriented Spec block:**
+## **Frontend / External service oriented Spec block:**
 
 | Parameter | Default value | Type  | M/O | Variants | Remarks                           |
 | --------- | ------------- | ----- | --- | -------- | --------------------------------- |
 | .spec     | `{}`          | `map` | M   |          | Should be present, but empty `{}` |
+
+## Example for V2 SimloudFile.yaml:
+
+**Kubernetes deployment mode:**
+
+```yaml
+version: v2
+kind: simloud-deployment
+name: <repo visual name>                         # "optional", if empty, will same with `.service.name`
+type: kubernetes
+mode: (strict|advаnced)                          # default "strict"
+image: <jenkins-slave-image>                     # default empty. Send to jenkins as
+# SLAVE_IMAGE parameter
+dependency:
+microservices:                                 # check depended microservices
+- name: <service_name>.                        # `.service.name` parameters from another
+  namespace: <namespace>                       # default "default"
+  check:                                       # what need to check
+  helm: (exist|notexist)                     # default "exist"
+
+cloud_resources:
+- name: service_name.db_1
+  env_name_prefix: ENVDB1
+  type: dynamodb
+  params:
+  dbname: aaa
+  Region: eu-central-1
+
+- name: s3_1
+  env_name_prefix: S31
+  type: s3
+
+- name: lambda-service-3.s3_1
+  env_name_prefix: LAMBDAS31
+  type: s3
+
+- name: lambda-service-3.db1_1
+  type: s3
+
+secrets:
+- path: secrets/customer1/data1        # vault: <path> ; k8s: `<secret-name>.<namespace>`
+  env_name_prefix: CUSTENV1            # mandatory in mode: `strict`, optional in `advanced`
+  type: (vault|k8s)                    # default "vault", k8s - kubernetes secret
+
+environment:
+- env_name: ENVNAME1
+  value: Yahoo!
+
+external_api:
+base_url: kube-service
+sub_domain: xxx
+base_domain: base.domain.name
+loadbalancer: aws_network
+protocol: tcp    # options: tcp, udp, tls, tcp_udp
+port: 80,443     # available 80 and 443 only
+redirects:
+http2https: true # by default enabled
+cors:
+enable_cors: true  # default "false"
+cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # default "*"
+cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # default "*"
+cors-allow-origin: "*"
+cors-allow-credentials: false
+cors-max-age: 1728000
+auth:                           # @v4.2.16
+url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain .
+sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
+type: (vouch|keycloak)        # default “vouch”, to integrate via vouch.
+
+internal_api:                     # @v4.2
+base_url: kube-service
+sub_domain: xxx
+base_domain: base.domain.name
+loadbalancer: aws_network
+protocol: tcp    # options: tcp, udp, tls, tcp_udp
+port: 80,443     # available 80 and 443 only
+
+service:
+name: kube-service-3
+namespace: default
+type: ClusterIP
+annotations: {}
+servicePort: 80 # default 80
+podPort: 80 # default 80
+# `pod` type replaced with `deployment`
+specType: (deployment|job|cronjob|replicasets|daemonset|statefulset)  # default “deployment”
+options:                                 # @v3.4.10
+sidecars:
+vault: false
+timeouts:                  # @v4.2.17
+job_execute: 3600        # job spec execution timeout in sec
+job:                       # @v4.2.17 applicable only for job/cronjob type
+shell_command: “”        # default shell command
+cron: “*/1 * * * *”      # job cron execution. Only for cronjob type
+cron_concurrency: Allow  # Enable cron jobs concurrency: Allow/Forbid/Replace
+
+spec:  # for k8s service, mutually exclusive with below
+pod:
+name: kube-service-3
+terminationGracePeriodSeconds: 300 # default 300sec
+replicas: 1
+strategy: # @v3.4.6
+# RollingUpdate: New pods are added gradually, and old pods are terminated gradually
+# Recreate: All old pods are terminated before any new pods are added
+type: (Recreate|RollingUpdate) # default “Recreate”
+rollingUpdate:                 # default empty
+maxSurge: 1                  # The number of pods that can be created above the desired amount of pods during an update
+maxUnavailable: 25%          # The number of pods that can be unavailable during the update process
+hascaler: # @v4.2
+enabled: false
+min: 1
+max: 10
+cpu_percent: 80
+containers:
+- name: container-name
+image: <image path>
+lifecycle:
+preStop:
+exec:
+# SIGTERM triggers a quick exit; gracefully terminate instead
+command: ["/usr/sbin/nginx","-s","quit"]
+resources:
+health_check: # @v4.2 - details
+readinessProbe:
+exec:
+command:
+- cat
+- /tmp/healthy
+initialDelaySeconds: 5
+periodSeconds: 5
+livenessProbe:
+tcpSocket:
+port: 8080
+initialDelaySeconds: 5
+periodSeconds: 10
+startupProbe:
+httpGet:
+path: /healthz
+port: 8080
+httpHeaders:
+- name: Custom-Header
+value: Awesome
+initialDelaySeconds: 3
+periodSeconds: 3
+requests:
+memory: "60Mi"
+cpu: "200m"
+limits:
+memory: "120Mi"
+cpu: "1000m"
+```
+
+[Download Simloudfilefork8s.yaml for k8s](/files/SImloudfilefork8s.yaml)
