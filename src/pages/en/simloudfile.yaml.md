@@ -192,7 +192,7 @@ spec: {} # frontend service will be emply
 
 **Type**: `str`
 
-`v2` - Only available. From version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode. Details in **?!!?** document.
+`v2` - Only available. From version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode
 
 ### `.kind`
 
@@ -224,7 +224,7 @@ spec: {} # frontend service will be emply
 - `strict` - Strict syntax validation.
 - `advanced` - Advanced syntax validation
 
-**Remarks**: in advanced mode, prefix parameter: env_name_prefix is not mandatory
+**Remarks**: in `advanced` mode, prefix parameter: `env_name_prefix` is not mandatory
 ### `.image`
 
 **Default value**: `””`
@@ -412,7 +412,7 @@ Storage type:
 
 **Type**: `set str`
 
-**Variants**: `aws_network - AWS Network`
+**Variants**: `aws_network` - AWS Network
 
 ### `.external_api.protocol`
 
@@ -425,6 +425,8 @@ Storage type:
 - `tls` - SSL terminated TCP protocol
 - `udp` - for UDP protocol
 - `tcp_udp` - double support TCP and UDP`
+
+**Remarks**: Currently available only `tcp` for `80` port and `tls` for `443` port
 
 ### `.external_api.port`
 
@@ -475,8 +477,8 @@ Storage type:
 
 **Type**: `str`
 **Variants**:
-- will be set domain from Origin request header, or form `.external_api.base_domain`
-- `<domain-name>`- always will be set this domain
+- `* ` - will be set domain from `Origin` request header, or form `.external_api.base_domain`
+- `<domain-name>`- will always be set this domain
 
 
 
@@ -526,9 +528,9 @@ Storage type:
 
 **Type**: `bool`
 
-**Variants**: `
-true - always override same header;
-false - set header, if is not set only`
+**Variants**: 
+`true` - always override same header;
+`false` - set header, if is not set only
 
 ### `.external_api.regex`
 
@@ -581,7 +583,7 @@ false - set header, if is not set only`
 
 **Type**: `set str`
 
-**Variants**: `aws_network - AWS Network`
+**Variants**: `aws_network` - AWS Network
 
 ### `.internal_api.protocol`
 
@@ -618,10 +620,9 @@ false - set header, if is not set only`
 **Type**: `bool`
 
 **Type**:
-``` 
-- true - always override same header;
-- false - set header, if is not set only 
-```
+- `true` - always override same header;
+- `false` - set header, if is not set only 
+
 
 
 ## **Service block:**
@@ -652,6 +653,7 @@ false - set header, if is not set only`
   
 ### `.service.options.sidecars.consul.enable`
 **Default value**: `false`
+
 **Type**: `bool`
 
 **Variants**: 
@@ -780,7 +782,7 @@ false - set header, if is not set only`
 
 **Type**: `map`
 
-**Remarks**: Applicable only for `job/cronjob` type
+**Remarks**: Applicable only for job/cronjob type
 
 ### `.service.options.job.cron`
 
@@ -788,7 +790,7 @@ false - set header, if is not set only`
 
 **Type**: `str`
 
-**Remarks**: Only for `cronjob` type
+**Remarks**: Only for cronjob type
 
 ### `.service.options.job.cron_concurrency`
 **Default value**: `Allow`
@@ -796,9 +798,9 @@ false - set header, if is not set only`
 **Type**: `set str`
 
 **Variants**: 
-- Allow
-- Forbid
-- Replace 
+- `Allow`
+- `Forbid`
+- `Replace` 
 
 ### `.service.options.job.cron_suspend`
 **Default value**: `false`
@@ -854,28 +856,28 @@ false - set header, if is not set only`
 
 **Type**: `str`
 
-**Variants**: `	pvc name `
+**Variants**: 	pvc name 
 
 ### `.spec.pod.containers[].resources.disks[].size`
 **Default value**: `8G`
 
 **Type**: `	str`
 
-**Variants**: `You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.`
+**Variants**: You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.
 
 ### `.spec.pod.containers[].resources.disks[].mount`
 **Default value**: `/data`
 
 **Type**: `str`
 
-**Variants**: `mount point`
+**Variants**: mount point
 
 ### `.spec.pod.containers[].resources.disks[].className`
 **Default value**: `gp2`
 
 **Type**: `	str`
 
-**Variants**: `pvc class name`
+**Variants**: pvc class name
 
 ### `.spec.pod.containers[].resources.disks[].AccessModes[]`
 **Default value**: `{}`
@@ -884,11 +886,12 @@ false - set header, if is not set only`
 
 **Variants**:
 The access modes are:
-- `ReadWriteOnce` - the volume can be mounted as read-write by a single node. ReadWriteOnce access mode still can allow multiple pods to access the volume when the pods are running on the same node.
-- `ReadOnlyMany` - the volume can be mounted as read-only by many nodes.
-- `ReadWriteMany` - the volume can be mounted as read-write by many nodes.
-- `ReadWriteOncePod` - the volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across whole cluster can read that PVC or write to it. This is only supported for CSI volumes and Kubernetes version 1.22+. Persistent Volumes
+- **ReadWriteOnce** - the volume can be mounted as read-write by a single node. ReadWriteOnce access mode still can allow multiple pods to access the volume when the pods are running on the same node.
+- **ReadOnlyMany** - the volume can be mounted as read-only by many nodes.
+- **ReadWriteMany** - the volume can be mounted as read-write by many nodes.
+- **ReadWriteOncePod** - the volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across whole cluster can read that PVC or write to it. This is only supported for CSI volumes and Kubernetes version 1.22+. Persistent Volumes
 
+**Remarks**: default should be **ReadWriteOnce**
 
 ### `.spec.pod.containers[].resources.health_check.readinessProbe{}`
 **Default value**: `-`
@@ -929,7 +932,9 @@ The access modes are:
 
 **Type**: `set str`
 
-**Variants**: `RollingUpdate`
+**Variants**: 
+- `RollingUpdate`
+- `Recreate`
 
 ### `.spec.pod.strategy.rollingUpdate`
 
@@ -1005,7 +1010,7 @@ The access modes are:
 
 **Type**: `str`
 
-**Variants**: `set custom pod container image ( override )`
+**Variants**: set custom pod container image ( override )
 
 ### `.spec.pod.containers[].imagePullSecrets`
 
@@ -1013,7 +1018,7 @@ The access modes are:
 
 **Type**: `list`
 
-**Variants**: `set custom pod container image pull secret name(s)`
+**Variants**: set custom pod container image pull secret name(s). More information [Pull an Image from a Private Registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials)
 
 ### `.spec.pod.containers[].lifecycle`
 
@@ -1058,7 +1063,7 @@ The access modes are:
 
 **Type**: `str`
 
-**Variants**: `Limits and requests for memory are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these quantity suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.`
+**Variants**: Limits and requests for `memory` are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these quantity suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.
 
 ### `.spec.pod.containers[].resources.requests.cpu`
 
@@ -1066,14 +1071,14 @@ The access modes are:
 
 **Type**: `float/str`
 
-**Variants**: `Fractional requests are allowed. When you define a container with spec.containers[].resources.requests.cpu set to 0.5, you are requesting half as much CPU time compared to if you asked for 1.0 CPU. For CPU resource units, the quantity expression 0.1 is equivalent to the expression 100m, which can be read as "one hundred millicpu". Some people say "one hundred millicores", and this is understood to mean the same thing.`
+**Variants**: Fractional requests are allowed. When you define a container with `spec.containers[].resources.requests.cpu` set to `0.5`, you are requesting half as much CPU time compared to if you asked for `1.0` CPU. For CPU resource units, the quantity expression `0.1` is equivalent to the expression `100m`, which can be read as "one hundred millicpu". Some people say "one hundred millicores", and this is understood to mean the same thing.`
 
 ### `.spec.pod.containers[].resources.requests.ephemeral-storage`
 **Default value**: `-`
 
 **Type**: `str`
 
-**Variants**: `Limits and requests for ephemeral-storage are measured in byte quantities. You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.`
+**Variants**: Limits and requests for `ephemeral-storage` are measured in byte quantities. You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.
 
 ### `.spec.pod.containers[].resources.limits`
 **Default value**: `{}`
@@ -1085,7 +1090,7 @@ The access modes are:
 
 **Type**: `str`
 
-**Variants**: `Limits and requests for memory are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these quantity suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.`
+**Variants**: Limits and requests for `memory` are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these quantity suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki
 
 
 ### `.spec.pod.containers[].resources.limits.cpu`
@@ -1093,14 +1098,14 @@ The access modes are:
 
 **Type**: `	float/str`
 
-**Variants**: `Fractional requests are allowed. When you define a container with spec.containers[].resources.requests.cpu set to 0.5, you are requesting half as much CPU time compared to if you asked for 1.0 CPU. For CPU resource units, the quantity expression 0.1 is equivalent to the expression 100m, which can be read as "one hundred millicpu". Some people say "one hundred millicores", and this is understood to mean the same thing.`
+**Variants**: Fractional requests are allowed. When you define a container with `spec.containers[].resources.requests.cpu` set to `0.5`, you are requesting half as much CPU time compared to if you asked for `1.0 `CPU. For CPU resource units, the quantity expression `0.1 `is equivalent to the expression `100m`, which can be read as "one hundred millicpu". Some people say "one hundred millicores", and this is understood to mean the same thing.`
 
 ### `.spec.pod.containers[].resources.limits.ephemeral-storage`
 **Default value**: `-`
 
 **Type**: `str`
 
-**Variants:**: `Limits and requests for ephemeral-storage are measured in byte quantities. You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.`
+**Variants:**: Limits and requests for `ephemeral-storage` are measured in byte quantities. You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.
 
 ### `.spec.pod.containers[].resources.health_check`
 **Default value**: `{}`
@@ -1134,15 +1139,16 @@ The access modes are:
 
 **Type**: `map`
 
-**Remarks**: Should be present, but empty {}, if is not used
+**Remarks**: Should be present, but empty `{}`, if is not used
 
 #### Optional parameters
 ### `.spec{}`
 
 **Default value**: `-`
+
 **Type**: `various`
 
-**Remarks**: For lambda mutually exclusive with above, see more in AWS doc
+**Remarks**: For lambda mutually exclusive with above, see more in [AWS doc](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.create_function)
 
 
 
@@ -1155,7 +1161,7 @@ The access modes are:
 
 **Type**: `map`
 
-**Remarks**: Should be present, but empty {}, if is not used
+**Remarks**: Should be present, but empty `{}`, if is not used
 
 
 
