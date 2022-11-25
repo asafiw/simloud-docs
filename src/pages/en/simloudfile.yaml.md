@@ -224,18 +224,16 @@ spec: {} # frontend service will be emply
 - `strict` - Strict syntax validation.
 - `advanced` - Advanced syntax validation
 
-**Remarks**: `in advanced mode, prefix parameter: env_name_prefix is not mandatory`
+**Remarks**: in advanced mode, prefix parameter: env_name_prefix is not mandatory
 ### `.image`
 
 **Default value**: `””`
 
 **Type**: `str`
 
-**Variants**:  Send to jenkins as `SLAVE_IMAGE` parameter. Deprecated
-alias from `.cicd.image`.
+**Variants**:  Send to jenkins as `SLAVE_IMAGE` parameter. Deprecated alias from `.cicd.image`.
 
-                                                                                                                                                                                                                                                                                                  | Depricated<br/> alias from `.cicd.image`                                                                             
-## **Cloud Resources block:**
+                                                                                                                                                                                                                                                                                                
 
 #### Required parameters:
 
@@ -299,7 +297,7 @@ alias from `.cicd.image`.
 **Remarks**:
 - Mandatory in `.mode : strict`
 - Optional in `.mode : advanced`
--
+
 #### Optional parameters
 
 ### `.secrets`
@@ -308,7 +306,7 @@ alias from `.cicd.image`.
 
 **Type**: `list`
 
-**Remarks**: `Provide secrets, stored in hashicorp vault or k8s secrets, mount to pod as environment variables`
+**Remarks**: Provide secrets, stored in hashicorp `vault` or `k8s` secrets, mount to pod as environment variables
 
 ### `.secrets[].type`
 
@@ -331,14 +329,14 @@ Storage type:
 
 **Type**: `str`
 
-**Remarks**: `Environment name`
+**Remarks**: Environment name
 ### `.environment[].value`
 
 **Default value**: `-`
 
 **Type**: `str`
 
-**Remarks**: `Environment variable`
+**Remarks**: Environment variable
 
 #### Optional parameters
 ### `.environment`
@@ -347,7 +345,7 @@ Storage type:
 
 **Type**: `list`
 
-**Remarks**: `Provide availability apply hardcoded environment variables to pod `
+**Remarks**: Provide availability apply hardcoded environment variables to pod 
 
 ## **Internet facing interface:**
 
@@ -359,7 +357,7 @@ Storage type:
 
 **Type**: `str`
 
-**Remarks**: `Base domain name`
+**Remarks**: Base domain name
 
 ### `.external_api.cors.enable_cors`
 
@@ -369,7 +367,7 @@ Storage type:
 
 **Variants**: `true`
 
-**Remarks**: `Enable CORS headers support`
+**Remarks**: Enable CORS headers support
 
 ### `.external_api.auth.sub_domain`
 
@@ -398,7 +396,7 @@ Storage type:
 
 **Type**: `str`
 
-**Remarks**: `Base url, if applicable`
+**Remarks**: Base url, if applicable
 
 ### `.external_api.sub_domain`
 
@@ -406,7 +404,7 @@ Storage type:
 
 **Type**: `str`
 
-**Remarks**: `Subdomain, if applicable`
+**Remarks**: Subdomain, if applicable
 
 ### `.external_api.loadbalancer`
 
@@ -434,7 +432,7 @@ Storage type:
 
 **Type**: `set int`
 
-**Remarks**: `Currently available only values 80 or 443 or both`
+**Remarks**: Currently available only values `80` or `443` or both
 
 ### `.external_api.redirects`
 
@@ -448,7 +446,7 @@ Storage type:
 
 **Type**: `bool`
 
-**Remarks**: `Automatic redirect from HTTP to HTTPS protocol`
+**Remarks**: Automatic redirect from HTTP to HTTPS protocol
 
 ### `.external_api.cors`
 
@@ -502,7 +500,7 @@ Storage type:
 
 **Type**: `map`
 
-**Remarks**: `Enable authentication, base on ingress logic`
+**Remarks**: Enable authentication, base on ingress logic
 
 ### `.external_api.auth.url`
 
@@ -597,7 +595,7 @@ false - set header, if is not set only`
 - `udp` - for UDP protocol
 - `tcp_udp` - double support TCP and UDP`
 
-**Remarks**: `Currently available only tcp for 80 port and tls for 443 port`
+**Remarks**: Currently available only `tcp` for `80` port and `tls` for `443` port
 
 ### `.internal_api.port`
 
@@ -605,7 +603,7 @@ false - set header, if is not set only`
 
 **Type**: `set int`
 
-**Remarks**: `Currently available only values 80 or 443 or both`
+**Remarks**: Currently available only values `80` or `443` or both
 ### `.internal_api.headers[]`
 
 **Default value**: `[]`
@@ -648,31 +646,31 @@ false - set header, if is not set only`
 
 **Type**: `bool`
 
-**Variants**: `
+**Variants**: 
 - enable
 - disable
-  `
+  
 ### `.service.options.sidecars.consul.enable`
 **Default value**: `false`
 **Type**: `bool`
 
-**Variants**: `
+**Variants**: 
 - enable
 - disable
-  `
+  
 ### `.service.options.timeouts.job_execute`
 **Default value**: `3600`
 
 **Type**: `	int`
 
-**Remarks:** `Job spec execution timeout in sec`
+**Remarks:** Job spec execution timeout in sec
 
 ### `.service.options.job.shell_command`
 **Default value**: `””`
 
 **Type**: `str`
 
-**Remarks:** `Default shell command`
+**Remarks:** Default shell command
 
 #### Optional parameters
 ### `.service.namespace`
@@ -782,7 +780,7 @@ false - set header, if is not set only`
 
 **Type**: `map`
 
-**Remarks**: `Applicable only for job/cronjob type`
+**Remarks**: Applicable only for `job/cronjob` type
 
 ### `.service.options.job.cron`
 
@@ -790,17 +788,17 @@ false - set header, if is not set only`
 
 **Type**: `str`
 
-**Remarks**: `Only for cronjob type`
+**Remarks**: Only for `cronjob` type
 
 ### `.service.options.job.cron_concurrency`
 **Default value**: `Allow`
 
 **Type**: `set str`
 
-**Variants**: `
+**Variants**: 
 - Allow
 - Forbid
-- Replace `
+- Replace 
 
 ### `.service.options.job.cron_suspend`
 **Default value**: `false`
@@ -832,7 +830,7 @@ false - set header, if is not set only`
 
 **Type**: `map`
 
-**Remarks**: `Should be present, but empty {}`
+**Remarks**: Should be present, but empty `{}`
 
 ### `.spec.pod`
 
@@ -846,10 +844,10 @@ false - set header, if is not set only`
 
 **Type**: `str`
 
-**Variants**: `
+**Variants**: 
 - enable
 - disable
-  `
+  
 ### `.spec.pod.containers[].resources.disks[].name`
 
 **Default value**: `-`
@@ -886,10 +884,10 @@ false - set header, if is not set only`
 
 **Variants**:
 The access modes are:
-- ReadWriteOnce - the volume can be mounted as read-write by a single node. ReadWriteOnce access mode still can allow multiple pods to access the volume when the pods are running on the same node.
-- ReadOnlyMany - the volume can be mounted as read-only by many nodes.
-- ReadWriteMany - the volume can be mounted as read-write by many nodes.
-- ReadWriteOncePod - the volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across whole cluster can read that PVC or write to it. This is only supported for CSI volumes and Kubernetes version 1.22+. Persistent Volumes
+- `ReadWriteOnce` - the volume can be mounted as read-write by a single node. ReadWriteOnce access mode still can allow multiple pods to access the volume when the pods are running on the same node.
+- `ReadOnlyMany` - the volume can be mounted as read-only by many nodes.
+- `ReadWriteMany` - the volume can be mounted as read-write by many nodes.
+- `ReadWriteOncePod` - the volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across whole cluster can read that PVC or write to it. This is only supported for CSI volumes and Kubernetes version 1.22+. Persistent Volumes
 
 
 ### `.spec.pod.containers[].resources.health_check.readinessProbe{}`
@@ -939,7 +937,7 @@ The access modes are:
 
 **Type**: `map`
 
-**Remarks**: `Default empty`
+**Remarks**: Default empty
 
 ### `.spec.pod.strategy.rollingUpdate.maxSurge`
 
@@ -947,7 +945,7 @@ The access modes are:
 
 **Type**: `int`
 
-**Remarks**: `The number of pods that can be created above the desired amount of pods during an update`
+**Remarks**: The number of pods that can be created above the desired amount of pods during an update
 
 ### `.spec.pod.strategy.rollingUpdate.maxUnavailable`
 
@@ -955,7 +953,7 @@ The access modes are:
 
 **Type**: `int/str`
 
-**Remarks**: `The number of pods that can be unavailable during the update process`
+**Remarks**: The number of pods that can be unavailable during the update process
 
 ### `.spec.pod.hascaler`
 
@@ -999,7 +997,7 @@ The access modes are:
 
 **Type**: `str`
 
-**Remarks**: `	if is not set, will be same with .service.name, if used nore that one container, will be add number, for example: my-service-0, or my-service-1`
+**Remarks**: If is not set, will be same with `.service.name`, if used more than one container, will be added number, for example: `my-service-0,` or `my-service-1`
 
 ### `.spec.pod.containers[].image`
 
@@ -1136,7 +1134,7 @@ The access modes are:
 
 **Type**: `map`
 
-**Remarks**: `Should be present, but empty {}, if is not used`
+**Remarks**: Should be present, but empty {}, if is not used
 
 #### Optional parameters
 ### `.spec{}`
@@ -1144,7 +1142,7 @@ The access modes are:
 **Default value**: `-`
 **Type**: `various`
 
-**Remarks**: `For lambda mutually exclusive with above, see more in AWS doc`
+**Remarks**: For lambda mutually exclusive with above, see more in AWS doc
 
 
 
@@ -1157,7 +1155,7 @@ The access modes are:
 
 **Type**: `map`
 
-**Remarks**: `Should be present, but empty {}, if is not used`
+**Remarks**: Should be present, but empty {}, if is not used
 
 
 
@@ -1310,7 +1308,7 @@ limits:
 memory: "120Mi"
 cpu: "1000m"
  ```
-[Download Simloudfilefork8s.yaml for k8s](/files/SImloudfilefork8s.yaml)
+[Download Simloudfile.yaml for k8s](/files/SImloudfilefork8s.yaml)
 
 
 
