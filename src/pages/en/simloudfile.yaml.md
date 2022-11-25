@@ -184,7 +184,7 @@ spec: {} # frontend service will be emply
 
 ## **Annotation block:**
 
-## Required parameters
+#### Required parameters
 
 ### `.version`
 
@@ -212,7 +212,7 @@ spec: {} # frontend service will be emply
 - `external` or `front-end` - deployment, using k8s external service solution, for example: frontend on s3 bucket
 - `pipeline` - Simloud pipeline execution, only
 
-## Optional parameters
+#### Optional parameters
 
 ### `.mode`
 
@@ -237,7 +237,7 @@ alias from `.cicd.image`.
                                                                                                                                                                                                                                                                                                   | Depricated<br/> alias from `.cicd.image`                                                                             
 ## **Cloud Resources block:**
 
-### Required parameters:
+#### Required parameters:
 
 ### `.cloud_resources[].name`
 
@@ -257,7 +257,7 @@ alias from `.cicd.image`.
 
 **Type**: `str`
 
-### Optional parameters
+#### Optional parameters
 
 ### `.cloud_resources`
 
@@ -274,7 +274,7 @@ alias from `.cicd.image`.
 
 ## **Secrets block:**
 
-### Required parameters:
+#### Required parameters:
 
 ### `.secrets[].path`
 
@@ -300,7 +300,7 @@ alias from `.cicd.image`.
 - Mandatory in `.mode : strict`
 - Optional in `.mode : advanced`
 - 
-### Optional parameters
+#### Optional parameters
 
 ### `.secrets`
 
@@ -323,7 +323,7 @@ Storage type:
 
 ## **Environment block:**
 
-### Required parameters:
+#### Required parameters:
 
 ### `.environment[].env_name`
 
@@ -340,7 +340,7 @@ Storage type:
 
 **Remarks**: `Environment variable`
 
-### Optional parameters
+#### Optional parameters
 ### `.environment`
 
 **Default value**: `[]`
@@ -351,7 +351,7 @@ Storage type:
 
 ## **Internet facing interface:**
 
-### Required parameters:
+#### Required parameters:
 
 ### `.external_api.base_domain`
 
@@ -385,7 +385,7 @@ Storage type:
 
 **Variants**: `"Content-Type: text/html; charset=UTF-8"`
 
-### Optional parameters
+#### Optional parameters
 ### `.external_api`
 
 **Default value**: `{}`
@@ -544,7 +544,7 @@ false - set header, if is not set only`
 configuration as if entered by hand.
 
 ## **LAN facing interface:**
-### Required parameters:
+#### Required parameters:
 
 ### `.internal_api.base_domain`
 
@@ -558,7 +558,7 @@ configuration as if entered by hand.
 
 **Type**: `str`
 
-### Optional parameters
+#### Optional parameters
 ### `.internal_api`
 
 **Default value**: `{}`
@@ -628,7 +628,7 @@ configuration as if entered by hand.
 
 ## **Service block:**
 
-### Required parameters:
+#### Required parameters:
 
 ### `.service`
 
@@ -674,7 +674,7 @@ configuration as if entered by hand.
 
 **Remarks:** `Default shell command`
 
-## Optional parameters
+#### Optional parameters
 ### `.service.namespace`
 
 **Default value**: `default`
@@ -824,7 +824,7 @@ configuration as if entered by hand.
 
 ## **Kubernetes oriented Spec block:**
 
-### Required parameters:
+#### Required parameters:
 
 ### `.spec`
 
@@ -908,7 +908,7 @@ configuration as if entered by hand.
 
 **Type**: `various`
 
-## Optional parameters
+#### Optional parameters
 ### `.spec.pod.terminationGracePeriodSeconds`
 
 **Default value**: `300`
@@ -1128,7 +1128,7 @@ configuration as if entered by hand.
 **Type**: `map`
 
 ## **Lambda / APIGW oriented Spec block:** 
-### Required parameters:
+#### Required parameters:
 
 ### `.spec`
 
@@ -1138,7 +1138,7 @@ configuration as if entered by hand.
 
 **Remarks**: `Should be present, but empty {}, if is not used`
 
-### Optional parameters
+#### Optional parameters
 ### `.spec{}`
 
 **Default value**: `-`
@@ -1149,7 +1149,7 @@ configuration as if entered by hand.
 
 
 ## **Frontend / External service oriented Spec block:**
-### Required parameters:
+#### Required parameters:
 
 ### `.spec`
 
