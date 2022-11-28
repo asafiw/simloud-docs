@@ -193,12 +193,15 @@ spec: {} # frontend service will be emply
 **Type**: `str`
 
 `v2` - Only available. From version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode.
+Described all supported versions for SimloudFile.yaml. Technically on current moment is supported just v2 version.
 
 ### `.kind`
 
 **Default value**: `simloud-deployment`
 
 **Type**: `const str`
+
+By default, is set as simloud-deployment which is mandatory for deployments placed in Simloud.
 
 ### `.type`
 
@@ -244,17 +247,22 @@ spec: {} # frontend service will be emply
 
 **Type**: `str`
 
+The name of cloud resource, for example the name of the database.
+
 ### `.cloud_resources[].env_name_prefix`
 
 **Default value**: `-`
 
 **Type**: `str`
 
+
 ### `.cloud_resources[].type`
 
 **Default value**: `-`
 
 **Type**: `str`
+
+The type of the cloud resource as `dynamodb`.
 
 #### Optional parameters
 
@@ -382,6 +390,7 @@ It enables CORS headers support.
 **Type**: `str`
 
 **Possible Options**: `"Content-Type: text/html; charset=UTF-8"`
+
 
 #### Optional parameters
 ### `.external_api`
@@ -512,6 +521,7 @@ It enables authentication, based on ingress logic.
 
 **Type**: `str`
 
+
 ### `.external_api.auth.type`
 
 **Default value**: `vouch`
@@ -553,6 +563,8 @@ It enables authentication, based on ingress logic.
 
 **Type**: `str`
 
+Commonly used as a base domain name.
+
 ### `.internal_api.headers[].header`
 
 **Default value**: `””`
@@ -578,6 +590,8 @@ It enables authentication, based on ingress logic.
 **Default value**: `””`
 
 **Type**: `str`
+
+Subdomain, if applicable.
 
 ### `.internal_api.loadbalancer`
 
@@ -653,6 +667,7 @@ It is currently available only values `80` or `443` or both.
 
 **Type**: `str`
 
+The name of the service.
 ### `.service.options.sidecars.vault.enable`
 
 **Default value**: `false`
@@ -693,12 +708,15 @@ Default shell command.
 
 **Type**: `str`
 
+The namespace where the service is located.
+
 ### `.service.type`
 
 **Default value**: `ClusterIP`
 
 **Type**: `	set str`
 
+Type of the service.
 
 ### `.service.annotations`
 
@@ -788,6 +806,7 @@ File with ACL policy body. Path is relative to current `simloudfile.yaml` folder
 
 **Type**: `map`
 
+Timeout option allows you to set the global timeout for job.
 
 ### `.service.options.job`
 
@@ -1127,17 +1146,23 @@ The value will be the same if it is not set, if more than one container is used,
 
 **Type**: `map`
 
+It helps to be sure is pod work or not.
+
 ### `.spec.pod.containers[].resources.health_check.readinessProbe`
 
 **Default value**: `{}`
 
 **Type**: `map`
 
+It is used to control the readiness of the pod to work. Failing readiness probe will stop application from serving traffic.
+
 ### `.spec.pod.containers[].resources.health_check.livenessProbe`
 
 **Default value**: `{}`
 
 **Type**: `map`
+
+It is used to control the workability of pod. Failing liveness probe will restart the container
 
 ### `.spec.pod.containers[].resources.health_check.startupProbe`
 
