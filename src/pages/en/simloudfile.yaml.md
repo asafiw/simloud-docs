@@ -1213,6 +1213,8 @@ This hook is called immediately before a container is terminated due to an API r
 
 **Type**: `map`
 
+This block describes limits for memory, cpu and  ephemeral-storage.
+
 ### `.spec.pod.containers[].resources.limits.memory`
 **Default value**: `-`
 
@@ -1220,6 +1222,7 @@ This hook is called immediately before a container is terminated due to an API r
 
 **Possible Options**: Limits and requests for `memory` are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these quantity suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.
 
+This block describes limits for memory.
 
 ### `.spec.pod.containers[].resources.limits.cpu`
 **Default value**: `-`
@@ -1228,12 +1231,16 @@ This hook is called immediately before a container is terminated due to an API r
 
 **Possible Options**: Fractional requests are allowed. When you define a container with `spec.containers[].resources.requests.cpu` set to `0.5`, you are requesting half as much CPU time compared to if you asked for `1.0 `CPU. For CPU resource units, the quantity expression `0.1 `is equivalent to the expression `100m`, which can be read as "one hundred millicpu". Some people say "one hundred millicores", and this is understood to mean the same thing.
 
+This block describes limits for cpu.
+
 ### `.spec.pod.containers[].resources.limits.ephemeral-storage`
 **Default value**: `-`
 
 **Type**: `str`
 
 **Possible Options:**: Limits and requests for `ephemeral-storage` are measured in byte quantities. You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.
+
+This block describes limits for ephemeral-storage.
 
 ### `.spec.pod.containers[].resources.health_check`
 **Default value**: `{}`
