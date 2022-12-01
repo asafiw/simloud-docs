@@ -234,7 +234,8 @@ By default, is set as simloud-deployment which is mandatory for deployments plac
 
 **Type**: `str`
 
-**Possible Options**:  Send to Jenkins as `SLAVE_IMAGE` parameter. Deprecated alias from `.cicd.image`.
+**Possible Options**:  Send to Jenkins as `SLAVE_IMAGE` parameter. 
+Deprecated alias from `.cicd.image`.
 
 
 ## **Cloud Resources block**:
@@ -272,6 +273,7 @@ The type of the cloud resource as `dynamodb`.
 
 **Type**: `map`
 
+
 ### `.cloud_resources[].params`
 
 **Default value**: `[]`
@@ -293,6 +295,8 @@ The type of the cloud resource as `dynamodb`.
 
 - `vault`: `<vault-kv-path>`
 - ` k8s: <secret-name>.<namespace> `
+
+Secrets are located along this path.
 
 ### `.secrets[].env_name_prefix`
 
@@ -382,6 +386,7 @@ It enables CORS headers support.
 **Default value**: `-`
 
 **Type**: `str`
+It is necessary to specify sub-domain.
 
 ### `.external_api.headers[].header`
 
@@ -391,6 +396,7 @@ It enables CORS headers support.
 
 **Possible Options**: `"Content-Type: text/html; charset=UTF-8"`
 
+There are headers for external api requests. 
 
 #### Optional parameters
 ### `.external_api`
@@ -422,6 +428,7 @@ Subdomain, if applicable.
 **Type**: `set str`
 
 **Possible Options**: `aws_network` - AWS Network.
+Loadbalancer for external api. 
 
 ### `.external_api.protocol`
 
@@ -473,6 +480,8 @@ Automatic redirect from HTTP to HTTPS protocol.
 
 **Possible Options**: `GET, PUT, POST, DELETE, PATCH, OPTIONS`
 
+The `Access-Control-Allow-Methods` response header specifies one or more methods allowed when accessing a resource in response to a preflight request. 
+
 ### `.external_api.cors.cors-allow-headers`
 
 **Default value**: `*`
@@ -480,6 +489,8 @@ Automatic redirect from HTTP to HTTPS protocol.
 **Type**: `set str`
 
 **Possible Options**: `DNT,X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization`
+
+The `Access-Control-Allow-Headers` response header is used in response to a preflight request which includes the Access-Control-Request-Headers to indicate which HTTP headers can be used during the actual request.
 
 ### `.external_api.cors.cors-allow-origin`
 
@@ -491,7 +502,7 @@ Automatic redirect from HTTP to HTTPS protocol.
 - `* ` - will be set domain from `Origin` request header or form `.external_api.base_domain`;
 - `<domain-name>`- will always be set this domain.
 
-
+The `Access-Control-Allow-Origin` response header indicates whether the response can be shared with requesting code from the given origin.
 
 ### `.external_api.cors.cors-allow-credentials`
 
@@ -506,6 +517,7 @@ Automatic redirect from HTTP to HTTPS protocol.
 
 **Type**: `int`
 
+The `Access-Control-Max-Age` response header indicates how long the results of a preflight request (that is the information contained in the Access-Control-Allow-Methods and Access-Control-Allow-Headers headers) can be cached.
 
 ### `.external_api.auth`
 
