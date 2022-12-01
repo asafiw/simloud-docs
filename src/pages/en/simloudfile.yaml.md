@@ -407,7 +407,7 @@ It is necessary to specify sub-domain.
 
 **Possible Options**: `"Content-Type: text/html; charset=UTF-8"`
 
-There are headers for external api requests. 
+ HTTP's headers let the client and the server pass additional information with an HTTP request or response. 
 
 #### Optional parameters
 ### `.external_api`
@@ -415,6 +415,8 @@ There are headers for external api requests.
 **Default value**: `{}`
 
 **Type**: `map`
+
+An external API's parameters are described in this block.
 
 ### `.external_api.base_url`
 
@@ -486,6 +488,8 @@ An automatic redirect from HTTP to HTTPS protocol.
 
 **Type**: `	map`
 
+It is a browser security feature that restricts HTTP requests that are initiated from scripts running in the browser.
+
 ### `.external_api.cors.cors-allow-methods`
 
 **Default value**: `*`
@@ -524,6 +528,7 @@ The `Access-Control-Allow-Origin` response header indicates whether the response
 
 **Type**: `bool`
 
+The `Access-Control-Allow-Credentials` response header tells browsers whether to expose the response to the frontend code when the request's credentials mode is include.
 
 ### `.external_api.cors.cors-max-age`
 
@@ -547,6 +552,7 @@ It enables authentication, based on ingress logic.
 
 **Type**: `str`
 
+The `auth-url` command specifies the URL to the endpoint that authenticates user credentials.
 
 ### `.external_api.auth.type`
 
@@ -554,11 +560,16 @@ It enables authentication, based on ingress logic.
 
 **Type**: `set str`
 
+By default it is “vouch”, to integrate via vouch.
+
 ### `.external_api.headers[]`
 
 **Default value**: `[]`
 
 **Type**: `list`
+
+This block describes `.external_api.headers[]` parameters.
+
 
 ### `.external_api.headers[].override`
 
@@ -569,6 +580,8 @@ It enables authentication, based on ingress logic.
 **Possible Options**:
 `true` - always override the same header;
 `false` - set header, if it is not set only.
+
+Override is – receiving one method and interpreting another.
 
 ### `.external_api.regex`
 
@@ -597,6 +610,8 @@ Commonly used as a base domain name.
 
 **Type**: `str`
 
+HTTP headers let the client and the server pass additional information with an HTTP request or response. 
+
 #### Optional parameters
 ### `.internal_api`
 
@@ -604,12 +619,16 @@ Commonly used as a base domain name.
 
 **Type**: `map`
 
+An internal API's parameters are described in this block.
+ 
+
 ### `.internal_api.base_url`
 
 **Default value**: `""`
 
 **Type**: `str`
 
+Base url, if applicable.
 
 ### `.internal_api.sub_domain`
 
@@ -626,6 +645,8 @@ Subdomain, if applicable.
 **Type**: `set str`
 
 **Possible Options**: `aws_network` - AWS Network.
+
+A load balancer distributes incoming traffic across targets for internal api.
 
 ### `.internal_api.protocol`
 
@@ -655,6 +676,7 @@ It is currently available only values `80` or `443` or both.
 
 **Type**: `list`
 
+This block describes `.internal_api.headers[]` parameters.
 
 ### `.internal_api.headers[].override`
 
@@ -665,6 +687,8 @@ It is currently available only values `80` or `443` or both.
 **Possible Options**:
 - `true` - always override the same header;
 - `false` - set header, if it is not set only.
+
+Override is – receiving one method and interpreting another.
 
 ### `.internal_api.regex`
 
@@ -687,6 +711,9 @@ It is currently available only values `80` or `443` or both.
 
 **Type**: `map`
 
+This block describes the services parameters. 
+
+
 ### `.service.name`
 
 **Default value**: `-`
@@ -694,6 +721,7 @@ It is currently available only values `80` or `443` or both.
 **Type**: `str`
 
 The name of the service.
+
 ### `.service.options.sidecars.vault.enable`
 
 **Default value**: `false`
@@ -750,16 +778,21 @@ Type of the service.
 
 **Type**: `	map`
 
+
 ### `.service.servicePort`
 **Default value**: `80`
 
 **Type**: `int`
+
+Service is running on this port.
 
 ### `.service.podPort`
 
 **Default value**: `80`
 
 **Type**: `int`
+
+Service pod is running on this port.
 
 ### `.service.specType`
 
@@ -769,12 +802,15 @@ Type of the service.
 
 **Possible Options**: `deployment, job, cronjob, replicasets, daemonset, statefulset`
 
+Spectype of the deployment.
 
 ### `.service.options`
 
 **Default value**: `{}`
 
 **Type**: `map`
+
+
 
 ### `.service.options.sidecars`
 
@@ -816,7 +852,7 @@ File with ACL policy body. Path is relative to current `simloudfile.yaml` folder
 
 **Type**: `str`
 
-It is mandatory, if `.service.options.sidecars.consul_hcl` present.
+It is mandatory, if `.service.options.sidecars.consul_hcl` present.  Default consul acl policy name.
 
 ### `.service.options.sidecars.consul.hlc`
 
@@ -860,15 +896,21 @@ Used only for cronjob type.
 - `Forbid`
 - `Replace`
 
+Enable cron jobs concurrency: `Allow/Forbid/Replace`.
+
 ### `.service.options.job.cron_suspend`
 **Default value**: `false`
 
 **Type**: `bool`
 
+ If it is set to true, all subsequent executions are suspended.
+
 ### `.service.options.job.cron_backoffLimit`
 **Default value**: `4`
 
 **Type**: `int`
+
+To specify the number of retries before considering a Job as failed.
 
 ### `.service.options.job.cron_completions`
 **Default value**: `1`
@@ -890,7 +932,7 @@ Used only for cronjob type.
 
 **Type**: `map`
 
-It should be present, but empty `{}`
+It should be present, but empty `{}`. It is used for for k8s service.
 
 ### `.spec.pod`
 
@@ -898,15 +940,15 @@ It should be present, but empty `{}`
 
 **Type**: `map`
 
+This block describes parameters of spec pod.
+
 ### `.spec.pod.name`
 
 **Default value**: `-`
 
 **Type**: `str`
 
-**Possible Options**:
-- enable;
-- disable.
+If it is not set, will be same with .service.name.
 
 ### `.spec.pod.containers[].resources.disks[].name`
 
@@ -930,12 +972,16 @@ You can express storage as a plain integer or as a fixed-point number using one 
 
 **Possible Options**: mount point
 
+Disk mount point, default "/" root.
+
 ### `.spec.pod.containers[].resources.disks[].className`
 **Default value**: `gp2`
 
 **Type**: `	str`
 
 **Possible Options**: pvc class name
+
+PVC className ( possible any active in k8s class name ).
 
 ### `.spec.pod.containers[].resources.disks[].AccessModes[]`
 **Default value**: `{}`
@@ -950,18 +996,21 @@ The access modes are:
 - **ReadWriteMany** - the volume can be mounted as read-write by many nodes.
 - **ReadWriteOncePod** - the volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across the whole cluster can read that PVC or write to it. This is only supported for CSI volumes and Kubernetes version 1.22+. [Persistent Volumes.](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
 
-As default value should be **ReadWriteOnce**.
+ Pvc access modes. As default value should be **ReadWriteOnce**.
 
 ### `.spec.pod.containers[].resources.health_check.readinessProbe{}`
 **Default value**: `-`
 
 **Type**: `various`
 
+It is used to control the readiness of the pod to work. Failing readiness probe will stop application from serving traffic.
 
 ### `.spec.pod.containers[].resources.health_check.livenessProbe{}`
 **Default value**: `-`
 
 **Type**: `	various`
+
+It is used to control the workability of pod. Failing liveness probe will restart the container.
 
 ### `.spec.pod.containers[].resources.health_check.startupProbe{}`
 **Default value**: `-`
@@ -981,11 +1030,15 @@ As default value should be **ReadWriteOnce**.
 
 **Type**: `int`
 
+The deployment creates a ReplicaSet that creates replicated pods, indicated by the `.spec.pod.replicas` field.
+
 ### `.spec.pod.strategy`
 
 **Default value**: `{}`
 
 **Type**: `	map`
+
+This pod describes the pod's strategy.
 
 ### `.spec.pod.strategy.type`
 **Default value**: `Recreate`
@@ -995,6 +1048,8 @@ As default value should be **ReadWriteOnce**.
 **Possible Options**:
 - `RollingUpdate`
 - `Recreate`
+
+The type of strategy. 
 
 ### `.spec.pod.strategy.rollingUpdate`
 
@@ -1026,11 +1081,15 @@ The number of pods that can be unavailable during the update process.
 
 **Type**: `map`
 
+This block describes the hascaler parameters.
+
 ### `.spec.pod.hascaler.enabled`
 
 **Default value**: `false`
 
 **Type**: `bool`
+
+Indicates whether hascaler is enabled or disabled.
 
 ### `.spec.pod.hascaler.min`
 
@@ -1038,11 +1097,15 @@ The number of pods that can be unavailable during the update process.
 
 **Type**: `int`
 
+The minimum value of hascaler.
+
 ### `.spec.pod.hascaler.max`
 
 **Default value**: `10`
 
 **Type**: `int`
+
+The maximum value of hascaler.
 
 ### `.spec.pod.hascaler.cpu_percent`
 
@@ -1055,6 +1118,9 @@ The number of pods that can be unavailable during the update process.
 **Default value**: `[]`
 
 **Type**: `list`
+
+This block describes an information about containers.
+
 
 ### `.spec.pod.containers[].name`
 
@@ -1090,6 +1156,8 @@ The value will be the same if it is not set, if more than one container is used,
 **Default value**: `{}`
 
 **Type**: `map`
+
+This hook is called immediately before a container is terminated due to an API request or management event such as a liveness/startup probe failure, preemption, resource contention and others.
 
 ### `.spec.pod.containers[].lifecycle.preStop.exec`
 
