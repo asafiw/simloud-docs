@@ -193,6 +193,7 @@ spec: {} # frontend service will be emply
 **Type**: `str`
 
 `v2` - Only available. From version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode.
+
 Described all supported versions for SimloudFile.yaml. Technically on current moment is supported just v2 version.
 
 ### `.kind`
@@ -215,6 +216,8 @@ By default, is set as simloud-deployment which is mandatory for deployments plac
 - `external` or `front-end` - deployment, using k8s external service solution, for example, frontend on s3 bucket.
 - `pipeline` - Simloud pipeline execution, only.
 
+The type of deployment.
+
 #### Optional parameters
 
 ### `.mode`
@@ -226,7 +229,8 @@ By default, is set as simloud-deployment which is mandatory for deployments plac
 **Possible Options**:
 - `strict` - Strict syntax validation.
 - `advanced` - Advanced syntax validation.
-  In `advanced` mode, the prefix parameter: `env_name_prefix` is not mandatory.
+
+ In `advanced` mode, the prefix parameter: `env_name_prefix` is not mandatory.
 
 ### `.image`
 
@@ -235,6 +239,7 @@ By default, is set as simloud-deployment which is mandatory for deployments plac
 **Type**: `str`
 
 **Possible Options**:  Send to Jenkins as `SLAVE_IMAGE` parameter. 
+
 Deprecated alias from `.cicd.image`.
 
 
@@ -256,6 +261,7 @@ The name of cloud resource, for example the name of the database.
 
 **Type**: `str`
 
+It is necessary to specify the environment prefix. For example, `ENVDB1`.
 
 ### `.cloud_resources[].type`
 
@@ -273,13 +279,15 @@ The type of the cloud resource as `dynamodb`.
 
 **Type**: `map`
 
-
+The cloud resources used in the environment are described by this parameter.
+ 
 ### `.cloud_resources[].params`
 
 **Default value**: `[]`
 
 **Type**: `list`
 
+It describes parameters for cloud resources. 
 
 ## **Secrets block:**
 
@@ -329,6 +337,8 @@ It is necessary to provide secrets, stored in hashicorp `vault` or `k8s` secrets
 Storage type:
 - `vault` - to read secret data from vault.
 - `k8s` - to read secret data from kubernetes secret.
+
+It describes the type of the secrets.
 
 ## **Environment block:**
 
@@ -386,6 +396,7 @@ It enables CORS headers support.
 **Default value**: `-`
 
 **Type**: `str`
+
 It is necessary to specify sub-domain.
 
 ### `.external_api.headers[].header`
@@ -428,7 +439,8 @@ Subdomain, if applicable.
 **Type**: `set str`
 
 **Possible Options**: `aws_network` - AWS Network.
-Loadbalancer for external api. 
+
+A load balancer distributes incoming traffic across targets.
 
 ### `.external_api.protocol`
 
@@ -458,13 +470,15 @@ It is currently available only values `80` or `443` or both.
 
 **Type**: `map`
 
+Redirect rules accept a number of options to customize how the paths are matched and redirected.
+
 ### `.external_api.redirects.http2https`
 
 **Default value**: `true`
 
 **Type**: `bool`
 
-Automatic redirect from HTTP to HTTPS protocol.
+An automatic redirect from HTTP to HTTPS protocol.
 
 ### `.external_api.cors`
 
