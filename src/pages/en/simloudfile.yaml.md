@@ -732,6 +732,8 @@ The name of the service.
 - enable;
 - disable.
 
+ Allows to dynamically inject vault agent as sidecar container and seamlessly fetch secrets from Vault.
+
 ### `.service.options.sidecars.consul.enable`
 **Default value**: `false`
 
@@ -740,6 +742,8 @@ The name of the service.
 **Possible Options**:
 - enable;
 - disable.
+
+Consul sidecar can be automatically injected into pods in your cluster, making configuration for Kubernetes automatic
 
 ### `.service.options.timeouts.job_execute`
 **Default value**: `3600`
@@ -824,6 +828,8 @@ Spectype of the deployment.
 
 **Type**: `map`
 
+Specifed additional options for using sidecars.
+
 ### `.service.options.sidecars.vault.policy`
 
 **Default value**: `default-app`
@@ -845,6 +851,8 @@ File with ACL policy body. Path is relative to current `simloudfile.yaml` folder
 **Default value**: `{}`
 
 **Type**: `map`
+
+Specifed additional options for using sidecars.
 
 ### `.service.options.sidecars.consul.policy`
 
@@ -916,11 +924,14 @@ To specify the number of retries before considering a Job as failed.
 **Default value**: `1`
 
 **Type**: `int`
+Allows to use and configure specific conditions for cron job.
 
 ### `.service.options.job.cron_parallelism`
 **Default value**: `1`
 
 **Type**: `int`
+Allows using and configure specific conditions for cron job.
+
 
 ## **Kubernetes oriented Spec block:**
 
@@ -1017,12 +1028,17 @@ It is used to control the workability of pod. Failing liveness probe will restar
 
 **Type**: `various`
 
+Should be specified proper conditions for health-check probe.
+
 #### Optional parameters
 ### `.spec.pod.terminationGracePeriodSeconds`
 
 **Default value**: `300`
 
 **Type**: `	int`
+
+Could be configured specific value for grace period of termination.
+
 
 ### `.spec.pod.replicas`
 
@@ -1113,6 +1129,9 @@ The maximum value of hascaler.
 
 **Type**: `int`
 
+Provides possibility for automatically scaling pods with the horizontal pod autoscaler when cpu is set to specific value.
+
+
 ### `.spec.pod.containers[]`
 
 **Default value**: `[]`
@@ -1151,6 +1170,9 @@ The value will be the same if it is not set, if more than one container is used,
 **Default value**: `{}`
 
 **Type**: `map`
+Describes the lifecycle of a Pod. 
+Pods follow a defined lifecycle, starting in the `Pending` phase, moving through `Running` if at least one of its primary containers starts OK, and then through either the `Succeeded` or `Failed` phases depending on whether any container in the Pod terminated in failure.
+
 
 ### `.spec.pod.containers[].lifecycle.preStop`
 **Default value**: `{}`
@@ -1174,6 +1196,9 @@ This hook is called immediately before a container is terminated due to an API r
 **Default value**: `{}`
 
 **Type**: `map`
+
+Resources that should be specified directly for container usage.
+
 
 ### `.spec.pod.containers[].resources.disks[] `
 **Default value**: `[]`
@@ -1220,7 +1245,7 @@ This block describes limits for memory, cpu and  ephemeral-storage.
 
 **Type**: `str`
 
-**Possible Options**: Limits and requests for `memory` are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these quantity suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.
+**Possible Opti.service.options.sidecars.vault.enableons**: Limits and requests for `memory` are measured in bytes. You can express memory as a plain integer or as a fixed-point number using one of these quantity suffixes: E, P, T, G, M, k. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.
 
 This block describes limits for memory.
 
