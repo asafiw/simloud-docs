@@ -593,6 +593,9 @@ Override is – receiving one method and interpreting another.
 - `true` - for service, the regex rules will be applied based on the already set and specifically configured regex rules in Simloudfile.yaml. It could be a custom value that suits a customer's needs;
 - `false` - service will be deployed without any regex rules and according to already specified configuration in URL path.
 
+If you choose the `true` option - the `user-regex` parameter will be **true**.
+If you choose the `false` option - the `user-regex` parameter will be **false**.
+
 ## **LAN facing interface:**
 #### Required parameters:
 
