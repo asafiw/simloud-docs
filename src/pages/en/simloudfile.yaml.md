@@ -216,7 +216,7 @@ By default, is set as simloud-deployment which is mandatory for deployments plac
 - `external` or `front-end` - deployment, using k8s external service solution, for example, frontend on s3 bucket.
 - `pipeline` - Simloud pipeline execution, only.
 
-The type of deployment.
+It is necessary to specify the type of deployment.
 
 #### Optional parameters
 
