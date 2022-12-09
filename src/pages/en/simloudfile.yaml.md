@@ -424,7 +424,7 @@ An external API's parameters are described in this block.
 
 **Type**: `str`
 
-Base url, if applicable.
+It is necessary to specify base url, if applicable.
 
 ### `.external_api.sub_domain`
 
@@ -432,7 +432,7 @@ Base url, if applicable.
 
 **Type**: `str`
 
-Subdomain, if applicable.
+It is necessary to specify sub-domain, if applicable.
 
 ### `.external_api.loadbalancer`
 
@@ -581,7 +581,7 @@ This block describes `.external_api.headers[]` parameters.
 `true` - always override the same header;
 `false` - set header, if it is not set only.
 
-Override is – receiving one method and interpreting another.
+Override - is  receiving one method and interpreting another.
 
 ### `.external_api.regex`
 
@@ -631,7 +631,7 @@ An internal API's parameters are described in this block.
 
 **Type**: `str`
 
-Base url, if applicable.
+It is necessary to specify base url, if applicable.
 
 ### `.internal_api.sub_domain`
 
@@ -639,7 +639,7 @@ Base url, if applicable.
 
 **Type**: `str`
 
-Subdomain, if applicable.
+It is necessary to specify sub-domain, if applicable.
 
 ### `.internal_api.loadbalancer`
 
@@ -760,7 +760,7 @@ Job spec execution timeout in sec.
 
 **Type**: `str`
 
-Default shell command.
+It is necessary to specify default shell command.
 
 #### Optional parameters
 ### `.service.namespace`
@@ -1076,7 +1076,7 @@ The type of strategy.
 
 **Type**: `map`
 
-As default is empty.
+By  default is empty.
 
 ### `.spec.pod.strategy.rollingUpdate.maxSurge`
 

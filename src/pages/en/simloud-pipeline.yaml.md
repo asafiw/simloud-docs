@@ -6,7 +6,7 @@ layout: ../../layouts/MainLayout.astro
 
 #### Configuration file for pipeline with possibility for deploying Terraform code
 
-### Examples of `Simloud-pipeline.yaml` file :
+### Examples of `Simloud-pipeline.yaml` file 
 
 \
 **Bash shell example:**
@@ -27,7 +27,7 @@ pipeline:
 ```
 [Download Simloud-pipeline.yaml](/files/Simloud-pipeline.yaml)
 
-### Example of `helm_install.sh` file :
+### Example of `helm_install.sh` file 
 
 ```shell script
 #!/bin/bash
@@ -61,7 +61,7 @@ fi
 
 
 \
-**Terraform shell example:**
+###**Terraform shell example**
 
 ```yaml
 version: v1
