@@ -6,7 +6,7 @@ layout: ../../layouts/MainLayout.astro
 
 #### Configuration file for pipeline with possibility for deploying Terraform code
 
-### Examples of `Simloud-pipeline.yaml` file :
+### Examples of `Simloud-pipeline.yaml` file 
 
 \
 **Bash shell example:**
@@ -25,11 +25,43 @@ pipeline:
           scripts: # for “sh,bash,zsh” shells only
             - ./helm_install.sh
 ```
-
 [Download Simloud-pipeline.yaml](/files/Simloud-pipeline.yaml)
 
+### Example of `helm_install.sh` file 
+
+```shell script
+#!/bin/bash
+
+if [ "$PIPELINE_ACTION" == "" ]; then
+  echo "Please, provide action."
+fi
+
+if [ "$PIPELINE_ACTION" == "deploy" ]; then
+  helm repo add bitnami https://charts.bitnami.com/bitnami
+  env
+  echo "helm upgrade --install my-release bitnami/wordpress --set wordpressUsername=$wordpressUsername --set wordpressPassword=$wordpressPassword --set wordpressEmail=$wordpressEmail --set ingress.enabled=true --set ingress.annotations.\"kubernetes\.io/ingress\.class=nginx\" --set ingress.hostname=${HostnamePrefix}.${JENKINS_BASEURL}"
+  helm upgrade --install my-release bitnami/wordpress \
+  --set wordpressUsername=$wordpressUsername \
+  --set wordpressPassword=$wordpressPassword \
+  --set wordpressEmail=$wordpressEmail \
+  --set ingress.enabled=true \
+  --set ingress.selfSigned=true \
+  --set ingress.annotations."kubernetes\.io/ingress\.class=nginx" \
+  --set ingress.hostname=${HostnamePrefix}.${JENKINS_BASEURL}
+fi
+
+if [ "$PIPELINE_ACTION" == "destroy" ]; then
+  env
+  helm uninstall my-release
+  kubectl delete pvc data-my-release-mariadb-0
+fi
+```
+[Download helm_install.sh file](/files/helm_install.sh)
+
+
+
 \
-**Terraform shell example:**
+###**Terraform shell example**
 
 ```yaml
 version: v1
