@@ -586,10 +586,10 @@
   dependencies:
     "@types/unist" "*"
 
-"@types/node@^18.11.9":
-  version "18.11.9"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.9.tgz#02d013de7058cea16d36168ef2fc653464cfbad4"
-  integrity sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==
+"@types/node@^18.11.10":
+  version "18.11.10"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.10.tgz#4c64759f3c2343b7e6c4b9caf761c7a3a05cee34"
+  integrity sha512-juG3RWMBOqcOuXC643OAdSA525V44cVgGV6dUDuiFtss+8Fk5x1hI93Rsld43VeJVIeqlP9I7Fn9/qaVqoEAuQ==
 
 "@types/parse5@^6.0.0":
   version "6.0.3"
@@ -617,10 +617,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@^18.0.25":
-  version "18.0.25"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.25.tgz#8b1dcd7e56fe7315535a4af25435e0bb55c8ae44"
-  integrity sha512-xD6c0KDT4m7n9uD4ZHi02lzskaiqcBxf4zi+tXZY98a04wvc0hi/TcCPC2FOESZi51Nd7tlUeOJY8RofL799/g==
+"@types/react@^18.0.26":
+  version "18.0.26"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.26.tgz#8ad59fc01fef8eaf5c74f4ea392621749f0b7917"
+  integrity sha512-hCR3PJQsAIXyxhTNSiDFY//LhnMZWpNNr5etoCqx/iUfGc5gXWtQR2Phl908jVR6uPXacojQWTg4qRpkxTuGug==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -668,10 +668,10 @@
     vscode-oniguruma "^1.0.0"
     vscode-textmate "^7.0.0"
 
-"@wooorm/starry-night@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@wooorm/starry-night/-/starry-night-1.4.0.tgz#d504f76ca9a825ffe758bb4f356f274a00b26545"
-  integrity sha512-quNNbnVatxxusFueR1z7m8uCC99YQ/OC8xOslIUgj8xBUGyx0XwwRQ+oTtRuGa/LqVvyY4QDIeek49MHDajfWQ==
+"@wooorm/starry-night@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@wooorm/starry-night/-/starry-night-1.4.2.tgz#33b0951bc57a8abb140822cee2165fdb1e7e3d8d"
+  integrity sha512-SkhIweiThgUK+KmvZPR2VCSnA1m0awTi/jPHey71MtR+jZG6phmcc9F9b0xpvxmHFFiKqxkgD/UKSVWVua+xrw==
   dependencies:
     "@types/hast" "^2.0.0"
     import-meta-resolve "^2.0.0"
@@ -743,10 +743,10 @@ ast-types@0.14.2:
   dependencies:
     tslib "^2.0.1"
 
-astro@^1.6.10:
-  version "1.6.10"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-1.6.10.tgz#8d9877b49e6f2b0ee64503bcc759d73a992b05bf"
-  integrity sha512-W/ZGROkCKsDicpiXB82n8EkY6I0/12wdXS80NGaBdIUR1jZZxdN+0YMmdz+C2kYbjlo45KUsXpC/Tej+5KQYSQ==
+astro@^1.6.12:
+  version "1.6.12"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-1.6.12.tgz#f56a22d76338d43107b55ee8e84a608b16ff91c9"
+  integrity sha512-Pa1BfD/w2B/1bi6UXyvwbSnKnZqBglWgw8vjuEP+YJ8tb63g2yAn4mOy2Fh/Z5jn6fV1mkA2HS2TN2ZpTgagdg==
   dependencies:
     "@astrojs/compiler" "^0.29.15"
     "@astrojs/language-server" "^0.28.3"
