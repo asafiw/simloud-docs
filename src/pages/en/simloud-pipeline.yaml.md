@@ -74,7 +74,7 @@ if [ "$PIPELINE_ACTION" == "update" ]; then
   --set serviceContainer.resources.requests.memory="1024Mi" \
   --set serviceContainer.resources.limits.cpu="800m" \
   --set serviceContainer.resources.limits.memory="1536Mi"
-echo "Chart was succesfully upgrade!"
+echo "Chart was successfully upgrade!"
 fi
 
 ```
