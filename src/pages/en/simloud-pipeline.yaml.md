@@ -16,14 +16,21 @@ version: v1
 kind: simloud-pipeline
 
 pipeline:
-  default: # profile name. Currently only default
+  default:                                         # profile name. Currently only default
     - stages:
+        - name: "chmod"
+          shell: bash                                # “bash” by default ( optional )
+          args: []                                   # shell arguments ( optional )
+          homedir: /home/jenkins/agent/workspace/generic-pipeline                                # shell command default folder ( optional )
+          scripts:                                   # for “sh,bash,zsh” shells only
+          - "printenv; chmod +x ./helm_install.sh"    
         - name: "bash"
-          shell: bash # “bash” by default ( optional )
-          args: [] # shell arguments ( optional )
-          homedir: /home/jenkins/agent/workspace/generic-pipeline # shell command default folder ( optional )
-          scripts: # for “sh,bash,zsh” shells only
-            - ./helm_install.sh
+          shell: bash                                # “bash” by default ( optional )
+          args: []                                   # shell arguments ( optional )
+          homedir: /home/jenkins/agent/workspace/generic-pipeline                                # shell command default folder ( optional )
+          scripts:                                   # for “sh,bash,zsh” shells only
+          - ./helm_install.sh
+
 ```
 [Download Simloud-pipeline.yaml](/files/Simloud-pipeline.yaml)
 
