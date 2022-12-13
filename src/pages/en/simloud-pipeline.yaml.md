@@ -8,7 +8,7 @@ layout: ../../layouts/MainLayout.astro
 
 ### Examples of `Simloud-pipeline.yaml` file 
 
-\
+
 **Bash shell example:**
 
 ```yaml
@@ -86,8 +86,6 @@ fi
 [Download helm_install.sh file](/files/helm_install.sh)
 
 
-
-\
 ### **Terraform shell example**
 
 ```yaml
