@@ -8,7 +8,7 @@ layout: ../../layouts/MainLayout.astro
 
 ### Examples of `Simloud-pipeline.yaml` file 
 
-\
+
 **Bash shell example:**
 
 ```yaml
@@ -16,20 +16,27 @@ version: v1
 kind: simloud-pipeline
 
 pipeline:
-  default: # profile name. Currently only default
+  default:                                         # profile name. Currently only default
     - stages:
+        - name: "chmod"
+          shell: bash                                # “bash” by default ( optional )
+          args: []                                   # shell arguments ( optional )
+          homedir: /home/jenkins/agent/workspace/generic-pipeline                                # shell command default folder ( optional )
+          scripts:                                   # for “sh,bash,zsh” shells only
+          - "printenv; chmod +x ./helm_install.sh"    
         - name: "bash"
-          shell: bash # “bash” by default ( optional )
-          args: [] # shell arguments ( optional )
-          homedir: /home/jenkins/agent/workspace/generic-pipeline # shell command default folder ( optional )
-          scripts: # for “sh,bash,zsh” shells only
-            - ./helm_install.sh
+          shell: bash                                # “bash” by default ( optional )
+          args: []                                   # shell arguments ( optional )
+          homedir: /home/jenkins/agent/workspace/generic-pipeline                                # shell command default folder ( optional )
+          scripts:                                   # for “sh,bash,zsh” shells only
+          - ./helm_install.sh
+
 ```
 [Download Simloud-pipeline.yaml](/files/Simloud-pipeline.yaml)
 
 ### Example of `helm_install.sh` file 
 
-```shell script
+```sh                                                                   helm_install.sh
 #!/bin/bash
 
 if [ "$PIPELINE_ACTION" == "" ]; then
@@ -50,18 +57,36 @@ if [ "$PIPELINE_ACTION" == "deploy" ]; then
   --set ingress.hostname=${HostnamePrefix}.${JENKINS_BASEURL}
 fi
 
+if [ "$PIPELINE_ACTION" == "update" ]; then
+  helm repo add bitnami https://charts.bitnami.com/bitnami
+  env
+  echo "helm upgrade --install my-release bitnami/wordpress --set wordpressUsername=$wordpressUsername --set wordpressPassword=$wordpressPassword --set wordpressEmail=$wordpressEmail --set serviceContainer.resources.requests.cpu=\"400m\" --set serviceContainer.resources.requests.memory=\"1024Mi\" --set serviceContainer.resources.limits.cpu=\"600m\" --set serviceContainer.resources.limits.memory=\"1536Mi\""
+  helm upgrade --install my-release bitnami/wordpress \
+  --set wordpressUsername=$wordpressUsername \
+  --set wordpressPassword=$wordpressPassword \
+  --set wordpressEmail=$wordpressEmail \
+  --set ingress.enabled=true \
+  --set ingress.selfSigned=true \
+  --set ingress.annotations."kubernetes\.io/ingress\.class=nginx" \
+  --set ingress.hostname=${HostnamePrefix}.${JENKINS_BASEURL} \
+  --set serviceContainer.resources.requests.cpu="600m" \
+  --set serviceContainer.resources.requests.memory="1024Mi" \
+  --set serviceContainer.resources.limits.cpu="800m" \
+  --set serviceContainer.resources.limits.memory="1536Mi"
+echo "Chart was succesfully upgrade!"
+fi
+
 if [ "$PIPELINE_ACTION" == "destroy" ]; then
   env
   helm uninstall my-release
   kubectl delete pvc data-my-release-mariadb-0
 fi
+
 ```
 [Download helm_install.sh file](/files/helm_install.sh)
 
 
-
-\
-###**Terraform shell example**
+### **Terraform shell example**
 
 ```yaml
 version: v1
