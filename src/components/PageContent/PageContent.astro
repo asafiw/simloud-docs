@@ -62,7 +62,6 @@ const title = frontmatter.title
       max-width: 75ch;
     }
   }
-
 </style>
 
 <script>
@@ -86,4 +85,13 @@ const title = frontmatter.title
   }
 
   zoomPreview.addEventListener('click', exitZoom)
+
+  document.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'f') {
+      const showMoreBtns = [...document.querySelectorAll('.source-show-more')] as [
+        HTMLElement
+      ]
+      showMoreBtns.map(el => el.click())
+    }
+  })
 </script>
