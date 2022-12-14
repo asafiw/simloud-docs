@@ -83,6 +83,12 @@ if [ "$PIPELINE_ACTION" == "destroy" ]; then
 fi
 
 ```
+> **_So, there are 3 variants of PIPELINE ACTION:_** 
+> - **`Deploy`** - _for building job_;
+> - **`Update`** - _for update job with new parameters_;
+> - **`Destroy`** - _for killing job_.
+ 
+
 [Download helm_install.sh file](/files/helm_install.sh)
 
 
