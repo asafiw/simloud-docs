@@ -1,8 +1,8 @@
 version: v2
 kind: simloud-deployment
-name: <repo visual name>                          # "optional", if empty, will same with `.service.name`
-type: (kubernetes|pipeline|serverless|front-end)  # default "kubernetes" @v5.0
-mode: (strict|advаnced)                           # default "strict"
+#name: <repo visual name>                # "optional", if empty, will same with `.service.name`
+type: (kubernetes)                       # by default is "kubernetes" @v5.0.Pipeline|serverless|front-end variants also are available
+mode: (strict)                           # by default is "strict". Also it can be advanced for specifying more options.
 image: <jenkins-slave-image>                      # Send to jenkins as SLAVE_IMAGE parameter
 
 cloud_resources:
@@ -27,23 +27,23 @@ cloud_resources:
 secrets:
   - path: secrets/customer1/data1        # vault: <path>
     env_name_prefix: CUSTENV1            # mandatory in mode: `strict`, optional in `advanced`
-    type: vault                          # default "vault"
+    type: vault                          # by default is "vault"
 
 environment:
   - env_name: ENVNAME1
     value: Yahoo!
 
-external_api:       # internet facing loadbalancer
+external_api:                            # internet facing loadbalancer
   base_url: kube-service
   sub_domain: xxx
   base_domain: base.domain.name
   regex:
-    enabled: false             # default `false`
-    rewrite-target: /$2$3$4    # default `for micro_service_type: serverless` will be `$1$2$3$4`, for all another modes `$2$3$4`
+    enabled: false             # by default is `false`
+    rewrite-target: /$2$3$4    # by default `for micro_service_type: serverless` will be `$1$2$3$4`, for all another modes `$2$3$4`
   redirects:
-    http2https: true           # by default enabled
+    http2https: true           # by default is enabled
   cors:
-    enable_cors: false          # default "false"
+    enable_cors: false          # by default is "false"
     cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
     cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
     cors-allow-origin: "*"

@@ -1340,17 +1340,17 @@ It should be present, but empty `{}`, if it is not used.
 ``` yaml 
 version: v2
 kind: simloud-deployment
-name: <repo visual name>                         # "optional", if empty, will same with `.service.name`
+name: <repo visual name>     # "optional", if empty, will be same with `.service.name`
 type: kubernetes
-mode: (strict|advаnced)                          # default "strict"
-image: <jenkins-slave-image>                     # default empty. Send to jenkins as
+mode: (strict|advаnced)      # default "strict"
+image: <jenkins-slave-image> # default empty. Send to jenkins as
 # SLAVE_IMAGE parameter
 dependency:
-microservices:                                 # check depended microservices
-- name: <service_name>.                        # `.service.name` parameters from another
-  namespace: <namespace>                       # default "default"
-  check:                                       # what need to check
-  helm: (exist|notexist)                     # default "exist"
+microservices:               # check depended microservices
+- name: <service_name>.      # `.service.name` parameters from another
+  namespace: <namespace>     # default "default"
+  check:                     # what need to check
+  helm: (exist|notexist)     # default "exist"
 
 cloud_resources:
 - name: service_name.db_1
@@ -1372,9 +1372,9 @@ cloud_resources:
   type: s3
 
 secrets:
-- path: secrets/customer1/data1        # vault: <path> ; k8s: `<secret-name>.<namespace>`
-  env_name_prefix: CUSTENV1            # mandatory in mode: `strict`, optional in `advanced`
-  type: (vault|k8s)                    # default "vault", k8s - kubernetes secret
+- path: secrets/customer1/data1    # vault: <path> ; k8s: `<secret-name>.<namespace>`
+  env_name_prefix: CUSTENV1        # mandatory in mode: `strict`, optional in `advanced`
+  type: (vault|k8s)                # default "vault", k8s - kubernetes secret
 
 environment:
 - env_name: ENVNAME1
@@ -1423,7 +1423,7 @@ sidecars:
 vault: false
 timeouts:                  # @v4.2.17
 job_execute: 3600        # job spec execution timeout in sec
-job:                       # @v4.2.17 applicable only for job/cronjob type
+job:                     # @v4.2.17 applicable only for job/cronjob type
 shell_command: “”        # default shell command
 cron: “*/1 * * * *”      # job cron execution. Only for cronjob type
 cron_concurrency: Allow  # Enable cron jobs concurrency: Allow/Forbid/Replace
