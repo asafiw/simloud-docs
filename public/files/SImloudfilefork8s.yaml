@@ -1,16 +1,16 @@
   version: v2
   kind: simloud-deployment
-  name: <repo visual name>                         # "optional", if empty, will same with `.service.name`
+  #name: <repo visual name>                         # "optional", if empty, will be same as `.service.name`
   type: kubernetes
-  mode: (strict|advаnced)                          # default "strict"
-  image: <jenkins-slave-image>                     # default empty. Send to jenkins as
+  mode:  strict                                    # by default is "strict". Also it can be advanced for specifying more options
+  image: <jenkins-slave-image>                     # by default is empty. Should be specified custom version of Jenkins image if necessary
   # SLAVE_IMAGE parameter
   dependency:
-    microservices:                                 # check depended microservices
-      - name: <service_name>.                        # `.service.name` parameters from another
-        namespace: <namespace>                       # default "default"
-        check:                                       # what need to check
-          helm: (exist|notexist)                     # default "exist"
+    microservices:                                  # checks depended microservices
+      - name: <service_name>.                       # `.service.name` parameters from another
+        namespace: <namespace>                      # by default is "default"
+        check:                                      # it shows what is necessary to check
+          helm: exist                               # by default is "exist". "notexist" option is also available.
 
   cloud_resources:
     - name: service_name.db_1
@@ -32,9 +32,9 @@
       type: s3
 
   secrets:
-    - path: secrets/customer1/data1        # vault: <path> ; k8s: `<secret-name>.<namespace>`
-      env_name_prefix: CUSTENV1            # mandatory in mode: `strict`, optional in `advanced`
-      type: (vault|k8s)                    # default "vault", k8s - kubernetes secret
+    - path: secrets/customer1/data1            # it is necessary to specify vault: <path> or k8s: `<secret-name>.<namespace>` path
+      env_name_prefix: CUSTENV1                # mandatory in mode `strict`, optional in `advanced`
+      type: vault                              # by default is "vault", using k8s secret is also available
 
   environment:
     - env_name: ENVNAME1
@@ -45,40 +45,40 @@
     sub_domain: xxx
     base_domain: base.domain.name
     loadbalancer: aws_network
-    protocol: tcp    # options: tcp, udp, tls, tcp_udp
-    port: 80,443     # available 80 and 443 only
+    protocol: tcp                            # options: tcp, udp, tls, tcp_udp
+    port: 80,443                             # available 80 and 443 ports only
     redirects:
-      http2https: true # by default enabled
+      http2https: true                       # by default is enabled
     cors:
-      enable_cors: true  # default "false"
-      cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # default "*"
-      cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # default "*"
+      enable_cors: true                      # by default is "false"
+      cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+      cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
       cors-allow-origin: "*"
       cors-allow-credentials: false
       cors-max-age: 1728000
     auth:                           # @v4.2.16
-      url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain .
+      url: auth.demo.simloud.com    # by default "" - empty string is disabled. set vouch domain .
       sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
-      type: (vouch|keycloak)        # default “vouch”, to integrate via vouch.
+      type: vouch                   # by default is “vouch”, to integrate via vouch. Using keycloak is also available.
 
   internal_api:                     # @v4.2
     base_url: kube-service
     sub_domain: xxx
     base_domain: base.domain.name
     loadbalancer: aws_network
-    protocol: tcp    # options: tcp, udp, tls, tcp_udp
-    port: 80,443     # available 80 and 443 only
+    protocol: tcp                  # options: tcp, udp, tls, tcp_udp
+    port: 80,443                   # available 80 and 443 ports only
 
   service:
     name: kube-service-3
     namespace: default
     type: ClusterIP
     annotations: {}
-    servicePort: 80 # default 80
-    podPort: 80 # default 80
+    servicePort: 80               # by default is 80
+    podPort: 80                   # by default is 80
     # `pod` type replaced with `deployment`
-    specType: (deployment|job|cronjob|replicasets|daemonset|statefulset)  # default “deployment”
-    options:                                 # @v3.4.10
+    specType: deployment          # by default is “deployment”. job|cronjob|replicasets|daemonset|statefulset variants are also available.
+    options:                      # @v3.4.10
       sidecars:
         vault: false
       timeouts:                  # @v4.2.17
@@ -91,13 +91,13 @@
   spec:  # for k8s service, mutually exclusive with below
     pod:
       name: kube-service-3
-      terminationGracePeriodSeconds: 300 # default 300sec
+      terminationGracePeriodSeconds: 300 # by default is 300sec
       replicas: 1
       strategy: # @v3.4.6
         # RollingUpdate: New pods are added gradually, and old pods are terminated gradually
         # Recreate: All old pods are terminated before any new pods are added
-        type: (Recreate|RollingUpdate) # default “Recreate”
-        rollingUpdate:                 # default empty
+        type: Recreate                 # by default is “Recreate”. The "RollingUpdate" option is also available
+        rollingUpdate:                 # by default is empty
           maxSurge: 1                  # The number of pods that can be created above the desired amount of pods during an update
           maxUnavailable: 25%          # The number of pods that can be unavailable during the update process
       hascaler: # @v4.2
@@ -114,7 +114,7 @@
                 # SIGTERM triggers a quick exit; gracefully terminate instead
                 command: ["/usr/sbin/nginx","-s","quit"]
           resources:
-            health_check: # @v4.2 - details
+            health_check:              # @v4.2 - details
               readinessProbe:
                 exec:
                   command:
