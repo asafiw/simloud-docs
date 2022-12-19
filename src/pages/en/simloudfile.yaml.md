@@ -1342,15 +1342,15 @@ version: v2
 kind: simloud-deployment
 name: <repo visual name>     # "optional", if empty, will be same with `.service.name`
 type: kubernetes
-mode: (strict|advаnced)      # default "strict"
-image: <jenkins-slave-image> # default empty. Send to jenkins as
+mode: (strict|advаnced)      # by default is "strict"
+image: <jenkins-slave-image> # by default is empty
 # SLAVE_IMAGE parameter
 dependency:
 microservices:               # check depended microservices
 - name: <service_name>.      # `.service.name` parameters from another
-  namespace: <namespace>     # default "default"
-  check:                     # what need to check
-  helm: (exist|notexist)     # default "exist"
+  namespace: <namespace>     # by default is "default"
+  check:                     # shows what is necessary to check
+  helm: (exist|notexist)     # by default is "exist"
 
 cloud_resources:
 - name: service_name.db_1
@@ -1374,7 +1374,7 @@ cloud_resources:
 secrets:
 - path: secrets/customer1/data1    # vault: <path> ; k8s: `<secret-name>.<namespace>`
   env_name_prefix: CUSTENV1        # mandatory in mode: `strict`, optional in `advanced`
-  type: (vault|k8s)                # default "vault", k8s - kubernetes secret
+  type: (vault|k8s)                # by default "vault". k8s - kubernetes secret also is available.
 
 environment:
 - env_name: ENVNAME1
@@ -1396,10 +1396,10 @@ cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,I
 cors-allow-origin: "*"
 cors-allow-credentials: false
 cors-max-age: 1728000
-auth:                           # @v4.2.16
+auth:                         # @v4.2.16
 url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain .
 sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
-type: (vouch|keycloak)        # default “vouch”, to integrate via vouch.
+type: vouch                   # by default is “vouch”. keycloak is also available.
 
 internal_api:                     # @v4.2
 base_url: kube-service
