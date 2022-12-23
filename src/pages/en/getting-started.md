@@ -124,10 +124,9 @@ layout: ../../layouts/MainLayout.astro
 - Cloud resources per service (if it is not needed, it should be empty (cloud_resources: {}).
 - k8s deployment fields.
 
-[**.simloud_ci**](/en/simloud-pipeline.yaml)
-
+[**.simloud_pipeline.yaml**](/en/simloud-pipeline.yaml)
+- Allows you to add custom ci stages.
 - Provides customizations for each service's CI process.
-- Should be placed in the same directory with Dockerfile.
 - Contains bash script with specific CI steps
 - The file should be empty if there is no customization.
 

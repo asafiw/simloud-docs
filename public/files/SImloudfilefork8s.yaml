@@ -1,12 +1,12 @@
   version: v2
   kind: simloud-deployment
-  #name: <repo visual name>                         # "optional", if empty, will be same as `.service.name`
+  #name: <repo visual name>                        # this parameter is "optional", if empty, will be same as `.service.name`
   type: kubernetes
   mode:  strict                                    # by default is "strict". Also it can be advanced for specifying more options
   image: <jenkins-slave-image>                     # by default is empty. Should be specified custom version of Jenkins image if necessary
   # SLAVE_IMAGE parameter
   dependency:
-    microservices:                                  # checks depended microservices
+    microservices:                                  # it checks depended microservices
       - name: <service_name>.                       # `.service.name` parameters from another
         namespace: <namespace>                      # by default is "default"
         check:                                      # it shows what is necessary to check
@@ -33,7 +33,7 @@
 
   secrets:
     - path: secrets/customer1/data1            # it is necessary to specify vault: <path> or k8s: `<secret-name>.<namespace>` path
-      env_name_prefix: CUSTENV1                # mandatory in mode `strict`, optional in `advanced`
+      env_name_prefix: CUSTENV1                # mandatory in mode `strict`, optional in `advanced` mode
       type: vault                              # by default is "vault", using k8s secret is also available
 
   environment:

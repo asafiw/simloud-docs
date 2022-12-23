@@ -1,6 +1,6 @@
 version: v2
 kind: simloud-deployment
-#name: <repo visual name>             # "it's optional", if empty, will be same as `.service.name`
+#name: <repo visual name>             # it's optional, in case of empty value, will be the same as `.service.name`
 type: kubernetes                      # by default is "kubernetes" @v5.0. Pipeline|serverless|front-end variants also are available
 mode: strict                          # by default is "strict". Also it can be advanced for specifying more options
 image: <jenkins-slave-image>          # should be specified custom version of Jenkins image if necessary
@@ -25,8 +25,8 @@ cloud_resources:
     type: s3
 
 secrets:
-  - path: secrets/customer1/data1        # it is necessary to specify vault: <path>
-    env_name_prefix: CUSTENV1            # mandatory in mode: `strict`, optional in `advanced`
+  - path: secrets/customer1/data1        # it is necessary to specify vault path to secrets
+    env_name_prefix: CUSTENV1            # it is mandatory in mode `strict`, optional in `advanced` mode
     type: vault                          # by default is "vault"
 
 environment:
@@ -63,7 +63,7 @@ internal_api:
   base_domain: base.domain.name
   regex:
     enabled: false             # by default is `false`
-    rewrite-target: /$2$3$4    # by default `for micro_service_type: serverless` will be set`$1$2$3$4`, for all another modes `$2$3$4`
+    rewrite-target: /$2$3$4    # by default `for micro_service_type: serverless` will be set `$1$2$3$4`, for all another modes `$2$3$4`
   redirects:
     http2https: true           # by default it's enabled
   cors:
