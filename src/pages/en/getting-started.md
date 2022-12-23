@@ -124,10 +124,9 @@ layout: ../../layouts/MainLayout.astro
 - Cloud resources per service (if it is not needed, it should be empty (cloud_resources: {}).
 - k8s deployment fields.
 
-[**.simloud_pipeline.yaml**](/en/simloud-pipeline.yaml)
-- Allows you to add custom ci stages.
+[**simloud_pipeline.yaml**](/en/simloud-pipeline.yaml)
+- Allows you to add custom CI stages.
 - Provides customizations for each service's CI process.
-- Contains bash script with specific CI steps
-- The file should be empty if there is no customization.
+- Contains bash script with specific CI steps.
 
 Place these two files at the root folder of each microservice repository.
