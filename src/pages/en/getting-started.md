@@ -112,12 +112,12 @@ layout: ../../layouts/MainLayout.astro
 - Select the SSH key from the drop down field and save changes.
   ![](/img/onboarding/intro/13.png)
 
-### Add Simloudfle and simloud_pipeline.yaml files to git repositories
+### Add Simloudfile.yaml and simloud_pipeline.yaml files to git repositories
 
-- The attached Simloudfle and simloud_pipeline.yaml files can be used as references.
+- The attached Simloudfile.yaml and simloud_pipeline.yaml files can be used as references.
 - Edit them according to your definitions.
 
-[**_SimloudFile._**](/en/simloudfile.yaml)
+[**_Simloudfile.yaml_**](/en/simloudfile.yaml)
 
 - Contains the microservice cloud resources definitions (currently s3/sqs/RDS mysql, RDS postgres, later it will contain other resources).
 - The path to the ingress should be filled if it is needed (if not, then leave it empty (external_api: {}).
