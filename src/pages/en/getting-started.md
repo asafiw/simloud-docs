@@ -112,9 +112,9 @@ layout: ../../layouts/MainLayout.astro
 - Select the SSH key from the drop down field and save changes.
   ![](/img/onboarding/intro/13.png)
 
-### Add Simloudfle and .simloud_ci files to git repositories
+### Add Simloudfle and simloud_pipeline.yaml files to git repositories
 
-- The attached Simloudfle and .simloud_ci can be used as references.
+- The attached Simloudfle and simloud_pipeline.yaml files can be used as references.
 - Edit them according to your definitions.
 
 [**_SimloudFile._**](/en/simloudfile.yaml)
