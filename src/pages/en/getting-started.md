@@ -59,7 +59,7 @@ layout: ../../layouts/MainLayout.astro
 
 ![](/img/onboarding/intro/image12.png)
 
-- Go to you Bitbucket account. Select the **"Personal settings"** option
+- Go to your Bitbucket account. Select the **"Personal settings"** option
 
 ![](/img/onboarding/intro/14.png)
 
@@ -74,7 +74,7 @@ layout: ../../layouts/MainLayout.astro
 
 ![](/img/onboarding/intro/image12.png)
 
-- Go to you GitHub account. Select the **"Settings"** option
+- Go to your GitHub account. Select the **"Settings"** option
 
 ![](/img/onboarding/intro/17.png)
 
@@ -89,7 +89,7 @@ layout: ../../layouts/MainLayout.astro
 
 ![](/img/onboarding/intro/image12.png)
 
-- Go to you GitLab account. Select the **"Preferences"** option
+- Go to your GitLab account. Select the **"Preferences"** option
 
 ![](/img/onboarding/intro/20.png)
 
