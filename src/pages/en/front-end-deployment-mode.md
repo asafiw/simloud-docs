@@ -5,52 +5,52 @@ layout: ../../layouts/MainLayout.astro
 ---
 
 ```yaml
-                                                                        Simloudfile.yaml
+                                                                        
 version: v2
 kind: simloud-deployment
 type: front-end
-mode: advanced
+mode: advanced  # by default  it's "strict"
 
 
 secrets:
-  - path: secrets/customer1/data1
-    env_name_prefix: CUSTENV1
+  - path: secrets/customer1/data1  # vault or k8s paths where secrets located
+    env_name_prefix: CUSTENV1     # this parameter is mandatory in mode `strict`and optional in `advanced`
     type: k8s
 
 external_api:
   sub_domain: ""
   base_url: "/"
-  sub_domain: xxx
-  base_domain: base.domain.name
-  loadbalancer: aws_network
-  protocol: tcp    # options: tcp, udp, tls, tcp_udp
-  port: 80     # available 80 and 443 only
+  sub_domain: xxx                 # It is necessary to specify sub-domain, if applicable.
+  base_domain: base.domain.name   # Commonly used as a base domain name.
+  loadbalancer: aws_network       # A load balancer distributes incoming traffic across targets
+  protocol: tcp                   # Possible options: tcp, udp, tls, tcp_udp
+  port: 80                        # It is currently available only tcp for 80 port and tls for 443 port.
   redirects:
-    http2https: true # by default enabled
+    http2https: true              # by default this parameter is enabled
   cors:
-    enable_cors: true  # default "false"
-    cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # default "*"
-    cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # default "*"
+    enable_cors: true             # by  default it's "false"
+    cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # by default is "*"
+    cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # by default is "*"
     cors-allow-origin: "*"
     cors-allow-credentials: false
     cors-max-age: 1728000
 
 internal_api:                     # @v4.2
-  base_url: kube-service
+  base_url: kube-service          # It is necessary to specify base url, if applicable
   sub_domain: xxx
   base_domain: base.domain.name
   loadbalancer: aws_network
-  protocol: tcp    # options: tcp, udp, tls, tcp_udp
+  protocol: tcp                   # Possible options: tcp, udp, tls, tcp_udp
   port: 80
 
 service:
   name: fe-canaveral
-  namespace: default
-  type: ClusterIP
+  namespace: default             # The namespace where the service is located
+  type: ClusterIP                # Type of the service
   annotations: {}
-  servicePort: 80
+  servicePort: 80                # Service is running on this port
 
-spec: {}
+spec: {}                         # frontend service will be empty
 
 
 ```

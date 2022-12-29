@@ -5,10 +5,10 @@ layout: ../../layouts/MainLayout.astro
 ---
 
 ```yaml
-version: v2
-kind: simloud-deployment
-type: kubernetes
-mode: advanced
+version: v2          
+kind: simloud-deployment     # By default, is set as simloud-deployment
+type: kubernetes             # It is necessary to specify the type of deployment
+mode: advanced               # In advanced mode, the prefix parameter: env_name_prefix is not mandatory
 
 cloud_resources:
  - name: sqs_1
@@ -28,18 +28,18 @@ secrets:
     env_name_prefix: CUSTENV1
     type: k8s
 
-environment:
- - env_name: ENVNAME1
-   value: "Yahoo!"
+environment: 
+ - env_name: ENVNAME1         # Commonly used as an environment name
+   value: "Yahoo!"            # Commonly used as an environment variable
 
 external_api:
-  sub_domain: "k8s"
-  base_url: "kube-service-1"
+  sub_domain: "k8s"           # It is necessary to specify sub-domain, if applicable
+  base_url: "kube-service-1"  # It is necessary to specify base url, if applicable
   sub_domain: xxx
-  base_domain: base.domain.name
-  loadbalancer: aws_network
-  protocol: tcp    # options: tcp, udp, tls, tcp_udp
-  port: 80
+  base_domain: base.domain.name  # Commonly used as a base domain name
+  loadbalancer: aws_network      # A load balancer distributes incoming traffic across targets
+  protocol: tcp                  # Possible options: tcp, udp, tls, tcp_udp
+  port: 80                       # It is currently available only tcp for 80 port and tls for 443 port
   cors:
     enable_cors: true
     cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
@@ -57,30 +57,30 @@ internal_api:                     # @v4.2
   port: 80
 
 service:
-  name: micro-service1
-  type: ClusterIP
+  name: micro-service1  # it's necessary to specify the name of the service
+  type: ClusterIP       # it's necessary to specify the type of the service
   annotations: {}
-  servicePort: 80
+  servicePort: 80       # Service is running on this port
   podPort: 8080
   specType: deployment
 
 spec:
-  pod:
-    name: micro-service1
+  pod:                     # This block describes parameters of spec pod
+    name: micro-service1   # If it is not set, will be same with .service.name.
     replicas: 1
     strategy: # @v3.4.6
-      type: Recreate # default “Recreate”
-      rollingUpdate: # default empty
-        maxSurge: 1                  # The number of pods that can be created above the desired amount of pods during an update
-        maxUnavailable: 25%          # The number of pods that can be unavailable during the update process
+      type: Recreate       # by default it's “Recreate”
+      rollingUpdate:       # by default it's empty
+        maxSurge: 1        # The number of pods that can be created above the desired amount of pods during an update
+        maxUnavailable: 25%  # The number of pods that can be unavailable during the update process
     hascaler: # @v4.2
-      enabled: false
+      enabled: false         # Indicates whether hascaler is enabled or disabled
       min: 1
       max: 10
       cpu_percent: 80
     containers:
-      - name: container-name
-        resources:
+      - name: container-name 
+        resources:         # Resources that should be specified directly for container usage
           requests:
             memory: "60Mi"
             cpu: "200m"

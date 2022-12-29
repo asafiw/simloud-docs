@@ -6,10 +6,10 @@ layout: ../../layouts/MainLayout.astro
 
 ```yaml
 
-version: v2
-kind: simloud-deployment
-type: serverless
-mode: advanced
+version: v2              
+kind: simloud-deployment       # By default, is set as simloud-deployment
+type: serverless               # It is necessary to specify the type of deployment
+mode: advanced                 # In advanced mode, the prefix parameter: env_name_prefix is not mandatory
 
 cloud_resources:
  - name: s3_1
@@ -25,19 +25,19 @@ secrets:
     env_name_prefix: CUSTENV1
 
 environment:
- - env_name: ENVNAME1
-   value: "Yahoo!"
+ - env_name: ENVNAME1        # Commonly used as an environment name
+   value: "Yahoo!"           # Commonly used as an environment variable
 
 external_api:
-  sub_domain: "lambda"
-  base_url: "lambda-service-1"
+  sub_domain: "lambda"         # It is necessary to specify sub-domain, if applicable
+  base_url: "lambda-service-1" # It is necessary to specify base url, if applicable
   loadbalancer: aws_network
-  protocol: tcp    # options: tcp, udp, tls, tcp_udp
-  port: 80         # available 80 and 443 only
+  protocol: tcp              # Possible options: tcp, udp, tls, tcp_udp
+  port: 80                   # It is currently available only tcp for 80 port and tls for 443 port
   redirects:
-    http2https: true # by default enabled
+    http2https: true        # By default this parameter is enabled
   cors:
-    enable_cors: true
+    enable_cors: true       # By default it's a true
     cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
     cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
     cors-allow-origin: "*"
@@ -50,18 +50,18 @@ internal_api:                     # @v4.2
   sub_domain: xxx
   base_domain: base.domain.name
   loadbalancer: aws_network
-  protocol: tcp    # options: tcp, udp, tls, tcp_udp
-  port: 80      # available 80 and 443 only
+  protocol: tcp    # Possible options: tcp, udp, tls, tcp_udp
+  port: 80         # It is currently available only tcp for 80 port and tls for 443 port
 
 
 spec:
-  Runtime: python3.9
+  Runtime: python3.9  
   MemorySize: 128
   Timeout: 15
   Handler: lambda_function.lambda_handler
 
 service:
-  name: lambda-service-1
+  name: lambda-service-1  # The name of the service
 
 ```
 

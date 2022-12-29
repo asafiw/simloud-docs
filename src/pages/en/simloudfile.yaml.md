@@ -9,7 +9,7 @@ layout: ../../layouts/MainLayout.astro
 ```yaml
 version: v2
 kind: simloud-deployment
-name: <repo visual name>                          # "optional", if empty, will same with `.service.name`
+name: <repo visual name>                          # "optional", if empty, will be same with `.service.name`
 type: (kubernetes|pipeline|serverless|front-end)  # default "kubernetes" @v5.0
 mode: (strict|advаnced)                           # default "strict"
 image: <jenkins-slave-image>                      # Send to jenkins as SLAVE_IMAGE parameter
