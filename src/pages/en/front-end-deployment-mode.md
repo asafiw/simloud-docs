@@ -1,0 +1,58 @@
+---
+title: Front-end deployment mode 
+description: Front-end deployment mode 
+layout: ../../layouts/MainLayout.astro
+---
+
+```yaml
+                                                                        Simloudfile.yaml
+version: v2
+kind: simloud-deployment
+type: front-end
+mode: advanced
+
+
+secrets:
+  - path: secrets/customer1/data1
+    env_name_prefix: CUSTENV1
+    type: k8s
+
+external_api:
+  sub_domain: ""
+  base_url: "/"
+  sub_domain: xxx
+  base_domain: base.domain.name
+  loadbalancer: aws_network
+  protocol: tcp    # options: tcp, udp, tls, tcp_udp
+  port: 80     # available 80 and 443 only
+  redirects:
+    http2https: true # by default enabled
+  cors:
+    enable_cors: true  # default "false"
+    cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # default "*"
+    cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # default "*"
+    cors-allow-origin: "*"
+    cors-allow-credentials: false
+    cors-max-age: 1728000
+
+internal_api:                     # @v4.2
+  base_url: kube-service
+  sub_domain: xxx
+  base_domain: base.domain.name
+  loadbalancer: aws_network
+  protocol: tcp    # options: tcp, udp, tls, tcp_udp
+  port: 80
+
+service:
+  name: fe-canaveral
+  namespace: default
+  type: ClusterIP
+  annotations: {}
+  servicePort: 80
+
+spec: {}
+
+
+```
+
+[Download Simloudfile.yaml for Frontend mode](/files/front-end-mode.yaml)
