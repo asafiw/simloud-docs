@@ -21,6 +21,9 @@ external_api:
   sub_domain: ""
   base_url: "/"
   sub_domain: xxx                 # It is necessary to specify sub-domain, if applicable.
+  regex:
+    enabled: false                # by default  it's `false`. It is possible to assign the 'true' value for this parameter
+    rewrite-target: /$2$3$4 
   base_domain: base.domain.name   # Commonly used as a base domain name.
   loadbalancer: aws_network       # A load balancer distributes incoming traffic across targets
   protocol: tcp                   # Possible options: tcp, udp, tls, tcp_udp

@@ -10,10 +10,12 @@ secrets:
     type: k8s
 
 external_api:
-
   base_url: "/"
   sub_domain: xxx                 # It is necessary to specify sub-domain, if applicable.
   base_domain: base.domain.name   # Commonly used as a base domain name.
+  regex:
+    enabled: false              # by default  it's `false`. It is possible to assign the 'true' value for this parameter
+    rewrite-target: /$2$3$4
   loadbalancer: aws_network       # A load balancer distributes incoming traffic across targets.
   protocol: tcp                   # Possible options: tcp, udp, tls, tcp_udp
   port: 80                        # It is currently available only tcp for 80 port and tls for 443 port.

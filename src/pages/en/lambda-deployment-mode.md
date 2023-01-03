@@ -31,6 +31,9 @@ environment:
 external_api:
   sub_domain: "lambda"         # It is necessary to specify sub-domain, if applicable
   base_url: "lambda-service-1" # It is necessary to specify base url, if applicable
+  regex:
+    enabled: true             # by default  it's `false`. It is possible to assign the 'true' value for this parameter
+    rewrite-target: /$2$3$4 
   loadbalancer: aws_network
   protocol: tcp              # Possible options: tcp, udp, tls, tcp_udp
   port: 80                   # It is currently available only tcp for 80 port and tls for 443 port
