@@ -1334,14 +1334,6 @@ It should be present, but empty `{}`, if it is not used.
 
 
 
-## Examples of SimloudFile.yaml v2:
-
-- [**_Front-end deployment mode_**](/en/front-end-deployment-mode)
-- [**_Lambda deployment mode_**](/en/lambda-deployment-mode)
-- [**_Kubernetes deployment mode_**](/en/kubernetes-deployment-mode)
-- [**_Pipeline deployment mode_**](/en/generic-pipeline)
-
-
 
 
 
