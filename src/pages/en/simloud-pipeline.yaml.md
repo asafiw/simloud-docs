@@ -115,4 +115,4 @@ pipeline:
                 paths: # vault or k8s paths where secrets are located
                   - kube-system.ssh-keys #
 ```
-[Download Simloud-pipeline.yaml](/files/Simloud-pipeline1.yaml)
+[Download Simloud-pipeline.yaml](/files/simloud-pipeline.yaml)

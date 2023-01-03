@@ -65,12 +65,9 @@ export const SIDEBAR: Sidebar = {
 			{ text: 'Simloud cost saving configuration', link: 'en/cost-saving-configuration' },
 		],
 		'SimloudFiles': [
-			{ text: 'Simloud-pipeline.yaml', link: 'en/simloud-pipeline.yaml' },
 			{ text: 'Simloudfile.yaml', link: 'en/simloudfile.yaml' },
-			{ text: 'Front-end deployment mode', link: 'en/front-end-deployment-mode' },
-			{ text: `Lambda deployment mode`, link: 'en/lambda-deployment-mode' },
-			{ text: `Kubernetes deployment mode`, link: 'en/kubernetes-deployment-mode' },
-			{ text: `Pipeline deployment mode`, link: 'en/generic-pipeline' },
+			{ text: 'Examples of Simloud files', link: 'en/examples-of-simloud-files' },
+			{ text: 'Simloud-pipeline.yaml', link: 'en/simloud-pipeline.yaml' },
 
 		],
 	},
