@@ -63,7 +63,7 @@ Choose this variant if you need to edit Simloudfile.yaml.
  -  <a href="https://gitlab.com/simloud-demo/lambda-serverless-2" target="_blank">lambda-serverless-2</a>
  
  
- Related documentation:
+ ### Related documentation:
  -  [Getting started](/en/getting-started)
  -  [Managing the SSH keys](/en/getting-started/#managing-the-ssh-keys)
  -  [Creating deployment](/en/create-deployment)
