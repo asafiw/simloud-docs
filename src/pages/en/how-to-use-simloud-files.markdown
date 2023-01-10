@@ -55,7 +55,7 @@ Choose this variant if you need to edit Simloudfile.yaml.
     ![](/img/onboarding/simloudfiles-usage/5.png) 
  
  
- ### Links to repositories: 
+ ### Links to repositories
  -  <a href="https://gitlab.com/simloud-demo/fe-demo" target="_blank">fe-demo</a>
  -  <a href="https://gitlab.com/simloud-demo/k8s-service-1" target="_blank">k8s-service-1</a>
  -  <a href="https://gitlab.com/simloud-demo/k8s-service-2" target="_blank">k8s-service-2</a>
@@ -63,7 +63,7 @@ Choose this variant if you need to edit Simloudfile.yaml.
  -  <a href="https://gitlab.com/simloud-demo/lambda-serverless-2" target="_blank">lambda-serverless-2</a>
  
  
- ### Related documentation:
+ ### Related documentation
  -  [Getting started](/en/getting-started)
  -  [Managing the SSH keys](/en/getting-started/#managing-the-ssh-keys)
  -  [Creating deployment](/en/create-deployment)
