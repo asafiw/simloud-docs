@@ -27,28 +27,44 @@ Choose this variant if you do not need to edit Simloudfile.yaml.
 2. When choosing the repositories to deploy, you need to choose following repositories from drop-down menu.
   ![](/img/onboarding/simloudfiles-usage/6.png)
 
+3. To check the Simloudfile.yaml content you can use our [repositories](/en/how-to-use-simloud-files#links-to-repositories) from Gitlab.
 
 
-### Deploy from own repository.
+### Deploy from own repository
 Choose this variant if you need to edit Simloudfile.yaml.
 
 1. Firstly, it is necessary to clone repository to your local machine. 
+
+**Command for cloning repository:**
+``` shell script
+git clone git@gitlab.com:simloud-demo/lambda-serverless-2.git
+```
    ![](/img/onboarding/simloudfiles-usage/7.png)
 
-2. Edit Simloudfile and push changes to your repository.
+2. Edit Simloudfile and push changes to your repository. 
+  
+  Simloudfile is located in the root directory of each repository. 
+    It's necessary to locate Simloudfile.yaml in the root directory for correct work.
+   ![](/img/onboarding/simloudfiles-usage/8.png)
+   
+   After editing Simloudfile - push your changes to your repository
+   ```shell script
+    git push origin 'name of your branch'
+   ```
+Please, follow this documentation for more commands in GitLab - <a href="https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html" target="_blank">gitlab basics</a>.
 
 3.  Then it is necessary to add your repository on portal.
- ![](/img/onboarding/simloudfiles-usage/1.png)
+    ![](/img/onboarding/simloudfiles-usage/1.png)
     For example, adding the fe-demo repository:
     ![](/img/onboarding/simloudfiles-usage/2.png)
  
- Please, follow the instruction in documentation [**"Add new git repositories"**](/en/getting-started#add-new-git-repositories-services) for more information.
+ Please, follow the instruction in documentation ["Add new git repositories"](/en/getting-started#add-new-git-repositories-services) for more information.
 
 4. Once you have added the repository to the portal, you can start creating your deployment
  using  <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>. 
     ![](/img/onboarding/simloudfiles-usage/3.png)
  
- Please, follow the instruction in documentation [**"How to create deployment using Simloud portal"**](/en/create-deployment).
+ Please, follow the instruction in documentation ["How to create deployment using Simloud portal"](/en/create-deployment).
  
 5. When choosing the repositories to deploy, you must select the ones you added to the portal. 
     ![](/img/onboarding/simloudfiles-usage/4.png)
@@ -67,6 +83,7 @@ Choose this variant if you need to edit Simloudfile.yaml.
  -  [Getting started](/en/getting-started)
  -  [Managing the SSH keys](/en/getting-started/#managing-the-ssh-keys)
  -  [Creating deployment](/en/create-deployment)
+ - <a href="https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html" target="_blank">Gitlab basics</a>
  
  
  
