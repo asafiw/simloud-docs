@@ -5,7 +5,7 @@ layout: ../../layouts/MainLayout.astro
 ---
 
 
-1. Establish connection with kubernetes cluster. Please, follow the instruction in documentation [**_"Simloud connection to K8s and AWS services"_**](/en/connect-to-k8s-aws)
+ 1. Establish connection with kubernetes cluster. Please, follow the instruction in documentation [**_"Simloud connection to K8s and AWS services"_**](/en/connect-to-k8s-aws)
 
 2. Run this command in terminal.
 ```sh

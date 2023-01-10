@@ -51,6 +51,7 @@ export const SIDEBAR: Sidebar = {
 			{ text: 'How to create deployment using Simloud Portal', link: 'en/create-deployment' },
 			{ text: 'Simloud connection to K8s and AWS services', link: 'en/connect-to-k8s-aws' },
 			{ text: 'How to use Vault', link: 'en/vault-usage' },
+			{ text: 'How to use Simloud files', link: 'en/how-to-use-simloud-files' },
 		],
 		'Jenkins': [
 			{ text: 'How to manage and assign roles to users', link: 'en/assign-roles-to-users' },
