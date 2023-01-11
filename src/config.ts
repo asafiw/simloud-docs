@@ -67,8 +67,8 @@ export const SIDEBAR: Sidebar = {
 		],
 		'SimloudFiles': [
 			{ text: 'Simloudfile.yaml', link: 'en/simloudfile.yaml' },
-			{ text: 'Examples of Simloud files', link: 'en/examples-of-simloud-files' },
 			{ text: 'Simloud-pipeline.yaml', link: 'en/simloud-pipeline.yaml' },
+			{ text: 'SimloudFile.yaml examples', link: 'en/examples-of-simloud-files' },
 
 		],
 	},

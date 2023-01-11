@@ -1,6 +1,6 @@
 ---
-title: Examples of Simloud files
-description: Examples of Simloud files
+title: SimloudFile.yaml examples
+description: SimloudFile.yaml examples
 layout: ../../layouts/MainLayout.astro
 ---
 
