@@ -7,7 +7,7 @@ layout: ../../layouts/MainLayout.astro
 
   **The Simloudfile.yaml** file is a global file that contains the configuration that we use during creating deployments.
    
-Each of our standard microservices, such as `kube-service`, `lambda`, `fe-canaveral`, and `generic-pipeline` has its own Simloudfile.
+Each of our standard microservices, such as `k8s-service`, `lambda-serverless`, `fe-demo`, and `generic-pipeline` has its own Simloudfile.
 >**_NOTE: Simloudfiles for microservices have the same parameters, but the values of those parameters are different._**
 
 
