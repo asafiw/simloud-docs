@@ -111,7 +111,7 @@ You can change these stages to make custom job.
 > **_NOTE:_** 
   Alternative to custom Jenkins image could be **Dockerfile** of application itself, with customization of **simloud_ci** file. For example, if special version of *yarn* is required to build front-end application, instead of installing it in jenkins, it could be in Dockerfile, and simoud_ci just build docker, without direct usage of yarn.
 
-![](/static/img/jenkins/create-your-slave-image/image2.png)
+![](/img/jenkins/create-your-slave-image/image2.png)
 **Dockerfile** content:
 
 ```sh

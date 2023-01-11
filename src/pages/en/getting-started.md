@@ -112,23 +112,21 @@ layout: ../../layouts/MainLayout.astro
 - Select the SSH key from the drop down field and save changes.
   ![](/img/onboarding/intro/13.png)
 
-### Add Simloudfle and .simloud_ci files to git repositories
+### Add Simloudfile.yaml and simloud_pipeline.yaml files to git repositories
 
-- The attached Simloudfle and .simloud_ci can be used as references.
+- The attached Simloudfile.yaml and simloud_pipeline.yaml files can be used as references.
 - Edit them according to your definitions.
 
-[**_SimloudFile._**](/en/simloudfile.yaml)
+[**_Simloudfile.yaml_**](/en/simloudfile.yaml)
 
 - Contains the microservice cloud resources definitions (currently s3/sqs/RDS mysql, RDS postgres, later it will contain other resources).
 - The path to the ingress should be filled if it is needed (if not, then leave it empty (external_api: {}).
 - Cloud resources per service (if it is not needed, it should be empty (cloud_resources: {}).
 - k8s deployment fields.
 
-[**.simloud_ci**](/en/simloud-pipeline.yaml)
-
+[**simloud_pipeline.yaml**](/en/simloud-pipeline.yaml)
+- Allows you to add custom CI stages.
 - Provides customizations for each service's CI process.
-- Should be placed in the same directory with Dockerfile.
-- Contains bash script with specific CI steps
-- The file should be empty if there is no customization.
+- Contains bash script with specific CI steps.
 
 Place these two files at the root folder of each microservice repository.

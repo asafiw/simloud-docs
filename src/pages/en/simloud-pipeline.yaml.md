@@ -84,9 +84,9 @@ fi
 
 ```
 > **_So, there are 3 variants of PIPELINE ACTION:_** 
-> - **`Deploy`** - _for building job_;
-> - **`Update`** - _for update job with new parameters_;
-> - **`Destroy`** - _for killing job_.
+> - **`Deploy`** - _for building job via Simloud pipeline_;
+> - **`Update`** - _for update job with new parameters using Simloud pipeline_;
+> - **`Destroy`** - _for terminating job via Simloud pipeline_.
  
 
 [Download helm_install.sh file](/files/helm_install.sh)
@@ -99,20 +99,20 @@ version: v1
 kind: simloud-pipeline
 
 pipeline:
-  default: # profile name. Currently only default
+  default: # profile name. Currently available only "default" value
     - stages:
         - name: “TF code”
           shell: terraform # for terraform case
           homedir: ./ # shell command directory
           terraform:
-            version: 0.13 # tf version , default 0.12
-            workspace: default # Workspace’s name. Default workspace: default
+            version: 0.13 # terraform version, by default is 0.12
+            workspace: default # Workspace’s name. By default is "default"
             statefile: # state file location
-              storage: kubernetes # default “kubernetes” (k8s?)
+              storage: kubernetes # by default is “kubernetes” 
               location: default.k8s-state # k8s: <namespace>.<secret_suffix>
             secrets: # `-var-file="testing.tfvars"`
-              - storage: kubernetes # vault or k8s secrets
-                paths: # vault pats, or k8s secers names
+              - storage: kubernetes #  it is possible to use vault or k8s for store secrets
+                paths: # vault or k8s paths where secrets are located
                   - kube-system.ssh-keys #
 ```
-[Download Simloud-pipeline.yaml](/files/Simloud-pipeline1.yaml)
+[Download Simloud-pipeline.yaml](/files/simloud-pipeline.yaml)
