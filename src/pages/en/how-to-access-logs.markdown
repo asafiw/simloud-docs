@@ -18,7 +18,7 @@ On the CloudWatch Insight page, you can see pre-defined log groups (you don't ha
 
 Query example for new infrastructure-engine (as k8s job):
 
-```
+```shell script
 parse log ‘“message”: “*”’ as message
 | parse log ‘“module”: “*”’ as module
 | parse log ‘“deployment_id”: “*”’ as deployment_id
@@ -31,7 +31,7 @@ Examples of queries:
 
 - Application logs for specific service.
 
-```
+``` shell script
 fields @timestamp, log
 | filter kubernetes.container_name = ‘kube-service-1’
 | sort @timestamp desc
@@ -40,7 +40,7 @@ fields @timestamp, log
 
 - Application logs for given string across all services.
 
-```
+``` shell script
 fields @timestamp, log
 | filter log like ‘/api/v1/’
 | sort @timestamp desc
@@ -49,7 +49,7 @@ fields @timestamp, log
 
 - Infrastructure logs for specific k8s namespace.
 
-```
+``` shell script
 fields @timestamp, log
 | filter kubernetes.namespace_name = ‘kube-system’
 | sort @timestamp desc
@@ -58,7 +58,7 @@ fields @timestamp, log
 
 - Sample complex stat query.
 
-```
+``` shell script
 parse log “*TIME: *”  as logString, RequestTiming
 | stats avg(RequestTiming), max(RequestTiming), min(RequestTiming)
 | filter @message like “TIME:”
