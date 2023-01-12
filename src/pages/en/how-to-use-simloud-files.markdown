@@ -77,6 +77,7 @@ Please, follow this documentation for more commands in GitLab - <a href="https:/
  -  <a href="https://gitlab.com/simloud-demo/k8s-service-2" target="_blank">k8s-service-2</a>
  -  <a href="https://gitlab.com/simloud-demo/lambda-serverless-1" target="_blank">lambda-serverless-1</a>
  -  <a href="https://gitlab.com/simloud-demo/lambda-serverless-2" target="_blank">lambda-serverless-2</a>
+ -  <a href="https://gitlab.com/simloud-demo/git-monorepo" target="_blank">git-monorepo</a>
  
  
  ### Related documentation
