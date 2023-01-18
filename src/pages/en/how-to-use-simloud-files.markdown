@@ -71,13 +71,20 @@ Please, follow this documentation for more commands in GitLab - <a href="https:/
     ![](/img/onboarding/simloudfiles-usage/5.png) 
  
  
- ### Links to repositories
+ ### Git-pipeline repository
+This type of repository allows deploying different custom configuration using script from simloud-pipeline file.
+To execute this repository, it's necessary to deploy <a href="https://gitlab.com/simloud-demo/git-pipeline" target="_blank">git-pipeline</a> repository on <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>. 
+
+   ![](/img/onboarding/simloudfiles-usage/10.png)
+
+### Links to repositories
  -  <a href="https://gitlab.com/simloud-demo/fe-demo" target="_blank">fe-demo</a>
  -  <a href="https://gitlab.com/simloud-demo/k8s-service-1" target="_blank">k8s-service-1</a>
  -  <a href="https://gitlab.com/simloud-demo/k8s-service-2" target="_blank">k8s-service-2</a>
  -  <a href="https://gitlab.com/simloud-demo/lambda-serverless-1" target="_blank">lambda-serverless-1</a>
  -  <a href="https://gitlab.com/simloud-demo/lambda-serverless-2" target="_blank">lambda-serverless-2</a>
  -  <a href="https://gitlab.com/simloud-demo/git-monorepo" target="_blank">git-monorepo</a>
+ -  <a href="https://gitlab.com/simloud-demo/git-pipeline" target="_blank">git-pipeline</a>
  
  
  ### Related documentation
