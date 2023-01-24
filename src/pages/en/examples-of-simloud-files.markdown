@@ -89,23 +89,24 @@ environment:
    value: "Yahoo!"           # Commonly used as an environment variable
 
 external_api:
-  sub_domain: "lambda"         # It is necessary to specify sub-domain, if applicable
-  base_url: "lambda-service-1" # It is necessary to specify base url, if applicable
   regex:
-    enabled: true             # by default  it's `false`. It is possible to assign the 'true' value for this parameter
-    rewrite-target: /$2$3$4
+    enabled: false
+    rewrite-target: "$1$2$3$4"
+  sub_domain: "lambda"
+  base_url: "/(lambda-service-1)/"
   loadbalancer: aws_network
-  protocol: tcp              # Possible options: tcp, udp, tls, tcp_udp
-  port: 80                   # It is currently available only tcp for 80 port and tls for 443 port
+  protocol: tcp    # options: tcp, udp, tls, tcp_udp
+  port: 80         # available 80 and 443 only
   redirects:
-    http2https: true        # By default this parameter is enabled
+    http2https: true # by default enabled
   cors:
-    enable_cors: true       # By default it's a true
+    enable_cors: true
     cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
     cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
     cors-allow-origin: "*"
     cors-allow-credentials: false
     cors-max-age: 86400
+
 
 
 internal_api:                     # @v4.2
@@ -161,16 +162,16 @@ environment:
    value: "Yahoo!"
 
 external_api:
-  sub_domain: "k8s"
-  base_url: "kube-service-1"
-  sub_domain: xxx
-  base_domain: base.domain.name
   regex:
-    enabled: true             # by default  it's `false`. It is possible to assign the 'true' value for this parameter
-    rewrite-target: /$2$3$4
+    enabled: false
+    rewrite-target: "$1$2$3$4"
+  sub_domain: "lambda"
+  base_url: "/(lambda-service-1)/"
   loadbalancer: aws_network
-  protocol: tcp_udp    # options: tcp, udp, tls, tcp_udp
-  port: 443
+  protocol: tcp    # options: tcp, udp, tls, tcp_udp
+  port: 80         # available 80 and 443 only
+  redirects:
+    http2https: true # by default enabled
   cors:
     enable_cors: true
     cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
@@ -178,6 +179,7 @@ external_api:
     cors-allow-origin: "*"
     cors-allow-credentials: false
     cors-max-age: 86400
+
 
 internal_api:                     # @v4.2
   base_url: kube-service
