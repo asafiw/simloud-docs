@@ -79,8 +79,8 @@ To execute this repository, it's necessary to deploy <a href="https://gitlab.com
    
 
 ### Deploying Databases
-This type of repository allows deploying both databases - RDS and DynamoDB. 
-To execute this repository, it's necessary to deploy <a href="https://gitlab.com/simloud-demo/k8s-service-3" target="_blank">k8s-service-3</a> repository on <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>.
+ k8s-service-3 repository allows deploying both databases - RDS and DynamoDB. 
+To execute this repository, it's necessary to deploy <a href="https://gitlab.com/simloud-demo/k8s-service-3" target="_blank">k8s-service-3</a> on <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>.
 
   ![](/img/onboarding/simloudfiles-usage/11.png)
 
