@@ -251,7 +251,8 @@ spec:
 
 
 ### Creating and deploying Databases
-Database deployment is currently supported in two modes: DynamoDB and RDS.
+With Simloudfile.yaml functionality is also possible to deploy Databases. 
+On current moment are supported just few types of databases managed by AWS Cloud Provider. In those types are involved DynamoDB and RDS AWS services.
 
 For deploying **DynamoDB**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml.
 
