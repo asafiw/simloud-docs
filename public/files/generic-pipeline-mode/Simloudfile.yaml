@@ -3,7 +3,7 @@ version: v2
 kind: simloud-deployment             # By default, is set as simloud-deployment
 name: test-pipeline
 type: pipeline                      # It is necessary to specify the type of deployment
-mode: strict                        # by default  it's "strict", "advanced" mode is also possible
+mode: advanced                        # by default  it's "strict", "advanced" mode is also possible
 
 secrets:
   - path: secrets/cloud-resources  # vault or k8s paths where secrets located

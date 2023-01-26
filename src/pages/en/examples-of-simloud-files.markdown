@@ -89,23 +89,24 @@ environment:
    value: "Yahoo!"           # Commonly used as an environment variable
 
 external_api:
-  sub_domain: "lambda"         # It is necessary to specify sub-domain, if applicable
-  base_url: "lambda-service-1" # It is necessary to specify base url, if applicable
   regex:
-    enabled: true             # by default  it's `false`. It is possible to assign the 'true' value for this parameter
-    rewrite-target: /$2$3$4
+    enabled: false
+    rewrite-target: "$1$2$3$4"
+  sub_domain: "lambda"
+  base_url: "/(lambda-service-1)/"
   loadbalancer: aws_network
-  protocol: tcp              # Possible options: tcp, udp, tls, tcp_udp
-  port: 80                   # It is currently available only tcp for 80 port and tls for 443 port
+  protocol: tcp    # options: tcp, udp, tls, tcp_udp
+  port: 80         # available 80 and 443 only
   redirects:
-    http2https: true        # By default this parameter is enabled
+    http2https: true # by default enabled
   cors:
-    enable_cors: true       # By default it's a true
+    enable_cors: true
     cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
     cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
     cors-allow-origin: "*"
     cors-allow-credentials: false
     cors-max-age: 86400
+
 
 
 internal_api:                     # @v4.2
@@ -161,16 +162,16 @@ environment:
    value: "Yahoo!"
 
 external_api:
-  sub_domain: "k8s"
-  base_url: "kube-service-1"
-  sub_domain: xxx
-  base_domain: base.domain.name
   regex:
-    enabled: true             # by default  it's `false`. It is possible to assign the 'true' value for this parameter
-    rewrite-target: /$2$3$4
+    enabled: false
+    rewrite-target: "$1$2$3$4"
+  sub_domain: "lambda"
+  base_url: "/(lambda-service-1)/"
   loadbalancer: aws_network
-  protocol: tcp_udp    # options: tcp, udp, tls, tcp_udp
-  port: 443
+  protocol: tcp    # options: tcp, udp, tls, tcp_udp
+  port: 80         # available 80 and 443 only
+  redirects:
+    http2https: true # by default enabled
   cors:
     enable_cors: true
     cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
@@ -178,6 +179,7 @@ external_api:
     cors-allow-origin: "*"
     cors-allow-credentials: false
     cors-max-age: 86400
+
 
 internal_api:                     # @v4.2
   base_url: kube-service
@@ -214,8 +216,8 @@ spec:
 version: v2
 kind: simloud-deployment             # By default, is set as simloud-deployment
 name: test-pipeline
-type: pipeline                      # It is necessary to specify the type of deployment
-mode: strict                        # by default  it's "strict", "advanced" mode is also possible
+type: pipeline                        # It is necessary to specify the type of deployment
+mode: advanced                        # by default  it's "strict", "advanced" mode is also possible
 
 secrets:
   - path: secrets/cloud-resources  # vault or k8s paths where secrets located
@@ -246,3 +248,166 @@ spec:
 ```
 
 [Download Simloudfile.yaml for generic-pipeline mode](/files/generic-pipeline-mode/Simloudfile.yaml)
+
+
+### Creating and deploying Databases
+Database deployment is currently supported in two modes: DynamoDB and RDS.
+
+For deploying **DynamoDB**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml.
+
+```yaml
+cloud_resources:
+ - name: dynamodb_1
+   env_name_prefix: ENVDB1
+   type: dynamodb
+   params:
+     AttributeDefinitions:
+       - AttributeName: username
+         AttributeType: S
+       - AttributeName: lastname
+         AttributeType: S
+     KeySchema:
+       - AttributeName: username
+         KeyType: HASH
+       - AttributeName: lastname
+         KeyType: RANGE
+
+```
+For deploying **RDS**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml:
+
+```yaml
+ - name: db_1
+    env_name_prefix: ENVDB1
+    type: rds
+    params:
+      DBName: postgres_test
+      MasterUsername: postgresmaster
+      MasterUserPassword: 47379dc6-c120-pwd
+```
+On the portal, you can deploy both databases, RDS and DynamoDB, using the k8s-service-3 microservice.
+ 
+Simloudfile for `k8s-service-3`:
+ 
+```yaml
+version: v2
+kind: simloud-deployment
+name: kube-service-3
+type: kubernetes
+mode: advanced
+#image:
+
+cloud_resources:
+  - name: db_1
+    env_name_prefix: ENVDB1
+    type: rds
+    params:
+      DBName: postgres_test
+      MasterUsername: postgresmaster
+      MasterUserPassword: 47379dc6-c120-pwd
+
+  - name: ddb_1               # <resource-name>
+    env_name_prefix: ENVDDB1  # <environment-variable-name>
+    type: dynamodb           # <resource-type>
+    params:                  # block of advanced parameters
+      AttributeDefinitions:
+        - AttributeName: a
+          AttributeType: S
+      KeySchema:
+        - AttributeName: a
+          KeyType: HASH
+
+  - name: kube3_s3_1
+    env_name_prefix: S31
+    type: s3
+
+  - name: lambda-service-3.s3_1
+    env_name_prefix: LAMBDAS31
+    type: s3
+
+  - name: lambda-service-3.db1_1
+    env_name_prefix: LAMBDADB1
+    type: s3
+
+secrets:
+  - path: secrets/customer1/data1
+    env_name_prefix: CUSTENV1
+
+environment:
+  - env_name: ENVNAME1
+    value: "Yahoo!"
+
+external_api:
+  sub_domain: "k8s"
+  base_url: "/kube-service-3"
+  base_domain: base.domain.name
+  loadbalancer: aws_network
+  protocol: tcp    # options: tcp, udp, tls, tcp_udp
+  port: 80     # available 80 and 443 only
+  redirects:
+    http2https: true # by default enabled
+  cors:
+    enable_cors: true
+    enable_cors: true  # default "false"
+    cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # default "*"
+    cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # default "*"
+    cors-allow-origin: "*"
+    cors-allow-credentials: false
+    cors-max-age: 1728000
+  #auth: # @v4.2.16
+   # url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain .
+   # sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
+    #type: basic                   # default “vouch”, to integrate via vouch.
+
+internal_api:                     # @v4.2
+  base_url: kube-service
+  sub_domain: " "
+  base_domain: base.domain.name
+  loadbalancer: aws_network
+  protocol: tcp    # options: tcp, udp, tls, tcp_udp
+  port: 80     # available 80 and 443 only
+
+service:
+  name: kube-service-3
+  namespace: default
+  type: ClusterIP
+  annotations: {}
+  servicePort: 80
+  podPort: 80
+  specType: deployment
+  options: # @v3.4.10
+    sidecars:
+      vault:
+       enable: false
+    timeouts: # @v4.2.17
+      job_execute: 3600        # job spec execution timeout in sec
+    job: # @v4.2.17 applicable only for job/cronjob type
+      shell_command: “”        # default shell command
+      cron: “*/1 * * * *”      # job cron execution. Only for cronjob type
+      cron_concurrency: Allow  # Enable cron jobs concurrency: Allow/Forbid/Replace
+
+spec:
+ pod:
+   name: kube-service-3
+   replicas: 1
+   strategy: # @v3.4.6
+     type: Recreate # default “Recreate”
+     rollingUpdate: # default empty
+       maxSurge: 1                  # The number of pods that can be created above the desired amount of pods during an update
+       maxUnavailable: 25%          # The number of pods that can be unavailable during the update process
+   hascaler: # @v4.2
+     enabled: false
+     min: 1
+     max: 10
+     cpu_percent: 80
+   containers:
+     - name: container-name
+       resources:
+         requests:
+           memory: "60Mi"
+           cpu: "200m"
+         limits:
+           memory: "120Mi"
+           cpu: "1000m"
+
+```
+[Download Simloudfile.yaml for k8s-service-3](/files/k8s-service-3/Simloudfile.yaml)
