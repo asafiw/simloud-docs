@@ -76,11 +76,19 @@ This type of repository allows deploying different custom configuration using sc
 To execute this repository, it's necessary to deploy <a href="https://gitlab.com/simloud-demo/git-pipeline" target="_blank">git-pipeline</a> repository on <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>. 
 
    ![](/img/onboarding/simloudfiles-usage/10.png)
+   
+
+### Deploying Databases
+ k8s-service-3 repository allows deploying both databases - RDS and DynamoDB. 
+To execute this repository, it's necessary to deploy <a href="https://gitlab.com/simloud-demo/k8s-service-3" target="_blank">k8s-service-3</a> on <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>.
+
+  ![](/img/onboarding/simloudfiles-usage/11.png)
 
 ### Links to repositories
  -  <a href="https://gitlab.com/simloud-demo/fe-demo" target="_blank">fe-demo</a>
  -  <a href="https://gitlab.com/simloud-demo/k8s-service-1" target="_blank">k8s-service-1</a>
  -  <a href="https://gitlab.com/simloud-demo/k8s-service-2" target="_blank">k8s-service-2</a>
+ -  <a href="https://gitlab.com/simloud-demo/k8s-service-3" target="_blank">k8s-service-3</a>
  -  <a href="https://gitlab.com/simloud-demo/lambda-serverless-1" target="_blank">lambda-serverless-1</a>
  -  <a href="https://gitlab.com/simloud-demo/lambda-serverless-2" target="_blank">lambda-serverless-2</a>
  -  <a href="https://gitlab.com/simloud-demo/git-monorepo" target="_blank">git-monorepo</a>
