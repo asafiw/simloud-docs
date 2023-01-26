@@ -216,7 +216,7 @@ spec:
 version: v2
 kind: simloud-deployment             # By default, is set as simloud-deployment
 name: test-pipeline
-type: pipeline                      # It is necessary to specify the type of deployment
+type: pipeline                        # It is necessary to specify the type of deployment
 mode: advanced                        # by default  it's "strict", "advanced" mode is also possible
 
 secrets:
@@ -250,9 +250,10 @@ spec:
 [Download Simloudfile.yaml for generic-pipeline mode](/files/generic-pipeline-mode/Simloudfile.yaml)
 
 
-### Deploying Databases
+### Creating and deploying Databases
+Database deployment is currently supported in two modes: DynamoDB and RDS.
 
-Please, add this code snippet to `cloud_resources` block at Simloudfile.yaml for deploying **DynamoDB**:
+For deploying **DynamoDB**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml.
 
 ```yaml
 cloud_resources:
@@ -272,7 +273,7 @@ cloud_resources:
          KeyType: RANGE
 
 ```
-Please, add this code snippet to `cloud_resources` block at Simloudfile.yaml for deploying **RDS**:
+For deploying **RDS**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml:
 
 ```yaml
  - name: db_1
@@ -283,7 +284,7 @@ Please, add this code snippet to `cloud_resources` block at Simloudfile.yaml for
       MasterUsername: postgresmaster
       MasterUserPassword: 47379dc6-c120-pwd
 ```
-For deploying both databases, RDS and DynamoDB, - you can deploy on the portal `k8s-service-3` microservice.
+On the portal, you can deploy both databases, RDS and DynamoDB, using the k8s-service-3 microservice.
  
 Simloudfile for `k8s-service-3`:
  
