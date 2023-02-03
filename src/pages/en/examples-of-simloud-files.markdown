@@ -252,7 +252,7 @@ spec:
 
 ### Creating and deploying Databases
 With Simloudfile.yaml functionality is also possible to deploy Databases. 
-On current moment are supported just few types of databases managed by AWS Cloud Provider. In those types are involved DynamoDB and RDS AWS services.
+On the current moment are supported just few types of databases managed by AWS Cloud Provider. In those types are involved DynamoDB and RDS AWS services.
 
 For deploying **DynamoDB**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml.
 
@@ -412,3 +412,13 @@ spec:
 
 ```
 [Download Simloudfile.yaml for k8s-service-3](/files/k8s-service-3/Simloudfile.yaml)
+
+### Links to repositories
+ -  <a href="https://gitlab.com/simloud-demo/fe-demo" target="_blank">fe-demo</a>
+ -  <a href="https://gitlab.com/simloud-demo/k8s-service-1" target="_blank">k8s-service-1</a>
+ -  <a href="https://gitlab.com/simloud-demo/k8s-service-2" target="_blank">k8s-service-2</a>
+ -  <a href="https://gitlab.com/simloud-demo/k8s-service-3" target="_blank">k8s-service-3</a>
+ -  <a href="https://gitlab.com/simloud-demo/lambda-serverless-1" target="_blank">lambda-serverless-1</a>
+ -  <a href="https://gitlab.com/simloud-demo/lambda-serverless-2" target="_blank">lambda-serverless-2</a>
+ -  <a href="https://gitlab.com/simloud-demo/git-monorepo" target="_blank">git-monorepo</a>
+ -  <a href="https://gitlab.com/simloud-demo/git-pipeline" target="_blank">git-pipeline</a>

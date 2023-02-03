@@ -123,7 +123,7 @@ echo $password
 docker build -t $2 --network container:$1 -f Dockerfile .
 ```
 
-[Download Simloudfile.yaml](/files/simloud_ci.sh)
+[Download simloud_ci.sh file](/files/simloud_ci.sh)
 
 >**_Note: we use the simloud_ci file for kube-service-1_**
 
