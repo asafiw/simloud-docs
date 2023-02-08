@@ -91,12 +91,13 @@ In order to check if your variables were successfully passed through Jenkins, pl
   ![](/img/onboarding/how-to-use-vault/image15.png)
 
 
-## Passing secrets from vault via simloid_ci file
+## Passing secrets from vault via simloid_ci.sh file
 
-Follow these steps to output vault secrets through a simloud_ci file in a Jenkins job:
--  Add the following command to your simloud_ci file, where <path_to_secret> is a path to required secret in vault:
-```yaml
-  vault kv get <path_to_secret>
+Follow these steps to output vault secrets through a simloud_ci.sh file in a Jenkins job:
+-  Add the following commands to your simloud_ci file, where <path_to_secret> is a path to required secret in vault:
+```sh
+  username=$(vault kv get -field=username  <path_to_secret>)
+  password=$(vault kv get -field=password  <path_to_secret>)
 ```
 
 - You can view the values in question by navigating to the job build output after building the service from the branch.
@@ -110,22 +111,26 @@ For demonstration purposes, we will acquire a number of test values secured in a
 ![](/img/onboarding/how-to-use-vault/img19.png)
 ![](/img/onboarding/how-to-use-vault/img20.png)
 
-The contents of edited simloud_ci file:
+The contents of edited simloud_ci.sh file:
 ```sh
 #!/bin/bash
+
+docker build -t $DOCKER_IMAGE_NAME --network container:$SIMLOUD_PARAM -f Dockerfile .
+
 echo 'how to use vault inside jenkins job example'
 echo 'following example assumes that there is a secret named config with fields username and password in jenkins/test vault path'
 echo 'add your jenkins secrets in jenkins/xxx path'
 username=$(vault kv get -field=username  jenkins/test/config)
 password=$(vault kv get -field=password  jenkins/test/config)
+
 echo $username
 echo $password
-docker build -t $2 --network container:$1 -f Dockerfile .
+
 ```
 
 [Download simloud_ci.sh file](/files/simloud_ci.sh)
 
->**_Note: we use the simloud_ci file for kube-service-1_**
+>**_Note: we use the simloud_ci.sh file for kube-service-1_**
 
 Navigating to see the value output in Jenkins:
 - Press the build result icon next to the job number.

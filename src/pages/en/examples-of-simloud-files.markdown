@@ -329,7 +329,7 @@ For deploying **RDS**, it is necessary to add following code snippet to `cloud_r
       DBInstanceClass: db.t3.micro
       AllocatedStorage: 5
       MasterUsername: postgresMaster
-      BackupRetentionPeriod: 0
+      BackupRetentionPeriod: 7
       CopyTagsToSnapshot: True
       PubliclyAccessible: False
       Tags:
@@ -380,7 +380,7 @@ For deploying **S3**, it is necessary to add following code snippet to `cloud_re
              Value: user_value
 
 ```
-For more information about deploying S3 service, please, follow this link <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.create_bucketz" target="_blank">S3</a>.    
+ S3 segment is parsed using the S3 module from the boto. More information <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.create_bucketz" target="_blank">here</a>.    
 
 For deploying **SQS**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml:
 
@@ -419,7 +419,7 @@ For deploying **SQS**, it is necessary to add following code snippet to `cloud_r
      tags:
        user_tag: user_value
 ```
-For more information about deploying SQS service, please, follow this link <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.create_queue" target="_blank">SQS</a>.
+SQS segment is parsed using the SQS module from the boto. More information <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.create_queue" target="_blank">here</a>.
 
 
 >NOTE: Using the k8s-service-3 microservice, you can deploy both databases, RDS, DynamoDB, and additional cloud_resources options.
