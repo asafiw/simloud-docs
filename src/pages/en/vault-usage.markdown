@@ -100,7 +100,7 @@ Follow these steps to output vault secrets through a simloud_ci.sh file in a Jen
   password=$(vault kv get -field=password  <path_to_secret>)
 ```
 
-- You can view the values in question by navigating to the job build output after building the service from the branch.
+- You can view the values by navigating to the job build output after building the service from the branch.
 
 For demonstration purposes, we will acquire a number of test values secured in a secret. The **path** to it in Vault is: ``jenkins/test/config``
 

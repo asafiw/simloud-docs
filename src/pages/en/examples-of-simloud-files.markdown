@@ -390,7 +390,7 @@ For deploying **SQS**, it is necessary to add following code snippet to `cloud_r
     type: sqs
     params:
      QueueName: 2347918-43728.fifo        # If FifoQueue: True, the name of a FIFO queue can only include alphanumeric characters, hyphens, or underscores, must end with .fifo suffix a>
-     # attrituptes must be strings -> ''
+     # attributes must be strings -> ''
      Attributes:
        DelaySeconds: '5'                  # 0 to 900 seconds
        MaximumMessageSize: '2048'         # from 1,024 bytes (1 KiB) to 262,144 bytes

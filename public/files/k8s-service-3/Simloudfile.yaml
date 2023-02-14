@@ -180,9 +180,6 @@ cloud_resources:
 
 
 
-
-
-
   - name: kube3_s3_1
     env_name_prefix: S31
     type: s3
@@ -194,12 +191,7 @@ cloud_resources:
   - name: lambda-service-3.db1_1
     env_name_prefix: LAMBDADB1
     type: s3
-https://boto3:
-  amazonaws:
-    com/v1/documentation/api/latest/reference/services/rds:
-      html#RDS:
-        Client:
-          create_db_instance:
+
 secrets:
   - path: secrets/customer1/data1
     env_name_prefix: CUSTENV1
