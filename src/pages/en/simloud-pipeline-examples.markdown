@@ -13,7 +13,7 @@ if [ "$PIPELINE_ACTION" == "" ]; then
   echo "Please, provide action."
 fi
 
-if [ "$PIPELINE_ACTION" == "deploy" ]; then
+if [[ "$PIPELINE_ACTION" == "deploy" &&  "$PIPELINE_STATE" == "build" ]]; then
   helm repo add bitnami https://charts.bitnami.com/bitnami
   env
   echo "helm upgrade --install my-release bitnami/wordpress --set wordpressUsername=$wordpressUsername --set wordpressPassword=$wordpressPassword --set wordpressEmail=$wordpressEmail --set ingress.enabled=true --set ingress.annotations.\"kubernetes\.io/ingress\.class=nginx\" --set ingress.hostname=${HostnamePrefix}.${JENKINS_BASEURL}"
@@ -27,7 +27,13 @@ if [ "$PIPELINE_ACTION" == "deploy" ]; then
   --set ingress.hostname=${HostnamePrefix}.${JENKINS_BASEURL}
 fi
 
-if [ "$PIPELINE_ACTION" == "update" ]; then
+if [[ "$PIPELINE_ACTION" == "destroy" && "$PIPELINE_STATE" == "destroy" ]]; then
+  env
+  helm uninstall my-release
+  kubectl delete pvc data-my-release-mariadb-0
+fi
+
+if [[ "$PIPELINE_ACTION" == "deploy" && "$PIPELINE_STATE" == "update" ]]; then
   helm repo add bitnami https://charts.bitnami.com/bitnami
   env
   echo "helm upgrade --install my-release bitnami/wordpress --set wordpressUsername=$wordpressUsername --set wordpressPassword=$wordpressPassword --set wordpressEmail=$wordpressEmail --set serviceContainer.resources.requests.cpu=\"400m\" --set serviceContainer.resources.requests.memory=\"1024Mi\" --set serviceContainer.resources.limits.cpu=\"600m\" --set serviceContainer.resources.limits.memory=\"1536Mi\""
@@ -43,19 +49,12 @@ if [ "$PIPELINE_ACTION" == "update" ]; then
   --set serviceContainer.resources.requests.memory="1024Mi" \
   --set serviceContainer.resources.limits.cpu="800m" \
   --set serviceContainer.resources.limits.memory="1536Mi"
-echo "Chart was succesfully upgrade!"
-fi
-
-if [ "$PIPELINE_ACTION" == "destroy" ]; then
-  env
-  helm uninstall my-release
-  kubectl delete pvc data-my-release-mariadb-0
+echo "Chart was succesfully upgrade"
 fi
 
 ```
-> **_So, there are 3 variants of PIPELINE ACTION:_**
+> **_So, there are 2 variants of PIPELINE ACTION:_**
 > - **`Deploy`** - _for building job via Simloud pipeline_;
-> - **`Update`** - _for update job with new parameters using Simloud pipeline_;
 > - **`Destroy`** - _for terminating job via Simloud pipeline_.
 
 
@@ -85,4 +84,4 @@ pipeline:
                 paths: # vault or k8s paths where secrets are located
                   - kube-system.ssh-keys #
 ```
-[Download Simloud-pipeline.yaml](/files/simloud-pipeline.yaml)
+[Download simloud-pipeline.yaml](/files/simloud-pipeline.yaml)
