@@ -6,4 +6,4 @@ username=$(vault kv get -field=username  jenkins/test/config)
 password=$(vault kv get -field=password  jenkins/test/config)
 echo $username
 echo $password
-docker build -t $2 --network container:$1 -f Dockerfile .
+docker image build --network host  -t $DOCKER_IMAGE_NAME -f Dockerfile .
