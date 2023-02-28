@@ -27,12 +27,6 @@ if [[ "$PIPELINE_ACTION" == "deploy" &&  "$PIPELINE_STATE" == "build" ]]; then
   --set ingress.hostname=${HostnamePrefix}.${JENKINS_BASEURL}
 fi
 
-if [[ "$PIPELINE_ACTION" == "destroy" && "$PIPELINE_STATE" == "destroy" ]]; then
-  env
-  helm uninstall my-release
-  kubectl delete pvc data-my-release-mariadb-0
-fi
-
 if [[ "$PIPELINE_ACTION" == "deploy" && "$PIPELINE_STATE" == "update" ]]; then
   helm repo add bitnami https://charts.bitnami.com/bitnami
   env
@@ -50,6 +44,12 @@ if [[ "$PIPELINE_ACTION" == "deploy" && "$PIPELINE_STATE" == "update" ]]; then
   --set serviceContainer.resources.limits.cpu="800m" \
   --set serviceContainer.resources.limits.memory="1536Mi"
 echo "Chart was succesfully upgrade"
+fi
+
+if [[ "$PIPELINE_ACTION" == "destroy" && "$PIPELINE_STATE" == "destroy" ]]; then
+  env
+  helm uninstall my-release
+  kubectl delete pvc data-my-release-mariadb-0
 fi
 
 ```

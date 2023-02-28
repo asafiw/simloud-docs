@@ -150,14 +150,17 @@ Deprecated alias from `.cicd.image`.
 
 **Type**: `map`
 
+This parameter describes stages block.
+
 #### Optional parameters
+
 ### `.pipeline`
 
 **Default value**: `{}`
 
 **Type**: `map`
 
-**Possible Options**:  Send to Jenkins as `SLAVE_IMAGE` parameter.
+This parameter describes pipeline block.
 
 ### `.pipeline.default`
 
@@ -167,7 +170,7 @@ Deprecated alias from `.cicd.image`.
 
 **Possible Options**:  Simloud profile name.
 
-Currently, only `default` value is available for  $SIMLOUD_PIPELINE_PROFILE variable.
+Currently, only `default` value is available for  `$SIMLOUD_PIPELINE_PROFILE` variable.
 
 ### `.pipeline.default[].state`
 
@@ -181,6 +184,7 @@ Currently, only `default` value is available for  $SIMLOUD_PIPELINE_PROFILE vari
 - `update` - used for redeploy process
 - `destroy` - used for destroy process
 
+This parameter describes all possible options for the pipeline state.
 `$SIMLOUD_PIPELINE_STATE` variable contains information about the current state of the pipeline
 
 ### `.pipeline.default[].action`
@@ -194,15 +198,25 @@ Currently, only `default` value is available for  $SIMLOUD_PIPELINE_PROFILE vari
 - `deploy` - deploy action
 - `destroy` - destroy action
 
-`$SIMLOUD_PIPELINE_ACTION` variable contains information about the current state of the pipeline
+This parameter describes all possible actions for the pipeline state.
+`$SIMLOUD_PIPELINE_ACTION` variable contains information about the current action of the pipeline
 
 ## Explaining the execution order for States and Actions
 
+>NOTE: Actions can be chosen for the pipeline, but States are determined by Actions.
 
-- In the case of `$PIPELINE_ACTION` has value "**deploy**" and `$PIPELINE_STATE` - "**create**" the deployment process occurs for the **first** time.
+1. `if [[ "$PIPELINE_ACTION" == "deploy" &&  "$PIPELINE_STATE" == "build" ]]; then` the CI process is in the **building** state.
 
-- In the case of `$PIPELINE_ACTION` as "**deploy**" and `$PIPELINE_STATE` as "**update**", it means that the process is being **re-deployed**.
+In every instance of a job being built, the pipeline state has the value "build".
 
-- The case of `$PIPELINE_ACTION` as "**deploy**" and `$PIPELINE_STATE` as "**build**" used for **building** CI process.
+3. `if [[ "$PIPELINE_ACTION" == "deploy" &&  "$PIPELINE_STATE" == "create" ]]; then` the deployment process occurs for the **first** time.
 
-- The case of `$PIPELINE_ACTION` as "**destroy**" and `$PIPELINE_STATE` as "**destroy**" used for **destroying** process
+There is only one time when a pipeline state can have value `create`, which is when the job is created for the first time.
+
+3. `if [[ "$PIPELINE_ACTION" == "deploy" &&  "$PIPELINE_STATE" == "update" ]]; then` it means that the process is being **deployed** with updated configuration.
+
+There are many times when a pipeline state can have value `update`, which is everytime when the job is deployed with new changes.
+
+4. `if [[ "$PIPELINE_ACTION" == "destroy" &&  "$PIPELINE_STATE" == "destroy" ]]; then` the pipeline is in the destroying state.
+
+In every instance of a job being destroyed, the pipeline state has the value "destroy".
