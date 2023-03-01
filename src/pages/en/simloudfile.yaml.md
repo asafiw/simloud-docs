@@ -409,6 +409,27 @@ It is necessary to specify sub-domain.
 
  HTTP's headers let the client and the server pass additional information with an HTTP request or response. 
 
+### `.external_api.headers[]`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+This block describes `.external_api.headers[]` parameters.
+
+
+### `.external_api.headers[].override`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+**Possible Options**:
+`true` - always override the same header;
+`false` - set header, if it is not set only.
+
+Override - is  receiving one method and interpreting another.
+
 #### Optional parameters
 ### `.external_api`
 
@@ -562,26 +583,7 @@ The `auth-url` command specifies the URL to the endpoint that authenticates user
 
 By default it is “vouch”, to integrate via vouch.
 
-### `.external_api.headers[]`
 
-**Default value**: `[]`
-
-**Type**: `list`
-
-This block describes `.external_api.headers[]` parameters.
-
-
-### `.external_api.headers[].override`
-
-**Default value**: `false`
-
-**Type**: `bool`
-
-**Possible Options**:
-`true` - always override the same header;
-`false` - set header, if it is not set only.
-
-Override - is  receiving one method and interpreting another.
 
 ### `.external_api.regex`
 
@@ -614,6 +616,26 @@ Commonly used as a base domain name.
 **Type**: `str`
 
 HTTP headers let the client and the server pass additional information with an HTTP request or response. 
+
+### `.internal_api.headers[]`
+
+**Default value**: `[]`
+
+**Type**: `list`
+
+This block describes `.internal_api.headers[]` parameters.
+
+### `.internal_api.headers[].override`
+
+**Default value**: `true`
+
+**Type**: `bool`
+
+**Possible Options**:
+- `true` - always override the same header;
+- `false` - set header, if it is not set only.
+
+Override is – receiving one method and interpreting another.
 
 #### Optional parameters
 ### `.internal_api`
@@ -672,26 +694,6 @@ It is currently available only `tcp` for `80` port and `tls` for `443` port.
 **Type**: `set int`
 
 It is currently available only values `80` or `443` or both.
-
-### `.internal_api.headers[]`
-
-**Default value**: `[]`
-
-**Type**: `list`
-
-This block describes `.internal_api.headers[]` parameters.
-
-### `.internal_api.headers[].override`
-
-**Default value**: `true`
-
-**Type**: `bool`
-
-**Possible Options**:
-- `true` - always override the same header;
-- `false` - set header, if it is not set only.
-
-Override is – receiving one method and interpreting another.
 
 ### `.internal_api.regex`
 
