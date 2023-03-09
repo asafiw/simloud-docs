@@ -201,22 +201,3 @@ This parameter describes all possible options for the pipeline state.
 This parameter describes all possible actions for the pipeline state.
 `$SIMLOUD_PIPELINE_ACTION` variable contains information about the current action of the pipeline
 
-## Explaining the execution order for States and Actions
-
->NOTE: Actions can be chosen for the pipeline, but States are determined by Actions.
-
-1. `if [[ "$PIPELINE_ACTION" == "deploy" &&  "$PIPELINE_STATE" == "build" ]]; then` the CI process is in the **building** state.
-
-In every instance of a job being built, the pipeline state has the value "build".
-
-3. `if [[ "$PIPELINE_ACTION" == "deploy" &&  "$PIPELINE_STATE" == "create" ]]; then` the deployment process occurs for the **first** time.
-
-There is only one time when a pipeline state can have value `create`, which is when the job is created for the first time.
-
-3. `if [[ "$PIPELINE_ACTION" == "deploy" &&  "$PIPELINE_STATE" == "update" ]]; then` it means that the process is being **deployed** with updated configuration.
-
-There are many times when a pipeline state can have value `update`, which is everytime when the job is deployed with new changes.
-
-4. `if [[ "$PIPELINE_ACTION" == "destroy" &&  "$PIPELINE_STATE" == "destroy" ]]; then` the pipeline is in the destroying state.
-
-In every instance of a job being destroyed, the pipeline state has the value "destroy".
