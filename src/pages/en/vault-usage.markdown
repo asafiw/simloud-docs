@@ -115,7 +115,7 @@ The contents of edited simloud_ci.sh file:
 ```sh
 #!/bin/bash
 
-docker build -t $DOCKER_IMAGE_NAME --network container:$SIMLOUD_PARAM -f Dockerfile .
+docker image build --network host  -t $DOCKER_IMAGE_NAME -f Dockerfile .
 
 echo 'how to use vault inside jenkins job example'
 echo 'following example assumes that there is a secret named config with fields username and password in jenkins/test vault path'
