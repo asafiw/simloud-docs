@@ -17,7 +17,7 @@ mode: advanced  # by default  it's "strict"
 secrets:
   - path: secrets/customer1/data1  # vault or k8s paths where secrets located
     env_name_prefix: CUSTENV1     # this parameter is mandatory in mode `strict`and optional in `advanced`
-    type: k8s
+    type: vault
 
 external_api:
   sub_domain: ""
@@ -83,6 +83,7 @@ cloud_resources:
 secrets:
   - path: /secrets/customer1/data1
     env_name_prefix: CUSTENV1
+    type: vault
 
 environment:
  - env_name: ENVNAME1        # Commonly used as an environment name
@@ -155,7 +156,7 @@ cloud_resources:
 secrets:
   - path: secrets/customer1/data1
     env_name_prefix: CUSTENV1
-    type: k8s
+    type: vault
 
 environment:
  - env_name: ENVNAME1
