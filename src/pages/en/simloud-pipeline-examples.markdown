@@ -3,8 +3,27 @@ title: Simloud-pipeline.yaml examples
 description: Simloud-pipeline.yaml examples
 layout: ../../layouts/MainLayout.astro
 ---
+### **BASH shell example**
 
-### Example of `helm_install.sh` file
+```yaml
+version: v1
+kind: simloud-pipeline
+
+pipeline:
+  default:                                                                         # profile name. Currently only default
+    - action: deploy,destroy
+      state: build,create,update,destroy
+      stages:
+        - name: "bash"
+          shell: bash                                                              # “bash” by default ( optional )
+          args: []                                                                 # shell arguments ( optional )
+          homedir: /home/jenkins/agent/workspace/generic-pipeline                  # shell command default folder ( optional )
+          scripts:
+          - ./helm_install.sh
+```
+[Download simloud-pipeline.yaml](/files/generic-pipeline-mode/simloud-pipeline.yaml)
+
+### Content of `helm_install.sh` file
 
 ```sh                                                                   helm_install.sh
 #!/bin/bash
