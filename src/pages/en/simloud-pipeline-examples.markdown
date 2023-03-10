@@ -62,7 +62,7 @@ if [[ "$PIPELINE_ACTION" == "deploy" && "$PIPELINE_STATE" != "build" ]]; then
   --set serviceContainer.resources.requests.memory="1024Mi" \
   --set serviceContainer.resources.limits.cpu="800m" \
   --set serviceContainer.resources.limits.memory="1536Mi"
-  echo "Chart was successfully upgrade"
+  echo "Chart was successfully upgraded"
 fi
 
 if [[ "$PIPELINE_ACTION" == "destroy" ]]; then
