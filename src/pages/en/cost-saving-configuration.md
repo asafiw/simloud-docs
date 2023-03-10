@@ -6,7 +6,7 @@ layout: ../../layouts/MainLayout.astro
 
 
 ### 1. Billing (actual usage cost)     
-To grant Simloud access to the calculation of actual usage cost, need to perform manual operations (it cannot be automated by Simloud due to restrictions from AWS side):
+To grant Simloud access to the calculation of actual usage cost, you need to perform manual operations (it cannot be automated by Simloud due to restrictions from AWS side):
    
 **Step 1** - enable [cost explorer](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-enable.html).
 

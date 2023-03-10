@@ -7,9 +7,10 @@ layout: ../../layouts/MainLayout.astro
 ### Full `SimloudFile.yaml` file :
 
 ```yaml
+
 version: v2
 kind: simloud-deployment
-name: <repo visual name>                          # "optional", if empty, will be same with `.service.name`
+name: <repo visual name>                          # "optional", if empty, will be the same with `.service.name`
 type: (kubernetes|pipeline|serverless|front-end)  # default "kubernetes" @v5.0
 mode: (strict|advаnced)                           # default "strict"
 image: <jenkins-slave-image>                      # Send to jenkins as SLAVE_IMAGE parameter
@@ -173,9 +174,8 @@ spec:  # for lambda mutually exclusive with above, see more in https://boto3.ama
 
 spec: {} # frontend service will be emply
 ```
+
 [Download Simloudfile.yaml](/files/Simloudfile.yaml)
-
-
 
 ### Minimal Requirements:
 
@@ -211,6 +211,7 @@ By default, is set as simloud-deployment which is mandatory for deployments plac
 **Type**: `set str`
 
 **Possible Options**:
+
 - `kubernetes` - deployment services as k8s service, any type.
 - `apigw` or `serverless` - deployment, using API GW solution, for example: lambda functions.
 - `external` or `front-end` - deployment, using k8s external service solution, for example, frontend on s3 bucket.
@@ -227,10 +228,11 @@ It is necessary to specify the type of deployment.
 **Type**: `set str`
 
 **Possible Options**:
+
 - `strict` - Strict syntax validation.
 - `advanced` - Advanced syntax validation.
 
- In `advanced` mode, the prefix parameter: `env_name_prefix` is not mandatory.
+In `advanced` mode, the prefix parameter: `env_name_prefix` is not mandatory.
 
 ### `.image`
 
@@ -238,10 +240,9 @@ It is necessary to specify the type of deployment.
 
 **Type**: `str`
 
-**Possible Options**:  Send to Jenkins as `SLAVE_IMAGE` parameter. 
+**Possible Options**: Send to Jenkins as `SLAVE_IMAGE` parameter.
 
 Deprecated alias from `.cicd.image`.
-
 
 ## **Cloud Resources block**:
 
@@ -280,14 +281,14 @@ The type of the cloud resource as `dynamodb`.
 **Type**: `map`
 
 The cloud resources used in the environment are described by this parameter.
- 
+
 ### `.cloud_resources[].params`
 
 **Default value**: `[]`
 
 **Type**: `list`
 
-It describes parameters for cloud resources. 
+It describes parameters for cloud resources.
 
 ## **Secrets block:**
 
@@ -299,10 +300,10 @@ It describes parameters for cloud resources.
 
 **Type**: `str`
 
-**Possible Options**: if  `.secrets[].type` will be:
+**Possible Options**: if `.secrets[].type` will be:
 
 - `vault`: `<vault-kv-path>`
-- ` k8s: <secret-name>.<namespace> `
+- `k8s: <secret-name>.<namespace>`
 
 Secrets are located along this path.
 
@@ -332,9 +333,10 @@ It is necessary to provide secrets, stored in hashicorp `vault` or `k8s` secrets
 
 **Type**: `set str`
 
-**Possible Options**: 	
+**Possible Options**:
 
 Storage type:
+
 - `vault` - to read secret data from vault.
 - `k8s` - to read secret data from kubernetes secret.
 
@@ -361,6 +363,7 @@ Commonly used as an environment name.
 Commonly used as an environment variable.
 
 #### Optional parameters
+
 ### `.environment`
 
 **Default value**: `[]`
@@ -407,7 +410,7 @@ It is necessary to specify sub-domain.
 
 **Possible Options**: `"Content-Type: text/html; charset=UTF-8"`
 
- HTTP's headers let the client and the server pass additional information with an HTTP request or response. 
+HTTP's headers let the client and the server pass additional information with an HTTP request or response.
 
 ### `.external_api.headers[]`
 
@@ -431,6 +434,7 @@ This block describes `.external_api.headers[]` parameters.
 Override - is  receiving one method and interpreting another.
 
 #### Optional parameters
+
 ### `.external_api`
 
 **Default value**: `{}`
@@ -472,6 +476,7 @@ A load balancer distributes incoming traffic across targets.
 **Type**: `set str`
 
 **Possible Options**:
+
 - `tcp` - for TCP protocol
 - `tls` - SSL terminated TCP protocol
 - `udp` - for UDP protocol
@@ -519,7 +524,7 @@ It is a browser security feature that restricts HTTP requests that are initiated
 
 **Possible Options**: `GET, PUT, POST, DELETE, PATCH, OPTIONS`
 
-The `Access-Control-Allow-Methods` response header specifies one or more methods allowed when accessing a resource in response to a preflight request. 
+The `Access-Control-Allow-Methods` response header specifies one or more methods allowed when accessing a resource in response to a preflight request.
 
 ### `.external_api.cors.cors-allow-headers`
 
@@ -538,6 +543,7 @@ The `Access-Control-Allow-Headers` response header is used in response to a pref
 **Type**: `str`
 
 **Possible Options**:
+
 - `* ` - will be set domain from `Origin` request header or form `.external_api.base_domain`;
 - `<domain-name>`- will always be set this domain.
 
@@ -583,8 +589,6 @@ The `auth-url` command specifies the URL to the endpoint that authenticates user
 
 By default it is “vouch”, to integrate via vouch.
 
-
-
 ### `.external_api.regex`
 
 **Default value**: `false`
@@ -592,6 +596,7 @@ By default it is “vouch”, to integrate via vouch.
 **Type**: `bool`
 
 **Possible Options**:
+
 - `true` - for service, the regex rules will be applied based on the already set and specifically configured regex rules in Simloudfile.yaml. It could be a custom value that suits a customer's needs;
 - `false` - service will be deployed without any regex rules and according to already specified configuration in URL path.
 
@@ -599,6 +604,7 @@ If you choose the `true` option - the `user-regex` parameter will be **true**.
 If you choose the `false` option - the `user-regex` parameter will be **false**.
 
 ## **LAN facing interface:**
+
 #### Required parameters:
 
 ### `.internal_api.base_domain`
@@ -615,7 +621,7 @@ Commonly used as a base domain name.
 
 **Type**: `str`
 
-HTTP headers let the client and the server pass additional information with an HTTP request or response. 
+HTTP headers let the client and the server pass additional information with an HTTP request or response.
 
 ### `.internal_api.headers[]`
 
@@ -638,6 +644,7 @@ This block describes `.internal_api.headers[]` parameters.
 Override is – receiving one method and interpreting another.
 
 #### Optional parameters
+
 ### `.internal_api`
 
 **Default value**: `{}`
@@ -645,7 +652,6 @@ Override is – receiving one method and interpreting another.
 **Type**: `map`
 
 An internal API's parameters are described in this block.
- 
 
 ### `.internal_api.base_url`
 
@@ -680,6 +686,7 @@ A load balancer distributes incoming traffic across targets for internal api.
 **Type**: `set str`
 
 **Possible Options**:
+
 - `tcp` - for TCP protocol
 - `tls` - SSL terminated TCP protocol
 - `udp` - for UDP protocol
@@ -702,9 +709,9 @@ It is currently available only values `80` or `443` or both.
 **Type**: `bool`
 
 **Possible Options**:
+
 - `true` - for service, the regex rules will be applied based on the already set and specifically configured regex rules in Simloudfile.yaml. It could be a custom value that suits a customer's needs;
 - `false` - service will be deployed without any regex rules and according to already specified configuration in URL path.
-
 
 ## **Service block:**
 
@@ -716,8 +723,7 @@ It is currently available only values `80` or `443` or both.
 
 **Type**: `map`
 
-This block describes the services parameters. 
-
+This block describes the services parameters.
 
 ### `.service.name`
 
@@ -734,23 +740,27 @@ The name of the service.
 **Type**: `bool`
 
 **Possible Options**:
+
 - enable;
 - disable.
 
- Allows to dynamically inject vault agent as sidecar container and seamlessly fetch secrets from Vault.
+Allows to dynamically inject vault agent as sidecar container and seamlessly fetch secrets from Vault.
 
 ### `.service.options.sidecars.consul.enable`
+
 **Default value**: `false`
 
 **Type**: `bool`
 
 **Possible Options**:
+
 - enable;
 - disable.
 
 Consul sidecar can be automatically injected into pods in your cluster, making configuration for Kubernetes automatic
 
 ### `.service.options.timeouts.job_execute`
+
 **Default value**: `3600`
 
 **Type**: `	int`
@@ -758,6 +768,7 @@ Consul sidecar can be automatically injected into pods in your cluster, making c
 Job spec execution timeout in sec.
 
 ### `.service.options.job.shell_command`
+
 **Default value**: `””`
 
 **Type**: `str`
@@ -765,6 +776,7 @@ Job spec execution timeout in sec.
 It is necessary to specify default shell command.
 
 #### Optional parameters
+
 ### `.service.namespace`
 
 **Default value**: `default`
@@ -787,8 +799,8 @@ Type of the service.
 
 **Type**: `	map`
 
-
 ### `.service.servicePort`
+
 **Default value**: `80`
 
 **Type**: `int`
@@ -818,8 +830,6 @@ Spectype of the deployment.
 **Default value**: `{}`
 
 **Type**: `map`
-
-
 
 ### `.service.options.sidecars`
 
@@ -865,7 +875,7 @@ Specifed additional options for using sidecars.
 
 **Type**: `str`
 
-It is mandatory, if `.service.options.sidecars.consul_hcl` present.  Default consul acl policy name.
+It is mandatory, if `.service.options.sidecars.consul_hcl` present. Default consul acl policy name.
 
 ### `.service.options.sidecars.consul.hlc`
 
@@ -900,11 +910,13 @@ Applicable only for job/cronjob type.
 Used only for cronjob type.
 
 ### `.service.options.job.cron_concurrency`
+
 **Default value**: `Allow`
 
 **Type**: `set str`
 
 **Possible Options**:
+
 - `Allow`
 - `Forbid`
 - `Replace`
@@ -912,13 +924,15 @@ Used only for cronjob type.
 Enable cron jobs concurrency: `Allow/Forbid/Replace`.
 
 ### `.service.options.job.cron_suspend`
+
 **Default value**: `false`
 
 **Type**: `bool`
 
- If it is set to true, all subsequent executions are suspended.
+If it is set to true, all subsequent executions are suspended.
 
 ### `.service.options.job.cron_backoffLimit`
+
 **Default value**: `4`
 
 **Type**: `int`
@@ -926,17 +940,18 @@ Enable cron jobs concurrency: `Allow/Forbid/Replace`.
 To specify the number of retries before considering a Job as failed.
 
 ### `.service.options.job.cron_completions`
+
 **Default value**: `1`
 
 **Type**: `int`
 Allows to use and configure specific conditions for cron job.
 
 ### `.service.options.job.cron_parallelism`
+
 **Default value**: `1`
 
 **Type**: `int`
 Allows using and configure specific conditions for cron job.
-
 
 ## **Kubernetes oriented Spec block:**
 
@@ -975,6 +990,7 @@ If it is not set, will be same with .service.name.
 **Possible Options**: pvc name
 
 ### `.spec.pod.containers[].resources.disks[].size`
+
 **Default value**: `8G`
 
 **Type**: `	str`
@@ -982,6 +998,7 @@ If it is not set, will be same with .service.name.
 You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.
 
 ### `.spec.pod.containers[].resources.disks[].mount`
+
 **Default value**: `/data`
 
 **Type**: `str`
@@ -991,6 +1008,7 @@ You can express storage as a plain integer or as a fixed-point number using one 
 Disk mount point, default "/" root.
 
 ### `.spec.pod.containers[].resources.disks[].className`
+
 **Default value**: `gp2`
 
 **Type**: `	str`
@@ -1000,6 +1018,7 @@ Disk mount point, default "/" root.
 PVC className ( possible any active in k8s class name ).
 
 ### `.spec.pod.containers[].resources.disks[].AccessModes[]`
+
 **Default value**: `{}`
 
 **Type**: `list`
@@ -1007,14 +1026,16 @@ PVC className ( possible any active in k8s class name ).
 **Possible Options**:
 
 The access modes are:
+
 - **ReadWriteOnce** - the volume can be mounted as read-write by a single node. ReadWriteOnce access mode still can allow multiple pods to access the volume when the pods are running on the same node.
 - **ReadOnlyMany** - the volume can be mounted as read-only by many nodes.
 - **ReadWriteMany** - the volume can be mounted as read-write by many nodes.
 - **ReadWriteOncePod** - the volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across the whole cluster can read that PVC or write to it. This is only supported for CSI volumes and Kubernetes version 1.22+. <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes" target="_blank">Persistent volumes </a>
 
- Pvc access modes. As default value should be **ReadWriteOnce**.
+Pvc access modes. As default value should be **ReadWriteOnce**.
 
 ### `.spec.pod.containers[].resources.health_check.readinessProbe{}`
+
 **Default value**: `-`
 
 **Type**: `various`
@@ -1022,6 +1043,7 @@ The access modes are:
 It is used to control the readiness of the pod to work. Failing readiness probe will stop application from serving traffic.
 
 ### `.spec.pod.containers[].resources.health_check.livenessProbe{}`
+
 **Default value**: `-`
 
 **Type**: `	various`
@@ -1029,6 +1051,7 @@ It is used to control the readiness of the pod to work. Failing readiness probe 
 It is used to control the workability of pod. Failing liveness probe will restart the container.
 
 ### `.spec.pod.containers[].resources.health_check.startupProbe{}`
+
 **Default value**: `-`
 
 **Type**: `various`
@@ -1036,6 +1059,7 @@ It is used to control the workability of pod. Failing liveness probe will restar
 Should be specified proper conditions for health-check probe.
 
 #### Optional parameters
+
 ### `.spec.pod.terminationGracePeriodSeconds`
 
 **Default value**: `300`
@@ -1043,7 +1067,6 @@ Should be specified proper conditions for health-check probe.
 **Type**: `	int`
 
 Could be configured specific value for grace period of termination.
-
 
 ### `.spec.pod.replicas`
 
@@ -1062,15 +1085,17 @@ The deployment creates a ReplicaSet that creates replicated pods, indicated by t
 This pod describes the pod's strategy.
 
 ### `.spec.pod.strategy.type`
+
 **Default value**: `Recreate`
 
 **Type**: `set str`
 
 **Possible Options**:
+
 - `RollingUpdate`
 - `Recreate`
 
-The type of strategy. 
+The type of strategy.
 
 ### `.spec.pod.strategy.rollingUpdate`
 
@@ -1078,7 +1103,7 @@ The type of strategy.
 
 **Type**: `map`
 
-By  default is empty.
+By default is empty.
 
 ### `.spec.pod.strategy.rollingUpdate.maxSurge`
 
@@ -1136,7 +1161,6 @@ The maximum value of hascaler.
 
 Provides possibility for automatically scaling pods with the horizontal pod autoscaler when cpu is set to specific value.
 
-
 ### `.spec.pod.containers[]`
 
 **Default value**: `[]`
@@ -1144,7 +1168,6 @@ Provides possibility for automatically scaling pods with the horizontal pod auto
 **Type**: `list`
 
 This block describes an information about containers.
-
 
 ### `.spec.pod.containers[].name`
 
@@ -1175,11 +1198,11 @@ The value will be the same if it is not set, if more than one container is used,
 **Default value**: `{}`
 
 **Type**: `map`
-Describes the lifecycle of a Pod. 
+Describes the lifecycle of a Pod.
 Pods follow a defined lifecycle, starting in the `Pending` phase, moving through `Running` if at least one of its primary containers starts OK, and then through either the `Succeeded` or `Failed` phases depending on whether any container in the Pod terminated in failure.
 
-
 ### `.spec.pod.containers[].lifecycle.preStop`
+
 **Default value**: `{}`
 
 **Type**: `map`
@@ -1193,19 +1216,21 @@ This hook is called immediately before a container is terminated due to an API r
 **Type**: `map`
 
 ### `.spec.pod.containers[].lifecycle.preStop.exec.command`
+
 **Default value**: `-`
 
 **Type**: `list(str)`
 
 ### `.spec.pod.containers[].resources`
+
 **Default value**: `{}`
 
 **Type**: `map`
 
 Resources that should be specified directly for container usage.
 
-
 ### `.spec.pod.containers[].resources.disks[] `
+
 **Default value**: `[]`
 
 **Type**: `list`
@@ -1217,6 +1242,7 @@ Resources that should be specified directly for container usage.
 **Type**: `map`
 
 ### `.spec.pod.containers[].resources.requests.memory`
+
 **Default value**: `-`
 
 **Type**: `str`
@@ -1232,6 +1258,7 @@ Resources that should be specified directly for container usage.
 **Possible Options**: Fractional requests are allowed. When you define a container with `spec.containers[].resources.requests.cpu` set to `0.5`, you are requesting half as much CPU time compared to if you asked for `1.0` CPU. For CPU resource units, the quantity expression `0.1` is equivalent to the expression `100m`, which can be read as "one hundred millicpu". Some people say "one hundred milli-cores", and this is understood to mean the same thing.
 
 ### `.spec.pod.containers[].resources.requests.ephemeral-storage`
+
 **Default value**: `-`
 
 **Type**: `str`
@@ -1239,13 +1266,15 @@ Resources that should be specified directly for container usage.
 **Possible Options**: Limits and requests for `ephemeral-storage` are measured in byte quantities. You can express storage as a plain integer or as a fixed-point number using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.
 
 ### `.spec.pod.containers[].resources.limits`
+
 **Default value**: `{}`
 
 **Type**: `map`
 
-This block describes limits for memory, cpu and  ephemeral-storage.
+This block describes limits for memory, cpu and ephemeral-storage.
 
 ### `.spec.pod.containers[].resources.limits.memory`
+
 **Default value**: `-`
 
 **Type**: `str`
@@ -1255,6 +1284,7 @@ This block describes limits for memory, cpu and  ephemeral-storage.
 This block describes limits for memory.
 
 ### `.spec.pod.containers[].resources.limits.cpu`
+
 **Default value**: `-`
 
 **Type**: `	float/str`
@@ -1264,6 +1294,7 @@ This block describes limits for memory.
 This block describes limits for cpu.
 
 ### `.spec.pod.containers[].resources.limits.ephemeral-storage`
+
 **Default value**: `-`
 
 **Type**: `str`
@@ -1273,6 +1304,7 @@ This block describes limits for cpu.
 This block describes limits for ephemeral-storage.
 
 ### `.spec.pod.containers[].resources.health_check`
+
 **Default value**: `{}`
 
 **Type**: `map`
@@ -1302,6 +1334,7 @@ It is used to control the workability of pod. Failing liveness probe will restar
 **Type**: `map`
 
 ## **Lambda / APIGW oriented Spec block:**
+
 #### Required parameters:
 
 ### `.spec`
@@ -1313,6 +1346,7 @@ It is used to control the workability of pod. Failing liveness probe will restar
 It should be present, but empty `{}`, if it is not used.
 
 #### Optional parameters
+
 ### `.spec{}`
 
 **Default value**: `-`
@@ -1321,9 +1355,8 @@ It should be present, but empty `{}`, if it is not used.
 
 For lambda mutually exclusive with above, see more in [AWS doc.](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.create_function)
 
-
-
 ## **Frontend / External service oriented Spec block:**
+
 #### Required parameters:
 
 ### `.spec`
