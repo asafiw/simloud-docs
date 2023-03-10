@@ -108,3 +108,5 @@ pipeline:
 
 ```
 [Download simloud-pipeline.yaml](/files/terraform/simloud-pipeline.yaml)
+
+**Link on the GitLab repository with terraform code:** <a href="https://gitlab.com/simloud-demo/git-terraform" target="_blank">git-terraform</a>
