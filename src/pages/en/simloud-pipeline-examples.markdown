@@ -23,7 +23,9 @@ pipeline:
 ```
 [Download simloud-pipeline.yaml](/files/generic-pipeline-mode/simloud-pipeline.yaml)
 
-### Content of `helm_install.sh` file
+As part of this snippet we execute _helm_install.sh_ file.
+
+Content of `helm_install.sh` file:
 
 ```sh                                                                   helm_install.sh
 #!/bin/bash
