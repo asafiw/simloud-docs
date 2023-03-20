@@ -201,3 +201,19 @@ This parameter describes all possible options for the pipeline state.
 This parameter describes all possible actions for the pipeline state.
 `$SIMLOUD_PIPELINE_ACTION` variable contains information about the current action of the pipeline
 
+### How to deploy pipeline
+
+For deploying **`git-pipeline`** repository:
+1. It is necessary to add <a href="https://gitlab.com/simloud-demo/git-pipeline" target="_blank">git-pipeline</a> repository on <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>. Please, follow the instruction in documentation ["Add new git repositories"](/en/getting-started#add-new-git-repositories-services) for more information.
+2. Once you have added the repository to the portal, you can start creating your deployment using Simloud Portal. Please, follow the instruction in documentation ["How to create deployment using Simloud portal"](/en/create-deployment).
+3. When choosing the repositories to deploy, you must select `git-pipeline` repository that you added to the portal.
+
+For deploying **`git-terraform`** repository:
+1. It is necessary to add <a href="https://gitlab.com/simloud-demo/git-terraform" target="_blank">git-terraform</a> repository on <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>. Please, follow the instruction in documentation ["Add new git repositories"](/en/getting-started#add-new-git-repositories-services) for more information.
+2. Once you have added the repository to the portal, you can start creating your deployment using Simloud Portal. Please, follow the instruction in documentation ["How to create deployment using Simloud portal"](/en/create-deployment).
+3. When choosing the repositories to deploy, you must select `git-terraform` repository that you added to the portal.
+
+
+### Links to repositories:
+- <a href="https://gitlab.com/simloud-demo/git-pipeline" target="_blank">git-pipeline</a>
+- <a href="https://gitlab.com/simloud-demo/git-terraform" target="_blank">git-terraform</a>

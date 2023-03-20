@@ -79,10 +79,9 @@ fi
 > - **`Deploy`** - _for building job via Simloud pipeline_;
 > - **`Destroy`** - _for terminating job via Simloud pipeline_.
 
+For more details about deploying BASH pipeline, please follow this [instruction](/en/simloud-pipeline.yaml#how-to-deploy-pipeline).
 
-
-
-### **Terraform shell example**
+### **Terraform pipeline example**
 
 ```yaml
 version: v1
@@ -110,5 +109,28 @@ pipeline:
 
 ```
 [Download simloud-pipeline.yaml](/files/terraform/simloud-pipeline.yaml)
+
+### Terraform variables 
+In the Terraform code, we use the following variables:
+```yaml
+
+var.simloud["generic"]["region"]              # The AWS region name
+var.simloud["generic"]["srn"]                 # The SRN of deployment      
+var.simloud["vpc"]["id"]                      # The AWS VPC id.
+var.simloud["vpc"]["subnets"]["eks"][0]       # The AWS EKS subnet id.
+var.simloud["vpc"]["subnets"]["internal"][0]  # The AWS Internal(private) subnet id.
+var.simloud["vpc"]["subnets"]["public"][0]    # The AWS Public subnet id.
+var.simloud["s3"]["name"]                     # The AWS S3 bucket name.  
+var.simloud["dns"]["name"]                    # The AWS DNS customer domain.
+var.simloud["dns"]["zoneid"]                  # The AWS DNS zone id.
+var.simloud["dns"]["private"]                 # The AWS DNS zone type. Private or Public.
+var.simloud["eks"]["name"]                    # The AWS EKS cluster name.
+```
+For more details about deploying Terraform pipeline, please follow this [instruction](/en/simloud-pipeline.yaml#how-to-deploy-pipeline).
+
+For deploying **VPN** you can use the following [repository](https://gitlab.com/simloud-demo/git-terraform/-/tree/main/aws/vpn)
+
+For deploying **EC2** instance you can use the following [repository](https://gitlab.com/simloud-demo/git-terraform/-/tree/main/aws/vpn)
+
 
 **Link on the GitLab repository with terraform code:** <a href="https://gitlab.com/simloud-demo/git-terraform" target="_blank">git-terraform</a>
