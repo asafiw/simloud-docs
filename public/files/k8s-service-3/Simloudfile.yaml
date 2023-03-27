@@ -3,111 +3,16 @@ kind: simloud-deployment
 name: kube-service-3
 type: kubernetes
 mode: advanced
-#image:
 
 cloud_resources:
-
-  # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Client.create_table
-  - name: dynamodb_1
-    env_name_prefix: ENVDB1
-    type: dynamodb
-    params:
-      TableName: dynamodb_name1
-      AttributeDefinitions:
-        - AttributeName: Artist
-          AttributeType: S
-        - AttributeName: SongTitle
-          AttributeType: S
-        - AttributeName: AlbumTitle
-          AttributeType: S
-      KeySchema:
-        - AttributeName: Artist
-          KeyType: HASH                    # HASH'|'RANGE'
-        - AttributeName: SongTitle
-          KeyType: RANGE                   # HASH'|'RANGE'
-      LocalSecondaryIndexes:
-        - IndexName: AlbumTitleIndex
-          KeySchema:
-            - AttributeName: Artist
-              KeyType: HASH                # HASH'|'RANGE'
-            - AttributeName: AlbumTitle
-              KeyType: RANGE
-          Projection:
-            ProjectionType: INCLUDE        # 'ALL'|'KEYS_ONLY'|'INCLUDE'
-            NonKeyAttributes:
-              - Genre
-              - Year
-      GlobalSecondaryIndexes:
-        - IndexName: SongTitleIndex
-          KeySchema:
-            - AttributeName: SongTitle
-              KeyType: HASH                 # HASH'|'RANGE'
-          Projection:
-            ProjectionType: INCLUDE         # 'ALL'|'KEYS_ONLY'|'INCLUDE'
-            NonKeyAttributes:
-              - Genre
-          ProvisionedThroughput:
-            ReadCapacityUnits: 1
-            WriteCapacityUnits: 1
-      BillingMode: PROVISIONED
-      ProvisionedThroughput:
-        ReadCapacityUnits: 1
-        WriteCapacityUnits: 1
-      StreamSpecification:
-        StreamEnabled: True
-        StreamViewType: KEYS_ONLY          # 'NEW_IMAGE'|'OLD_IMAGE'|'NEW_AND_OLD_IMAGES'|'KEYS_ONLY'
-      SSESpecification:
-        Enabled: False                     # True|False
-      Tags:
-        - Key: katerina
-          Value: test
-
-
-  # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.create_bucket
-  - name: s3_1
-    env_name_prefix: S31l
-    type: s3
-    params:
-      region: eu-west-1                    # also change region value in CreateBucketConfiguration: {LocationConstraint: some region}
-      config:
-        Bucket: some-unique-name983742398
-        CreateBucketConfiguration:
-          LocationConstraint: eu-west-1    # if you change value of region above, this one also must be changed
-      static_hosting_config:
-        Bucket: some-unique-name983742398
-        WebsiteConfiguration:
-          ErrorDocument:
-            Key: error.html
-          IndexDocument:
-            Suffix: index.html
-      policy_config:
-        Bucket: some-unique-name983742398
-        Policy: '{
-       "Version": "2012-10-17",
-       "Statement": [{
-          "Sid": "PublicReadGetObject",
-          "Effect": "Allow",
-          "Principal": "*",
-          "Action": "s3:GetObject",
-          "Resource": "arn:aws:s3:::some-unique-name983742398/*"
-       }]
-}'
-      tags_config:
-        Bucket: some-unique-name983742398
-        Tagging:
-          TagSet:
-            - Key: user_tag
-              Value: user_value
-
-# https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.create_db_instance
-  - name: db_3
+  - name: rds-db-ks3
     env_name_prefix: ENVDB3
     type: rds
     params:
-      DBInstanceIdentifier: pgsql-database1
+      DBInstanceIdentifier: pgsql-rds-database-ks3
       Port: 5432
       Engine: postgres                        # mysql | postgres
-      EngineVersion: "13.7-R1"
+      EngineVersion: "14.7"
       DBName: postgres_test
       DBInstanceClass: db.t3.micro
       AllocatedStorage: 5
@@ -116,69 +21,24 @@ cloud_resources:
       CopyTagsToSnapshot: True
       PubliclyAccessible: False
       Tags:
-        - Key: kkaterina
-          Value: test
+        - Key: rds
+          Value: database
+      AutoMinorVersionUpgrade: false
 
-
-
-  # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.create_queue
-  - name: sqs_1
-    env_name_prefix: SQS1
-    type: sqs
+  - name: dynamodb_ks3
+    env_name_prefix: ENVDB1
+    type: dynamodb
     params:
-      QueueName: 2347918-43728.fifo        # If FifoQueue: True, the name of a FIFO queue can only include alphanumeric characters, hyphens, or underscores, must end with .fifo suffix and be 1 to 80 in length.
-      # attrituptes must be strings -> ''
-      Attributes:
-        DelaySeconds: '5'                  # 0 to 900 seconds
-        MaximumMessageSize: '2048'         # from 1,024 bytes (1 KiB) to 262,144 bytes
-        MessageRetentionPeriod: '7200'     # from 60 seconds (1 minute) to 1,209,600 seconds
-        Policy: '{  
-   "Version": "2012-10-17",
-   "Id": "Policy2374982789374987",
-   "Statement" : [{
-      "Sid": "Stmt1345234234",
-      "Effect": "Deny",
-      "Principal": {
-         "AWS": [
-            "322219090568"
-         ]
-      },
-      "Action": [
-         "sqs:SendMessage",
-         "sqs:ReceiveMessage"
-      ],
-      "Resource": "arn:aws:sqs:ap-southeast-1:322219090568:sqs_name1"
-   }]
-}'
-        ReceiveMessageWaitTimeSeconds: '3' # from 0 to 20 (seconds)
-        VisibilityTimeout: '300'           # from 0 to 43,200 (12 hours)
-        FifoQueue: 'True'                  # If True, the name of a FIFO queue can only include alphanumeric characters, hyphens, or underscores, must end with .fifo suffix and be 1 to 80 in length.
-      tags:
-        user_tag: user_value
-
-# https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam.html#IAM.Client.create_role
-  - name: iam_role_12345
-    env_name_prefix: MAIN_ROLE
-    type: iam
-    params:
-      partial_name: "infra_role"                   # mandatory, part of the role name(usually name of service, e.g.: cluster, lambda).
-      relationships:
-        - "arn:aws:iam::322219090568:user/assafw"  # users or roles considered to be trusted
-      services:
-        - "ec2.amazonaws.com"                      # mandatory, AWS service list that can assume a role, for example: `lambda.amazonaws.com`
-      inline_policies:                             # all sub-fields are optional
-        - name: "assume-role-policy"               # uuid4 by default
-          action:
-            - "sts:AssumeRole"                     # empty list by default
-          version: "2012-10-17"
-          effect: "Allow"
-          resource: "*"
-        #access_policy_arns:                          # list of access policy arn to attach to the role
-        - "arn:aws:iam::aws:policy/AdministratorAccess"
-      # trusted_by:                                  # creating role will be in trusted relationships for roles in the list bellow
-      #  - "E2ETest-7f23fea4-owner-1594197846249196"  # role name, not ARN
-
-
+      AttributeDefinitions:
+        - AttributeName: username
+          AttributeType: S
+        - AttributeName: lastname
+          AttributeType: S
+      KeySchema:
+        - AttributeName: username
+          KeyType: HASH
+        - AttributeName: lastname
+          KeyType: RANGE
 
   - name: kube3_s3_1
     env_name_prefix: S31
@@ -195,15 +55,18 @@ cloud_resources:
 secrets:
   - path: secrets/customer1/data1
     env_name_prefix: CUSTENV1
+    type: vault
 
 environment:
   - env_name: ENVNAME1
     value: "Yahoo!"
 
 external_api:
+  regex:
+    enabled: true
+    rewrite-target: "/$2$3$4"
   sub_domain: "k8s"
   base_url: "/kube-service-3"
-  base_domain: base.domain.name
   loadbalancer: aws_network
   protocol: tcp    # options: tcp, udp, tls, tcp_udp
   port: 80     # available 80 and 443 only
@@ -211,32 +74,18 @@ external_api:
     http2https: true # by default enabled
   cors:
     enable_cors: true
-    enable_cors: true  # default "false"
     cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # default "*"
     cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # default "*"
     cors-allow-origin: "*"
     cors-allow-credentials: false
     cors-max-age: 1728000
-    #auth: # @v4.2.16
-    # url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain .
-    # sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
-    #type: basic                   # default “vouch”, to integrate via vouch.
-
-internal_api:                     # @v4.2
-  base_url: kube-service
-  sub_domain: " "
-  base_domain: base.domain.name
-  loadbalancer: aws_network
-  protocol: tcp    # options: tcp, udp, tls, tcp_udp
-  port: 80     # available 80 and 443 only
 
 service:
   name: kube-service-3
-  namespace: default
   type: ClusterIP
   annotations: {}
   servicePort: 80
-  podPort: 80
+  podPort: 8080
   specType: deployment
   options: # @v3.4.10
     sidecars:
