@@ -96,7 +96,7 @@ spec:
   Handler: lambda_function.lambda_handler
 
 service:
-  name: lambda-service
+  name: lambda-service-1
 ```
 
 [Download Simloudfile.yaml for Lambda mode](/files/lambda-deployment-mode/Simloudfile.yaml)
@@ -379,7 +379,7 @@ external_api:
     cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # default "*"
     cors-allow-origin: "*"
     cors-allow-credentials: false
-    cors-max-age: 1728000
+    cors-max-age: 86400
 
 service:
   name: kube-service-3
