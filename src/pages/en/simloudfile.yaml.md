@@ -167,11 +167,6 @@ spec:  # for k8s service, mutually exclusive with below
             cpu: "1000m"
             ephemeral-storage: "4G"
 
-spec:  # for lambda mutually exclusive with above, see more in https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.create_function
-  Runtime: 'python3.7'
-  Timeout: 15
-  MemorySize: 128
-
 spec: {} # frontend service will be emply
 ```
 
