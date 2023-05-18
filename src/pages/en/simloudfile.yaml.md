@@ -58,7 +58,7 @@ external_api:       # internet facing loadbalancer
     cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
     cors-allow-origin: "*"
     cors-allow-credentials: false
-    cors-max-age: 1728000
+    cors-max-age: 86400
   auth:
     url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain as .
     sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
@@ -82,7 +82,7 @@ internal_api:
     cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
     cors-allow-origin: "*"
     cors-allow-credentials: false
-    cors-max-age: 1728000
+    cors-max-age: 86400
   auth:
     url: auth.demo.simloud.com    # default "" - empty string is disabled. set vouch domain as .
     sub_domain: auth              # <subdomain>.<base_domain> if auth.url is not set
@@ -166,11 +166,6 @@ spec:  # for k8s service, mutually exclusive with below
             memory: "120Mi"
             cpu: "1000m"
             ephemeral-storage: "4G"
-
-spec:  # for lambda mutually exclusive with above, see more in https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.create_function
-  Runtime: 'python3.7'
-  Timeout: 15
-  MemorySize: 128
 
 spec: {} # frontend service will be emply
 ```

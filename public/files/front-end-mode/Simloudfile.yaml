@@ -1,22 +1,20 @@
 version: v2
 kind: simloud-deployment
 type: front-end
-mode: advanced  # by default  it's "strict"
-
+mode: advanced
 
 secrets:
-  - path: secrets/customer1/data1  # vault or k8s paths where secrets located
-    env_name_prefix: CUSTENV1     # this parameter is mandatory in mode `strict`and optional in `advanced`
-    type: k8s
+  - path: secrets/customer1/data1
+    env_name_prefix: CUSTENV1
+    type: vault
 
 external_api:
+  sub_domain: ""
   base_url: "/"
-  sub_domain: xxx                 # It is necessary to specify sub-domain, if applicable.
-  base_domain: base.domain.name   # Commonly used as a base domain name.
   regex:
-    enabled: false              # by default  it's `false`. It is possible to assign the 'true' value for this parameter
+    enabled: false                # by default  it's `false`. It is possible to assign the 'true' value for this parameter
     rewrite-target: /$2$3$4
-  loadbalancer: aws_network       # A load balancer distributes incoming traffic across targets.
+  loadbalancer: aws_network       # A load balancer distributes incoming traffic across targets
   protocol: tcp                   # Possible options: tcp, udp, tls, tcp_udp
   port: 80                        # It is currently available only tcp for 80 port and tls for 443 port.
   redirects:
@@ -27,21 +25,10 @@ external_api:
     cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"  # by default is "*"
     cors-allow-origin: "*"
     cors-allow-credentials: false
-    cors-max-age: 1728000
+    cors-max-age: 86400
 
-internal_api:                     # @v4.2
-  base_url: kube-service          # It is necessary to specify base url, if applicable
-  sub_domain: xxx
-  base_domain: base.domain.name
-  loadbalancer: aws_network
-  protocol: tcp                  # Possible options: tcp, udp, tls, tcp_udp
-  port: 80
 
 service:
   name: fe-canaveral
-  namespace: default          # The namespace where the service is located
-  type: ClusterIP             # Type of the service
-  annotations: {}
-  servicePort: 80             # Service is running on this port
 
-spec: {}                      # frontend service will be empty
+spec: {}
