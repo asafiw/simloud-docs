@@ -29,7 +29,7 @@ environment:
 external_api:                            # internet facing loadbalancer
   base_url: kube-service
   sub_domain: k8s
-  base_domain: base.domain.nam e
+  base_domain: base.domain.name
   regex:
     enabled: false                      # by default is `false`
     rewrite-target: /$2$3$4             # by default `for micro_service_type: serverless` will be `$1$2$3$4`, for all another modes `$2$3$4`
