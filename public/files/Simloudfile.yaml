@@ -1,27 +1,20 @@
 version: v2
 kind: simloud-deployment
-#name: <repo visual name>             # it's optional, in case of empty value, will be the same as `.service.name`
-type: kubernetes                      # by default is "kubernetes" @v5.0. Pipeline|serverless|front-end variants also are available
-mode: strict                          # by default is "strict". Also it can be advanced for specifying more options
-image: <jenkins-slave-image>          # should be specified custom version of Jenkins image if necessary
+type: kubernetes
+name: kube-service-1
+micro_service_type: kubernetes
+mode: advanced
 
 cloud_resources:
   - name: service_name.db_1
     env_name_prefix: ENVDB1
     type: dynamodb
     params:
-      dbname: aaa
-      Region: eu-central-1
+      dbname: db_1
+      Region: ap-south-1
 
   - name: s3_1
     env_name_prefix: S31
-    type: s3
-
-  - name: lambda-service-3.s3_1
-    env_name_prefix: LAMBDAS31
-    type: s3
-
-  - name: lambda-service-3.db1_1
     type: s3
 
 secrets:
@@ -35,7 +28,7 @@ environment:
 
 external_api:                            # internet facing loadbalancer
   base_url: kube-service
-  sub_domain: xxx
+  sub_domain: k8s
   base_domain: base.domain.name
   regex:
     enabled: false                      # by default is `false`
@@ -59,7 +52,7 @@ external_api:                            # internet facing loadbalancer
 
 internal_api:
   base_url: kube-service
-  sub_domain: xxx
+  sub_domain: k8s
   base_domain: base.domain.name
   regex:
     enabled: false             # by default is `false`
@@ -82,11 +75,11 @@ internal_api:
       override: true              # true - always override same header; false - set header, if is not set only
 
 service:
-  name: kube-service-3           # should be specified the microservice name
+  name: kube-service-1         # should be specified the microservice name
   namespace: default             # should be specified the namespace
   type: ClusterIP
   servicePort: 80               # by default is 80
-  podPort: 80                   # by default is 80
+  podPort: 8080                   # by default is 80
   # `pod` type replaced with `deployment`
   specType: deployment          # by default is "deployment". "job|cronjob" variants are available too.
   options:
@@ -107,7 +100,7 @@ service:
 
 spec:  # for k8s service, mutually exclusive with below
   pod:
-    name: kube-service-3
+    name: kube-service-1
     terminationGracePeriodSeconds: 300 # by default is 300sec
     replicas: 1
     strategy:
@@ -119,7 +112,7 @@ spec:  # for k8s service, mutually exclusive with below
         maxUnavailable: 25%      # The number of pods that can be unavailable during the update process
     containers:                  # NOTE: currently supports only single container
       - imagePullSecrets:
-          - name: <image-pull-secret-name>   # it is necessary to set customer one or more image pull secret name(s)
+          - name: container-name   # it is necessary to set customer one or more image pull secret name(s)
         lifecycle: # optional
           preStop:
             exec:
@@ -156,5 +149,3 @@ spec:  # for k8s service, mutually exclusive with below
             memory: "120Mi"
             cpu: "1000m"
             ephemeral-storage: "4G"
-
-spec: {} # for frontend service it will be empty
