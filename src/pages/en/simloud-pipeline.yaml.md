@@ -109,6 +109,7 @@ pipeline:
 ```
 [Download Simloud-pipeline.yaml](/files/Simloud-pipeline.yaml)
 
+>NOTE: in order to deploy simloud-pipeline.yaml file as part of your configuration, you will need to deploy the files from the page ["Simloud-pipeline.yaml examples"](/en/simloud-pipeline-examples).
 
 ## **Annotations block:**
 

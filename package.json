@@ -26,6 +26,7 @@
     "prettier-plugin-astro": "^0.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
     "rehype-starry-night-copy-collapse": "^1.0.4",
     "unist-util-visit": "^4.1.1"
   }

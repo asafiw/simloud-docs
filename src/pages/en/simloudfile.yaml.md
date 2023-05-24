@@ -167,10 +167,8 @@ spec:  # for k8s service, mutually exclusive with below
             cpu: "1000m"
             ephemeral-storage: "4G"
 
-spec: {} # frontend service will be emply
 ```
-
-[Download Simloudfile.yaml](/files/Simloudfile.yaml)
+>NOTE: For deploying Simloudfile.yaml it is necessary to download [Simloudfile.yaml](/files/Simloudfile.yaml).
 
 ### Minimal Requirements:
 
