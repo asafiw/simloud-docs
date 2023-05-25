@@ -377,6 +377,14 @@ It provides availability to apply hardcoded environment variables to pod.
 
 Commonly used as a base domain name.
 
+### `.external_api.base_url`
+
+**Default value**: `_""_`
+
+**Type**: `str`
+
+It is necessary to specify base url, if applicable.
+
 ### `.external_api.cors.enable_cors`
 
 **Default value**: `false`
@@ -386,6 +394,63 @@ Commonly used as a base domain name.
 **Possible Options**: `true`
 
 It enables CORS headers support.
+
+### `.external_api.cors`
+
+**Default value**: `{}`
+
+**Type**: `	map`
+
+It is a browser security feature that restricts HTTP requests that are initiated from scripts running in the browser.
+
+### `.external_api.cors.cors-allow-methods`
+
+**Default value**: `*`
+
+**Type**: `set str`
+
+**Possible Options**: `GET, PUT, POST, DELETE, PATCH, OPTIONS`
+
+The `Access-Control-Allow-Methods` response header specifies one or more methods allowed when accessing a resource in response to a preflight request.
+
+### `.external_api.cors.cors-allow-headers`
+
+**Default value**: `*`
+
+**Type**: `set str`
+
+**Possible Options**: `DNT,X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization`
+
+The `Access-Control-Allow-Headers` response header is used in response to a preflight request which includes the Access-Control-Request-Headers to indicate which HTTP headers can be used during the actual request.
+
+### `.external_api.cors.cors-allow-origin`
+
+**Default value**: `*`
+
+**Type**: `str`
+
+**Possible Options**:
+
+- `* ` - will be set domain from `Origin` request header or form `.external_api.base_domain`;
+- `<domain-name>`- will always be set this domain.
+
+The `Access-Control-Allow-Origin` response header indicates whether the response can be shared with requesting code from the given origin.
+
+### `.external_api.cors.cors-allow-credentials`
+
+**Default value**: `false`
+
+**Type**: `bool`
+
+The `Access-Control-Allow-Credentials` response header tells browsers whether to expose the response to the frontend code when the request's credentials mode is include.
+
+### `.external_api.cors.cors-max-age`
+
+**Default value**: `1728000`
+
+**Type**: `int`
+
+The `Access-Control-Max-Age` response header indicates how long the results of a preflight request (that is the information contained in the Access-Control-Allow-Methods and Access-Control-Allow-Headers headers) can be cached.
 
 ### `.external_api.auth.sub_domain`
 
@@ -435,14 +500,6 @@ Override - is  receiving one method and interpreting another.
 **Type**: `map`
 
 An external API's parameters are described in this block.
-
-### `.external_api.base_url`
-
-**Default value**: `_""_`
-
-**Type**: `str`
-
-It is necessary to specify base url, if applicable.
 
 ### `.external_api.sub_domain`
 
@@ -501,62 +558,6 @@ Redirect rules accept a number of options to customize how the paths are matched
 
 An automatic redirect from HTTP to HTTPS protocol.
 
-### `.external_api.cors`
-
-**Default value**: `{}`
-
-**Type**: `	map`
-
-It is a browser security feature that restricts HTTP requests that are initiated from scripts running in the browser.
-
-### `.external_api.cors.cors-allow-methods`
-
-**Default value**: `*`
-
-**Type**: `set str`
-
-**Possible Options**: `GET, PUT, POST, DELETE, PATCH, OPTIONS`
-
-The `Access-Control-Allow-Methods` response header specifies one or more methods allowed when accessing a resource in response to a preflight request.
-
-### `.external_api.cors.cors-allow-headers`
-
-**Default value**: `*`
-
-**Type**: `set str`
-
-**Possible Options**: `DNT,X-CustomHeader, Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Authorization`
-
-The `Access-Control-Allow-Headers` response header is used in response to a preflight request which includes the Access-Control-Request-Headers to indicate which HTTP headers can be used during the actual request.
-
-### `.external_api.cors.cors-allow-origin`
-
-**Default value**: `*`
-
-**Type**: `str`
-
-**Possible Options**:
-
-- `* ` - will be set domain from `Origin` request header or form `.external_api.base_domain`;
-- `<domain-name>`- will always be set this domain.
-
-The `Access-Control-Allow-Origin` response header indicates whether the response can be shared with requesting code from the given origin.
-
-### `.external_api.cors.cors-allow-credentials`
-
-**Default value**: `false`
-
-**Type**: `bool`
-
-The `Access-Control-Allow-Credentials` response header tells browsers whether to expose the response to the frontend code when the request's credentials mode is include.
-
-### `.external_api.cors.cors-max-age`
-
-**Default value**: `1728000`
-
-**Type**: `int`
-
-The `Access-Control-Max-Age` response header indicates how long the results of a preflight request (that is the information contained in the Access-Control-Allow-Methods and Access-Control-Allow-Headers headers) can be cached.
 
 ### `.external_api.auth`
 
@@ -726,6 +727,22 @@ This block describes the services parameters.
 
 The name of the service.
 
+### `.service.servicePort`
+
+**Default value**: `80`
+
+**Type**: `int`
+
+Service is running on this port.
+
+### `.service.podPort`
+
+**Default value**: `80`
+
+**Type**: `int`
+
+Service pod is running on this port.
+
 ### `.service.options.sidecars.vault.enable`
 
 **Default value**: `false`
@@ -791,22 +808,6 @@ Type of the service.
 **Default value**: `{}`
 
 **Type**: `	map`
-
-### `.service.servicePort`
-
-**Default value**: `80`
-
-**Type**: `int`
-
-Service is running on this port.
-
-### `.service.podPort`
-
-**Default value**: `80`
-
-**Type**: `int`
-
-Service pod is running on this port.
 
 ### `.service.specType`
 
@@ -1359,10 +1360,3 @@ For lambda mutually exclusive with above, see more in [AWS doc.](https://boto3.a
 **Type**: `map`
 
 It should be present, but empty `{}`, if it is not used.
-
-
-
-
-
-
-
