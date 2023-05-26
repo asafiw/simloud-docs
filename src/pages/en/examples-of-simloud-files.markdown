@@ -452,9 +452,6 @@ As example, cloud_resources block that we should to add in Simloudfile.yaml of k
     type: rds
 ```
 
-
-
-
 ### Links to repositories
  -  <a href="https://gitlab.com/simloud-demo/fe-demo" target="_blank">fe-demo</a>
  -  <a href="https://gitlab.com/simloud-demo/k8s-service-1" target="_blank">k8s-service-1</a>
