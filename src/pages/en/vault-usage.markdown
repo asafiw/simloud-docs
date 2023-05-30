@@ -130,7 +130,9 @@ echo $password
 
 [Download simloud_ci.sh file](/files/simloud_ci.sh)
 
->**_Note: we use the simloud_ci.sh file for kube-service-1_**
+>**_Note: we use the simloud_ci.sh file for kube-service-2_**. 
+
+**_Link on the GitLab repository -_** <a href="https://gitlab.com/simloud-demo/k8s-service-2" target="_blank">k8s-service-2</a>.
 
 Navigating to see the value output in Jenkins:
 - Press the build result icon next to the job number.
