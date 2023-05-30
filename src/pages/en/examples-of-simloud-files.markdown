@@ -427,7 +427,8 @@ spec:
 
 ### Access to resources created at other services
 
-  **It is possible to deploy resources in your service that have already been deployed on another.** 
+  **It is an option to deploy new Simloud services based on already created infrastructure components with mentioning their dependencies within SimloudFile.yaml.** 
+  
 
    In order to access resources that have been established in another service within the same cloud it is necessary:
 
