@@ -425,10 +425,10 @@ spec:
 ```
 [Download Simloudfile.yaml for k8s-service-3](/files/k8s-service-3/Simloudfile.yaml)
 
-### Access to resources created at other services
+### Deploying new Simloud services based on already created infrastructure components
 
   **It is an option to deploy new Simloud services based on already created infrastructure components with mentioning their dependencies within SimloudFile.yaml.** 
-  
+
 
    In order to access resources that have been established in another service within the same cloud it is necessary:
 
