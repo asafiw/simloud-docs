@@ -452,6 +452,7 @@ As example, cloud_resources block that we should to add in Simloudfile.yaml of k
     env_name_prefix: ENVDB3
     type: rds
 ```
+Snippet that included such changes: [Download Simloudfile.yaml](/files/k8s-service-2-adv/Simloudfile.yaml)
 
 ### Links to repositories
  -  <a href="https://gitlab.com/simloud-demo/fe-demo" target="_blank">fe-demo</a>
