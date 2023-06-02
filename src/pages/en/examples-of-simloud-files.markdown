@@ -425,6 +425,35 @@ spec:
 ```
 [Download Simloudfile.yaml for k8s-service-3](/files/k8s-service-3/Simloudfile.yaml)
 
+### Deploying new Simloud services based on already created infrastructure components
+
+  **It is an option to deploy new Simloud services based on already created infrastructure components with mentioning their dependencies within SimloudFile.yaml.** 
+
+
+   In order to access resources that have been established in another service within the same cloud it is necessary:
+
+1. Edit `cloud_resource` block of Simloudfile.yaml in following way:
+
+```yaml
+cloud_resources:
+ - name: service-a.shared_bucket
+   type: s3
+service:
+  name: service-b
+```
+`cloud_resources.name` - the name of shared resource
+
+`service.name` - the name of the service
+
+As example, cloud_resources block that we should to add in Simloudfile.yaml of kube-service-2 to deploy database from kube-service-3
+
+```yaml
+- name: kube-service-3.db3
+    env_name_prefix: ENVDB3
+    type: rds
+```
+Snippet that included such changes: [Download Simloudfile.yaml](/files/k8s-service-2-adv/Simloudfile.yaml)
+
 ### Links to repositories
  -  <a href="https://gitlab.com/simloud-demo/fe-demo" target="_blank">fe-demo</a>
  -  <a href="https://gitlab.com/simloud-demo/k8s-service-1" target="_blank">k8s-service-1</a>
