@@ -111,7 +111,7 @@ pipeline:
 [Download simloud-pipeline.yaml](/files/terraform/simloud-pipeline.yaml)
 
 ### Terraform variables 
-In the Terraform code, we use the following variables:
+In the Terraform code, we use the following main variables:
 ```yaml
 
 var.simloud["generic"]["region"]              # The AWS region name
@@ -125,7 +125,12 @@ var.simloud["dns"]["name"]                    # The AWS DNS customer domain.
 var.simloud["dns"]["zoneid"]                  # The AWS DNS zone id.
 var.simloud["dns"]["private"]                 # The AWS DNS zone type. Private or Public.
 var.simloud["eks"]["name"]                    # The AWS EKS cluster name.
+var.aws_region                                # The AWS region name (used in terrafrom_ec2)
+var.ami_id                                    # The AWS ami's id (used in terrafrom_ec2)
 ```
+
+>Note: The variables such as **aws_region**, **ami_id**, **the name of the instanc**e, and **the security group** can be managed within the *variables.tf* file.
+
 For more details about deploying Terraform pipeline, please follow this [instruction](/en/simloud-pipeline.yaml#how-to-deploy-pipeline).
 
 For deploying **VPN** you can use the following [repository](https://gitlab.com/simloud-demo/git-terraform/-/tree/main/aws/vpn)
