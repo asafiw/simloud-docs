@@ -119,14 +119,14 @@ layout: ../../layouts/MainLayout.astro
 
 [**_Simloudfile.yaml_**](/en/simloudfile.yaml)
 
-- Contains the microservice cloud resources definitions (currently s3/sqs/RDS mysql, RDS postgres, later it will contain other resources).
-- The path to the ingress should be filled if it is needed (if not, then leave it empty (external_api: {}).
-- Cloud resources per service (if it is not needed, it should be empty (cloud_resources: {}).
+- This file contains definitions for microservice cloud resources, such as s3, sqs, RDS MySQL, and RDS PostgreSQL. Additional resources can be added in the future.
+- If an ingress path is required, provide the appropriate path. If not needed, leave it empty (external_api: {}).
+- Specify cloud resources per service, leaving it empty if it's not required (cloud_resources: {}).
 - k8s deployment fields.
 
-[**simloud_pipeline.yaml**](/en/simloud-pipeline.yaml)
-- Allows you to add custom CI stages.
-- Provides customizations for each service's CI process.
-- Contains bash script with specific CI steps.
+[**simloud-pipeline.yaml**](/en/simloud-pipeline.yaml)
+- This file allows you to add custom Continuous Integration (CI) stages for your microservices.
+- It provides customization options for each service's CI process.
+- The file contains bash scripts with specific CI steps.
 
 Place these two files at the root folder of each microservice repository.

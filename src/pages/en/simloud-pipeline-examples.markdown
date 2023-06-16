@@ -127,10 +127,12 @@ var.simloud["dns"]["private"]                 # The AWS DNS zone type. Private o
 var.simloud["eks"]["name"]                    # The AWS EKS cluster name.
 var.aws_region                                # The AWS region name (used in terrafrom_ec2)
 var.ami_id                                    # The AWS ami's id (used in terrafrom_ec2)
+var.availability_zone                         # The AWS availability zone for the subnet.
 ```
 
->Note: 
-- The variables such as **aws_region**, **ami_id**, **the name of the instanc**e, and **the security group** can be managed within the *variables.tf* file. 
+>**Note:**
+> - The variables such as **aws_region**, **ami_id**, **the name of the instance**, and **the security group** can be managed within the *variables.tf* file. 
+>  - For deploying an EC2 instance in a custom region, it is necessary to specify the region, AMI for that region, and the availability zone for the subnet in the *variables.tf* file.
 
 For more details about deploying Terraform pipeline, please follow this [instruction](/en/simloud-pipeline.yaml#how-to-deploy-pipeline).
 
