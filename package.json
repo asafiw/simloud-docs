@@ -13,7 +13,7 @@
     "lint:prettier": "prettier --check \"**\""
   },
   "dependencies": {
-    "@astrojs/preact": "^1.2.0",
+    "@astrojs/preact": "^2.2.1",
     "@astrojs/react": "^1.2.2",
     "@types/node": "^18.11.15",
     "@types/react": "^18.0.26",
@@ -26,8 +26,9 @@
     "prettier-plugin-astro": "^0.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^2.1.3",
     "rehype-starry-night-copy-collapse": "^1.0.4",
-    "unist-util-visit": "^4.1.1"
+    "unist-util-visit": "^4.1.1",
+    "yarn": "^1.22.19"
   }
 }

@@ -1,12 +1,12 @@
 ---
-title: Simloud-pipeline.yaml
-description: Simloud-pipeline.yaml
+title: simloud-pipeline.yaml
+description: simloud-pipeline.yaml
 layout: ../../layouts/MainLayout.astro
 ---
 
 #### Configuration file for pipeline with possibility for deploying Terraform code
 
-### Full `Simloud-pipeline.yaml` file
+### Full `simloud-pipeline.yaml` file
 
 ```yaml
 version: v1                                          # @v5.0
@@ -107,9 +107,9 @@ pipeline:
               - key: value
 
 ```
-[Download Simloud-pipeline.yaml](/files/Simloud-pipeline.yaml)
+[Download simloud-pipeline.yaml](/files/Simloud-pipeline.yaml)
 
->NOTE: in order to deploy simloud-pipeline.yaml file as part of your configuration, you will need to deploy the files from the page ["Simloud-pipeline.yaml examples"](/en/simloud-pipeline-examples).
+>NOTE: in order to deploy simloud-pipeline.yaml file as part of your configuration, you will need to deploy the files from the page ["simloud-pipeline.yaml examples"](/en/simloud-pipeline-examples).
 
 ## **Annotations block:**
 

@@ -6,15 +6,15 @@ layout: ../../layouts/MainLayout.astro
 
 1. Install and enable [Docker](https://docs.docker.com/get-docker/) on your local computer.
 2. Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) on your local computer.
-3. Configure aws cli user in your local directory.
+3. Configure the AWS CLI user in your local directory.
 4. Create a new cloud user in your Simloud account (**CLOUD MANAGEMENT** -> **Users** -> "**Add user**" -> Enter the name of the user -> "**Save**" ).
    ![](/img/onboarding/connect-k8s-aws/1.png)
 
-5. Add this user to your cloud account (**CLOUD MANAGEMENT** -> **Accounts** -> From "**CLOUD USERS**" drop-down menu select the user you want to add -> "**Save**" ).
+5. Add the created user to your cloud account (**CLOUD MANAGEMENT** -> **Accounts** -> From the "**CLOUD USERS**" drop-down menu select the user you want to add -> "**Save**" ).
 
    ![](/img/onboarding/connect-k8s-aws/2.png)
 
-6. Go to the deployment which is configured with this cloud account and press the button "Connect K8s" and follow the instructions.
+6. Go to the deployment which is configured with this cloud account and and click the "Connect K8s" button and follow the instructions.
 
    ![](/img/onboarding/connect-k8s-aws/3.png)
 

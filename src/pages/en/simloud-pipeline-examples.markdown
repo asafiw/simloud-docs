@@ -1,6 +1,6 @@
 ---
-title: Simloud-pipeline.yaml examples
-description: Simloud-pipeline.yaml examples
+title: simloud-pipeline.yaml examples
+description: simloud-pipeline.yaml examples
 layout: ../../layouts/MainLayout.astro
 ---
 ### **BASH shell example**
@@ -129,7 +129,8 @@ var.aws_region                                # The AWS region name (used in ter
 var.ami_id                                    # The AWS ami's id (used in terrafrom_ec2)
 ```
 
->Note: The variables such as **aws_region**, **ami_id**, **the name of the instanc**e, and **the security group** can be managed within the *variables.tf* file.
+>Note: 
+- The variables such as **aws_region**, **ami_id**, **the name of the instanc**e, and **the security group** can be managed within the *variables.tf* file. 
 
 For more details about deploying Terraform pipeline, please follow this [instruction](/en/simloud-pipeline.yaml#how-to-deploy-pipeline).
 
