@@ -10,7 +10,7 @@ Simloud configures logs in AWS CloudWatch Insight, for both application and infr
 1. In Simloud UI, on the main dashboard page choose deployment whose logs should be displayed.
 2. Open context menu (three dots on the right side) and press **CloudWatch logs**.
 
-![](/img/logs/how-to-access-logs/1.png)
+![](/img/logs/how-to-access-logs/logs.png)
 
 On the CloudWatch Insight page, you can see pre-defined log groups (you don't have to remove or add anything), the datetime picker (for customizing the log period), and the query form, where you can customize queries using powerful query language (see [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) for more details). When you have selected the datetime and the query is ready, click **Run query**.
 

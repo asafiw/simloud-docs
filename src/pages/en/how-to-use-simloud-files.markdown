@@ -14,13 +14,13 @@ Each of our standard microservices, such as `k8s-service`, `lambda-serverless`, 
 
  ### How to connect your repository to Simloudfile
 
-> There are two variants to connect your repository to Simloud file:
+> There are two ways to connect your repository to Simloud file:
 > -  Clone ready repositories and deploy from it.
 > -  Deploy from your own repository.
 
 
 ### Clone ready repository
-Choose this variant if you do not need to edit Simloudfile.yaml. 
+Choose this option if you do not need to edit Simloudfile.yaml. 
 
 1. It is necessary to [create deployment](/en/create-deployment). 
 
@@ -31,7 +31,7 @@ Choose this variant if you do not need to edit Simloudfile.yaml.
 
 
 ### Deploy from own repository
-Choose this variant if you need to edit Simloudfile.yaml.
+Choose this option if you need to edit Simloudfile.yaml.
 
 1. Firstly, it is necessary to clone repository to your local machine. 
 
