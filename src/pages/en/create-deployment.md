@@ -7,23 +7,23 @@ layout: ../../layouts/MainLayout.astro
 
 
 This instruction will show you how to create deployments using [Simloud Portal](https://portal.simloud.com:) 
-- Launch Portal UI using your credentials
+- Launch the Simloud Portal UI using your credentials
 
   ![](/img/create-deployment/1.png)
-- Press the "Add group" button to create your group. Enter your name in the following field and click the "Save" button
+- Click the "Add group" button to create your group. Enter your name in the following field and click the "Save" button
   ![](/img/create-deployment/2.png)
   ![](/img/create-deployment/3.png)
 - Press “Add deployment“ button to create your deployment
   ![](/img/create-deployment/4.png)
-- Fill deployment information. Enter the name of your deployment and choose the region you want to use. **eu-central-1**, **eu-west-2** and **eu-west-3** - these regions have the widest selection of instance types
+- Fill in the deployment information. Enter the name of your deployment and choose the region you want to use. **eu-central-1**, **eu-west-2** and **eu-west-3** - these regions have the widest selection of instance types
   ![](/img/create-deployment/5.png)
 - There are some advanced options: you can edit your "**URL**" (it can be different from the "Deployment name" ). You can select some additional options such as "Application protection", "Start/Stop protection" or "Deletion protection". 
   ![](/img/create-deployment/11.png)
 > **_NOTE:_**  _Select "**Application protection**" if you want no-one has an opportunity to  attach/detach/redeploy repositories. "**Start/Stop protection**" is used if you want no-one can start and stop your deployment. "**Deletion protection**" allow you to protect your deployment from deletion._ 
-  - Select the "**+Add notes**" option, if you want to leave some information about your deployment.
+  - Select the "**+Add notes**" option, if you want to include some information about your deployment.
 
   ![](/img/create-deployment/12.png)
-- Fill in your Cluster info. Set kubernetes version from drop-down menu. Select instance type and additional options if you need it
+- Fill in your Cluster info. Set kubernetes version from drop-down menu. Select the Kubernetes version from the drop-down menu, choose an instance type, and select additional options as needed.
   ![](/img/create-deployment/6.png)
 > **_NOTE:_** 
 > - **SNAT** — Source Network Address Translation, enables pods to communicate bi-directionally with the internet, using worker nodes public IPs. Recommended in case of lower network cost requirements.

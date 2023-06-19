@@ -1,12 +1,12 @@
 ---
-title: Simloud-pipeline.yaml
-description: Simloud-pipeline.yaml
+title: simloud-pipeline.yaml
+description: simloud-pipeline.yaml
 layout: ../../layouts/MainLayout.astro
 ---
 
 #### Configuration file for pipeline with possibility for deploying Terraform code
 
-### Full `Simloud-pipeline.yaml` file
+### Full `simloud-pipeline.yaml` file
 
 ```yaml
 version: v1                                          # @v5.0
@@ -107,9 +107,9 @@ pipeline:
               - key: value
 
 ```
-[Download Simloud-pipeline.yaml](/files/Simloud-pipeline.yaml)
+[Download simloud-pipeline.yaml](/files/Simloud-pipeline.yaml)
 
->NOTE: in order to deploy simloud-pipeline.yaml file as part of your configuration, you will need to deploy the files from the page ["Simloud-pipeline.yaml examples"](/en/simloud-pipeline-examples).
+>NOTE: in order to deploy simloud-pipeline.yaml file as part of your configuration, you will need to deploy the files from the page ["simloud-pipeline.yaml examples"](/en/simloud-pipeline-examples).
 
 ## **Annotations block:**
 
@@ -205,14 +205,22 @@ This parameter describes all possible actions for the pipeline state.
 ### How to deploy pipeline
 
 For deploying **`git-pipeline`** repository:
-1. It is necessary to add <a href="https://gitlab.com/simloud-demo/git-pipeline" target="_blank">git-pipeline</a> repository on <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>. Please, follow the instruction in documentation ["Add new git repositories"](/en/getting-started#add-new-git-repositories-services) for more information.
-2. Once you have added the repository to the portal, you can start creating your deployment using Simloud Portal. Please, follow the instruction in documentation ["How to create deployment using Simloud portal"](/en/create-deployment).
-3. When choosing the repositories to deploy, you must select `git-pipeline` repository that you added to the portal.
+1. It is necessary to add <a href="https://gitlab.com/simloud-demo/git-pipeline" target="_blank">git-pipeline</a> repository on <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>. 
+
+2. Please, follow the instruction in documentation ["Add new git repositories"](/en/getting-started#add-new-git-repositories-services) for more information.
+3. Once you have added the repository to the portal, you can start creating your deployment using Simloud Portal. Please, follow the instruction in documentation ["How to create deployment using Simloud portal"](/en/create-deployment).
+4. When choosing the repositories to deploy, you must select `git-pipeline` repository that you added to the portal.
+ ![](/img/simloud-pipeline/1.jpg)
 
 For deploying **`git-terraform`** repository:
 1. It is necessary to add <a href="https://gitlab.com/simloud-demo/git-terraform" target="_blank">git-terraform</a> repository on <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>. Please, follow the instruction in documentation ["Add new git repositories"](/en/getting-started#add-new-git-repositories-services) for more information.
 2. Once you have added the repository to the portal, you can start creating your deployment using Simloud Portal. Please, follow the instruction in documentation ["How to create deployment using Simloud portal"](/en/create-deployment).
 3. When choosing the repositories to deploy, you must select `git-terraform` repository that you added to the portal.
+  - for deploying vpn choose git-terraform.git/aws/vpn repository
+  ![](/img/simloud-pipeline/2.png)
+
+  - for deploying EC2 choose git-terraform.git/aws/ec2 repository
+  ![](/img/simloud-pipeline/3.png)
 
 
 ### Links to repositories:
