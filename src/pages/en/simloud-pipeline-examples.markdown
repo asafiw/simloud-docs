@@ -132,13 +132,13 @@ var.availability_zone                         # The AWS availability zone for th
 
 >**Note:**
 > - The variables such as **aws_region**, **ami_id**, **the name of the instance**, and **the security group** can be managed within the *variables.tf* file. 
->  - For deploying an EC2 instance in a custom region, it is necessary to specify the region, AMI for that region, and the availability zone for the subnet in the *variables.tf* file.
+>  - To deploy an EC2 instance in a custom region, it is necessary to specify the region, AMI for that region, and the availability zone for the subnet in the *variables.tf* file.
 
 For more details about deploying Terraform pipeline, please follow this [instruction](/en/simloud-pipeline.yaml#how-to-deploy-pipeline).
 
-For deploying **VPN** you can use the following [repository](https://gitlab.com/simloud-demo/git-terraform/-/tree/main/aws/vpn)
+To deploy **VPN** you can use the following [repository](https://gitlab.com/simloud-demo/git-terraform/-/tree/main/aws/vpn)
 
-For deploying **EC2** instance you can use the following [repository](https://gitlab.com/simloud-demo/git-terraform/-/tree/main/aws/vpn)
+To deploy **EC2** instance you can use the following [repository](https://gitlab.com/simloud-demo/git-terraform/-/tree/main/aws/vpn)
 
 
 **Link on the GitLab repository with terraform code:** <a href="https://gitlab.com/simloud-demo/git-terraform" target="_blank">git-terraform</a>
