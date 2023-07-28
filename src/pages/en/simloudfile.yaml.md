@@ -168,7 +168,7 @@ spec:  # for k8s service, mutually exclusive with below
             ephemeral-storage: "4G"
 
 ```
->NOTE: For deploying Simloudfile.yaml it is necessary to download [Simloudfile.yaml](/files/Simloudfile.yaml).
+>NOTE: To deploy Simloudfile.yaml it is necessary to download [Simloudfile.yaml](/files/Simloudfile.yaml).
 
 ### Minimal Requirements:
 
@@ -185,9 +185,9 @@ spec:  # for k8s service, mutually exclusive with below
 
 **Type**: `str`
 
-`v2` - Only available. From version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode.
+`v2` - Only available. Since version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode.
 
-Described all supported versions for SimloudFile.yaml. Technically on current moment is supported just v2 version.
+This parameter describes all supported versions for SimloudFile.yaml. Technically, only v2 version is supported now.
 
 ### `.kind`
 
