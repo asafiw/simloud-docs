@@ -229,10 +229,9 @@ spec:
 
 
 ### Creating and deploying Databases
-With Simloudfile.yaml functionality is also possible to deploy Databases. 
-On the current moment are supported just few types of databases managed by AWS Cloud Provider. In those types are involved DynamoDB and RDS AWS services.
+Using the Simloudfile.yaml functionality it is also possible to deploy Databases. Only a few types of AWS managed databases are currently supported - DynamoDB and RDS AWS services.
 
-For deploying **DynamoDB**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml.
+To deploy **DynamoDB**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml.
 
 ```yaml
  - name: dynamodb_ks3
@@ -253,7 +252,7 @@ For deploying **DynamoDB**, it is necessary to add following code snippet to `cl
 ```
 For more information about deploying DynamoDB database, please, follow this link <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Client.create_table" target="_blank">DynamoDB</a>.
 
-For deploying **RDS**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml:
+To deploy **RDS**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml:
 
 ```yaml
   - name: rds-db-ks3
@@ -281,7 +280,7 @@ For more information about deploying RDS databases, please, follow this link <a 
 
 >NOTE: It is possible to deploy k8s-service-3 with additional options for cloud_resources block in Simloudfile.yaml, such as `S3`, `SQS`, `IAM` and others.
 
-For deploying **S3**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml:
+To deploy **S3**, it is necessary to add following code snippet to `cloud_resources` block at Simloudfile.yaml:
 
 ```yaml
 - name: kube3_s3_1
@@ -427,10 +426,10 @@ spec:
 
 ### Deploying new Simloud services based on already created infrastructure components
 
-  **It is an option to deploy new Simloud services based on already created infrastructure components with mentioning their dependencies within SimloudFile.yaml.** 
+  **There is an option to deploy new Simloud services based on already created infrastructure components with mentioning their dependencies within SimloudFile.yaml.** 
 
 
-   In order to access resources that have been established in another service within the same cloud it is necessary:
+   In order to access resources that have been created in another service within the same cloud it is necessary:
 
 1. Edit `cloud_resource` block of Simloudfile.yaml in following way:
 
