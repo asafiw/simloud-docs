@@ -1,6 +1,6 @@
 ---
-title: How to use Docker buildx CLI
-description: How to use Docker buildx CLI
+title: How to build Docker images with Buildx
+description: How to build Docker images with Buildx
 layout: ../../layouts/MainLayout.astro
 ---
 

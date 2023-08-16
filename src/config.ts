@@ -57,7 +57,7 @@ export const SIDEBAR: Sidebar = {
 			{ text: 'How to manage and assign roles to users', link: 'en/assign-roles-to-users' },
 			{ text: 'How to create your own slave image from Simloud jenkins image', link: 'en/create-your-slave-image' },
 			{ text: 'How to manage ephemeral storage parameters', link: 'en/manage-ephemeral-storage-parameters' },
-			{ text: 'How to use Docker buildx CLI', link: 'en/how-to-use-buildx' },
+			{ text: 'How to build Docker images with Buildx', link: 'en/how-to-use-buildx' },
 			{ text: 'How to hide parameters from "build with parameters" screen', link: 'en/hide-params' },
 		],
 		'Kubernetes': [
