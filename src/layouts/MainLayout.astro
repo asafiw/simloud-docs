@@ -9,8 +9,8 @@ import RightSidebar from '../components/RightSidebar/RightSidebar.astro'
 import * as CONFIG from '../config'
 import type { MarkdownHeading } from 'astro'
 import Footer from '../components/Footer/Footer.astro'
-import Docsly from "@docsly/react";
-import "@docsly/react/dist/index.css";
+import Docsly from '@docsly/react'
+import '@docsly/react/dist/index.css'
 
 type Props = {
   frontmatter: CONFIG.Frontmatter
@@ -130,8 +130,12 @@ const githubEditUrl = getGithubEditUrl(Astro)
   <body>
     <Header currentPage={currentPage} />
     <main class="layout">
-          <Docsly client:only="react" publicId='public_Xh14c20k6RYjHLL0tHYP56ogYlFfGFvej1XblOhsUn7E9qWdCigjyCT2EQYUNXyT'
-        pathname={currentPage} showHighlightedText={true} />
+      <Docsly
+        client:only="react"
+        publicId="public_SWJxMbH3fBdt7v81zVompfhJOd1GpN6IeKlHeFKpI8Kk0qmyXXLMPFF4Jo0t6Heg"
+        pathname={currentPage}
+        showHighlightedText={true}
+      />
       <aside id="grid-left" class="grid-sidebar" title="Site Navigation">
         <LeftSidebar currentPage={currentPage} />
       </aside>
