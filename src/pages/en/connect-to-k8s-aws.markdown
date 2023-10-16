@@ -27,13 +27,13 @@ layout: ../../layouts/MainLayout.astro
    **Windows**
 
    ```powershell
-   docker run --rm -ti -v %HOMEDRIVE%%HOMEPATH%/.kube:/root/.kube -v %HOMEDRIVE%%HOMEPATH%/.ssh:/root/.ssh -v %HOMEDRIVE%%HOMEPATH%/.aws:/root/.aws -v %CD%:/code simloud/aws-tools:1.1.37 /bin/bash
+   docker run --rm -ti -v %HOMEDRIVE%%HOMEPATH%/.kube:/root/.kube -v %HOMEDRIVE%%HOMEPATH%/.ssh:/root/.ssh -v %HOMEDRIVE%%HOMEPATH%/.aws:/root/.aws -v %CD%:/code simloud/aws-tools:1.1.43 /bin/bash
    ```
 
    **MacOS/Linux**
 
    ```sh
-   docker run --rm -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $(pwd):/code simloud/aws-tools:1.1.37 /bin/bash
+   docker run --rm -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $(pwd):/code simloud/aws-tools:1.1.43 /bin/bash
    ```
 
 4. Copy assume role and run it inside your docker container.
@@ -100,17 +100,17 @@ Open deployment menu and choose the service:
 **System manager:**
 
 - Allows you to ssh to the k8s worker nodes.
-- This service will be opened in your AWS console, once you select this option.
-- It will display the list of available worker nodes.
+- This service will open in your AWS console once you select this option.
+- The list of available worker nodes will be displayed.
 - Please select the worker node you would like to connect.
 
-**Cloudwatch logs:**
+**CloudWatch logs:**
 
-- Allows you to connect to Cloudwatch insight to perform centralized log query.
-- Simloud sends all k8s traffic to AWS Cloudwatch log groups - both application and cluster level.
-- In addition, lambda functions sends logs to AWS Cloudwatch log group.
-- This service will be opened in your AWS console with the relevant log groups already selected, once you press the Cloudwatch logs button .
-- Please, perform the log query according to AWS insight syntax.
+- Allows you to connect to CloudWatch Logs Insights to perform centralized log query.
+- Simloud sends all Kubernetes (k8s) traffic to AWS CloudWatch log groups, including both application and cluster-level logs.
+- In addition, Lambda functions send logs to AWS Cloudwatch log group.
+- This service will open in your AWS console with the relevant log groups already selected once you press the "CloudWatch Logs" button.
+- Please perform the log query according to AWS CloudWatch Logs Insights syntax.
 
 3. SSH to pod.
 
@@ -128,13 +128,13 @@ Open deployment menu and choose the service:
    - Mount a folder to the local docker linux/mac:
 
      ```sh
-     docker run --rm -ti -v $HOME/Downloads:/tmp -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $(pwd):/code hub.simloudcorp.customers.simloud.com/simloud/simloud-tools:1.1.28 /bin/bash
+     docker run --rm -ti -v $HOME/Downloads:/tmp -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $(pwd):/code hub.simloudcorp.customers.simloud.com/simloud/simloud-tools:1.1.43 /bin/bash
      ```
 
    - Mount a folder to the local docker windows:
 
      ```sh
-     docker run --rm -ti -v %HOMEDRIVE%%HOMEPATH%/.kube:root/.kube -v %HOMEDRIVE%%HOMEPATH%/.ssh:/root/.ssh -v %HOMEDRIVE%%HOMEPATH%/.aws:/root/.aws -v %CD%:/code simloud/aws-tools:1.1.26 /bin/bash
+     docker run --rm -ti -v %HOMEDRIVE%%HOMEPATH%/.kube:root/.kube -v %HOMEDRIVE%%HOMEPATH%/.ssh:/root/.ssh -v %HOMEDRIVE%%HOMEPATH%/.aws:/root/.aws -v %CD%:/code simloud/aws-tools:1.1.43 /bin/bash
      ```
 
    - Copy to pod from local docker
