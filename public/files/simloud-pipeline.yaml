@@ -1,6 +1,5 @@
 version: v1                                          # @v5.0
 kind: simloud-pipeline
-image: hub.simloud.customer.simoud.com/simloud/pipline/basic:1.0.0
 
 pipeline:
   default:                                          # profile name. Currently, only default
@@ -13,85 +12,33 @@ pipeline:
         - name: “TF code”
           shell: terraform                            # for terraform case
           homedir: ./                                 # shell command directory
-          image: &lt;image&gt;                        # another image, if need. ( optional )
           terraform:
             version: 0.12                             # tf version, by default 0.12
             workspace: `name_of_workspace`;           # Workspace’s name. Default workspace: default
             statefile:                                # state file location
               storage: kubernetes                     # by default it is “kubernetes” (k8s). There are consul|file|s3 values are available
-              location: /terraform/uuid/              # k8s: &lt;namespace&gt;.&lt;secret_suffix&gt;
+              location: /terraform/uuid/              # k8s: <namespace>.<secret_suffix>
             secrets:                                  # `-var-file="testing.tfvars"`
-              - storage: vault                        # vault or k8s secrets
-                paths:                                  # vault pats, or k8s secrets names
-                  - /secrets/&lt;srn:deployment&gt;/sqs # vault full location path
-                  - /ssh/&lt;srn:deployment&gt;/ssh
-                  - default.sqs                        # k8s secret: &lt;namespace&gt;.&lt;secretname&gt;
+              - storage: (vault|kubernetes)           # vault or k8s secrets
+                paths:                                # vault pats, or k8s secrets names
+                  - /secrets/<srn:deployment>/sqs     # vault full location path
+                  - /ssh/<srn:deployment>/ssh
+                  - default.sqs                       # k8s secret: <namespace>.<secretname>
                   - kube-system.ssh-keys
-            variables:                                 # `-var-file="testing.tfvars"`
-              - storage: (consul|kubernetes|file)      # consul, k8s configmap, local files
+            variables:                                # `-var-file="testing.tfvars"`
+              - storage: (kubernetes|file)            # k8s configmap, local files
                 paths:
-                  - /tf/data                           # consul path
-                  - simloud.profile                    # k8s configmap: &lt;namespace&gt;.&lt;configmap&gt;
-                  - ./variable.tfvars                  # local file location
+                  - simloud.profile                   # k8s configmap: <namespace>.<configmap>
+                  - ./variable.tfvars                 # local file location
                   - keys:
                 key1: value
                 key2: balue
 
         # === SHELL: SH, BASH, ZSH ===
         - shell: bash                                # “bash” by default ( optional ). There are sh, zsh values are available
-          image: &lt;image&gt;                       # another image, if necessary
           args: []                                   # shell arguments ( optional )
           homedir: ./                                # shell command default folder ( optional )
           scripts:                                   # for “sh,bash,zsh” shells only
             - echo “hello!”
 
-        # === Atricat ===
-        - shell: artifact                            # package and store artifact
-          image: &lt;image&gt;                       # another image, if necessary. ( optional )
-          args: []                                   # shell arguments ( optional )
-          artifact:                                  # artifact build block
-            method: (zip|tar|tgz|custom|npm|pypi|maven|helm|docker)  # package method
-            source: build/                                           # source folder
-            host: (s3|https|http)://&lt;host:port&gt;/[&lt;repo/|path/&gt;]      # artifact storage host
-            auth:
-              user:
-              pass:
-            scripts:
-              - echo “hello!”
-
-        # === Deployment ===
-        - shell: deploy                              # deploy artifact package
-          image: &lt;image&gt;                       # another image, if necessary. ( optional )
-          args: []                                   # shell arguments ( optional )
-          artifact:                                  # artifact build block
-            method: (zip|tar|tgz|custom|npm|pypi|maven|helm|docker)  # package method
-            host: (s3|https|http)://&lt;host:port&gt;/[&lt;repo/|path/&gt;]      # artifact storage host
-            auth:
-              user:
-              pass:
-            scripts:
-              - echo “hello!”
-          deployment:                                # artifact deployment block
-            folder: ./                               # destination folder
-            host: (s3|https|http|sftp)://&lt;host:port&gt; # deployment host
-            auth:
-              user:
-              pass:
-            scripts:
-              - echo “hello!”
-
-        # === Helm charts ===
-        - shell: helm                                # execute customer helm chart
-          image: &lt;image&gt;                       # another image, if necessary. ( optional )
-          helm:
-            repo:
-            auth:
-              user:
-              pass:
-            chart:
-            version:
-            variables:
-              - key: value
-            arguments:
-              - key: value
 
