@@ -21,7 +21,7 @@ Currently, we have two approaches for working with Docker images - the classic D
 To use Docker buildx CLI in your service deployment process, you need to make changes to simloud_ci.sh script. You can also familiarize yourself with its functionality using the example of **k8s-service-4** from our [GitLab repository](https://gitlab.com/simloud-demo/k8s-service-4/).
 
 simloud_ci.sh example:
-```
+```sh
 #!/bin/bash
 docker buildx create --name buildx --use
 aws ecr get-login-password \
@@ -54,7 +54,7 @@ This step uses the AWS CLI to retrieve an authentication token from Amazon Elast
 
 **Step 3: Build and push Docker image with Buildx**
 
-```
+```sh
 docker buildx build \
   -t $ECR_REPOSITORY \
   --cache-from=type=registry,ref=$ECR_REPOSITORY:cache \

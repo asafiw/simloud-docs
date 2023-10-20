@@ -43,7 +43,7 @@ kubectl get secret --namespace kube-system vault-root-token -o jsonpath="{.data.
 
 2. How to view secrets: Press on “eye” button.
 
-## Passing secrets from vault into the pod’s environmental variables through “Simoudfile.yaml” file.
+## Passing secrets from Vault into the pod’s environmental variables through “Simoudfile.yaml” file.
 
 In order to pass secrets into the container through Simloudfile.yaml you can do the following:
 
@@ -56,7 +56,7 @@ In order to pass secrets into the container through Simloudfile.yaml you can do 
 
   ![](/img/onboarding/how-to-use-vault/img24.png)
 
-- The "env_name_prefix" parameter specifies the prefix for the resulting environmental variable. In case the prefix is not needed, you can remove this field. Please, make sure that Simloudfile includes **“check_mode: advanced”** field (see example above).
+- The "env_name_prefix" parameter specifies the prefix for the resulting environmental variable. If the prefix is not needed, you can remove this field. Please make sure that Simloudfile includes **“check_mode: advanced”** field (see example above).
   ![](/img/onboarding/how-to-use-vault/image10.png) 
 
   _Example of variables with prefix being passed into the container_
@@ -68,7 +68,7 @@ In order to pass secrets into the container through Simloudfile.yaml you can do 
 
 Vault is integrated into Jenkins CD process, so to inject secrets into your pods you must run CI/CD or CD jobs through Jenkins.
 
-In order to check if your variables were successfully passed through Jenkins, please, follow these steps:
+To check if your variables were successfully passed through Jenkins, please, follow these steps:
 
 - Open Jenkins dashboard.
 
