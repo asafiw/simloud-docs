@@ -69,7 +69,7 @@ parse log “*TIME: *”  as logString, RequestTiming
 
 Another option to view logs is through k8s cli (kubectl):
 
-Establish connection with kubernetes cluster. Please follow the instruction in documentation "**_Simloud connection to K8s and AWS services_**"
+Establish connection with kubernetes cluster. Please follow the instruction in documentation [**_"Simloud connection to K8s and AWS services"_**](/en/connect-to-k8s-aws)
 
 Run these commands in terminal:
 

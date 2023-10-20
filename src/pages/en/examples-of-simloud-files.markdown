@@ -1,6 +1,6 @@
 ---
-title: SimloudFile.yaml examples
-description: SimloudFile.yaml examples
+title: Simloudfile.yaml examples
+description: Simloudfile.yaml examples
 layout: ../../layouts/MainLayout.astro
 ---
 
@@ -292,7 +292,7 @@ To deploy **S3**, it is necessary to add following code snippet to `cloud_resour
     env_name_prefix: LAMBDAS31
     type: s3
 ```
- S3 segment is parsed using the S3 module from the boto. More information <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.create_bucketz" target="_blank">here</a>.    
+ S3 segment is parsed using the S3 module from the boto. More information <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.create_bucket" target="_blank">here</a>.    
 
 >NOTE: Using the k8s-service-3 microservice, you can deploy both databases, RDS, DynamoDB, and additional cloud_resources options.
  
@@ -426,7 +426,7 @@ spec:
 
 ### Deploying new Simloud services based on already created infrastructure components
 
-  **There is an option to deploy new Simloud services based on already created infrastructure components with mentioning their dependencies within SimloudFile.yaml.** 
+  **There is an option to deploy new Simloud services based on already created infrastructure components with mentioning their dependencies within Simloudfile.yaml.** 
 
 
    In order to access resources that have been created in another service within the same cloud it is necessary:

@@ -15,7 +15,7 @@ pipeline:
             workspace: default                       # Workspace’s name. Default workspace: default
             statefile:                               # state file location
               storage: kubernetes                    # by default is “kubernetes”
-              location: default.k8s-state            # k8s: &lt;namespace&gt;.&lt;secret_suffix&gt;
+              location: default.k8s-state            # k8s: <namespace>.<secret_suffix>
             secrets:                                 # `-var-file="testing.tfvars"`
               - storage: kubernetes                  # vault or k8s secrets values are available
                 paths:                               # vault paths, or k8s secrets names

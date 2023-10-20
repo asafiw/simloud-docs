@@ -15,7 +15,7 @@ layout: ../../layouts/MainLayout.astro
    On your local computer run following command:
 
    ```sh
-   docker run --rm --network host -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws simloud/aws-tools:1.1.38 /bin/bash
+   docker run --rm --network host -ti -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws simloud/aws-tools:1.1.43 /bin/bash
    ```
 
 4. Add your AWS user to trusted relationship role.
@@ -50,7 +50,7 @@ NOTES:
 ----------------
 ```sh
 Get your 'admin' user password by running:
-  printf $(kubectl get secret --namespace default jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+   kubectl get secrets jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 -d ; echo
 ```
 ----------------
 
