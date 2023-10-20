@@ -101,7 +101,7 @@ pipeline:
             workspace: default                       # Workspace’s name. Default workspace: default
             statefile:                               # state file location
               storage: kubernetes                    # by default is “kubernetes” 
-              location: default.k8s-state            # k8s: &lt;namespace&gt;.&lt;secret_suffix&gt;
+              location: default.k8s-state            # k8s: <namespace>.<secret_suffix>
             secrets:                                 # `-var-file="testing.tfvars"`
               - storage: kubernetes                  # vault or k8s secrets values are available
                 paths:                               # vault paths, or k8s secrets names
@@ -138,7 +138,7 @@ For more details about deploying Terraform pipeline, please follow this [instruc
 
 To deploy **VPN** you can use the following [repository](https://gitlab.com/simloud-demo/git-terraform/-/tree/main/aws/vpn)
 
-To deploy **EC2** instance you can use the following [repository](https://gitlab.com/simloud-demo/git-terraform/-/tree/main/aws/vpn)
+To deploy **EC2** instance you can use the following [repository](https://gitlab.com/simloud-demo/git-terraform/-/tree/main/aws/ec2)
 
 
 **Link on the GitLab repository with terraform code:** <a href="https://gitlab.com/simloud-demo/git-terraform" target="_blank">git-terraform</a>

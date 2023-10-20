@@ -5,7 +5,7 @@ layout: ../../layouts/MainLayout.astro
 ---
 
 
-  **The Simloudfile.yaml** file is a global file that contains the configuration that we use during creating deployments.
+  **The Simloudfile.yaml** file is a global file that contains the configuration used when creating deployments.
    
 Each of our standard microservices, such as `k8s-service`, `lambda-serverless`,  `fe-demo`, and `generic-pipeline` has its own Simloudfile.
 >**_NOTE: Simloudfiles for microservices have the same parameters, but the values of those parameters are different._**
@@ -15,22 +15,22 @@ Each of our standard microservices, such as `k8s-service`, `lambda-serverless`, 
  ### How to connect your repository to Simloudfile
 
 > There are two ways to connect your repository to Simloud file:
-> -  Clone ready repositories and deploy from it.
+> -  Clone ready repositories and deploy from them.
 > -  Deploy from your own repository.
 
 
 ### Clone ready repository
 Choose this option if you do not need to edit Simloudfile.yaml. 
 
-1. It is necessary to [create deployment](/en/create-deployment). 
+1. You need to [create a deployment](/en/create-deployment). 
 
-2. When choosing the repositories to deploy, you need to choose following repositories from drop-down menu.
+2. When choosing the repositories to deploy, you need to choose the following repositories from drop-down menu.
   ![](/img/onboarding/simloudfiles-usage/6.png)
 
-3. To check the Simloudfile.yaml content you can use our [repositories](/en/how-to-use-simloud-files#links-to-repositories) from Gitlab.
+3. To check the content of Simloudfile.yaml, you can use our  [repositories](/en/how-to-use-simloud-files#links-to-repositories) on Gitlab.
 
 
-### Deploy from own repository
+### Deploy from your own repository
 Choose this option if you need to edit Simloudfile.yaml.
 
 1. Firstly, it is necessary to clone repository to your local machine. 
@@ -44,7 +44,7 @@ git clone git@gitlab.com:simloud-demo/lambda-serverless-2.git
 2. Edit Simloudfile and push changes to your repository. 
   
   Simloudfile is located in the root directory of each repository. 
-    It's necessary to locate Simloudfile.yaml in the root directory for correct work.
+    It's necessary to place Simloudfile.yaml in the root directory for it to work correctly.
    ![](/img/onboarding/simloudfiles-usage/8.png)
    
    After editing Simloudfile - push your changes to your repository
@@ -53,20 +53,19 @@ git clone git@gitlab.com:simloud-demo/lambda-serverless-2.git
    ```
 Please, follow this documentation for more commands in GitLab - <a href="https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html" target="_blank">gitlab basics</a>.
 
-3.  Then it is necessary to add your repository on portal.
+3.  Then you need to add your repository to the portal.
     ![](/img/onboarding/simloudfiles-usage/1.png)
     For example, adding the fe-demo repository:
     ![](/img/onboarding/simloudfiles-usage/2.png)
  
  Please, follow the instruction in documentation ["Add new git repositories"](/en/getting-started#add-new-git-repositories-services) for more information.
 
-4. Once you have added the repository to the portal, you can start creating your deployment
- using  <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>. 
+4. After adding the repository to the portal, you can begin creating your deployment using the <a href="https://portal.simloud.com:" target="_blank">Simloud Portal</a>. 
     ![](/img/onboarding/simloudfiles-usage/3.png)
  
  Please, follow the instruction in documentation ["How to create deployment using Simloud portal"](/en/create-deployment).
  
-5. When choosing the repositories to deploy, you must select the ones you added to the portal. 
+5. When selecting the repositories to deploy, you need to choose the ones you added to the portal. 
     ![](/img/onboarding/simloudfiles-usage/4.png)
     ![](/img/onboarding/simloudfiles-usage/5.png) 
  

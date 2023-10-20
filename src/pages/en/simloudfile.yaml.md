@@ -4,7 +4,7 @@ description: Simloudfile.yaml
 layout: ../../layouts/MainLayout.astro
 ---
 
-### Full `SimloudFile.yaml` file :
+### Full `Simloudfile.yaml` file :
 
 ```yaml
 
@@ -187,7 +187,7 @@ spec:  # for k8s service, mutually exclusive with below
 
 `v2` - Only available. Since version v2, it is a mandatory parameter. <br /> `v0` , `v1` or empty, back compatible mode.
 
-This parameter describes all supported versions for SimloudFile.yaml. Technically, only v2 version is supported now.
+This parameter describes all supported versions for Simloudfile.yaml. Technically, only v2 version is supported now.
 
 ### `.kind`
 
