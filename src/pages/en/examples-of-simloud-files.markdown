@@ -453,6 +453,34 @@ As example, cloud_resources block that we should to add in Simloudfile.yaml of k
 ```
 Snippet that included such changes: [Download Simloudfile.yaml](/files/k8s-service-2-adv/Simloudfile.yaml)
 
+### Jenkins job and cronjob functionality
+
+Jenkins pipelines support `deployment`, `job`, and `  cronjob` types of Kubernetes workloads. It is a part of Simloudfile.yaml functionality and is specified in the `specType` parameter. 
+
+A *Job* creates one or more Pods and will continue to retry execution of the Pods until a specified number of them successfully terminate. As pods successfully complete, the Job tracks the successful completions. When a specified number of successful completions is reached, the task (ie, Job) is complete. Deleting a Job will clean up the Pods it created. Suspending a Job will delete its active Pods until the Job is resumed again. If you want to run a Job (either a single task, or several in parallel) on a schedule, use CronJob.
+
+To get the list of all Jobs running you can use the next command:
+```sh
+kubectl get job --all-namespaces
+```
+A *CronJob* creates Kubernetes Jobs on a repeating schedule and allow you to automate regular tasks like making backups, creating reports, sending emails, or cleanup tasks. CronJobs are created, managed, scaled, and deleted in the same way as Jobs. One CronJob object is like one line of a crontab (cron table) file on a Unix system. It runs a job periodically on a given schedule, written in [Cron](https://en.wikipedia.org/wiki/Cron) format.
+
+You can check the running Cronjobs with the next command:
+```sh
+kubectl get cronjob --allnamespaces
+```
+There are several supported parameters for the CronJob functionality (**default values** are specified after the colon):
+
+`cron_concurrency`: **Allow**  -  Enables cron jobs concurrency (Allow/Forbid/Replace).
+
+`cron_suspend`: **false**      -  If it is set to true, all subsequent executions are suspended.
+
+`cron_backoffLimit`: **4**     -  specifies the number of retries before considering a Job as failed.
+
+`cron_completions`: **1**      - specifies the desired number of successfully completed pods required for the job to be considered complete.
+
+`cron_parallelism`: **1**      -  determines the maximum number of pods that can run concurrently to execute tasks.
+
 ### Links to repositories
  -  <a href="https://gitlab.com/simloud-demo/fe-demo" target="_blank">fe-demo</a>
  -  <a href="https://gitlab.com/simloud-demo/k8s-service-1" target="_blank">k8s-service-1</a>
